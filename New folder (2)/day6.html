@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day 6: JavaScript Basics - WebDev LMS</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.44.0/min/vs/loader.min.js"></script>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo" onclick="window.location.href='index.html'">
+                <i class="fas fa-code"></i>
+                <span>WebDev LMS</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link" data-page="home">Home</a></li>
+                <li><a href="index.html#curriculum" class="nav-link" data-page="curriculum">Curriculum</a></li>
+                <li><a href="index.html#challenges" class="nav-link" data-page="challenges">Challenges</a></li>
+                <li><a href="index.html#resources" class="nav-link" data-page="resources">Resources</a></li>
+            </ul>
+            <div class="nav-actions">
+                <div class="page-indicator">
+                    <i class="fab fa-js-square"></i>
+                    <span>Day 6: JavaScript Basics</span>
+                </div>
+                <button class="nav-btn-secondary" onclick="window.location.href='day7.html'">
+                    <i class="fas fa-arrow-right"></i>
+                    Next Day
+                </button>
+            </div>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Day Header -->
+    <section class="day-header">
+        <div class="container">
+            <div class="day-header-content">
+                <div class="day-badge">
+                    <span class="day-number">Day 6</span>
+                </div>
+                <h1>JavaScript Basics</h1>
+                <p>Learn the fundamentals of JavaScript programming language</p>
+                <div class="day-meta">
+                    <span class="meta-item">
+                        <i class="fas fa-clock"></i>
+                        Duration: 3-4 hours
+                    </span>
+                    <span class="meta-item">
+                        <i class="fas fa-signal"></i>
+                        Level: Beginner
+                    </span>
+                    <span class="meta-item">
+                        <i class="fas fa-tasks"></i>
+                        Challenges: 5
+                    </span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Content Section -->
+    <section class="day-content">
+        <div class="container">
+            <div class="content-grid">
+                <!-- Main Content -->
+                <div class="content-main">
+                    <div class="content-section">
+                        <h2>Introduction to JavaScript</h2>
+                        <p>JavaScript is a powerful programming language that adds interactivity and dynamic behavior to web pages.</p>
+                        
+                        <div class="content-placeholder">
+                            <div class="placeholder-header">
+                                <i class="fas fa-book"></i>
+                                <span>Lesson Content</span>
+                            </div>
+                            <div class="placeholder-content">
+                                <p>Your lesson content will be added here. This can include:</p>
+                                <ul>
+                                    <li>Variables and data types</li>
+                                    <li>Functions and scope</li>
+                                    <li>Control structures (if/else, loops)</li>
+                                    <li>Arrays and objects</li>
+                                    <li>DOM manipulation basics</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="content-section">
+                        <h2>Key Concepts</h2>
+                        <div class="concepts-grid">
+                            <div class="concept-card">
+                                <div class="concept-icon">
+                                    <i class="fas fa-cube"></i>
+                                </div>
+                                <h3>Variables & Types</h3>
+                                <p>Learn about variables, data types, and type conversion.</p>
+                            </div>
+                            <div class="concept-card">
+                                <div class="concept-icon">
+                                    <i class="fas fa-cogs"></i>
+                                </div>
+                                <h3>Functions</h3>
+                                <p>Create and use functions for reusable code.</p>
+                            </div>
+                            <div class="concept-card">
+                                <div class="concept-icon">
+                                    <i class="fas fa-sitemap"></i>
+                                </div>
+                                <h3>DOM Manipulation</h3>
+                                <p>Interact with HTML elements using JavaScript.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sidebar -->
+                <div class="content-sidebar">
+                    <div class="sidebar-section">
+                        <h3>Quick Navigation</h3>
+                        <ul class="sidebar-nav">
+                            <li><a href="#box-model">Box Model</a></li>
+                            <li><a href="#backgrounds">Background Styling</a></li>
+                            <li><a href="#hover-effects">Hover Effects</a></li>
+                            <li><a href="#responsive">Responsive Design</a></li>
+                            <li><a href="#challenges">Challenges</a></li>
+                        </ul>
+                    </div>
+                    <div class="sidebar-section">
+                        <h3>Resources</h3>
+                        <ul class="resource-links">
+                            <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Box_Model" target="_blank">
+                                <i class="fas fa-external-link-alt"></i>
+                                MDN Box Model
+                            </a></li>
+                            <li><a href="https://css-tricks.com/almanac/properties/b/background/" target="_blank">
+                                <i class="fas fa-external-link-alt"></i>
+                                CSS Background Guide
+                            </a></li>
+                            <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Transitions" target="_blank">
+                                <i class="fas fa-external-link-alt"></i>
+                                CSS Transitions
+                            </a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Challenges Section -->
+    <section class="challenges-section">
+        <div class="container">
+            <h2>Practice Challenges</h2>
+            <p class="challenges-intro">Complete these challenges to reinforce your learning:</p>
+            
+            <div class="challenges-grid">
+                <!-- Challenge 1 -->
+                <div class="challenge-card">
+                    <div class="challenge-header">
+                        <div class="challenge-number">01</div>
+                        <div class="challenge-meta">
+                            <span class="difficulty beginner">Beginner</span>
+                            <span class="time">8 min</span>
+                        </div>
+                    </div>
+                    <h3>Variables & Console</h3>
+                    <p>Create variables and use console.log to display information.</p>
+                    <div class="challenge-placeholder">
+                        <span>Challenge content will be added here</span>
+                    </div>
+                    <button class="challenge-btn" onclick="openChallenge(1)">
+                        <i class="fas fa-play"></i>
+                        Start Challenge
+                    </button>
+                </div>
+
+                <!-- Challenge 2 -->
+                <div class="challenge-card">
+                    <div class="challenge-header">
+                        <div class="challenge-number">02</div>
+                        <div class="challenge-meta">
+                            <span class="difficulty beginner">Beginner</span>
+                            <span class="time">12 min</span>
+                        </div>
+                    </div>
+                    <h3>Functions</h3>
+                    <p>Write functions to perform calculations and return values.</p>
+                    <div class="challenge-placeholder">
+                        <span>Challenge content will be added here</span>
+                    </div>
+                    <button class="challenge-btn" onclick="openChallenge(2)">
+                        <i class="fas fa-play"></i>
+                        Start Challenge
+                    </button>
+                </div>
+
+                <!-- Challenge 3 -->
+                <div class="challenge-card">
+                    <div class="challenge-header">
+                        <div class="challenge-number">03</div>
+                        <div class="challenge-meta">
+                            <span class="difficulty intermediate">Intermediate</span>
+                            <span class="time">15 min</span>
+                        </div>
+                    </div>
+                    <h3>DOM Interaction</h3>
+                    <p>Manipulate HTML elements using JavaScript.</p>
+                    <div class="challenge-placeholder">
+                        <span>Challenge content will be added here</span>
+                    </div>
+                    <button class="challenge-btn" onclick="openChallenge(3)">
+                        <i class="fas fa-play"></i>
+                        Start Challenge
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Navigation Footer -->
+    <section class="day-navigation">
+        <div class="container">
+            <div class="nav-buttons">
+                <button class="nav-btn" onclick="window.location.href='day5.html'">
+                    <i class="fas fa-arrow-left"></i>
+                    Previous: Day 5
+                </button>
+                <button class="nav-btn primary" onclick="window.location.href='day7.html'">
+                    Next: Day 7
+                    <i class="fas fa-arrow-right"></i>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Challenge Modal -->
+    <div id="challengeModal" class="challenge-modal">
+        <div class="challenge-modal-content">
+            <div class="challenge-modal-header">
+                <h2 id="challengeModalTitle">Challenge Title</h2>
+                <div class="challenge-modal-actions">
+                    <button class="complete-btn" onclick="completeChallenge()">
+                        <i class="fas fa-check"></i> Complete
+                    </button>
+                    <button class="close-challenge-modal" onclick="closeChallengeModal()">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="challenge-modal-body">
+                <div class="challenge-objective">
+                    <h4>🎯 Mission:</h4>
+                    <p id="challengeMission">Mission description will be loaded here.</p>
+                </div>
+                
+                <div class="challenge-requirements">
+                    <h4>✅ Requirements:</h4>
+                    <ul id="challengeRequirements">
+                        <!-- Requirements will be loaded here -->
+                    </ul>
+                </div>
+                
+                <div class="challenge-hint">
+                    <h4>💡 Hint:</h4>
+                    <p id="challengeHint">Hint will be loaded here.</p>
+                </div>
+                
+                <div class="challenge-code-editor">
+                    <div class="editor-header">
+                        <span id="challengeEditorTitle">Your Code</span>
+                        <button class="run-btn" onclick="runChallengeModal()">
+                            <i class="fas fa-play"></i> Run & Check
+                        </button>
+                    </div>
+                    <div id="monaco-editor-container" class="monaco-editor-container"></div>
+                    <div id="challengeModalOutput" class="challenge-output"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>WebDev LMS</h3>
+                    <p>Master web development in 10 days with hands-on challenges and real-world projects.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="index.html#curriculum">Curriculum</a></li>
+                        <li><a href="index.html#challenges">Challenges</a></li>
+                        <li><a href="index.html#resources">Resources</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 WebDev LMS. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // Initialize Monaco Editor when page loads
+        require.config({ paths: { vs: 'https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.44.0/min/vs' } });
+        require(['vs/editor/editor.main'], function() {
+            console.log('Monaco Editor loaded successfully');
+        });
+        
+        function openChallenge(challengeNumber) {
+            openChallengeModal(challengeNumber);
+        }
+    </script>
+</body>
+</html> 

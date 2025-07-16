@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day 9: APIs & Fetch - WebDev LMS</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.44.0/min/vs/loader.min.js"></script>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo" onclick="window.location.href='index.html'">
+                <i class="fas fa-code"></i>
+                <span>WebDev LMS</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link" data-page="home">Home</a></li>
+                <li><a href="index.html#curriculum" class="nav-link" data-page="curriculum">Curriculum</a></li>
+                <li><a href="index.html#challenges" class="nav-link" data-page="challenges">Challenges</a></li>
+                <li><a href="index.html#resources" class="nav-link" data-page="resources">Resources</a></li>
+            </ul>
+            <div class="nav-actions">
+                <div class="page-indicator">
+                    <i class="fas fa-book-open"></i>
+                    <span>Day 9: APIs & Fetch</span>
+                </div>
+                <button class="nav-btn-secondary" onclick="window.location.href='day10.html'">
+                    <i class="fas fa-arrow-right"></i>
+                    Next Day
+                </button>
+            </div>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Day Header -->
+    <section class="day-header">
+        <div class="container">
+            <div class="day-header-content">
+                <div class="day-badge">
+                    <span class="day-number">Day 9</span>
+                </div>
+                <h1>APIs & Fetch</h1>
+                <p>Connect to external services and handle asynchronous operations with modern JavaScript</p>
+                <div class="day-meta">
+                    <span class="meta-item">
+                        <i class="fas fa-clock"></i>
+                        Duration: 2-3 hours
+                    </span>
+                    <span class="meta-item">
+                        <i class="fas fa-signal"></i>
+                        Level: Intermediate
+                    </span>
+                    <span class="meta-item">
+                        <i class="fas fa-tasks"></i>
+                        Challenges: 3
+                    </span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Challenges Section -->
+    <section class="challenges-section">
+        <div class="container">
+            <h2>🎯 Practice Challenges</h2>
+            <p class="challenges-intro">Complete these hands-on challenges to master APIs and async JavaScript:</p>
+            
+            <div class="challenges-grid">
+                <!-- Challenge 1 -->
+                <div class="challenge-card">
+                    <div class="challenge-header">
+                        <div class="challenge-number">01</div>
+                        <div class="challenge-meta">
+                            <span class="difficulty beginner">Beginner</span>
+                            <span class="time">10 min</span>
+                        </div>
+                    </div>
+                    <h3>🌐 Basic API Call</h3>
+                    <p>Make your first API request using the Fetch API to get data from a public API!</p>
+                    
+                    <button class="challenge-btn" onclick="openChallengeModal(8)">
+                        <i class="fas fa-play"></i>
+                        Start Challenge
+                    </button>
+                </div>
+
+                <!-- Challenge 2 -->
+                <div class="challenge-card">
+                    <div class="challenge-header">
+                        <div class="challenge-number">02</div>
+                        <div class="challenge-meta">
+                            <span class="difficulty intermediate">Intermediate</span>
+                            <span class="time">15 min</span>
+                        </div>
+                    </div>
+                    <h3>⚡ Async/Await Mastery</h3>
+                    <p>Convert Promise-based code to async/await and handle multiple API calls!</p>
+                    
+                    <button class="challenge-btn" onclick="openChallengeModal(9)">
+                        <i class="fas fa-play"></i>
+                        Start Challenge
+                    </button>
+                </div>
+
+                <!-- Challenge 3 -->
+                <div class="challenge-card">
+                    <div class="challenge-header">
+                        <div class="challenge-number">03</div>
+                        <div class="challenge-meta">
+                            <span class="difficulty intermediate">Intermediate</span>
+                            <span class="time">20 min</span>
+                        </div>
+                    </div>
+                    <h3>🔧 Error Handling Pro</h3>
+                    <p>Build a robust API client with comprehensive error handling and user feedback!</p>
+                    
+                    <button class="challenge-btn" onclick="openChallengeModal(10)">
+                        <i class="fas fa-play"></i>
+                        Start Challenge
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Content Section -->
+    <section class="day-content">
+        <div class="container">
+            <div class="content-grid">
+                <!-- Main Content -->
+                <div class="content-main">
+                    <div class="content-section">
+                        <h2>🌐 Understanding APIs</h2>
+                        <p>APIs (Application Programming Interfaces) allow your web applications to communicate with external services and retrieve data dynamically.</p>
+                        
+                        <div class="concept-highlight">
+                            <h4>What are APIs?</h4>
+                            <ul>
+                                <li><strong>REST APIs:</strong> Web services that follow REST principles</li>
+                                <li><strong>JSON:</strong> Lightweight data format for API responses</li>
+                                <li><strong>HTTP Methods:</strong> GET, POST, PUT, DELETE for different operations</li>
+                            </ul>
+                        </div>
+
+                        <div class="code-example">
+                            <div class="code-header">
+                                <span>API Response Example</span>
+                                <button class="copy-btn" onclick="copyCode(this)">
+                                    <i class="fas fa-copy"></i>
+                                </button>
+                            </div>
+                            <pre><code>{
+  "name": "John Doe",
+  "email": "john@example.com",
+  "age": 30,
+  "skills": ["JavaScript", "HTML", "CSS"]
+}</code></pre>
+                        </div>
+                    </div>
+
+                    <div class="content-section">
+                        <h2>📡 Fetch API Basics</h2>
+                        <p>The Fetch API provides a modern way to make HTTP requests in JavaScript. It's built into modern browsers and returns Promises.</p>
+                        
+                        <div class="concept-highlight">
+                            <h4>Fetch API Features:</h4>
+                            <ul>
+                                <li><strong>Promise-based:</strong> Uses async/await for clean code</li>
+                                <li><strong>Built-in:</strong> No external libraries needed</li>
+                                <li><strong>Flexible:</strong> Supports all HTTP methods</li>
+                            </ul>
+                        </div>
+
+                        <div class="code-example">
+                            <div class="code-header">
+                                <span>Basic Fetch Request</span>
+                                <button class="copy-btn" onclick="copyCode(this)">
+                                    <i class="fas fa-copy"></i>
+                                </button>
+                            </div>
+                            <pre><code>// Basic GET request
+fetch('https://api.example.com/data')
+  .then(response => response.json())
+  .then(data => console.log(data))
+  .catch(error => console.error('Error:', error));
+
+// Using async/await
+async function fetchData() {
+  try {
+    const response = await fetch('https://api.example.com/data');
+    const data = await response.json();
+    console.log(data);
+  } catch (error) {
+    console.error('Error:', error);
+  }
+}</code></pre>
+                        </div>
+                    </div>
+
+                    <div class="content-section">
+                        <h2>⚡ Async/Await</h2>
+                        <p>Async/await is a modern JavaScript feature that makes working with Promises much cleaner and easier to understand.</p>
+                        
+                        <div class="concept-highlight">
+                            <h4>Key Concepts:</h4>
+                            <ul>
+                                <li><strong>async function:</strong> Returns a Promise automatically</li>
+                                <li><strong>await:</strong> Pauses execution until Promise resolves</li>
+                                <li><strong>Error handling:</strong> Use try/catch blocks</li>
+                            </ul>
+                        </div>
+
+                        <div class="code-example">
+                            <div class="code-header">
+                                <span>Async/Await Example</span>
+                                <button class="copy-btn" onclick="copyCode(this)">
+                                    <i class="fas fa-copy"></i>
+                                </button>
+                            </div>
+                            <pre><code>async function getUserData(userId) {
+  try {
+    const response = await fetch(`https://api.example.com/users/${userId}`);
+    
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+    
+    const userData = await response.json();
+    return userData;
+  } catch (error) {
+    console.error('Failed to fetch user data:', error);
+    return null;
+  }
+}</code></pre>
+                        </div>
+                    </div>
+
+                    <div class="content-section">
+                        <h2>🔧 Error Handling</h2>
+                        <p>Proper error handling is crucial when working with APIs. Network requests can fail for various reasons.</p>
+                        
+                        <div class="concept-highlight">
+                            <h4>Common Error Scenarios:</h4>
+                            <ul>
+                                <li><strong>Network errors:</strong> No internet connection</li>
+                                <li><strong>HTTP errors:</strong> 404, 500, etc.</li>
+                                <li><strong>JSON parsing errors:</strong> Invalid response format</li>
+                            </ul>
+                        </div>
+
+                        <div class="code-example">
+                            <div class="code-header">
+                                <span>Comprehensive Error Handling</span>
+                                <button class="copy-btn" onclick="copyCode(this)">
+                                    <i class="fas fa-copy"></i>
+                                </button>
+                            </div>
+                            <pre><code>async function fetchWithErrorHandling(url) {
+  try {
+    const response = await fetch(url);
+    
+    // Check if response is ok (status 200-299)
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+    
+    // Try to parse JSON
+    const data = await response.json();
+    return data;
+    
+  } catch (error) {
+    if (error.name === 'TypeError') {
+      console.error('Network error:', error.message);
+    } else if (error.name === 'SyntaxError') {
+      console.error('JSON parsing error:', error.message);
+    } else {
+      console.error('Other error:', error.message);
+    }
+    return null;
+  }
+}</code></pre>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sidebar -->
+                <div class="content-sidebar">
+                    <div class="sidebar-section">
+                        <h3>Quick Navigation</h3>
+                        <ul class="sidebar-nav">
+                            <li><a href="#apis">Understanding APIs</a></li>
+                            <li><a href="#fetch">Fetch API Basics</a></li>
+                            <li><a href="#async-await">Async/Await</a></li>
+                            <li><a href="#error-handling">Error Handling</a></li>
+                            <li><a href="#challenges">Challenges</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="sidebar-section">
+                        <h3>Resources</h3>
+                        <ul class="resource-links">
+                            <li><a href="https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API" target="_blank">
+                                <i class="fas fa-external-link-alt"></i>
+                                MDN Fetch API
+                            </a></li>
+                            <li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function" target="_blank">
+                                <i class="fas fa-external-link-alt"></i>
+                                MDN Async Functions
+                            </a></li>
+                            <li><a href="https://jsonplaceholder.typicode.com/" target="_blank">
+                                <i class="fas fa-external-link-alt"></i>
+                                JSONPlaceholder API
+                            </a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Navigation Footer -->
+    <section class="day-navigation">
+        <div class="container">
+            <div class="nav-buttons">
+                <button class="nav-btn" onclick="window.location.href='day8.html'">
+                    <i class="fas fa-arrow-left"></i>
+                    Previous: Day 8
+                </button>
+                <button class="nav-btn primary" onclick="window.location.href='day10.html'">
+                    Next: Day 10
+                    <i class="fas fa-arrow-right"></i>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Challenge Modal -->
+    <div id="challengeModal" class="challenge-modal">
+        <div class="challenge-modal-content">
+            <div class="challenge-modal-header">
+                <h2 id="modalChallengeTitle">Challenge Title</h2>
+                <div class="challenge-modal-actions">
+                    <button class="complete-btn" onclick="completeChallenge()">
+                        <i class="fas fa-check"></i>
+                        Complete Challenge
+                    </button>
+                    <button class="close-challenge-modal" onclick="closeChallengeModal()">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="challenge-modal-body">
+                <div id="modalChallengeContent">
+                    <!-- Challenge content will be loaded here -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>WebDev LMS</h3>
+                    <p>Master web development in 10 days with hands-on challenges and real-world projects.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="index.html#curriculum">Curriculum</a></li>
+                        <li><a href="index.html#challenges">Challenges</a></li>
+                        <li><a href="index.html#resources">Resources</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 WebDev LMS. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // Initialize Monaco Editor when page loads
+        require.config({ paths: { vs: 'https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.44.0/min/vs' } });
+        require(['vs/editor/editor.main'], function() {
+            console.log('Monaco Editor loaded successfully for Day 9');
+        });
+        
+        // Day-specific functionality
+        function openChallenge(challengeNumber) {
+            openChallengeModal(challengeNumber);
+        }
+    </script>
+</body>
+</html> 

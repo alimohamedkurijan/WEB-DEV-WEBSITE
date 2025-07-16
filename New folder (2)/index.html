@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WebDev LMS - 10-Day Learning Journey</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.44.0/min/vs/loader.min.js"></script>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo" onclick="window.location.href='index.html'">
+                <i class="fas fa-code"></i>
+                <span>WebDev LMS</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="#home" class="nav-link active" data-page="home">Home</a></li>
+                <li><a href="#curriculum" class="nav-link" data-page="curriculum">Curriculum</a></li>
+                <li><a href="#challenges" class="nav-link" data-page="challenges">Challenges</a></li>
+                <li><a href="#resources" class="nav-link" data-page="resources">Resources</a></li>
+            </ul>
+            <div class="nav-actions">
+                <button class="nav-btn-secondary" onclick="scrollToSection('curriculum')">
+                    <i class="fas fa-play"></i>
+                    Start Learning
+                </button>
+            </div>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1 class="hero-title">Master Web Development in 10 Days</h1>
+                <p class="hero-subtitle">Learn HTML, CSS, and JavaScript with hands-on challenges and real-world projects</p>
+                <div class="hero-stats">
+                    <div class="stat">
+                        <span class="stat-number">10</span>
+                        <span class="stat-label">Days</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">30+</span>
+                        <span class="stat-label">Challenges</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">100%</span>
+                        <span class="stat-label">Hands-on</span>
+                    </div>
+                </div>
+                <button class="cta-button" onclick="scrollToSection('curriculum')">
+                    Start Learning <i class="fas fa-arrow-right"></i>
+                </button>
+            </div>
+            <div class="hero-visual">
+                <div class="code-window">
+                    <div class="window-header">
+                        <div class="window-dots">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+                        <span class="window-title">index.html</span>
+                    </div>
+                    <div class="code-content">
+                        <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;title&gt;My Website&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;h1&gt;Hello World!&lt;/h1&gt;
+    &lt;p&gt;Welcome to web development&lt;/p&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Curriculum Section -->
+    <section id="curriculum" class="curriculum">
+        <div class="container">
+            <h2 class="section-title">10-Day Learning Path</h2>
+            <div class="curriculum-grid">
+                <div class="day-card" data-day="1" onclick="window.location.href='day1.html'">
+                    <div class="card-gradient"></div>
+                    <div class="card-content">
+                        <div class="card-header">
+                            <div class="day-badge">
+                                <span class="day-number">01</span>
+                            </div>
+                            <div class="card-status">
+                                <i class="fas fa-lock"></i>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <h3>HTML Fundamentals</h3>
+                            <p>Master the building blocks of web development with HTML structure, elements, and semantic markup</p>
+                            <div class="card-tags">
+                                <span class="tag">Structure</span>
+                                <span class="tag">Elements</span>
+                                <span class="tag">Semantic</span>
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                            <div class="challenge-info">
+                                <i class="fas fa-code"></i>
+                                <span>3 Challenges</span>
+                            </div>
+                            <div class="card-arrow">
+                                <i class="fas fa-arrow-right"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="day-card" data-day="2" onclick="window.location.href='day2.html'">
+                    <div class="card-gradient"></div>
+                    <div class="card-content">
+                        <div class="card-header">
+                            <div class="day-badge">
+                                <span class="day-number">02</span>
+                            </div>
+                            <div class="card-status">
+                                <i class="fas fa-lock"></i>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <h3>HTML Forms & Media</h3>
+                            <p>Create interactive forms and integrate rich media content into your web pages</p>
+                            <div class="card-tags">
+                                <span class="tag">Forms</span>
+                                <span class="tag">Inputs</span>
+                                <span class="tag">Media</span>
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                            <div class="challenge-info">
+                                <i class="fas fa-code"></i>
+                                <span>4 Challenges</span>
+                            </div>
+                            <div class="card-arrow">
+                                <i class="fas fa-arrow-right"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="day-card" data-day="3" onclick="window.location.href='day3.html'">
+                    <div class="card-gradient"></div>
+                    <div class="card-content">
+                        <div class="card-header">
+                            <div class="day-badge">
+                                <span class="day-number">03</span>
+                            </div>
+                            <div class="card-status">
+                                <i class="fas fa-lock"></i>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <h3>CSS Basics</h3>
+                            <p>Transform your HTML with beautiful styling using CSS selectors, properties, and values</p>
+                            <div class="card-tags">
+                                <span class="tag">Selectors</span>
+                                <span class="tag">Properties</span>
+                                <span class="tag">Typography</span>
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                            <div class="challenge-info">
+                                <i class="fas fa-code"></i>
+                                <span>5 Challenges</span>
+                            </div>
+                            <div class="card-arrow">
+                                <i class="fas fa-arrow-right"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="day-card" data-day="4" onclick="window.location.href='day4.html'">
+                    <div class="card-gradient"></div>
+                    <div class="card-content">
+                        <div class="card-header">
+                            <div class="day-badge">
+                                <span class="day-number">04</span>
+                            </div>
+                            <div class="card-status">
+                                <i class="fas fa-lock"></i>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <h3>CSS Layout</h3>
+                            <p>Master modern layout techniques with Flexbox and CSS Grid for responsive designs</p>
+                            <div class="card-tags">
+                                <span class="tag">Flexbox</span>
+                                <span class="tag">Grid</span>
+                                <span class="tag">Responsive</span>
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                            <div class="challenge-info">
+                                <i class="fas fa-code"></i>
+                                <span>6 Challenges</span>
+                            </div>
+                            <div class="card-arrow">
+                                <i class="fas fa-arrow-right"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="day-card" data-day="5" onclick="window.location.href='day5.html'">
+                    <div class="card-gradient"></div>
+                    <div class="card-content">
+                        <div class="card-header">
+                            <div class="day-badge">
+                                <span class="day-number">05</span>
+                            </div>
+                            <div class="card-status">
+                                <i class="fas fa-lock"></i>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <h3>Box Model & Styling</h3>
+                            <p>Master the CSS box model, background styling, hover effects, and responsive design fundamentals</p>
+                            <div class="card-tags">
+                                <span class="tag">Box Model</span>
+                                <span class="tag">Backgrounds</span>
+                                <span class="tag">Hover Effects</span>
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                            <div class="challenge-info">
+                                <i class="fas fa-code"></i>
+                                <span>4 Challenges</span>
+                            </div>
+                            <div class="card-arrow">
+                                <i class="fas fa-arrow-right"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="day-card" data-day="6" onclick="window.location.href='day6.html'">
+                    <div class="card-gradient"></div>
+                    <div class="card-content">
+                        <div class="card-header">
+                            <div class="day-badge">
+                                <span class="day-number">06</span>
+                            </div>
+                            <div class="card-status">
+                                <i class="fas fa-lock"></i>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <h3>JavaScript Basics</h3>
+                            <p>Bring interactivity to your websites with JavaScript variables, functions, and DOM manipulation</p>
+                            <div class="card-tags">
+                                <span class="tag">Variables</span>
+                                <span class="tag">Functions</span>
+                                <span class="tag">DOM</span>
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                            <div class="challenge-info">
+                                <i class="fas fa-code"></i>
+                                <span>5 Challenges</span>
+                            </div>
+                            <div class="card-arrow">
+                                <i class="fas fa-arrow-right"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="day-card" data-day="7" onclick="window.location.href='day7.html'">
+                    <div class="card-gradient"></div>
+                    <div class="card-content">
+                        <div class="card-header">
+                            <div class="day-badge">
+                                <span class="day-number">07</span>
+                            </div>
+                            <div class="card-status">
+                                <i class="fas fa-lock"></i>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <h3>JavaScript Events</h3>
+                            <p>Create dynamic user experiences by handling events and user interactions</p>
+                            <div class="card-tags">
+                                <span class="tag">Events</span>
+                                <span class="tag">Interactions</span>
+                                <span class="tag">Dynamic</span>
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                            <div class="challenge-info">
+                                <i class="fas fa-code"></i>
+                                <span>4 Challenges</span>
+                            </div>
+                            <div class="card-arrow">
+                                <i class="fas fa-arrow-right"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="day-card" data-day="8" onclick="window.location.href='day8.html'">
+                    <div class="card-gradient"></div>
+                    <div class="card-content">
+                        <div class="card-header">
+                            <div class="day-badge">
+                                <span class="day-number">08</span>
+                            </div>
+                            <div class="card-status">
+                                <i class="fas fa-lock"></i>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <h3>JavaScript Arrays & Objects</h3>
+                            <p>Work with complex data structures and manipulate arrays and objects effectively</p>
+                            <div class="card-tags">
+                                <span class="tag">Arrays</span>
+                                <span class="tag">Objects</span>
+                                <span class="tag">JSON</span>
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                            <div class="challenge-info">
+                                <i class="fas fa-code"></i>
+                                <span>5 Challenges</span>
+                            </div>
+                            <div class="card-arrow">
+                                <i class="fas fa-arrow-right"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="day-card" data-day="9" onclick="window.location.href='day9.html'">
+                    <div class="card-gradient"></div>
+                    <div class="card-content">
+                        <div class="card-header">
+                            <div class="day-badge">
+                                <span class="day-number">09</span>
+                            </div>
+                            <div class="card-status">
+                                <i class="fas fa-lock"></i>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <h3>APIs & Fetch</h3>
+                            <p>Connect to external services and handle asynchronous operations with modern JavaScript</p>
+                            <div class="card-tags">
+                                <span class="tag">APIs</span>
+                                <span class="tag">Async</span>
+                                <span class="tag">Fetch</span>
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                            <div class="challenge-info">
+                                <i class="fas fa-code"></i>
+                                <span>3 Challenges</span>
+                            </div>
+                            <div class="card-arrow">
+                                <i class="fas fa-arrow-right"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="day-card" data-day="10" onclick="window.location.href='day10.html'">
+                    <div class="card-gradient"></div>
+                    <div class="card-content">
+                        <div class="card-header">
+                            <div class="day-badge">
+                                <span class="day-number">10</span>
+                            </div>
+                            <div class="card-status">
+                                <i class="fas fa-lock"></i>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <h3>Final Project</h3>
+                            <p>Apply all your skills to build a complete, production-ready web application</p>
+                            <div class="card-tags">
+                                <span class="tag">Project</span>
+                                <span class="tag">Complete</span>
+                                <span class="tag">Deploy</span>
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                            <div class="challenge-info">
+                                <i class="fas fa-rocket"></i>
+                                <span>1 Project</span>
+                            </div>
+                            <div class="card-arrow">
+                                <i class="fas fa-arrow-right"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Resources Section -->
+    <section id="resources" class="resources">
+        <div class="container">
+            <h2 class="section-title">Learning Resources</h2>
+            <div class="resources-grid">
+                <div class="resource-card">
+                    <div class="resource-icon">
+                        <i class="fas fa-book"></i>
+                    </div>
+                    <h3>Documentation</h3>
+                    <ul>
+                        <li><a href="https://developer.mozilla.org/en-US/docs/Web/HTML" target="_blank">MDN HTML Guide</a></li>
+                        <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS" target="_blank">MDN CSS Guide</a></li>
+                        <li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank">MDN JavaScript Guide</a></li>
+                        <li><a href="https://www.w3schools.com/" target="_blank">W3Schools</a></li>
+                    </ul>
+                </div>
+
+                <div class="resource-card">
+                    <div class="resource-icon">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <h3>Code Editors</h3>
+                    <ul>
+                        <li><a href="https://code.visualstudio.com/" target="_blank">Visual Studio Code</a></li>
+                        <li><a href="https://codepen.io/" target="_blank">CodePen</a></li>
+                        <li><a href="https://jsfiddle.net/" target="_blank">JSFiddle</a></li>
+                        <li><a href="https://replit.com/" target="_blank">Replit</a></li>
+                    </ul>
+                </div>
+
+                <div class="resource-card">
+                    <div class="resource-icon">
+                        <i class="fas fa-palette"></i>
+                    </div>
+                    <h3>Design Tools</h3>
+                    <ul>
+                        <li><a href="https://coolors.co/" target="_blank">Coolors Color Palette</a></li>
+                        <li><a href="https://fonts.google.com/" target="_blank">Google Fonts</a></li>
+                        <li><a href="https://fontawesome.com/" target="_blank">Font Awesome</a></li>
+                        <li><a href="https://unsplash.com/" target="_blank">Unsplash Images</a></li>
+                    </ul>
+                </div>
+
+                <div class="resource-card">
+                    <div class="resource-icon">
+                        <i class="fas fa-gamepad"></i>
+                    </div>
+                    <h3>Practice Platforms</h3>
+                    <ul>
+                        <li><a href="https://www.freecodecamp.org/" target="_blank">freeCodeCamp</a></li>
+                        <li><a href="https://www.codewars.com/" target="_blank">Codewars</a></li>
+                        <li><a href="https://www.frontendmentor.io/" target="_blank">Frontend Mentor</a></li>
+                        <li><a href="https://cssbattle.dev/" target="_blank">CSS Battle</a></li>
+                    </ul>
+                </div>
+
+                <div class="resource-card">
+                    <div class="resource-icon">
+                        <i class="fas fa-tools"></i>
+                    </div>
+                    <h3>Development Tools</h3>
+                    <ul>
+                        <li><a href="https://github.com/" target="_blank">GitHub</a></li>
+                        <li><a href="https://git-scm.com/" target="_blank">Git</a></li>
+                        <li><a href="https://www.netlify.com/" target="_blank">Netlify</a></li>
+                        <li><a href="https://vercel.com/" target="_blank">Vercel</a></li>
+                    </ul>
+                </div>
+
+                <div class="resource-card">
+                    <div class="resource-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>Community</h3>
+                    <ul>
+                        <li><a href="https://stackoverflow.com/" target="_blank">Stack Overflow</a></li>
+                        <li><a href="https://dev.to/" target="_blank">Dev.to</a></li>
+                        <li><a href="https://www.reddit.com/r/webdev/" target="_blank">r/webdev</a></li>
+                        <li><a href="https://discord.gg/webdev" target="_blank">Web Dev Discord</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- Day Lesson Modal -->
+    <div id="lessonModal" class="lesson-modal">
+        <div class="lesson-modal-content">
+            <div class="lesson-modal-header">
+                <h2 id="lessonTitle">Day 1: HTML Fundamentals</h2>
+                <button class="close-modal" onclick="closeLessonModal()">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="lesson-modal-body">
+                <div class="lesson-tabs">
+                    <button class="lesson-tab active" data-tab="documentation">Documentation</button>
+                    <button class="lesson-tab" data-tab="challenge">Challenge</button>
+                </div>
+                
+                <div class="lesson-content">
+                    <div id="documentation-content" class="lesson-panel active">
+                        <div class="lesson-documentation">
+                            <h3>Introduction to HTML</h3>
+                            <p>HTML (HyperText Markup Language) is the standard markup language for creating web pages. It describes the structure of a web page semantically and originally included cues for the appearance of the document.</p>
+                            
+                            <h4>Basic HTML Structure</h4>
+                            <div class="code-example">
+                                <div class="code-header">
+                                    <span>Basic HTML Template</span>
+                                    <button class="copy-btn" onclick="copyCode(this)">
+                                        <i class="fas fa-copy"></i>
+                                    </button>
+                                </div>
+                                <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;title&gt;Page Title&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;h1&gt;This is a heading&lt;/h1&gt;
+    &lt;p&gt;This is a paragraph.&lt;/p&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+                            </div>
+                            
+                            <h4>Key Concepts</h4>
+                            <ul>
+                                <li><strong>DOCTYPE Declaration:</strong> Tells the browser this is an HTML5 document</li>
+                                <li><strong>&lt;html&gt;:</strong> The root element of an HTML page</li>
+                                <li><strong>&lt;head&gt;:</strong> Contains meta information about the document</li>
+                                <li><strong>&lt;title&gt;:</strong> Specifies a title for the document</li>
+                                <li><strong>&lt;body&gt;:</strong> Contains the visible page content</li>
+                            </ul>
+                            
+                            <h4>Common HTML Elements</h4>
+                            <div class="elements-grid">
+                                <div class="element-card">
+                                    <h5>Headings</h5>
+                                    <p>&lt;h1&gt; to &lt;h6&gt;</p>
+                                    <small>Used for titles and subtitles</small>
+                                </div>
+                                <div class="element-card">
+                                    <h5>Paragraphs</h5>
+                                    <p>&lt;p&gt;</p>
+                                    <small>Used for text content</small>
+                                </div>
+                                <div class="element-card">
+                                    <h5>Links</h5>
+                                    <p>&lt;a&gt;</p>
+                                    <small>Creates hyperlinks</small>
+                                </div>
+                                <div class="element-card">
+                                    <h5>Images</h5>
+                                    <p>&lt;img&gt;</p>
+                                    <small>Displays images</small>
+                                </div>
+                            </div>
+                            
+                            <div class="lesson-navigation">
+                                <button class="nav-btn" onclick="previousLesson()">
+                                    <i class="fas fa-chevron-left"></i> Previous
+                                </button>
+                                <button class="nav-btn primary" onclick="startChallenge()">
+                                    Start Challenge <i class="fas fa-chevron-right"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div id="challenge-content" class="lesson-panel">
+                        <div class="lesson-challenge">
+                            <div class="challenge-header">
+                                <h3 id="challenge-title">HTML Challenge 1: Basic Structure</h3>
+                                <div class="challenge-meta">
+                                    <span class="difficulty">Beginner</span>
+                                    <span class="time">5 min</span>
+                                </div>
+                            </div>
+                            <div class="challenge-description">
+                                <p id="challenge-description">Create a basic HTML structure with a title, heading, and paragraph.</p>
+                            </div>
+                            <div class="code-editor">
+                                <div class="editor-header">
+                                    <span>Code Editor</span>
+                                    <button class="run-button" onclick="runCode()">
+                                        <i class="fas fa-play"></i> Run Code
+                                    </button>
+                                </div>
+                                <div id="monaco-editor-lesson" class="monaco-editor-container"></div>
+                            </div>
+                            <div class="output-panel">
+                                <div class="output-header">
+                                    <span>Output</span>
+                                    <button class="reset-button" onclick="resetCode()">
+                                        <i class="fas fa-undo"></i> Reset
+                                    </button>
+                                </div>
+                                <div id="output-frame"></div>
+                            </div>
+                            <div class="challenge-navigation">
+                                <button class="nav-button" onclick="previousChallenge()">
+                                    <i class="fas fa-chevron-left"></i> Previous
+                                </button>
+                                <button class="nav-button" onclick="nextChallenge()">
+                                    Next <i class="fas fa-chevron-right"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>WebDev LMS</h3>
+                    <p>Master web development in 10 days with hands-on challenges and real-world projects.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#curriculum">Curriculum</a></li>
+                        <li><a href="#challenges">Challenges</a></li>
+                        <li><a href="#resources">Resources</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 WebDev LMS. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // Initialize Monaco Editor when page loads
+        require.config({ paths: { vs: 'https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.44.0/min/vs' } });
+        require(['vs/editor/editor.main'], function() {
+            console.log('Monaco Editor loaded successfully');
+            
+            // Initialize Monaco Editors after a short delay to ensure DOM is ready
+            setTimeout(() => {
+                initializeMainMonacoEditor();
+            }, 100);
+        });
+    </script>
+</body>
+</html> 

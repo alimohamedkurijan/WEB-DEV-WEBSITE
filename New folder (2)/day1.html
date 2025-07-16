@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day 1: HTML Fundamentals - WebDev LMS</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.44.0/min/vs/loader.min.js"></script>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo" onclick="window.location.href='index.html'">
+                <i class="fas fa-code"></i>
+                <span>WebDev LMS</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link" data-page="home">Home</a></li>
+                <li><a href="index.html#curriculum" class="nav-link" data-page="curriculum">Curriculum</a></li>
+                <li><a href="index.html#challenges" class="nav-link" data-page="challenges">Challenges</a></li>
+                <li><a href="index.html#resources" class="nav-link" data-page="resources">Resources</a></li>
+            </ul>
+            <div class="nav-actions">
+                <div class="page-indicator">
+                    <i class="fas fa-book-open"></i>
+                    <span>Day 1: HTML Fundamentals</span>
+                </div>
+                <button class="nav-btn-secondary" onclick="window.location.href='day2.html'">
+                    <i class="fas fa-arrow-right"></i>
+                    Next Day
+                </button>
+            </div>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Day Header -->
+    <section class="day-header">
+        <div class="container">
+            <div class="day-header-content">
+                <div class="day-badge">
+                    <span class="day-number">Day 1</span>
+                </div>
+                <h1>HTML Fundamentals</h1>
+                <p>Learn the building blocks of web development with HTML</p>
+                <div class="day-meta">
+                    <span class="meta-item">
+                        <i class="fas fa-clock"></i>
+                        Duration: 2-3 hours
+                    </span>
+                    <span class="meta-item">
+                        <i class="fas fa-signal"></i>
+                        Level: Beginner
+                    </span>
+                    <span class="meta-item">
+                        <i class="fas fa-tasks"></i>
+                        Challenges: 4
+                    </span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Challenges Section -->
+    <section class="challenges-section">
+        <div class="container">
+            <h2>🎯 Practice Challenges</h2>
+            <p class="challenges-intro">Complete these hands-on challenges to master HTML fundamentals:</p>
+            
+            <div class="challenges-grid">
+                <!-- Challenge 1 -->
+                <div class="challenge-card">
+                    <div class="challenge-header">
+                        <div class="challenge-number">01</div>
+                        <div class="challenge-meta">
+                            <span class="difficulty beginner">Beginner</span>
+                            <span class="time">8 min</span>
+                        </div>
+                    </div>
+                    <h3>📝 Basic Structure</h3>
+                    <p>Create a simple HTML page with proper document structure.</p>
+                    
+                    <button class="challenge-btn" onclick="openChallenge(1)">
+                        <i class="fas fa-play"></i>
+                        Start Challenge
+                    </button>
+                </div>
+
+                <!-- Challenge 2 -->
+                <div class="challenge-card">
+                    <div class="challenge-header">
+                        <div class="challenge-number">02</div>
+                        <div class="challenge-meta">
+                            <span class="difficulty beginner">Beginner</span>
+                            <span class="time">10 min</span>
+                        </div>
+                    </div>
+                    <h3>📄 Content Elements</h3>
+                    <p>Use headings, paragraphs, and text formatting elements.</p>
+                    
+                    <button class="challenge-btn" onclick="openChallenge(2)">
+                        <i class="fas fa-play"></i>
+                        Start Challenge
+                    </button>
+                </div>
+
+                <!-- Challenge 3 -->
+                <div class="challenge-card">
+                    <div class="challenge-header">
+                        <div class="challenge-number">03</div>
+                        <div class="challenge-meta">
+                            <span class="difficulty beginner">Beginner</span>
+                            <span class="time">12 min</span>
+                        </div>
+                    </div>
+                    <h3>🔗 Links & Lists</h3>
+                    <p>Create navigation links and organize content with lists.</p>
+                    
+                    <button class="challenge-btn" onclick="openChallenge(3)">
+                        <i class="fas fa-play"></i>
+                        Start Challenge
+                    </button>
+                </div>
+
+                <!-- Challenge 4 -->
+                <div class="challenge-card">
+                    <div class="challenge-header">
+                        <div class="challenge-number">04</div>
+                        <div class="challenge-meta">
+                            <span class="difficulty intermediate">Intermediate</span>
+                            <span class="time">15 min</span>
+                        </div>
+                    </div>
+                    <h3>🖼️ Images & Media</h3>
+                    <p>Add images, videos, and other media elements to your page.</p>
+                    
+                    <button class="challenge-btn" onclick="openChallenge(4)">
+                        <i class="fas fa-play"></i>
+                        Start Challenge
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Content Section -->
+    <section class="day-content">
+        <div class="container">
+            <div class="content-grid">
+                <!-- Main Content -->
+                <div class="content-main">
+                    <div class="content-section">
+                        <h2>💻 What is HTML?</h2>
+                        <p>HTML (HyperText Markup Language) is the foundation of all web pages. Think of it as the <strong>skeleton</strong> of a website - just like bones give structure to your body, HTML gives structure to web pages.</p>
+                        
+                        <div class="concept-highlight">
+                            <h4>📚 Key Points:</h4>
+                            <ul>
+                                <li><strong>Structure:</strong> HTML defines the structure and content of web pages</li>
+                                <li><strong>Markup:</strong> Uses tags to "mark up" content with meaning</li>
+                                <li><strong>Universal:</strong> Every website you visit uses HTML</li>
+                                <li><strong>Browser Rendering:</strong> Browsers read HTML and display it as formatted pages</li>
+                            </ul>
+                        </div>
+
+                        <div class="code-example">
+                            <div class="code-header">
+                                <span>Raw HTML vs Browser Display</span>
+                                <button class="copy-btn" onclick="copyCode(this)">
+                                    <i class="fas fa-copy"></i>
+                                </button>
+                            </div>
+                            <pre><code>&lt;h1&gt;My First Website&lt;/h1&gt;
+&lt;p&gt;This is a paragraph with &lt;strong&gt;bold text&lt;/strong&gt;.&lt;/p&gt;
+&lt;a href="https://example.com"&gt;Click here&lt;/a&gt;</code></pre>
+                            <div class="code-output">
+                                <h4>Browser Display:</h4>
+                                <div class="browser-preview">
+                                    <h1 style="color: #333; margin: 0;">My First Website</h1>
+                                    <p style="color: #666; margin: 10px 0;">This is a paragraph with <strong>bold text</strong>.</p>
+                                    <a href="#" style="color: #01D29B; text-decoration: none;">Click here</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="content-section">
+                        <h2>🧱 Basic HTML Structure</h2>
+                        <p>Every HTML document follows a standard structure with essential tags that tell the browser how to interpret the content.</p>
+                        
+                        <div class="concept-highlight">
+                            <h4>🏗️ Essential Tags:</h4>
+                            <ul>
+                                <li><code>&lt;!DOCTYPE html&gt;</code> - Declares this is an HTML5 document</li>
+                                <li><code>&lt;html&gt;</code> - The root element containing everything</li>
+                                <li><code>&lt;head&gt;</code> - Contains metadata (title, styles, scripts)</li>
+                                <li><code>&lt;body&gt;</code> - Contains the visible page content</li>
+                            </ul>
+                        </div>
+
+                        <div class="code-example">
+                            <div class="code-header">
+                                <span>Complete HTML Structure</span>
+                                <button class="copy-btn" onclick="copyCode(this)">
+                                    <i class="fas fa-copy"></i>
+                                </button>
+                            </div>
+                            <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;My First Web Page&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;h1&gt;Welcome to My Website&lt;/h1&gt;
+    &lt;p&gt;This is the main content of my page.&lt;/p&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+                        </div>
+
+                        <div class="tip-box">
+                            <h4>💡 Pro Tip:</h4>
+                            <p>Proper indentation makes your HTML code more readable. Each nested element should be indented with 2 or 4 spaces.</p>
+                        </div>
+                    </div>
+
+                    <div class="content-section">
+                        <h2>✍️ Text Tags</h2>
+                        <p>HTML provides various tags to structure and format text content, making it readable and meaningful.</p>
+                        
+                        <div class="concept-highlight">
+                            <h4>📝 Text Elements:</h4>
+                            <ul>
+                                <li><strong>Headings:</strong> <code>&lt;h1&gt;</code> to <code>&lt;h6&gt;</code> for titles and subtitles</li>
+                                <li><strong>Paragraphs:</strong> <code>&lt;p&gt;</code> for text blocks</li>
+                                <li><strong>Bold:</strong> <code>&lt;strong&gt;</code> (semantic) or <code>&lt;b&gt;</code> (visual)</li>
+                                <li><strong>Italic:</strong> <code>&lt;em&gt;</code> (semantic) or <code>&lt;i&gt;</code> (visual)</li>
+                            </ul>
+                        </div>
+
+                        <div class="code-example">
+                            <div class="code-header">
+                                <span>Text Formatting Example</span>
+                                <button class="copy-btn" onclick="copyCode(this)">
+                                    <i class="fas fa-copy"></i>
+                                </button>
+                            </div>
+                            <pre><code>&lt;h1&gt;Main Title&lt;/h1&gt;
+&lt;h2&gt;Subtitle&lt;/h2&gt;
+&lt;p&gt;This is a &lt;strong&gt;paragraph&lt;/strong&gt; with &lt;em&gt;emphasized text&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;You can also use &lt;b&gt;bold&lt;/b&gt; and &lt;i&gt;italic&lt;/i&gt; for visual styling.&lt;/p&gt;</code></pre>
+                        </div>
+
+                        <div class="tip-box">
+                            <h4>🎯 Best Practice:</h4>
+                            <p>Use <code>&lt;strong&gt;</code> and <code>&lt;em&gt;</code> for semantic meaning (importance/emphasis), and <code>&lt;b&gt;</code> and <code>&lt;i&gt;</code> only for visual styling.</p>
+                        </div>
+                    </div>
+
+                    <div class="content-section">
+                        <h2>🔗 Links</h2>
+                        <p>Links (hyperlinks) connect web pages together and are fundamental to the web experience.</p>
+                        
+                        <div class="concept-highlight">
+                            <h4>🔗 Link Types:</h4>
+                            <ul>
+                                <li><strong>Absolute URLs:</strong> Complete web addresses (https://example.com)</li>
+                                <li><strong>Relative URLs:</strong> Paths relative to current page (./page.html)</li>
+                                <li><strong>Internal Links:</strong> Links to sections on the same page (#section)</li>
+                            </ul>
+                        </div>
+
+                        <div class="code-example">
+                            <div class="code-header">
+                                <span>Link Examples</span>
+                                <button class="copy-btn" onclick="copyCode(this)">
+                                    <i class="fas fa-copy"></i>
+                                </button>
+                            </div>
+                            <pre><code>&lt;!-- External link --&gt;
+&lt;a href="https://www.google.com"&gt;Visit Google&lt;/a&gt;
+
+&lt;!-- Link opening in new tab --&gt;
+&lt;a href="https://www.google.com" target="_blank"&gt;Open in New Tab&lt;/a&gt;
+
+&lt;!-- Internal link --&gt;
+&lt;a href="#section1"&gt;Jump to Section 1&lt;/a&gt;
+
+&lt;!-- Email link --&gt;
+&lt;a href="mailto:contact@example.com"&gt;Send Email&lt;/a&gt;</code></pre>
+                        </div>
+
+                        <div class="practice-exercise">
+                            <h4>🎯 Practice Exercise:</h4>
+                            <p>Create a navigation menu with links to different sections of your page:</p>
+                            <div class="code-example">
+                                <pre><code>&lt;nav&gt;
+    &lt;a href="#home"&gt;Home&lt;/a&gt;
+    &lt;a href="#about"&gt;About&lt;/a&gt;
+    &lt;a href="#contact"&gt;Contact&lt;/a&gt;
+&lt;/nav&gt;</code></pre>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="content-section">
+                        <h2>📋 Lists</h2>
+                        <p>Lists help organize information in a structured way, making content easier to read and understand.</p>
+                        
+                        <div class="concept-highlight">
+                            <h4>📋 List Types:</h4>
+                            <ul>
+                                <li><strong>Ordered Lists:</strong> <code>&lt;ol&gt;</code> for numbered items</li>
+                                <li><strong>Unordered Lists:</strong> <code>&lt;ul&gt;</code> for bullet points</li>
+                                <li><strong>List Items:</strong> <code>&lt;li&gt;</code> for individual items</li>
+                            </ul>
+                        </div>
+
+                        <div class="code-example">
+                            <div class="code-header">
+                                <span>List Examples</span>
+                                <button class="copy-btn" onclick="copyCode(this)">
+                                    <i class="fas fa-copy"></i>
+                                </button>
+                            </div>
+                            <pre><code>&lt;!-- Ordered List (numbered) --&gt;
+&lt;ol&gt;
+    &lt;li&gt;First step&lt;/li&gt;
+    &lt;li&gt;Second step&lt;/li&gt;
+    &lt;li&gt;Third step&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;!-- Unordered List (bullets) --&gt;
+&lt;ul&gt;
+    &lt;li&gt;Apple&lt;/li&gt;
+    &lt;li&gt;Banana&lt;/li&gt;
+    &lt;li&gt;Orange&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;!-- Nested Lists --&gt;
+&lt;ul&gt;
+    &lt;li&gt;Fruits
+        &lt;ul&gt;
+            &lt;li&gt;Apple&lt;/li&gt;
+            &lt;li&gt;Banana&lt;/li&gt;
+        &lt;/ul&gt;
+    &lt;/li&gt;
+    &lt;li&gt;Vegetables
+        &lt;ul&gt;
+            &lt;li&gt;Carrot&lt;/li&gt;
+            &lt;li&gt;Broccoli&lt;/li&gt;
+        &lt;/ul&gt;
+    &lt;/li&gt;
+&lt;/ul&gt;</code></pre>
+                        </div>
+
+                        <div class="tip-box">
+                            <h4>💡 Real-World Uses:</h4>
+                            <ul>
+                                <li>Recipe ingredients and steps</li>
+                                <li>Navigation menus</li>
+                                <li>Feature lists</li>
+                                <li>Checklists and to-dos</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="content-section">
+                        <h2>🖼️ Images</h2>
+                        <p>Images make websites visually appealing and help convey information more effectively.</p>
+                        
+                        <div class="concept-highlight">
+                            <h4>🖼️ Image Attributes:</h4>
+                            <ul>
+                                <li><code>src</code> - Source URL of the image</li>
+                                <li><code>alt</code> - Alternative text for accessibility</li>
+                                <li><code>width</code> and <code>height</code> - Image dimensions</li>
+                                <li><code>title</code> - Tooltip text on hover</li>
+                            </ul>
+                        </div>
+
+                        <div class="code-example">
+                            <div class="code-header">
+                                <span>Image Examples</span>
+                                <button class="copy-btn" onclick="copyCode(this)">
+                                    <i class="fas fa-copy"></i>
+                                </button>
+                            </div>
+                            <pre><code>&lt;!-- Basic image --&gt;
+&lt;img src="photo.jpg" alt="A beautiful sunset"&gt;
+
+&lt;!-- Image with dimensions --&gt;
+&lt;img src="photo.jpg" alt="A beautiful sunset" width="300" height="200"&gt;
+
+&lt;!-- Image with title --&gt;
+&lt;img src="photo.jpg" alt="A beautiful sunset" title="Sunset at the beach"&gt;
+
+&lt;!-- External image --&gt;
+&lt;img src="https://example.com/image.jpg" alt="External image"&gt;</code></pre>
+                        </div>
+
+                        <div class="accessibility-note">
+                            <h4>♿ Accessibility Importance:</h4>
+                            <p>The <code>alt</code> attribute is crucial for:</p>
+                            <ul>
+                                <li>Screen readers for visually impaired users</li>
+                                <li>Displaying when images fail to load</li>
+                                <li>SEO (Search Engine Optimization)</li>
+                                <li>Better user experience</li>
+                            </ul>
+                        </div>
+
+                        <div class="practice-exercise">
+                            <h4>🎯 Live Demo:</h4>
+                            <p>Try adding an image to your webpage:</p>
+                            <div class="code-example">
+                                <pre><code>&lt;img src="https://via.placeholder.com/300x200/01D29B/FFFFFF?text=Sample+Image" 
+     alt="A sample placeholder image" 
+     title="This is a sample image"&gt;</code></pre>
+                            </div>
+                            <div class="demo-output">
+                                <img src="https://via.placeholder.com/300x200/01D29B/FFFFFF?text=Sample+Image" 
+                                     alt="A sample placeholder image" 
+                                     title="This is a sample image"
+                                     style="border-radius: 8px; margin-top: 10px;">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sidebar -->
+                <div class="content-sidebar">
+                    <div class="sidebar-section">
+                        <h3>Quick Navigation</h3>
+                        <ul class="sidebar-nav">
+                            <li><a href="#challenges">🎯 Challenges</a></li>
+                            <li><a href="#what-is-html">💻 What is HTML?</a></li>
+                            <li><a href="#basic-structure">🧱 Basic HTML Structure</a></li>
+                            <li><a href="#text-tags">✍️ Text Tags</a></li>
+                            <li><a href="#links">🔗 Links</a></li>
+                            <li><a href="#lists">📋 Lists</a></li>
+                            <li><a href="#images">🖼️ Images</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="sidebar-section">
+                        <h3>Resources</h3>
+                        <ul class="resource-links">
+                            <li><a href="https://developer.mozilla.org/en-US/docs/Web/HTML" target="_blank">
+                                <i class="fas fa-external-link-alt"></i>
+                                MDN HTML Guide
+                            </a></li>
+                            <li><a href="https://www.w3schools.com/html/" target="_blank">
+                                <i class="fas fa-external-link-alt"></i>
+                                W3Schools HTML
+                            </a></li>
+                            <li><a href="https://html.spec.whatwg.org/" target="_blank">
+                                <i class="fas fa-external-link-alt"></i>
+                                HTML Specification
+                            </a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Navigation Footer -->
+    <section class="day-navigation">
+        <div class="container">
+            <div class="nav-buttons">
+                <button class="nav-btn" onclick="window.location.href='index.html'">
+                    <i class="fas fa-home"></i>
+                    Back to Home
+                </button>
+                <button class="nav-btn primary" onclick="window.location.href='day2.html'">
+                    Next: Day 2
+                    <i class="fas fa-arrow-right"></i>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Challenge Modal -->
+    <div id="challengeModal" class="challenge-modal">
+        <div class="challenge-modal-content">
+            <div class="challenge-modal-header">
+                <h2 id="modalChallengeTitle">Challenge Title</h2>
+                <div class="challenge-modal-actions">
+                    <button class="complete-btn" onclick="completeChallenge()">
+                        <i class="fas fa-check"></i>
+                        Complete Challenge
+                    </button>
+                    <button class="close-challenge-modal" onclick="closeChallengeModal()">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="challenge-modal-body">
+                <div id="modalChallengeContent">
+                    <!-- Challenge content will be loaded here -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>WebDev LMS</h3>
+                    <p>Master web development in 10 days with hands-on challenges and real-world projects.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="index.html#curriculum">Curriculum</a></li>
+                        <li><a href="index.html#challenges">Challenges</a></li>
+                        <li><a href="index.html#resources">Resources</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 WebDev LMS. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // Initialize Monaco Editor when page loads
+        require.config({ paths: { vs: 'https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.44.0/min/vs' } });
+        require(['vs/editor/editor.main'], function() {
+            console.log('Monaco Editor loaded successfully for Day 1');
+        });
+        
+        // Day-specific functionality
+        function openChallenge(challengeNumber) {
+            openChallengeModal(challengeNumber);
+        }
+        
+        function copyCode(button) {
+            const codeBlock = button.closest('.code-example').querySelector('code');
+            const textArea = document.createElement('textarea');
+            textArea.value = codeBlock.textContent;
+            document.body.appendChild(textArea);
+            textArea.select();
+            document.execCommand('copy');
+            document.body.removeChild(textArea);
+            
+            // Show feedback
+            const originalText = button.innerHTML;
+            button.innerHTML = '<i class="fas fa-check"></i>';
+            button.style.color = '#00D4AA';
+            
+            setTimeout(() => {
+                button.innerHTML = originalText;
+                button.style.color = '';
+            }, 2000);
+        }
+    </script>
+</body>
+</html> 
