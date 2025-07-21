@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Day 3: CSS Basics - WebDev LMS</title>
+    <title>Day 6: JavaScript Fundamentals - WebDev LMS</title>
     <link rel="stylesheet" href="styles.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -25,10 +25,10 @@
             </ul>
             <div class="nav-actions">
                 <div class="page-indicator">
-                    <i class="fas fa-palette"></i>
-                    <span>Day 3: CSS Basics</span>
+                    <i class="fas fa-code"></i>
+                    <span>Day 6: JavaScript Fundamentals</span>
                 </div>
-                <button class="nav-btn-secondary" onclick="window.location.href='day4.html'">
+                <button class="nav-btn-secondary" onclick="window.location.href='javascript-conditions.html'">
                     <i class="fas fa-arrow-right"></i>
                     Next Day
                 </button>
@@ -46,14 +46,14 @@
         <div class="container">
             <div class="day-header-content">
                 <div class="day-badge">
-                    <span class="day-number">Day 3</span>
+                    <span class="day-number">Day 6</span>
                 </div>
-                <h1>CSS Basics</h1>
-                <p>Style your HTML with CSS selectors, properties, and values</p>
+                <h1>JavaScript Fundamentals</h1>
+                <p>Master the building blocks of JavaScript programming with variables, data types, and basic operations</p>
                 <div class="day-meta">
                     <span class="meta-item">
                         <i class="fas fa-clock"></i>
-                        Duration: 2-3 hours
+                        Duration: 2 hours
                     </span>
                     <span class="meta-item">
                         <i class="fas fa-signal"></i>
@@ -72,7 +72,7 @@
     <section class="challenges-section">
         <div class="container">
             <h2>🎯 Practice Challenges</h2>
-            <p class="challenges-intro">Complete these hands-on challenges to master CSS basics:</p>
+            <p class="challenges-intro">Complete these hands-on challenges to master JavaScript fundamentals:</p>
             
             <div class="challenges-grid">
                 <!-- Challenge 1 -->
@@ -84,10 +84,10 @@
                             <span class="time">10 min</span>
                         </div>
                     </div>
-                    <h3>🎨 Basic Styling</h3>
-                    <p>Apply colors, fonts, and basic styling to HTML elements using CSS.</p>
+                    <h3>📝 Variables & Data Types</h3>
+                    <p>Learn the fundamentals of JavaScript variables, data types, and basic output methods.</p>
                     
-                    <button class="challenge-btn" onclick="openChallenge(11)">
+                    <button class="challenge-btn" onclick="openChallenge(7)">
                         <i class="fas fa-play"></i>
                         Start Challenge
                     </button>
@@ -99,13 +99,13 @@
                         <div class="challenge-number">02</div>
                         <div class="challenge-meta">
                             <span class="difficulty beginner">Beginner</span>
-                            <span class="time">15 min</span>
+                            <span class="time">12 min</span>
                         </div>
                     </div>
-                    <h3>🎯 Selectors Mastery</h3>
-                    <p>Practice using different CSS selectors (tag, class, ID) to target elements.</p>
+                    <h3>🧮 Math & String Operations</h3>
+                    <p>Practice mathematical operations, string manipulation, and build a simple calculator.</p>
                     
-                    <button class="challenge-btn" onclick="openChallenge(12)">
+                    <button class="challenge-btn" onclick="openChallenge(8)">
                         <i class="fas fa-play"></i>
                         Start Challenge
                     </button>
@@ -117,13 +117,13 @@
                         <div class="challenge-number">03</div>
                         <div class="challenge-meta">
                             <span class="difficulty intermediate">Intermediate</span>
-                            <span class="time">20 min</span>
+                            <span class="time">15 min</span>
                         </div>
                     </div>
-                    <h3>🆚 Class vs ID Challenge</h3>
-                    <p>Create a styled form using both classes and IDs, understanding when to use each.</p>
+                    <h3>👋 Mini Greeting App</h3>
+                    <p>Build a complete greeting application that collects user input and displays personalized messages.</p>
                     
-                    <button class="challenge-btn" onclick="openChallenge(13)">
+                    <button class="challenge-btn" onclick="openChallenge(9)">
                         <i class="fas fa-play"></i>
                         Start Challenge
                     </button>
@@ -139,207 +139,184 @@
                 <!-- Main Content -->
                 <div class="content-main">
                     <div class="content-section">
-                        <h2>🎯 What is CSS?</h2>
-                        <p><strong>CSS = Cascading Style Sheets</strong> - the language that controls the visual presentation of your HTML elements.</p>
+                        <h2>💻 What is JavaScript?</h2>
+                        <p>JavaScript is a powerful programming language that brings websites to life. Think of it as the <strong>brain</strong> of a website - just like your brain controls your body, JavaScript controls the behavior and interactivity of web pages.</p>
                         
                         <div class="concept-highlight">
-                            <h4>HTML vs CSS Analogy:</h4>
+                            <h4>📚 Key Points:</h4>
                             <ul>
-                                <li><strong>HTML:</strong> The building structure (walls, rooms, foundation)</li>
-                                <li><strong>CSS:</strong> The paint, decor, layout, and styling</li>
+                                <li><strong>Dynamic:</strong> JavaScript makes websites interactive and responsive</li>
+                                <li><strong>Versatile:</strong> Can run in browsers, servers, and mobile apps</li>
+                                <li><strong>Essential:</strong> Every modern website uses JavaScript</li>
+                                <li><strong>Real-time:</strong> Updates content without refreshing the page</li>
                             </ul>
                         </div>
 
                         <div class="code-example">
                             <div class="code-header">
-                                <span>Basic CSS Structure</span>
+                                <span>Simple JavaScript Example</span>
                                 <button class="copy-btn" onclick="copyCode(this)">
                                     <i class="fas fa-copy"></i>
                                 </button>
                             </div>
-                            <pre><code>/* CSS Rule Structure */
-selector {
-    property: value;
-    another-property: value;
-}
+                            <pre><code>// This is a JavaScript comment
+let message = "Hello, World!";
+console.log(message);
 
-/* Example */
-h1 {
-    color: blue;
-    font-size: 24px;
-}</code></pre>
+// Interactive example
+let name = prompt("What's your name?");
+alert("Welcome, " + name + "!");</code></pre>
+                            <div class="code-output">
+                                <h4>What happens:</h4>
+                                <div class="browser-preview">
+                                    <p style="color: #666; margin: 10px 0;">1. Prints "Hello, World!" to console</p>
+                                    <p style="color: #666; margin: 10px 0;">2. Asks for your name in a popup</p>
+                                    <p style="color: #666; margin: 10px 0;">3. Shows a welcome message</p>
+                                </div>
+                            </div>
                         </div>
                     </div>
 
                     <div class="content-section">
-                        <h2>🧩 Inline vs Internal vs External CSS</h2>
-                        <p>There are three ways to apply CSS to your HTML elements, each with its own use case.</p>
+                        <h2>📦 Variables & Data Types</h2>
+                        <p>Variables are containers that store data. JavaScript has different types of data, each with specific characteristics and uses.</p>
                         
                         <div class="concept-highlight">
-                            <h4>Three CSS Methods:</h4>
+                            <h4>🔧 Variable Declaration:</h4>
                             <ul>
-                                <li><strong>Inline:</strong> <code>style=""</code> inside HTML tags</li>
-                                <li><strong>Internal:</strong> <code>&lt;style&gt;</code> inside <code>&lt;head&gt;</code></li>
-                                <li><strong>External:</strong> <code>.css</code> file linked with <code>&lt;link&gt;</code></li>
+                                <li><code>let</code> - Can be changed (reassigned)</li>
+                                <li><code>const</code> - Cannot be changed (constant)</li>
+                                <li><code>var</code> - Old way (avoid using)</li>
                             </ul>
                         </div>
 
                         <div class="code-example">
                             <div class="code-header">
-                                <span>CSS Methods Examples</span>
+                                <span>Variables and Data Types</span>
                                 <button class="copy-btn" onclick="copyCode(this)">
                                     <i class="fas fa-copy"></i>
                                 </button>
                             </div>
-                            <pre><code>/* 1. Inline CSS */
-&lt;p style="color: red; font-size: 16px;"&gt;Red text&lt;/p&gt;
+                            <pre><code>// String - text data
+let name = "Ali";
+const city = "Kuwait";
 
-/* 2. Internal CSS */
-&lt;head&gt;
-    &lt;style&gt;
-        p {
-            color: blue;
-            font-size: 18px;
-        }
-    &lt;/style&gt;
-&lt;/head&gt;
+// Number - numeric data
+let age = 25;
+const pi = 3.14159;
 
-/* 3. External CSS */
-&lt;head&gt;
-    &lt;link rel="stylesheet" href="styles.css"&gt;
-&lt;/head&gt;</code></pre>
+// Boolean - true/false values
+let isStudent = true;
+const isWorking = false;
+
+// Output methods
+console.log("Name:", name);
+alert("Welcome to " + city);
+let userInput = prompt("Enter your age:");</code></pre>
+                        </div>
+
+                        <div class="tip-box">
+                            <h4>💡 Pro Tip:</h4>
+                            <p>Use <code>const</code> by default, and only use <code>let</code> when you need to change the value later. This makes your code more predictable and prevents accidental changes.</p>
                         </div>
                     </div>
 
                     <div class="content-section">
-                        <h2>🎯 Selectors, Properties, Values</h2>
-                        <p>CSS selectors target HTML elements, and properties define how they should be styled.</p>
+                        <h2>🧮 Mathematical Operations</h2>
+                        <p>JavaScript can perform all basic mathematical operations and more. You can use it as a calculator and combine numbers with other data types.</p>
                         
                         <div class="concept-highlight">
-                            <h4>Selector Types:</h4>
+                            <h4>🔢 Basic Operators:</h4>
                             <ul>
-                                <li><strong>Tag selectors:</strong> <code>p {}</code>, <code>h1 {}</code>, <code>div {}</code></li>
-                                <li><strong>Class selectors:</strong> <code>.myClass {}</code> (reusable)</li>
-                                <li><strong>ID selectors:</strong> <code>#myId {}</code> (unique)</li>
+                                <li><strong>Addition:</strong> <code>+</code> (also concatenates strings)</li>
+                                <li><strong>Subtraction:</strong> <code>-</code></li>
+                                <li><strong>Multiplication:</strong> <code>*</code></li>
+                                <li><strong>Division:</strong> <code>/</code></li>
+                                <li><strong>Modulus:</strong> <code>%</code> (remainder)</li>
                             </ul>
                         </div>
 
                         <div class="code-example">
                             <div class="code-header">
-                                <span>Selector Examples</span>
+                                <span>Math Operations Examples</span>
                                 <button class="copy-btn" onclick="copyCode(this)">
                                     <i class="fas fa-copy"></i>
                                 </button>
                             </div>
-                            <pre><code>/* Tag selector - targets all paragraphs */
-p {
-    color: #333;
-    line-height: 1.6;
-}
+                            <pre><code>// Basic calculations
+let a = 10;
+let b = 5;
 
-/* Class selector - targets elements with class="highlight" */
-.highlight {
-    background-color: yellow;
-    font-weight: bold;
-}
+let sum = a + b;        // 15
+let difference = a - b; // 5
+let product = a * b;    // 50
+let quotient = a / b;   // 2
+let remainder = a % b;  // 0
 
-/* ID selector - targets element with id="header" */
-#header {
-    background-color: #2c3e50;
-    color: white;
-    padding: 20px;
-}</code></pre>
+// String concatenation
+let firstName = "Ali";
+let lastName = "Ahmed";
+let fullName = firstName + " " + lastName; // "Ali Ahmed"
+
+// Combining strings and numbers
+let age = 25;
+let message = "I am " + age + " years old"; // "I am 25 years old"
+
+console.log("Sum:", sum);
+console.log("Full name:", fullName);
+console.log("Message:", message);</code></pre>
                         </div>
                     </div>
 
                     <div class="content-section">
-                        <h2>🖌️ Styling Essentials</h2>
-                        <p>Master these fundamental CSS properties to create beautiful, well-styled web pages.</p>
+                        <h2>🎯 Building Interactive Apps</h2>
+                        <p>Now let's combine everything we've learned to create a simple but functional application that interacts with users.</p>
                         
                         <div class="concept-highlight">
-                            <h4>Essential Properties:</h4>
+                            <h4>🛠️ App Building Steps:</h4>
                             <ul>
-                                <li><strong>Colors:</strong> <code>color</code>, <code>background-color</code></li>
-                                <li><strong>Typography:</strong> <code>font-family</code>, <code>font-size</code>, <code>line-height</code></li>
-                                <li><strong>Borders:</strong> <code>border</code>, <code>border-radius</code></li>
-                                <li><strong>Spacing:</strong> <code>margin</code> (outside), <code>padding</code> (inside)</li>
+                                <li><strong>Input:</strong> Collect data from users</li>
+                                <li><strong>Process:</strong> Manipulate and calculate with the data</li>
+                                <li><strong>Output:</strong> Display results to users</li>
+                                <li><strong>Enhance:</strong> Add more features and validation</li>
                             </ul>
                         </div>
 
                         <div class="code-example">
                             <div class="code-header">
-                                <span>Styling Examples</span>
+                                <span>Mini Greeting App</span>
                                 <button class="copy-btn" onclick="copyCode(this)">
                                     <i class="fas fa-copy"></i>
                                 </button>
                             </div>
-                            <pre><code>/* Colors */
-.text-primary {
-    color: #3498db;
-    background-color: #ecf0f1;
+                            <pre><code>function createGreeting() {
+    // Step 1: Get user input
+    let name = prompt("What's your name?");
+    let age = prompt("How old are you?");
+    
+    // Step 2: Process the data
+    age = parseInt(age); // Convert string to number
+    let nextYearAge = age + 1;
+    
+    // Step 3: Create personalized message
+    let greeting = "Hello " + name + "!";
+    let ageMessage = "You are " + age + " years old.";
+    let futureMessage = "Next year you'll be " + nextYearAge + "!";
+    
+    // Step 4: Display results
+    alert(greeting + "\n" + ageMessage + "\n" + futureMessage);
+    
+    // Step 5: Log for debugging
+    console.log("User:", name, "Age:", age);
 }
 
-/* Typography */
-.heading {
-    font-family: 'Arial', sans-serif;
-    font-size: 24px;
-    line-height: 1.4;
-}
-
-/* Borders */
-.card {
-    border: 2px solid #bdc3c7;
-    border-radius: 8px;
-}
-
-/* Spacing */
-.container {
-    margin: 20px;
-    padding: 15px;
-}</code></pre>
-                        </div>
-                    </div>
-
-                    <div class="content-section">
-                        <h2>🆚 Class vs ID</h2>
-                        <p>Understanding when to use classes vs IDs is crucial for writing maintainable CSS.</p>
-                        
-                        <div class="concept-highlight">
-                            <h4>Key Differences:</h4>
-                            <ul>
-                                <li><strong>Classes (.class):</strong> Reusable, multiple elements can have same class</li>
-                                <li><strong>IDs (#id):</strong> Unique, only one element per page can have that ID</li>
-                                <li><strong>Specificity:</strong> IDs have higher specificity than classes</li>
-                            </ul>
+// Run the app
+createGreeting();</code></pre>
                         </div>
 
-                        <div class="code-example">
-                            <div class="code-header">
-                                <span>Class vs ID Usage</span>
-                                <button class="copy-btn" onclick="copyCode(this)">
-                                    <i class="fas fa-copy"></i>
-                                </button>
-                            </div>
-                            <pre><code>/* HTML */
-&lt;div id="header"&gt;Website Header&lt;/div&gt;
-&lt;div class="card"&gt;Card 1&lt;/div&gt;
-&lt;div class="card"&gt;Card 2&lt;/div&gt;
-&lt;div class="card"&gt;Card 3&lt;/div&gt;
-
-/* CSS */
-#header {
-    background-color: #2c3e50;
-    color: white;
-    padding: 20px;
-}
-
-.card {
-    background-color: #fff;
-    border: 1px solid #ddd;
-    padding: 15px;
-    margin: 10px;
-    border-radius: 5px;
-}</code></pre>
+                        <div class="tip-box">
+                            <h4>💡 Pro Tip:</h4>
+                            <p>Always use <code>parseInt()</code> or <code>Number()</code> when converting user input to numbers, as <code>prompt()</code> always returns a string, even for numbers.</p>
                         </div>
                     </div>
                 </div>
@@ -349,11 +326,10 @@ p {
                     <div class="sidebar-section">
                         <h3>Quick Navigation</h3>
                         <ul class="sidebar-nav">
-                            <li><a href="#what-is-css">What is CSS?</a></li>
-                            <li><a href="#css-methods">CSS Methods</a></li>
-                            <li><a href="#selectors">Selectors & Properties</a></li>
-                            <li><a href="#styling">Styling Essentials</a></li>
-                            <li><a href="#class-vs-id">Class vs ID</a></li>
+                            <li><a href="#fundamentals">JavaScript Fundamentals</a></li>
+                            <li><a href="#variables">Variables & Data Types</a></li>
+                            <li><a href="#math">Mathematical Operations</a></li>
+                            <li><a href="#apps">Building Interactive Apps</a></li>
                             <li><a href="#challenges">Challenges</a></li>
                         </ul>
                     </div>
@@ -361,18 +337,28 @@ p {
                     <div class="sidebar-section">
                         <h3>Resources</h3>
                         <ul class="resource-links">
-                            <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS" target="_blank">
+                            <li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide" target="_blank">
                                 <i class="fas fa-external-link-alt"></i>
-                                MDN CSS Guide
+                                MDN JavaScript Guide
                             </a></li>
-                            <li><a href="https://www.w3schools.com/css/" target="_blank">
+                            <li><a href="https://www.w3schools.com/js/" target="_blank">
                                 <i class="fas fa-external-link-alt"></i>
-                                W3Schools CSS
+                                W3Schools JavaScript
                             </a></li>
-                            <li><a href="https://css-tricks.com/" target="_blank">
+                            <li><a href="https://javascript.info/" target="_blank">
                                 <i class="fas fa-external-link-alt"></i>
-                                CSS-Tricks
+                                JavaScript.info
                             </a></li>
+                        </ul>
+                    </div>
+
+                    <div class="sidebar-section">
+                        <h3>Common Mistakes</h3>
+                        <ul class="mistakes-list">
+                            <li>Forgetting to use <code>let</code> or <code>const</code></li>
+                            <li>Mixing up <code>=</code> (assignment) and <code>==</code> (comparison)</li>
+                            <li>Not converting strings to numbers for math</li>
+                            <li>Missing semicolons or brackets</li>
                         </ul>
                     </div>
                 </div>
@@ -384,12 +370,12 @@ p {
     <section class="day-navigation">
         <div class="container">
             <div class="nav-buttons">
-                <button class="nav-btn" onclick="window.location.href='day2.html'">
+                <button class="nav-btn" onclick="window.location.href='css-advanced.html'">
                     <i class="fas fa-arrow-left"></i>
-                    Previous: Day 2
+                    Previous: Day 5
                 </button>
-                <button class="nav-btn primary" onclick="window.location.href='day4.html'">
-                    Next: Day 4
+                <button class="nav-btn primary" onclick="window.location.href='javascript-conditions.html'">
+                    Next: Day 7
                     <i class="fas fa-arrow-right"></i>
                 </button>
             </div>
@@ -448,10 +434,9 @@ p {
         // Initialize Monaco Editor when page loads
         require.config({ paths: { vs: 'https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.44.0/min/vs' } });
         require(['vs/editor/editor.main'], function() {
-            console.log('Monaco Editor loaded successfully for Day 3');
+            console.log('Monaco Editor loaded successfully');
         });
         
-        // Day-specific functionality
         function openChallenge(challengeNumber) {
             openChallengeModal(challengeNumber);
         }

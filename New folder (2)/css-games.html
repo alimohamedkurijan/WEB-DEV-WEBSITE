@@ -1,0 +1,1058 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Styling Quest - Interactive Learning Games</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        .game-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .game-header {
+            text-align: center;
+            margin-bottom: 40px;
+            background: linear-gradient(135deg, #01D29B 0%, #121212 100%);
+            color: white;
+            padding: 40px;
+            border-radius: 20px;
+        }
+        
+        .game-header h1 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+        }
+        
+        .game-header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+        
+        .game-stats {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 20px;
+        }
+        
+        .stat-item {
+            text-align: center;
+        }
+        
+        .stat-number {
+            font-size: 2rem;
+            font-weight: bold;
+            display: block;
+        }
+        
+        .stat-label {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+        
+        .game-levels {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+        
+        .level-card {
+            background: white;
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+        
+        .level-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        }
+        
+        .level-card.active {
+            border-color: #01D29B;
+            background: linear-gradient(135deg, #01D29B 0%, #121212 100%);
+            color: white;
+        }
+        
+        .level-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+        
+        .level-icon {
+            width: 50px;
+            height: 50px;
+            background: rgba(1, 210, 155, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: #01D29B;
+        }
+        
+        .level-card.active .level-icon {
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+        }
+        
+        .level-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+        }
+        
+        .level-description {
+            margin-bottom: 15px;
+            line-height: 1.5;
+        }
+        
+        .level-progress {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .progress-bar {
+            flex: 1;
+            height: 8px;
+            background: #e9ecef;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+        
+        .level-card.active .progress-bar {
+            background: rgba(255, 255, 255, 0.2);
+        }
+        
+        .progress-fill {
+            height: 100%;
+            background: #01D29B;
+            transition: width 0.3s ease;
+        }
+        
+        .level-card.active .progress-fill {
+            background: white;
+        }
+        
+        .game-area {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+        }
+        
+        .game-title {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: #333;
+        }
+        
+        .game-instructions {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            border-left: 4px solid #667eea;
+        }
+        
+        .game-instructions h3 {
+            margin-bottom: 10px;
+            color: #667eea;
+        }
+        
+        .style-challenge {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+        
+        .target-area {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            min-height: 300px;
+        }
+        
+        .target-area h3 {
+            margin-bottom: 20px;
+            text-align: center;
+            color: #333;
+        }
+        
+        .target-element {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            border: 2px solid #e9ecef;
+            transition: all 0.3s ease;
+        }
+        
+        .target-element:hover {
+            border-color: #667eea;
+        }
+        
+        .code-editor {
+            background: #2d3748;
+            color: #e2e8f0;
+            padding: 20px;
+            border-radius: 10px;
+            font-family: 'Courier New', monospace;
+            position: relative;
+        }
+        
+        .code-editor textarea {
+            width: 100%;
+            min-height: 200px;
+            background: transparent;
+            border: none;
+            color: #e2e8f0;
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+            line-height: 1.5;
+            resize: vertical;
+            outline: none;
+        }
+        
+        .color-picker-game {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .color-card {
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .color-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+        }
+        
+        .color-preview {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            margin: 0 auto 15px;
+            border: 3px solid #e9ecef;
+        }
+        
+        .color-name {
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+        
+        .color-hex {
+            font-family: monospace;
+            color: #6c757d;
+        }
+        
+        .layout-puzzle {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+        
+        .puzzle-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .puzzle-piece {
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            border: 2px solid #e9ecef;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+        
+        .puzzle-piece:hover {
+            border-color: #667eea;
+            transform: translateY(-2px);
+        }
+        
+        .puzzle-piece.selected {
+            border-color: #667eea;
+            background: #e3f2fd;
+        }
+        
+        .puzzle-piece.correct {
+            border-color: #28a745;
+            background: #d4edda;
+        }
+        
+        .game-controls {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            margin-bottom: 30px;
+        }
+        
+        .game-btn {
+            padding: 12px 24px;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .game-btn.primary {
+            background: #01D29B;
+            color: white;
+        }
+        
+        .game-btn.primary:hover {
+            background: #00b894;
+            transform: translateY(-2px);
+        }
+        
+        .game-btn.secondary {
+            background: #6c757d;
+            color: white;
+        }
+        
+        .game-btn.secondary:hover {
+            background: #5a6268;
+        }
+        
+        .game-btn.success {
+            background: #28a745;
+            color: white;
+        }
+        
+        .game-btn.success:hover {
+            background: #218838;
+        }
+        
+        .score-display {
+            text-align: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #01D29B;
+            margin-bottom: 20px;
+        }
+        
+        .timer {
+            text-align: center;
+            font-size: 1.2rem;
+            color: #6c757d;
+            margin-bottom: 20px;
+        }
+        
+        .feedback {
+            text-align: center;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+        
+        .feedback.correct {
+            background: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+        
+        .feedback.incorrect {
+            background: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+        
+        .feedback.info {
+            background: #d1ecf1;
+            color: #0c5460;
+            border: 1px solid #bee5eb;
+        }
+        
+        .completion-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+        }
+        
+        .completion-content {
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            text-align: center;
+            max-width: 500px;
+            width: 90%;
+        }
+        
+        .completion-icon {
+            font-size: 4rem;
+            color: #28a745;
+            margin-bottom: 20px;
+        }
+        
+        .completion-title {
+            font-size: 2rem;
+            margin-bottom: 15px;
+            color: #333;
+        }
+        
+        .completion-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin: 30px 0;
+        }
+        
+        .completion-stat {
+            text-align: center;
+        }
+        
+        .completion-stat-number {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #01D29B;
+            display: block;
+        }
+        
+        .completion-stat-label {
+            font-size: 0.9rem;
+            color: #6c757d;
+        }
+        
+        @media (max-width: 768px) {
+            .style-challenge {
+                grid-template-columns: 1fr;
+            }
+            
+            .game-stats {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .game-controls {
+                flex-direction: column;
+            }
+            
+            .puzzle-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo" onclick="window.location.href='index.html'">
+                <i class="fas fa-code"></i>
+                <span>WebDev LMS</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="index.html#curriculum" class="nav-link">Curriculum</a></li>
+                <li><a href="index.html#challenges" class="nav-link">Challenges</a></li>
+                <li><a href="index.html#gaming" class="nav-link active">Games</a></li>
+                <li><a href="index.html#resources" class="nav-link">Resources</a></li>
+            </ul>
+            <div class="nav-actions">
+                <div class="page-indicator">
+                    <i class="fas fa-palette"></i>
+                    <span>CSS Styling Quest</span>
+                </div>
+                <button class="nav-btn-secondary" onclick="window.location.href='index.html'">
+                    <i class="fas fa-home"></i>
+                    Back to Home
+                </button>
+            </div>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <div class="game-container">
+        <!-- Game Header -->
+        <div class="game-header">
+            <h1>🎨 CSS Styling Quest</h1>
+            <p>Learn CSS properties, selectors, and layouts through visual design challenges</p>
+            <div class="game-stats">
+                <div class="stat-item">
+                    <span class="stat-number" id="totalScore">0</span>
+                    <span class="stat-label">Total Score</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number" id="levelProgress">1</span>
+                    <span class="stat-label">Current Level</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number" id="completedLevels">0</span>
+                    <span class="stat-label">Completed</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Game Levels -->
+        <div class="game-levels">
+            <div class="level-card" data-level="1" onclick="selectLevel(1)">
+                <div class="level-header">
+                    <div class="level-icon">
+                        <i class="fas fa-paint-brush"></i>
+                    </div>
+                    <div>
+                        <div class="level-title">Level 1: Colors & Text</div>
+                        <div class="level-description">Learn color properties, text styling, and basic CSS selectors</div>
+                    </div>
+                </div>
+                <div class="level-progress">
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 0%"></div>
+                    </div>
+                    <span>0%</span>
+                </div>
+            </div>
+
+            <div class="level-card" data-level="2" onclick="selectLevel(2)">
+                <div class="level-header">
+                    <div class="level-icon">
+                        <i class="fas fa-box"></i>
+                    </div>
+                    <div>
+                        <div class="level-title">Level 2: Box Model</div>
+                        <div class="level-description">Master margins, padding, borders, and box sizing</div>
+                    </div>
+                </div>
+                <div class="level-progress">
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 0%"></div>
+                    </div>
+                    <span>0%</span>
+                </div>
+            </div>
+
+            <div class="level-card" data-level="3" onclick="selectLevel(3)">
+                <div class="level-header">
+                    <div class="level-icon">
+                        <i class="fas fa-th-large"></i>
+                    </div>
+                    <div>
+                        <div class="level-title">Level 3: Layout Basics</div>
+                        <div class="level-description">Learn display properties, positioning, and basic layouts</div>
+                    </div>
+                </div>
+                <div class="level-progress">
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 0%"></div>
+                    </div>
+                    <span>0%</span>
+                </div>
+            </div>
+
+            <div class="level-card" data-level="4" onclick="selectLevel(4)">
+                <div class="level-header">
+                    <div class="level-icon">
+                        <i class="fas fa-columns"></i>
+                    </div>
+                    <div>
+                        <div class="level-title">Level 4: Flexbox</div>
+                        <div class="level-description">Master flexbox for responsive layouts and alignment</div>
+                    </div>
+                </div>
+                <div class="level-progress">
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 0%"></div>
+                    </div>
+                    <span>0%</span>
+                </div>
+            </div>
+
+            <div class="level-card" data-level="5" onclick="selectLevel(5)">
+                <div class="level-header">
+                    <div class="level-icon">
+                        <i class="fas fa-border-all"></i>
+                    </div>
+                    <div>
+                        <div class="level-title">Level 5: CSS Grid</div>
+                        <div class="level-description">Learn CSS Grid for complex two-dimensional layouts</div>
+                    </div>
+                </div>
+                <div class="level-progress">
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 0%"></div>
+                    </div>
+                    <span>0%</span>
+                </div>
+            </div>
+
+            <div class="level-card" data-level="6" onclick="selectLevel(6)">
+                <div class="level-header">
+                    <div class="level-icon">
+                        <i class="fas fa-trophy"></i>
+                    </div>
+                    <div>
+                        <div class="level-title">Level 6: Advanced Challenge</div>
+                        <div class="level-description">Combine all CSS skills to create complex layouts</div>
+                    </div>
+                </div>
+                <div class="level-progress">
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 0%"></div>
+                    </div>
+                    <span>0%</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Game Area -->
+        <div class="game-area" id="gameArea">
+            <h2 class="game-title">Select a level to start styling!</h2>
+            <div class="game-instructions">
+                <h3>How to Play:</h3>
+                <p>1. Choose a level from the cards above</p>
+                <p>2. Write CSS code to match the target design</p>
+                <p>3. Use the live preview to see your changes</p>
+                <p>4. Complete challenges to unlock new levels!</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Completion Modal -->
+    <div class="completion-modal" id="completionModal">
+        <div class="completion-content">
+            <div class="completion-icon">
+                <i class="fas fa-trophy"></i>
+            </div>
+            <h2 class="completion-title">Level Complete!</h2>
+            <p>Congratulations! You've mastered this CSS level.</p>
+            <div class="completion-stats">
+                <div class="completion-stat">
+                    <span class="completion-stat-number" id="modalScore">0</span>
+                    <span class="completion-stat-label">Score</span>
+                </div>
+                <div class="completion-stat">
+                    <span class="completion-stat-number" id="modalTime">0</span>
+                    <span class="completion-stat-label">Time (s)</span>
+                </div>
+                <div class="completion-stat">
+                    <span class="completion-stat-number" id="modalAccuracy">0%</span>
+                    <span class="completion-stat-label">Accuracy</span>
+                </div>
+            </div>
+            <div class="game-controls">
+                <button class="game-btn primary" onclick="nextLevel()">Next Level</button>
+                <button class="game-btn secondary" onclick="closeModal()">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Game state
+        let currentLevel = 1;
+        let currentScore = 0;
+        let gameTimer = 0;
+        let timerInterval;
+        let levelProgress = {
+            1: 0, 2: 0, 3: 0, 4: 0, 5: 0, 6: 0
+        };
+
+        // Level data
+        const levelData = {
+            1: {
+                title: "Colors & Text",
+                description: "Style text and colors to match the target design",
+                type: "style-matching",
+                challenges: [
+                    {
+                        title: "Color the Heading",
+                        description: "Make the heading blue and center it",
+                        target: `<h1 style="color: blue; text-align: center;">Welcome to CSS</h1>`,
+                        starter: `<h1>Welcome to CSS</h1>`,
+                        solution: `h1 { color: blue; text-align: center; }`
+                    },
+                    {
+                        title: "Style the Paragraph",
+                        description: "Make the paragraph red with larger font",
+                        target: `<p style="color: red; font-size: 18px;">This is a styled paragraph</p>`,
+                        starter: `<p>This is a styled paragraph</p>`,
+                        solution: `p { color: red; font-size: 18px; }`
+                    }
+                ]
+            },
+            2: {
+                title: "Box Model",
+                description: "Apply margins, padding, and borders",
+                type: "style-matching",
+                challenges: [
+                    {
+                        title: "Add Padding and Border",
+                        description: "Add 20px padding and a 2px solid black border",
+                        target: `<div style="padding: 20px; border: 2px solid black;">Box with padding and border</div>`,
+                        starter: `<div>Box with padding and border</div>`,
+                        solution: `div { padding: 20px; border: 2px solid black; }`
+                    }
+                ]
+            },
+            3: {
+                title: "Layout Basics",
+                description: "Learn display properties and positioning",
+                type: "layout-puzzle",
+                challenges: [
+                    {
+                        title: "Create a Horizontal Layout",
+                        description: "Make the boxes display horizontally",
+                        target: "horizontal",
+                        pieces: ["display: block;", "display: inline;", "display: inline-block;", "display: flex;"]
+                    }
+                ]
+            },
+            4: {
+                title: "Flexbox",
+                description: "Master flexbox for responsive layouts",
+                type: "style-matching",
+                challenges: [
+                    {
+                        title: "Center with Flexbox",
+                        description: "Center the content both horizontally and vertically",
+                        target: `<div style="display: flex; justify-content: center; align-items: center; height: 200px; background: #f0f0f0;">
+    <span>Centered Content</span>
+</div>`,
+                        starter: `<div style="height: 200px; background: #f0f0f0;">
+    <span>Centered Content</span>
+</div>`,
+                        solution: `div { display: flex; justify-content: center; align-items: center; }`
+                    }
+                ]
+            },
+            5: {
+                title: "CSS Grid",
+                description: "Create grid layouts",
+                type: "style-matching",
+                challenges: [
+                    {
+                        title: "Create a 2x2 Grid",
+                        description: "Make a 2x2 grid layout",
+                        target: `<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+    <div style="background: #ff6b6b; padding: 20px;">Box 1</div>
+    <div style="background: #4ecdc4; padding: 20px;">Box 2</div>
+    <div style="background: #45b7d1; padding: 20px;">Box 3</div>
+    <div style="background: #96ceb4; padding: 20px;">Box 4</div>
+</div>`,
+                        starter: `<div>
+    <div style="background: #ff6b6b; padding: 20px;">Box 1</div>
+    <div style="background: #4ecdc4; padding: 20px;">Box 2</div>
+    <div style="background: #45b7d1; padding: 20px;">Box 3</div>
+    <div style="background: #96ceb4; padding: 20px;">Box 4</div>
+</div>`,
+                        solution: `div { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }`
+                    }
+                ]
+            },
+            6: {
+                title: "Advanced Challenge",
+                description: "Combine all CSS skills",
+                type: "color-matching",
+                challenges: [
+                    {
+                        title: "Match the Colors",
+                        description: "Click the correct color for each element",
+                        colors: [
+                            { name: "Primary Blue", hex: "#667eea" },
+                            { name: "Success Green", hex: "#28a745" },
+                            { name: "Warning Orange", hex: "#ffc107" },
+                            { name: "Danger Red", hex: "#dc3545" },
+                            { name: "Info Cyan", hex: "#17a2b8" },
+                            { name: "Dark Gray", hex: "#343a40" }
+                        ]
+                    }
+                ]
+            }
+        };
+
+        // Initialize game
+        document.addEventListener('DOMContentLoaded', function() {
+            updateStats();
+            loadLevelProgress();
+        });
+
+        function selectLevel(level) {
+            currentLevel = level;
+            
+            // Update active level card
+            document.querySelectorAll('.level-card').forEach(card => {
+                card.classList.remove('active');
+            });
+            document.querySelector(`[data-level="${level}"]`).classList.add('active');
+            
+            // Load level content
+            loadLevel(level);
+        }
+
+        function loadLevel(level) {
+            const levelInfo = levelData[level];
+            const gameArea = document.getElementById('gameArea');
+            
+            gameArea.innerHTML = `
+                <h2 class="game-title">Level ${level}: ${levelInfo.title}</h2>
+                <div class="game-instructions">
+                    <h3>Instructions:</h3>
+                    <p>${levelInfo.description}</p>
+                </div>
+                <div class="score-display">Score: <span id="currentScore">0</span></div>
+                <div class="timer">Time: <span id="currentTimer">0</span>s</div>
+                <div id="gameContent"></div>
+                <div class="game-controls">
+                    <button class="game-btn primary" onclick="startGame()">Start Game</button>
+                    <button class="game-btn secondary" onclick="resetGame()">Reset</button>
+                </div>
+            `;
+            
+            // Load specific game type
+            switch(levelInfo.type) {
+                case 'style-matching':
+                    loadStyleMatchingGame(levelInfo.challenges);
+                    break;
+                case 'layout-puzzle':
+                    loadLayoutPuzzle(levelInfo.challenges);
+                    break;
+                case 'color-matching':
+                    loadColorMatchingGame(levelInfo.challenges);
+                    break;
+            }
+        }
+
+        function loadStyleMatchingGame(challenges) {
+            const gameContent = document.getElementById('gameContent');
+            const challenge = challenges[0];
+            
+            gameContent.innerHTML = `
+                <div class="style-challenge">
+                    <div class="target-area">
+                        <h3>Target Design</h3>
+                        <div class="target-element">
+                            ${challenge.target}
+                        </div>
+                    </div>
+                    <div class="target-area">
+                        <h3>Your Design</h3>
+                        <div class="target-element" id="preview">
+                            ${challenge.starter}
+                        </div>
+                    </div>
+                </div>
+                <div class="code-editor">
+                    <h3>Write your CSS:</h3>
+                    <textarea id="cssCode" placeholder="Enter your CSS code here...">${challenge.solution}</textarea>
+                </div>
+                <div id="feedback"></div>
+            `;
+            
+            // Setup live preview
+            const cssCode = document.getElementById('cssCode');
+            const preview = document.getElementById('preview');
+            
+            cssCode.addEventListener('input', function() {
+                applyCSS(cssCode.value, preview);
+            });
+            
+            // Apply initial CSS
+            applyCSS(cssCode.value, preview);
+        }
+
+        function applyCSS(css, element) {
+            // Create a style element
+            const style = document.createElement('style');
+            style.textContent = css;
+            document.head.appendChild(style);
+            
+            // Remove previous styles
+            setTimeout(() => {
+                document.head.removeChild(style);
+            }, 100);
+        }
+
+        function loadLayoutPuzzle(challenges) {
+            const gameContent = document.getElementById('gameContent');
+            const challenge = challenges[0];
+            
+            gameContent.innerHTML = `
+                <div class="layout-puzzle">
+                    <h3>${challenge.title}</h3>
+                    <p>${challenge.description}</p>
+                    <div class="puzzle-grid">
+                        ${challenge.pieces.map(piece => `
+                            <div class="puzzle-piece" data-piece="${piece}">${piece}</div>
+                        `).join('')}
+                    </div>
+                    <div id="puzzleOutput"></div>
+                </div>
+                <div id="feedback"></div>
+            `;
+            
+            setupLayoutPuzzle();
+        }
+
+        function setupLayoutPuzzle() {
+            const pieces = document.querySelectorAll('.puzzle-piece');
+            let selectedPieces = [];
+            
+            pieces.forEach(piece => {
+                piece.addEventListener('click', () => {
+                    if (!piece.classList.contains('selected')) {
+                        piece.classList.add('selected');
+                        selectedPieces.push(piece.dataset.piece);
+                    } else {
+                        piece.classList.remove('selected');
+                        selectedPieces = selectedPieces.filter(p => p !== piece.dataset.piece);
+                    }
+                    
+                    updatePuzzleOutput(selectedPieces);
+                });
+            });
+        }
+
+        function updatePuzzleOutput(pieces) {
+            const output = document.getElementById('puzzleOutput');
+            output.innerHTML = `
+                <h4>Your CSS:</h4>
+                <div style="background: #f8f9fa; padding: 15px; border-radius: 8px; font-family: monospace;">
+                    ${pieces.map(piece => piece).join('\n')}
+                </div>
+            `;
+        }
+
+        function loadColorMatchingGame(challenges) {
+            const gameContent = document.getElementById('gameContent');
+            const challenge = challenges[0];
+            
+            gameContent.innerHTML = `
+                <div class="color-picker-game">
+                    ${challenge.colors.map(color => `
+                        <div class="color-card" onclick="selectColor('${color.hex}')">
+                            <div class="color-preview" style="background-color: ${color.hex}"></div>
+                            <div class="color-name">${color.name}</div>
+                            <div class="color-hex">${color.hex}</div>
+                        </div>
+                    `).join('')}
+                </div>
+                <div id="feedback"></div>
+            `;
+        }
+
+        function selectColor(hex) {
+            // Simple color matching game
+            const correctColors = ['#667eea', '#28a745', '#ffc107', '#dc3545', '#17a2b8', '#343a40'];
+            const isCorrect = correctColors.includes(hex);
+            
+            if (isCorrect) {
+                currentScore += 10;
+                showFeedback('Correct color! +10 points', 'correct');
+            } else {
+                showFeedback('Try again!', 'incorrect');
+            }
+            
+            updateCurrentScore();
+        }
+
+        function startGame() {
+            currentScore = 0;
+            gameTimer = 0;
+            updateCurrentScore();
+            
+            timerInterval = setInterval(() => {
+                gameTimer++;
+                document.getElementById('currentTimer').textContent = gameTimer;
+            }, 1000);
+        }
+
+        function resetGame() {
+            clearInterval(timerInterval);
+            loadLevel(currentLevel);
+        }
+
+        function showFeedback(message, type) {
+            const feedback = document.getElementById('feedback');
+            feedback.innerHTML = `<div class="feedback ${type}">${message}</div>`;
+            
+            setTimeout(() => {
+                feedback.innerHTML = '';
+            }, 3000);
+        }
+
+        function updateCurrentScore() {
+            document.getElementById('currentScore').textContent = currentScore;
+        }
+
+        function updateStats() {
+            document.getElementById('totalScore').textContent = currentScore;
+            document.getElementById('levelProgress').textContent = currentLevel;
+            document.getElementById('completedLevels').textContent = 
+                Object.values(levelProgress).filter(progress => progress === 100).length;
+        }
+
+        function updateLevelProgress() {
+            Object.keys(levelProgress).forEach(level => {
+                const card = document.querySelector(`[data-level="${level}"]`);
+                const progressFill = card.querySelector('.progress-fill');
+                const progressText = card.querySelector('.level-progress span:last-child');
+                
+                progressFill.style.width = levelProgress[level] + '%';
+                progressText.textContent = levelProgress[level] + '%';
+            });
+        }
+
+        function loadLevelProgress() {
+            const saved = localStorage.getItem('cssGameProgress');
+            if (saved) {
+                levelProgress = JSON.parse(saved);
+                updateLevelProgress();
+            }
+        }
+
+        function saveLevelProgress() {
+            localStorage.setItem('cssGameProgress', JSON.stringify(levelProgress));
+        }
+
+        function nextLevel() {
+            if (currentLevel < 6) {
+                currentLevel++;
+                selectLevel(currentLevel);
+            }
+            closeModal();
+        }
+
+        function closeModal() {
+            document.getElementById('completionModal').style.display = 'none';
+        }
+    </script>
+</body>
+</html> 

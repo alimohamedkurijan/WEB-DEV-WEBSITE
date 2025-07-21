@@ -3,10 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Day 5 - Box Model & Styling | Web Development LMS</title>
+    <title>Day 5: Box Model & Styling - WebDev LMS</title>
     <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.44.0/min/vs/loader.min.js"></script>
 </head>
 <body>
     <!-- Navigation -->
@@ -27,7 +28,7 @@
                     <i class="fas fa-box"></i>
                     <span>Day 5: Box Model & Styling</span>
                 </div>
-                <button class="nav-btn-secondary" onclick="window.location.href='day6.html'">
+                <button class="nav-btn-secondary" onclick="window.location.href='javascript-basics.html'">
                     <i class="fas fa-arrow-right"></i>
                     Next Day
                 </button>
@@ -155,7 +156,7 @@
             <div class="content-grid">
                 <!-- Main Content -->
                 <div class="content-main">
-                    <div class="content-section">
+                    <div class="content-section" id="box-model">
                         <h2>📦 Understanding the CSS Box Model</h2>
                         <p>The CSS box model is fundamental to understanding how elements are sized and spaced. Every HTML element is treated as a box with four layers that determine its final size and position.</p>
                         
@@ -214,7 +215,7 @@
                         </div>
                     </div>
 
-                    <div class="content-section">
+                    <div class="content-section" id="background-styling">
                         <h2>🎨 Background Styling</h2>
                         <p>CSS provides powerful tools for styling element backgrounds, from simple colors to complex images and gradients.</p>
                         
@@ -267,7 +268,7 @@
                         </div>
                     </div>
 
-                    <div class="content-section">
+                    <div class="content-section" id="hover-effects">
                         <h2>🎯 Hover Effects & Transitions</h2>
                         <p>Hover effects and transitions make your websites interactive and engaging. They provide visual feedback and smooth animations.</p>
                         
@@ -342,7 +343,7 @@
                         </div>
                     </div>
 
-                    <div class="content-section">
+                    <div class="content-section" id="responsive-design">
                         <h2>📱 Responsive Design Basics</h2>
                         <p>Responsive design ensures your websites look great on all devices, from mobile phones to desktop computers.</p>
                         
@@ -424,7 +425,8 @@
                                     <h4>Card 3</h4>
                                     <p>Cards will stack on smaller screens</p>
                                 </div>
-                                                    </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
@@ -434,13 +436,12 @@
                         <h3>Quick Navigation</h3>
                         <ul class="sidebar-nav">
                             <li><a href="#box-model">Box Model</a></li>
-                            <li><a href="#backgrounds">Background Styling</a></li>
+                            <li><a href="#background-styling">Background Styling</a></li>
                             <li><a href="#hover-effects">Hover Effects</a></li>
-                            <li><a href="#responsive">Responsive Design</a></li>
+                            <li><a href="#responsive-design">Responsive Design</a></li>
                             <li><a href="#challenges">Challenges</a></li>
                         </ul>
                     </div>
-
                     <div class="sidebar-section">
                         <h3>Resources</h3>
                         <ul class="resource-links">
@@ -467,11 +468,11 @@
     <section class="day-navigation">
         <div class="container">
             <div class="nav-buttons">
-                <button class="nav-btn" onclick="window.location.href='day4.html'">
+                <button class="nav-btn" onclick="window.location.href='css-layout.html'">
                     <i class="fas fa-arrow-left"></i>
                     Previous: Day 4
                 </button>
-                <button class="nav-btn primary" onclick="window.location.href='day6.html'">
+                <button class="nav-btn primary" onclick="window.location.href='javascript-basics.html'">
                     Next: Day 6
                     <i class="fas fa-arrow-right"></i>
                 </button>
@@ -486,7 +487,8 @@
                 <h2 id="modalChallengeTitle">Challenge Title</h2>
                 <div class="challenge-modal-actions">
                     <button class="complete-btn" onclick="completeChallenge()">
-                        <i class="fas fa-check"></i> Complete
+                        <i class="fas fa-check"></i>
+                        Complete Challenge
                     </button>
                     <button class="close-challenge-modal" onclick="closeChallengeModal()">
                         <i class="fas fa-times"></i>
@@ -495,14 +497,36 @@
             </div>
             <div class="challenge-modal-body">
                 <div id="modalChallengeContent">
-                    <!-- Challenge content will be inserted here -->
+                    <!-- Challenge content will be loaded here -->
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- Scripts -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.36.1/min/vs/loader.min.js"></script>
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>WebDev LMS</h3>
+                    <p>Master web development in 10 days with hands-on challenges and real-world projects.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="index.html#curriculum">Curriculum</a></li>
+                        <li><a href="index.html#challenges">Challenges</a></li>
+                        <li><a href="index.html#resources">Resources</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 WebDev LMS. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
     <script src="script.js"></script>
     <script>
         // Initialize Monaco Editor when page loads
@@ -613,27 +637,5 @@
             }
         }
     </style>
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h3>WebDev LMS</h3>
-                    <p>Master web development in 10 days with hands-on challenges and real-world projects.</p>
-                </div>
-                <div class="footer-section">
-                    <h4>Quick Links</h4>
-                    <ul>
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="index.html#curriculum">Curriculum</a></li>
-                        <li><a href="index.html#challenges">Challenges</a></li>
-                        <li><a href="index.html#resources">Resources</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2024 WebDev LMS. All rights reserved.</p>
-            </div>
-        </div>
 </body>
 </html> 
