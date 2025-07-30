@@ -71,7 +71,7 @@
     <!-- Challenges Section -->
     <section class="challenges-section">
         <div class="container">
-            <h2>🎯 Practice Challenges</h2>
+                            <h2><i class="fas fa-bullseye"></i> Practice Challenges</h2>
             <p class="challenges-intro">Complete these hands-on challenges to master HTML forms and elements:</p>
             
             <div class="challenges-grid">
@@ -84,10 +84,10 @@
                             <span class="time">10 min</span>
                         </div>
                     </div>
-                    <h3>📋 Basic Form</h3>
+                    <h3><i class="fas fa-list"></i> Basic Form</h3>
                     <p>Create a simple contact form with text inputs and a submit button.</p>
                     
-                    <button class="challenge-btn" onclick="openChallenge(5)">
+                    <button class="challenge-btn" onclick="openChallenge(1)">
                         <i class="fas fa-play"></i>
                         Start Challenge
                     </button>
@@ -105,7 +105,7 @@
                     <h3>☑️ Input Types</h3>
                     <p>Use different input types: email, number, password, and date.</p>
                     
-                    <button class="challenge-btn" onclick="openChallenge(6)">
+                    <button class="challenge-btn" onclick="openChallenge(2)">
                         <i class="fas fa-play"></i>
                         Start Challenge
                     </button>
@@ -123,7 +123,7 @@
                     <h3>🔘 Radio & Checkbox</h3>
                     <p>Create form elements with radio buttons and checkboxes for user selections.</p>
                     
-                    <button class="challenge-btn" onclick="openChallenge(7)">
+                    <button class="challenge-btn" onclick="openChallenge(3)">
                         <i class="fas fa-play"></i>
                         Start Challenge
                     </button>
@@ -168,13 +168,13 @@
                         </div>
 
                         <div class="tip-box">
-                            <h4>💡 Pro Tip</h4>
+                            <h4><i class="fas fa-lightbulb"></i> Pro Tip</h4>
                             <p>Use <code>&lt;div&gt;</code> for structural layout and <code>&lt;span&gt;</code> for inline text styling. This semantic approach makes your code more readable and accessible.</p>
                         </div>
                     </div>
 
                     <div class="content-section">
-                        <h2>📝 Introduction to Forms</h2>
+                        <h2><i class="fas fa-edit"></i> Introduction to Forms</h2>
                         <p>Forms are the backbone of user interaction on the web. They allow users to submit data, make selections, and interact with your website.</p>
                         
                         <div class="concept-highlight">
@@ -249,7 +249,7 @@
                     </div>
 
                     <div class="content-section">
-                        <h2>✅ Radio & Checkbox Inputs</h2>
+                        <h2><i class="fas fa-check-circle"></i> Radio & Checkbox Inputs</h2>
                         <p>Radio buttons and checkboxes allow users to make selections from predefined options.</p>
                         
                         <div class="concept-highlight">
@@ -300,7 +300,7 @@
                     </div>
 
                     <div class="content-section">
-                        <h2>🔽 Select & 📝 Textarea</h2>
+                        <h2><i class="fas fa-caret-down"></i> Select & <i class="fas fa-edit"></i> Textarea</h2>
                         <p>Select dropdowns and textarea elements provide additional input options for users.</p>
                         
                         <div class="concept-highlight">
@@ -340,7 +340,7 @@
                         </div>
 
                         <div class="practice-exercise">
-                            <h4>🎯 Practice Exercise</h4>
+                            <h4><i class="fas fa-bullseye"></i> Practice Exercise</h4>
                             <p>Create a complete registration form that includes all the elements we've learned: text inputs, radio buttons, checkboxes, select dropdown, and textarea. Structure it properly with <code>&lt;div&gt;</code> elements and use <code>&lt;span&gt;</code> for emphasis where needed.</p>
                         </div>
                     </div>
@@ -447,13 +447,13 @@
 
     <script src="script.js"></script>
     <script>
-        // Initialize Monaco Editor when page loads
+        // Simple Monaco Editor initialization
         require.config({ paths: { vs: 'https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.44.0/min/vs' } });
         require(['vs/editor/editor.main'], function() {
             console.log('Monaco Editor loaded successfully for Day 2');
         });
         
-        // Day-specific functionality
+        // Simple challenge function - works immediately
         function openChallenge(challengeNumber) {
             openChallengeModal(challengeNumber);
         }

@@ -3,1125 +3,1124 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HTML Tag Master - Interactive Learning Games</title>
+    <title>HTML Coding Quest - WebDev LMS</title>
     <link rel="stylesheet" href="styles.css">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <style>
-        .game-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-        
-        .game-header {
-            text-align: center;
-            margin-bottom: 40px;
-            background: linear-gradient(135deg, #01D29B 0%, #121212 100%);
-            color: white;
-            padding: 40px;
-            border-radius: 20px;
-        }
-        
-        .game-header h1 {
-            font-size: 3rem;
-            margin-bottom: 10px;
-        }
-        
-        .game-header p {
-            font-size: 1.2rem;
-            opacity: 0.9;
-        }
-        
-        .game-stats {
-            display: flex;
-            justify-content: center;
-            gap: 30px;
-            margin-top: 20px;
-        }
-        
-        .stat-item {
-            text-align: center;
-        }
-        
-        .stat-number {
-            font-size: 2rem;
-            font-weight: bold;
-            display: block;
-        }
-        
-        .stat-label {
-            font-size: 0.9rem;
-            opacity: 0.8;
-        }
-        
-        .game-levels {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
-            margin-bottom: 40px;
-        }
-        
-        .level-card {
-            background: white;
-            border-radius: 15px;
-            padding: 25px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            cursor: pointer;
-            transition: all 0.3s ease;
-            border: 2px solid transparent;
-        }
-        
-        .level-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
-        }
-        
-        .level-card.active {
-            border-color: #01D29B;
-            background: linear-gradient(135deg, #01D29B 0%, #121212 100%);
-            color: white;
-        }
-        
-        .level-header {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            margin-bottom: 15px;
-        }
-        
-        .level-icon {
-            width: 50px;
-            height: 50px;
-            background: rgba(1, 210, 155, 0.1);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.5rem;
-            color: #01D29B;
-        }
-        
-        .level-card.active .level-icon {
-            background: rgba(255, 255, 255, 0.2);
-            color: white;
-        }
-        
-        .level-title {
-            font-size: 1.3rem;
-            font-weight: 600;
-        }
-        
-        .level-description {
-            margin-bottom: 15px;
-            line-height: 1.5;
-        }
-        
-        .level-progress {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-        
-        .progress-bar {
-            flex: 1;
-            height: 8px;
-            background: #e9ecef;
-            border-radius: 4px;
-            overflow: hidden;
-        }
-        
-        .level-card.active .progress-bar {
-            background: rgba(255, 255, 255, 0.2);
-        }
-        
-        .progress-fill {
-            height: 100%;
-            background: #01D29B;
-            transition: width 0.3s ease;
-        }
-        
-        .level-card.active .progress-fill {
-            background: white;
-        }
-        
-        .game-area {
-            background: white;
-            border-radius: 15px;
-            padding: 30px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            margin-bottom: 30px;
-        }
-        
-        .game-title {
-            font-size: 2rem;
-            margin-bottom: 20px;
-            color: #333;
-        }
-        
-        .game-instructions {
-            background: #f8f9fa;
-            padding: 20px;
-            border-radius: 10px;
-            margin-bottom: 30px;
-            border-left: 4px solid #667eea;
-        }
-        
-        .game-instructions h3 {
-            margin-bottom: 10px;
-            color: #667eea;
-        }
-        
-        .tag-matching-game {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 30px;
-            margin-bottom: 30px;
-        }
-        
-        .tag-column {
-            background: #f8f9fa;
-            padding: 20px;
-            border-radius: 10px;
-            min-height: 300px;
-        }
-        
-        .tag-column h3 {
-            margin-bottom: 20px;
-            text-align: center;
-            color: #333;
-        }
-        
-        .tag-item {
-            background: white;
-            padding: 15px;
-            margin-bottom: 10px;
-            border-radius: 8px;
-            cursor: grab;
-            border: 2px solid #e9ecef;
-            transition: all 0.3s ease;
-            user-select: none;
-        }
-        
-        .tag-item:hover {
-            border-color: #01D29B;
-            transform: translateY(-2px);
-        }
-        
-        .tag-item.dragging {
-            opacity: 0.5;
-            transform: rotate(5deg);
-        }
-        
-        .tag-item.correct {
-            border-color: #28a745;
-            background: #d4edda;
-        }
-        
-        .tag-item.incorrect {
-            border-color: #dc3545;
-            background: #f8d7da;
-        }
-        
-        .tag-item.matched {
-            opacity: 0.6;
-            cursor: not-allowed;
-        }
-        
-        .game-controls {
-            display: flex;
-            gap: 15px;
-            justify-content: center;
-            margin-bottom: 30px;
-        }
-        
-        .game-btn {
-            padding: 12px 24px;
-            border: none;
-            border-radius: 8px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-        
-        .game-btn.primary {
-            background: #01D29B;
-            color: white;
-        }
-        
-        .game-btn.primary:hover {
-            background: #00b894;
-            transform: translateY(-2px);
-        }
-        
-        .game-btn.secondary {
-            background: #6c757d;
-            color: white;
-        }
-        
-        .game-btn.secondary:hover {
-            background: #5a6268;
-        }
-        
-        .game-btn.success {
-            background: #28a745;
-            color: white;
-        }
-        
-        .game-btn.success:hover {
-            background: #218838;
-        }
-        
-        .score-display {
-            text-align: center;
-            font-size: 1.5rem;
-            font-weight: bold;
-            color: #01D29B;
-            margin-bottom: 20px;
-        }
-        
-        .timer {
-            text-align: center;
-            font-size: 1.2rem;
-            color: #6c757d;
-            margin-bottom: 20px;
-        }
-        
-        .feedback {
-            text-align: center;
-            padding: 15px;
-            border-radius: 8px;
-            margin-bottom: 20px;
-            font-weight: 600;
-        }
-        
-        .feedback.correct {
-            background: #d4edda;
-            color: #155724;
-            border: 1px solid #c3e6cb;
-        }
-        
-        .feedback.incorrect {
-            background: #f8d7da;
-            color: #721c24;
-            border: 1px solid #f5c6cb;
-        }
-        
-        .feedback.info {
-            background: #d1ecf1;
-            color: #0c5460;
-            border: 1px solid #bee5eb;
-        }
-        
-        .structure-game {
-            background: #f8f9fa;
-            padding: 20px;
-            border-radius: 10px;
-            margin-bottom: 20px;
-        }
-        
-        .structure-puzzle {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 15px;
-            margin-bottom: 20px;
-        }
-        
-        .puzzle-piece {
-            background: white;
-            padding: 15px;
-            border-radius: 8px;
-            border: 2px solid #e9ecef;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            text-align: center;
-        }
-        
-        .puzzle-piece:hover {
-            border-color: #667eea;
-            transform: translateY(-2px);
-        }
-        
-        .puzzle-piece.selected {
-            border-color: #667eea;
-            background: #e3f2fd;
-        }
-        
-        .puzzle-piece.correct {
-            border-color: #28a745;
-            background: #d4edda;
-        }
-        
-        .code-puzzle {
-            background: #2d3748;
-            color: #e2e8f0;
-            padding: 20px;
-            border-radius: 10px;
-            font-family: 'Courier New', monospace;
-            margin-bottom: 20px;
-            position: relative;
-        }
-        
-        .code-puzzle .line {
-            margin-bottom: 5px;
-        }
-        
-        .code-puzzle .blank {
-            background: #4a5568;
-            padding: 2px 8px;
-            border-radius: 4px;
-            border: 1px solid #718096;
-            min-width: 100px;
-            display: inline-block;
-            cursor: pointer;
-        }
-        
-        .code-puzzle .blank:hover {
-            background: #718096;
-        }
-        
-        .code-puzzle .blank.filled {
-            background: #38a169;
-            border-color: #38a169;
-        }
-        
-        .dropdown-options {
-            position: absolute;
-            background: #4a5568;
-            border: 1px solid #718096;
-            border-radius: 4px;
-            padding: 5px 0;
-            z-index: 1000;
-            display: none;
-        }
-        
-        .dropdown-option {
-            padding: 8px 15px;
-            cursor: pointer;
-            transition: background 0.2s ease;
-        }
-        
-        .dropdown-option:hover {
-            background: #718096;
-        }
-        
-        .completion-modal {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.8);
-            display: none;
-            align-items: center;
-            justify-content: center;
-            z-index: 1000;
-        }
-        
-        .completion-content {
-            background: white;
-            padding: 40px;
-            border-radius: 20px;
-            text-align: center;
-            max-width: 500px;
-            width: 90%;
-        }
-        
-        .completion-icon {
-            font-size: 4rem;
-            color: #28a745;
-            margin-bottom: 20px;
-        }
-        
-        .completion-title {
-            font-size: 2rem;
-            margin-bottom: 15px;
-            color: #333;
-        }
-        
-        .completion-stats {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 20px;
-            margin: 30px 0;
-        }
-        
-        .completion-stat {
-            text-align: center;
-        }
-        
-        .completion-stat-number {
-            font-size: 2rem;
-            font-weight: bold;
-            color: #01D29B;
-            display: block;
-        }
-        
-        .completion-stat-label {
-            font-size: 0.9rem;
-            color: #6c757d;
-        }
-        
-        @media (max-width: 768px) {
-            .tag-matching-game {
-                grid-template-columns: 1fr;
-            }
-            
-            .game-stats {
-                flex-direction: column;
-                gap: 15px;
-            }
-            
-            .game-controls {
-                flex-direction: column;
-            }
-            
-            .structure-puzzle {
-                grid-template-columns: 1fr;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://unpkg.com/monaco-editor@latest/min/vs/loader.js"></script>
 </head>
 <body>
-    <!-- Navigation -->
-    <nav class="navbar">
+    <nav class="main-nav">
         <div class="nav-container">
-            <div class="nav-logo" onclick="window.location.href='index.html'">
+            <div class="nav-logo">
                 <i class="fas fa-code"></i>
                 <span>WebDev LMS</span>
             </div>
-            <ul class="nav-menu">
-                <li><a href="index.html" class="nav-link">Home</a></li>
-                <li><a href="index.html#curriculum" class="nav-link">Curriculum</a></li>
-                <li><a href="index.html#challenges" class="nav-link">Challenges</a></li>
-                <li><a href="index.html#gaming" class="nav-link active">Games</a></li>
-                <li><a href="index.html#resources" class="nav-link">Resources</a></li>
-            </ul>
-            <div class="nav-actions">
-                <div class="page-indicator">
-                    <i class="fas fa-gamepad"></i>
-                    <span>HTML Tag Master</span>
-                </div>
-                <button class="nav-btn-secondary" onclick="window.location.href='index.html'">
-                    <i class="fas fa-home"></i>
-                    Back to Home
-                </button>
-            </div>
-            <div class="hamburger">
-                <span></span>
-                <span></span>
-                <span></span>
+            <div class="nav-links">
+                <a href="index.html" class="nav-btn">
+                    <i class="fas fa-home"></i> Home
+                </a>
+                <a href="html-fundamentals.html" class="nav-btn">
+                    <i class="fas fa-arrow-left"></i> Back to Lessons
+                </a>
             </div>
         </div>
     </nav>
 
-    <div class="game-container">
-        <!-- Game Header -->
-        <div class="game-header">
-            <h1>🎮 HTML Tag Master</h1>
-            <p>Master HTML tags through interactive challenges and tag matching games</p>
-            <div class="game-stats">
-                <div class="stat-item">
-                    <span class="stat-number" id="totalScore">0</span>
-                    <span class="stat-label">Total Score</span>
+    <div class="lesson-container">
+        <header class="game-header">
+            <h1><i class="fas fa-gamepad"></i> HTML Interactive Games</h1>
+            <p>Learn HTML through fun interactive games and activities!</p>
+            <div class="player-stats">
+                <div class="stat" data-label="High Score">
+                    <i class="fas fa-star"></i>
+                    <span id="totalScore">0</span>
                 </div>
-                <div class="stat-item">
-                    <span class="stat-number" id="levelProgress">1</span>
-                    <span class="stat-label">Current Level</span>
+                <div class="stat" data-label="Games Played">
+                    <i class="fas fa-gamepad"></i>
+                    <span id="gamesPlayed">0</span>/6
                 </div>
-                <div class="stat-item">
-                    <span class="stat-number" id="completedLevels">0</span>
-                    <span class="stat-label">Completed</span>
+            </div>
+        </header>
+
+        <div class="games-grid">
+            <div class="game-card" onclick="startGame(1)">
+                <div class="game-icon">
+                    <i class="fas fa-puzzle-piece"></i>
+                </div>
+                <div class="game-info">
+                    <h3>Tag Match Game</h3>
+                    <p>Match HTML tags with their descriptions</p>
+                    <div class="game-stats">
+                        <span class="game-type fun">Fun</span>
+                        <span class="best-score">Best: <span id="score-1">0</span></span>
+                    </div>
+                </div>
+                <div class="play-button">
+                    <i class="fas fa-play"></i>
+                </div>
+            </div>
+
+            <div class="game-card" onclick="startGame(2)">
+                <div class="game-icon">
+                    <i class="fas fa-sort"></i>
+                </div>
+                <div class="game-info">
+                    <h3>Structure Builder</h3>
+                    <p>Drag and drop HTML elements in correct order</p>
+                    <div class="game-stats">
+                        <span class="game-type puzzle">Puzzle</span>
+                        <span class="best-score">Best: <span id="score-2">0</span></span>
+                    </div>
+                </div>
+                <div class="play-button">
+                    <i class="fas fa-play"></i>
+                </div>
+            </div>
+
+            <div class="game-card" onclick="startGame(3)">
+                <div class="game-icon">
+                    <i class="fas fa-search"></i>
+                </div>
+                <div class="game-info">
+                    <h3>Code Detective</h3>
+                    <p>Find and fix HTML syntax errors</p>
+                    <div class="game-stats">
+                        <span class="game-type challenge">Challenge</span>
+                        <span class="best-score">Best: <span id="score-3">0</span></span>
+                    </div>
+                </div>
+                <div class="play-button">
+                    <i class="fas fa-play"></i>
+                </div>
+            </div>
+
+            <div class="game-card" onclick="startGame(4)">
+                <div class="game-icon">
+                    <i class="fas fa-lightning-bolt"></i>
+                </div>
+                <div class="game-info">
+                    <h3>Speed Typing</h3>
+                    <p>Type HTML code as fast as you can</p>
+                    <div class="game-stats">
+                        <span class="game-type speed">Speed</span>
+                        <span class="best-score">Best: <span id="score-4">0</span></span>
+                    </div>
+                </div>
+                <div class="play-button">
+                    <i class="fas fa-play"></i>
+                </div>
+            </div>
+
+            <div class="game-card" onclick="startGame(5)">
+                <div class="game-icon">
+                    <i class="fas fa-memory"></i>
+                </div>
+                <div class="game-info">
+                    <h3>Memory Cards</h3>
+                    <p>Match HTML elements and their attributes</p>
+                    <div class="game-stats">
+                        <span class="game-type memory">Memory</span>
+                        <span class="best-score">Best: <span id="score-5">0</span></span>
+                    </div>
+                </div>
+                <div class="play-button">
+                    <i class="fas fa-play"></i>
+                </div>
+            </div>
+
+            <div class="game-card" onclick="startGame(6)">
+                <div class="game-icon">
+                    <i class="fas fa-trophy"></i>
+                </div>
+                <div class="game-info">
+                    <h3>HTML Quiz Master</h3>
+                    <p>Ultimate HTML knowledge quiz</p>
+                    <div class="game-stats">
+                        <span class="game-type quiz">Quiz</span>
+                        <span class="best-score">Best: <span id="score-6">0</span></span>
+                    </div>
+                </div>
+                <div class="play-button">
+                    <i class="fas fa-play"></i>
                 </div>
             </div>
         </div>
 
-        <!-- Game Levels -->
-        <div class="game-levels">
-            <div class="level-card" data-level="1" onclick="selectLevel(1)">
-                <div class="level-header">
-                    <div class="level-icon">
-                        <i class="fas fa-tags"></i>
+        <!-- Game Modal -->
+        <div id="gameModal" class="game-modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2 id="gameTitle">Game Title</h2>
+                    <div class="modal-stats">
+                        <span class="score-display">Score: <span id="currentScore">0</span></span>
                     </div>
-                    <div>
-                        <div class="level-title">Level 1: Basic Tags</div>
-                        <div class="level-description">Learn fundamental HTML tags like headings, paragraphs, and links</div>
-                    </div>
+                    <button class="close-btn" onclick="closeGame()">&times;</button>
                 </div>
-                <div class="level-progress">
-                    <div class="progress-bar">
-                        <div class="progress-fill" style="width: 0%"></div>
-                    </div>
-                    <span>0%</span>
+                
+                <div id="gameContent" class="game-play-area">
+                    <!-- Game content will be dynamically loaded here -->
                 </div>
-            </div>
-
-            <div class="level-card" data-level="2" onclick="selectLevel(2)">
-                <div class="level-header">
-                    <div class="level-icon">
-                        <i class="fas fa-list"></i>
-                    </div>
-                    <div>
-                        <div class="level-title">Level 2: Lists & Forms</div>
-                        <div class="level-description">Master ordered, unordered lists and form elements</div>
-                    </div>
-                </div>
-                <div class="level-progress">
-                    <div class="progress-bar">
-                        <div class="progress-fill" style="width: 0%"></div>
-                    </div>
-                    <span>0%</span>
-                </div>
-            </div>
-
-            <div class="level-card" data-level="3" onclick="selectLevel(3)">
-                <div class="level-header">
-                    <div class="level-icon">
-                        <i class="fas fa-image"></i>
-                    </div>
-                    <div>
-                        <div class="level-title">Level 3: Media & Tables</div>
-                        <div class="level-description">Work with images, videos, and table structures</div>
-                    </div>
-                </div>
-                <div class="level-progress">
-                    <div class="progress-bar">
-                        <div class="progress-fill" style="width: 0%"></div>
-                    </div>
-                    <span>0%</span>
-                </div>
-            </div>
-
-            <div class="level-card" data-level="4" onclick="selectLevel(4)">
-                <div class="level-header">
-                    <div class="level-icon">
-                        <i class="fas fa-sitemap"></i>
-                    </div>
-                    <div>
-                        <div class="level-title">Level 4: Semantic Structure</div>
-                        <div class="level-description">Build semantic HTML structure with proper elements</div>
-                    </div>
-                </div>
-                <div class="level-progress">
-                    <div class="progress-bar">
-                        <div class="progress-fill" style="width: 0%"></div>
-                    </div>
-                    <span>0%</span>
-                </div>
-            </div>
-
-            <div class="level-card" data-level="5" onclick="selectLevel(5)">
-                <div class="level-header">
-                    <div class="level-icon">
-                        <i class="fas fa-trophy"></i>
-                    </div>
-                    <div>
-                        <div class="level-title">Level 5: Advanced Challenge</div>
-                        <div class="level-description">Complete HTML structure with all learned elements</div>
-                    </div>
-                </div>
-                <div class="level-progress">
-                    <div class="progress-bar">
-                        <div class="progress-fill" style="width: 0%"></div>
-                    </div>
-                    <span>0%</span>
+                
+                <div class="game-footer">
+                    <button id="gameActionBtn" class="game-action-btn" onclick="performGameAction()">
+                        <i class="fas fa-play"></i> Start Game
+                    </button>
                 </div>
             </div>
         </div>
 
-        <!-- Game Area -->
-        <div class="game-area" id="gameArea">
-            <h2 class="game-title">Select a level to start playing!</h2>
-            <div class="game-instructions">
-                <h3>How to Play:</h3>
-                <p>1. Choose a level from the cards above</p>
-                <p>2. Complete the challenges to earn points</p>
-                <p>3. Unlock new levels as you progress</p>
-                <p>4. Try to get the highest score possible!</p>
-            </div>
-        </div>
-    </div>
-
-    <!-- Completion Modal -->
-    <div class="completion-modal" id="completionModal">
-        <div class="completion-content">
-            <div class="completion-icon">
-                <i class="fas fa-trophy"></i>
-            </div>
-            <h2 class="completion-title">Level Complete!</h2>
-            <p>Congratulations! You've completed this level.</p>
-            <div class="completion-stats">
-                <div class="completion-stat">
-                    <span class="completion-stat-number" id="modalScore">0</span>
-                    <span class="completion-stat-label">Score</span>
+        <!-- Success Modal -->
+        <div id="successModal" class="success-modal">
+            <div class="success-content">
+                <div class="success-icon">
+                    <i class="fas fa-trophy"></i>
                 </div>
-                <div class="completion-stat">
-                    <span class="completion-stat-number" id="modalTime">0</span>
-                    <span class="completion-stat-label">Time (s)</span>
+                <h2>Challenge Complete!</h2>
+                <p id="successMessage">Great job! You've earned 100 points!</p>
+                <div class="success-stats">
+                    <div class="stat">
+                        <span class="label">Points Earned:</span>
+                        <span class="value" id="earnedPoints">100</span>
+                    </div>
+                    <div class="stat">
+                        <span class="label">Time Taken:</span>
+                        <span class="value" id="timeTaken">02:34</span>
+                    </div>
                 </div>
-                <div class="completion-stat">
-                    <span class="completion-stat-number" id="modalAccuracy">0%</span>
-                    <span class="completion-stat-label">Accuracy</span>
+                <div class="success-actions">
+                    <button onclick="nextChallenge()" class="next-btn">
+                        <i class="fas fa-arrow-right"></i> Next Challenge
+                    </button>
+                    <button onclick="closeSuccess()" class="continue-btn">
+                        <i class="fas fa-list"></i> Back to Challenges
+                    </button>
                 </div>
-            </div>
-            <div class="game-controls">
-                <button class="game-btn primary" onclick="nextLevel()">Next Level</button>
-                <button class="game-btn secondary" onclick="closeModal()">Close</button>
             </div>
         </div>
     </div>
 
     <script>
-        // Game state
-        let currentLevel = 1;
-        let currentScore = 0;
-        let gameTimer = 0;
-        let timerInterval;
-        let levelProgress = {
-            1: 0, 2: 0, 3: 0, 4: 0, 5: 0
+        let currentGame = 1;
+        let playerData = JSON.parse(localStorage.getItem('htmlGameData')) || {
+            totalScore: 0,
+            gamesPlayed: 0,
+            bestScores: [0, 0, 0, 0, 0, 0]
         };
 
-        // Level data
-        const levelData = {
+        const games = {
             1: {
-                title: "Basic Tags",
+                title: "Tag Match Game",
                 description: "Match HTML tags with their descriptions",
-                type: "matching",
-                pairs: [
-                    { tag: "<h1>", description: "Main heading" },
-                    { tag: "<p>", description: "Paragraph text" },
-                    { tag: "<a>", description: "Hyperlink" },
-                    { tag: "<img>", description: "Image element" },
-                    { tag: "<div>", description: "Container block" },
-                    { tag: "<span>", description: "Inline container" }
-                ]
+                type: "matching"
             },
             2: {
-                title: "Lists & Forms",
-                description: "Complete the HTML structure for lists and forms",
-                type: "structure",
-                challenges: [
-                    {
-                        title: "Ordered List",
-                        description: "Create a numbered list of programming languages",
-                        solution: ["<ol>", "<li>", "</li>", "</ol>"],
-                        template: "Create a list of programming languages: Python, JavaScript, Java"
-                    },
-                    {
-                        title: "Form Elements",
-                        description: "Build a contact form with name and email fields",
-                        solution: ["<form>", "<input>", "<label>", "</form>"],
-                        template: "Create a contact form with name and email inputs"
-                    }
-                ]
+                title: "Structure Builder", 
+                description: "Drag and drop HTML elements in correct order",
+                type: "drag-drop"
             },
             3: {
-                title: "Media & Tables",
-                description: "Work with images, videos, and table structures",
-                type: "code-puzzle",
-                challenges: [
-                    {
-                        title: "Image Element",
-                        description: "Complete the image tag with proper attributes",
-                        code: [
-            "&lt;!DOCTYPE html&gt;",
-            "&lt;html&gt;",
-            "&lt;head&gt;",
-            "    &lt;title&gt;My Website&lt;/title&gt;",
-            "&lt;/head&gt;",
-            "&lt;body&gt;",
-            "    &lt;h1&gt;Welcome&lt;/h1&gt;",
-            "    &lt;img <span class='blank' data-options='src,alt,width,height'>src</span>='photo.jpg' <span class='blank' data-options='src,alt,width,height'>alt</span>='My Photo'&gt;",
-            "    &lt;p&gt;This is my website&lt;/p&gt;",
-            "&lt;/body&gt;",
-            "&lt;/html&gt;"
-                        ],
-                        answers: ["src", "alt"]
-                    }
-                ]
+                title: "Code Detective",
+                description: "Find and fix HTML syntax errors", 
+                type: "debugging"
             },
             4: {
-                title: "Semantic Structure",
-                description: "Build semantic HTML structure with proper elements",
-                type: "structure",
-                challenges: [
-                    {
-                        title: "Article Structure",
-                        description: "Create a semantic article with header, main content, and footer",
-                        solution: ["<article>", "<header>", "<main>", "<footer>", "</article>"],
-                        template: "Structure an article about web development"
-                    }
-                ]
+                title: "Speed Typing",
+                description: "Type HTML code as fast as you can",
+                type: "typing"
             },
             5: {
-                title: "Advanced Challenge",
-                description: "Complete HTML structure with all learned elements",
-                type: "matching",
-                pairs: [
-                    { tag: "<nav>", description: "Navigation section" },
-                    { tag: "<section>", description: "Content section" },
-                    { tag: "<aside>", description: "Sidebar content" },
-                    { tag: "<footer>", description: "Page footer" },
-                    { tag: "<header>", description: "Page header" },
-                    { tag: "<main>", description: "Main content area" }
-                ]
+                title: "Memory Cards",
+                description: "Match HTML elements and their attributes",
+                type: "memory"
+            },
+            6: {
+                title: "HTML Quiz Master",
+                description: "Ultimate HTML knowledge quiz",
+                type: "quiz"
             }
         };
 
-        // Initialize game
-        document.addEventListener('DOMContentLoaded', function() {
-            updateStats();
-            loadLevelProgress();
-        });
+        let gameState = {
+            currentScore: 0,
+            isGameActive: false
+        };
 
-        function selectLevel(level) {
-            currentLevel = level;
-            
-            // Update active level card
-            document.querySelectorAll('.level-card').forEach(card => {
-                card.classList.remove('active');
-            });
-            document.querySelector(`[data-level="${level}"]`).classList.add('active');
-            
-            // Load level content
-            loadLevel(level);
+        function initializeGame() {
+            updatePlayerStats();
+            updateBestScores();
         }
 
-        function loadLevel(level) {
-            const levelInfo = levelData[level];
-            const gameArea = document.getElementById('gameArea');
-            
-            gameArea.innerHTML = `
-                <h2 class="game-title">Level ${level}: ${levelInfo.title}</h2>
-                <div class="game-instructions">
-                    <h3>Instructions:</h3>
-                    <p>${levelInfo.description}</p>
-                </div>
-                <div class="score-display">Score: <span id="currentScore">0</span></div>
-                <div class="timer">Time: <span id="currentTimer">0</span>s</div>
-                <div id="gameContent"></div>
-                <div class="game-controls">
-                    <button class="game-btn primary" onclick="startGame()">Start Game</button>
-                    <button class="game-btn secondary" onclick="resetGame()">Reset</button>
-                </div>
-            `;
-            
-            // Load specific game type
-            switch(levelInfo.type) {
-                case 'matching':
-                    loadMatchingGame(levelInfo.pairs);
-                    break;
-                case 'structure':
-                    loadStructureGame(levelInfo.challenges);
-                    break;
-                case 'code-puzzle':
-                    loadCodePuzzle(levelInfo.challenges);
-                    break;
-            }
+        function updatePlayerStats() {
+            document.getElementById('totalScore').textContent = playerData.totalScore;
+            document.getElementById('gamesPlayed').textContent = playerData.gamesPlayed;
         }
 
-        function loadMatchingGame(pairs) {
-            const gameContent = document.getElementById('gameContent');
-            
-            // Shuffle pairs
-            const shuffledPairs = [...pairs].sort(() => Math.random() - 0.5);
-            const shuffledDescriptions = [...pairs].sort(() => Math.random() - 0.5);
-            
-            gameContent.innerHTML = `
-                <div class="tag-matching-game">
-                    <div class="tag-column">
-                        <h3>HTML Tags</h3>
-                        ${shuffledPairs.map(pair => `
-                            <div class="tag-item" draggable="true" data-tag="${pair.tag}">
-                                ${pair.tag}
-                            </div>
-                        `).join('')}
-                    </div>
-                    <div class="tag-column">
-                        <h3>Descriptions</h3>
-                        ${shuffledDescriptions.map(pair => `
-                            <div class="tag-item" data-description="${pair.description}">
-                                ${pair.description}
-                            </div>
-                        `).join('')}
-                    </div>
-                </div>
-                <div id="feedback"></div>
-            `;
-            
-            setupDragAndDrop();
-        }
-
-        function setupDragAndDrop() {
-            const draggableItems = document.querySelectorAll('.tag-item[draggable="true"]');
-            const dropZones = document.querySelectorAll('.tag-item:not([draggable="true"])');
-            
-            draggableItems.forEach(item => {
-                item.addEventListener('dragstart', handleDragStart);
-                item.addEventListener('dragend', handleDragEnd);
-            });
-            
-            dropZones.forEach(zone => {
-                zone.addEventListener('dragover', handleDragOver);
-                zone.addEventListener('drop', handleDrop);
-            });
-        }
-
-        function handleDragStart(e) {
-            e.target.classList.add('dragging');
-            e.dataTransfer.setData('text/plain', e.target.dataset.tag);
-        }
-
-        function handleDragEnd(e) {
-            e.target.classList.remove('dragging');
-        }
-
-        function handleDragOver(e) {
-            e.preventDefault();
-        }
-
-        function handleDrop(e) {
-            e.preventDefault();
-            const draggedTag = e.dataTransfer.getData('text/plain');
-            const dropZone = e.target;
-            
-            // Check if match is correct
-            const isCorrect = checkMatch(draggedTag, dropZone.dataset.description);
-            
-            if (isCorrect) {
-                dropZone.classList.add('correct');
-                dropZone.textContent = `${draggedTag} - ${dropZone.dataset.description}`;
-                currentScore += 10;
-                showFeedback('Correct! +10 points', 'correct');
-            } else {
-                dropZone.classList.add('incorrect');
-                showFeedback('Incorrect! Try again', 'incorrect');
-            }
-            
-            updateCurrentScore();
-            checkLevelCompletion();
-        }
-
-        function checkMatch(tag, description) {
-            const levelInfo = levelData[currentLevel];
-            return levelInfo.pairs.some(pair => pair.tag === tag && pair.description === description);
-        }
-
-        function loadStructureGame(challenges) {
-            const gameContent = document.getElementById('gameContent');
-            
-            gameContent.innerHTML = `
-                <div class="structure-game">
-                    <h3>${challenges[0].title}</h3>
-                    <p>${challenges[0].description}</p>
-                    <p><strong>Task:</strong> ${challenges[0].template}</p>
-                    <div class="structure-puzzle">
-                        ${challenges[0].solution.map(tag => `
-                            <div class="puzzle-piece" data-tag="${tag}">${tag}</div>
-                        `).join('')}
-                    </div>
-                    <div id="structureOutput"></div>
-                </div>
-                <div id="feedback"></div>
-            `;
-            
-            setupStructureGame();
-        }
-
-        function setupStructureGame() {
-            const pieces = document.querySelectorAll('.puzzle-piece');
-            let selectedPieces = [];
-            
-            pieces.forEach(piece => {
-                piece.addEventListener('click', () => {
-                    if (!piece.classList.contains('selected')) {
-                        piece.classList.add('selected');
-                        selectedPieces.push(piece.dataset.tag);
-                    } else {
-                        piece.classList.remove('selected');
-                        selectedPieces = selectedPieces.filter(tag => tag !== piece.dataset.tag);
-                    }
-                    
-                    updateStructureOutput(selectedPieces);
-                });
-            });
-        }
-
-        function updateStructureOutput(pieces) {
-            const output = document.getElementById('structureOutput');
-            output.innerHTML = `
-                <h4>Your Structure:</h4>
-                <div style="background: #f8f9fa; padding: 15px; border-radius: 8px; font-family: monospace;">
-                    ${pieces.map(tag => tag).join('\n')}
-                </div>
-            `;
-        }
-
-        function loadCodePuzzle(challenges) {
-            const gameContent = document.getElementById('gameContent');
-            
-            gameContent.innerHTML = `
-                <div class="code-puzzle">
-                    ${challenges[0].code.map(line => `
-                        <div class="line">${line}</div>
-                    `).join('')}
-                </div>
-                <div id="feedback"></div>
-            `;
-            
-            setupCodePuzzle(challenges[0]);
-        }
-
-        function setupCodePuzzle(challenge) {
-            const blanks = document.querySelectorAll('.blank');
-            
-            blanks.forEach(blank => {
-                blank.addEventListener('click', () => {
-                    const options = blank.dataset.options.split(',');
-                    showDropdown(blank, options);
-                });
-            });
-        }
-
-        function showDropdown(blank, options) {
-            const dropdown = document.createElement('div');
-            dropdown.className = 'dropdown-options';
-            dropdown.style.left = blank.offsetLeft + 'px';
-            dropdown.style.top = (blank.offsetTop + blank.offsetHeight) + 'px';
-            
-            options.forEach(option => {
-                const optionElement = document.createElement('div');
-                optionElement.className = 'dropdown-option';
-                optionElement.textContent = option;
-                optionElement.addEventListener('click', () => {
-                    blank.textContent = option;
-                    blank.classList.add('filled');
-                    dropdown.remove();
-                    checkCodeCompletion();
-                });
-                dropdown.appendChild(optionElement);
-            });
-            
-            document.body.appendChild(dropdown);
-            
-            // Close dropdown when clicking outside
-            document.addEventListener('click', function closeDropdown(e) {
-                if (!dropdown.contains(e.target) && !blank.contains(e.target)) {
-                    dropdown.remove();
-                    document.removeEventListener('click', closeDropdown);
+        function updateBestScores() {
+            for (let i = 1; i <= 6; i++) {
+                const scoreElement = document.getElementById(`score-${i}`);
+                if (scoreElement) {
+                    scoreElement.textContent = playerData.bestScores[i-1] || 0;
                 }
-            });
+            }
         }
 
-        function startGame() {
-            currentScore = 0;
-            gameTimer = 0;
-            updateCurrentScore();
+        function startGame(gameId) {
+            currentGame = gameId;
+            const game = games[gameId];
             
-            timerInterval = setInterval(() => {
-                gameTimer++;
-                document.getElementById('currentTimer').textContent = gameTimer;
+            document.getElementById('gameTitle').textContent = game.title;
+            document.getElementById('gameModal').classList.add('active');
+            
+            // Reset game state
+            gameState.currentScore = 0;
+            gameState.isGameActive = false;
+            updateGameDisplay();
+            
+            // Load specific game
+            switch(gameId) {
+                case 1: loadTagMatchGame(); break;
+                case 2: loadStructureBuilderGame(); break;
+                case 3: loadCodeDetectiveGame(); break;
+                case 4: loadSpeedTypingGame(); break;
+                case 5: loadMemoryCardsGame(); break;
+                case 6: loadQuizMasterGame(); break;
+            }
+        }
+
+        function loadTagMatchGame() {
+            document.getElementById('gameContent').innerHTML = `
+                <div class="match-game">
+                    <h3>Match HTML tags with their descriptions!</h3>
+                    <div class="match-container">
+                        <div class="tags-column">
+                            <h4>HTML Tags</h4>
+                            <div class="match-items" id="tagsContainer"></div>
+                        </div>
+                        <div class="descriptions-column">
+                            <h4>Descriptions</h4>
+                            <div class="match-items" id="descriptionsContainer"></div>
+                        </div>
+                    </div>
+                    <div class="matches-made" id="matchesMade">Matches: 0/6</div>
+                </div>
+            `;
+            
+            const tagPairs = [
+                { tag: '&lt;h1&gt;', desc: 'Main heading of the page' },
+                { tag: '&lt;p&gt;', desc: 'Paragraph of text' },
+                { tag: '&lt;img&gt;', desc: 'Display an image' },
+                { tag: '&lt;a&gt;', desc: 'Create a hyperlink' },
+                { tag: '&lt;div&gt;', desc: 'Generic container element' },
+                { tag: '&lt;ul&gt;', desc: 'Unordered list' }
+            ];
+            
+            setupMatchGame(tagPairs);
+        }
+
+        function setupMatchGame(pairs) {
+            const tagsContainer = document.getElementById('tagsContainer');
+            const descriptionsContainer = document.getElementById('descriptionsContainer');
+            let selectedTag = null;
+            let matchesMade = 0;
+            
+            // Shuffle descriptions
+            const shuffledDescs = [...pairs].sort(() => Math.random() - 0.5);
+            
+            pairs.forEach((pair, index) => {
+                const tagElement = document.createElement('div');
+                tagElement.className = 'match-item tag-item';
+                tagElement.textContent = pair.tag;
+                tagElement.dataset.id = index;
+                tagElement.onclick = () => selectTag(tagElement, index);
+                tagsContainer.appendChild(tagElement);
+            });
+            
+            shuffledDescs.forEach((pair, index) => {
+                const descElement = document.createElement('div');
+                descElement.className = 'match-item desc-item';
+                descElement.textContent = pair.desc;
+                descElement.dataset.id = pairs.findIndex(p => p.desc === pair.desc);
+                descElement.onclick = () => checkMatch(descElement);
+                descriptionsContainer.appendChild(descElement);
+            });
+            
+            function selectTag(element, id) {
+                document.querySelectorAll('.tag-item').forEach(item => item.classList.remove('selected'));
+                element.classList.add('selected');
+                selectedTag = id;
+            }
+            
+            function checkMatch(descElement) {
+                if (selectedTag === null) {
+                    alert('Please select a tag first!');
+                    return;
+                }
+                
+                const descId = parseInt(descElement.dataset.id);
+                if (selectedTag === descId) {
+                    // Correct match
+                    document.querySelector(`[data-id="${selectedTag}"].tag-item`).classList.add('matched');
+                    descElement.classList.add('matched');
+                    matchesMade++;
+                    gameState.currentScore += 10;
+                    selectedTag = null;
+                    
+                    document.getElementById('matchesMade').textContent = `Matches: ${matchesMade}/6`;
+                    updateGameDisplay();
+                    
+                    if (matchesMade === 6) {
+                        endGame(gameState.currentScore);
+                    }
+                } else {
+                    // Wrong match
+                    descElement.classList.add('wrong');
+                    setTimeout(() => descElement.classList.remove('wrong'), 500);
+                }
+            }
+        }
+
+        function loadSpeedTypingGame() {
+            document.getElementById('gameContent').innerHTML = `
+                <div class="typing-game">
+                    <h3>Type the HTML code as fast as you can!</h3>
+                    <div class="typing-challenge" id="typingChallenge">
+                        <div class="target-code" id="targetCode"></div>
+                        <textarea id="typingInput" placeholder="Start typing here..."></textarea>
+                        <div class="typing-stats">
+                            <span>WPM: <span id="wpm">0</span></span>
+                            <span>Accuracy: <span id="accuracy">100%</span></span>
+                        </div>
+                    </div>
+                </div>
+            `;
+            
+            const challenges = [
+                '&lt;h1&gt;Hello World&lt;/h1&gt;',
+                '&lt;p&gt;This is a paragraph.&lt;/p&gt;',
+                '&lt;div class="container"&gt;&lt;/div&gt;',
+                '&lt;img src="image.jpg" alt="Description"&gt;',
+                '&lt;a href="https://example.com"&gt;Link&lt;/a&gt;'
+            ];
+            
+            setupSpeedTyping(challenges);
+        }
+
+        function setupSpeedTyping(challenges) {
+            let currentChallenge = 0;
+            let startTime = null;
+            let errors = 0;
+            
+            const targetCode = document.getElementById('targetCode');
+            const typingInput = document.getElementById('typingInput');
+            const wpmDisplay = document.getElementById('wpm');
+            const accuracyDisplay = document.getElementById('accuracy');
+            
+            function loadChallenge() {
+                if (currentChallenge >= challenges.length) {
+                    endGame(gameState.currentScore);
+                    return;
+                }
+                
+                targetCode.textContent = challenges[currentChallenge];
+                typingInput.value = '';
+                typingInput.focus();
+            }
+            
+            typingInput.addEventListener('input', () => {
+                if (!startTime) startTime = Date.now();
+                
+                const typed = typingInput.value;
+                const target = challenges[currentChallenge];
+                
+                // Check for completion
+                if (typed === target.replace(/&lt;/g, '<').replace(/&gt;/g, '>')) {
+                    currentChallenge++;
+                    gameState.currentScore += 20;
+                    updateGameDisplay();
+                    setTimeout(loadChallenge, 500);
+                }
+                
+                // Calculate WPM and accuracy
+                const timeElapsed = (Date.now() - startTime) / 1000 / 60;
+                const wordsTyped = typed.length / 5;
+                const wpm = Math.round(wordsTyped / timeElapsed) || 0;
+                wpmDisplay.textContent = wpm;
+                
+                // Calculate errors
+                let currentErrors = 0;
+                const targetText = target.replace(/&lt;/g, '<').replace(/&gt;/g, '>');
+                for (let i = 0; i < typed.length; i++) {
+                    if (typed[i] !== targetText[i]) currentErrors++;
+                }
+                
+                const accuracy = typed.length > 0 ? Math.round(((typed.length - currentErrors) / typed.length) * 100) : 100;
+                accuracyDisplay.textContent = accuracy + '%';
+            });
+            
+            loadChallenge();
+        }
+
+        function loadQuizMasterGame() {
+            document.getElementById('gameContent').innerHTML = `
+                <div class="quiz-game">
+                    <div class="quiz-header">
+                        <h3 id="questionTitle">HTML Quiz Master</h3>
+                        <div class="quiz-progress">Question <span id="questionNum">1</span> of <span id="totalQuestions">5</span></div>
+                    </div>
+                    <div class="question-container">
+                        <div class="question" id="currentQuestion"></div>
+                        <div class="answers" id="answerOptions"></div>
+                    </div>
+                </div>
+            `;
+            
+            const questions = [
+                {
+                    question: "What does HTML stand for?",
+                    options: ["Hyper Text Markup Language", "Home Tool Markup Language", "Hyperlinks and Text Markup Language", "Hyper Text Making Language"],
+                    correct: 0
+                },
+                {
+                    question: "Which HTML tag is used for the largest heading?",
+                    options: ["&lt;h6&gt;", "&lt;heading&gt;", "&lt;h1&gt;", "&lt;header&gt;"],
+                    correct: 2
+                },
+                {
+                    question: "What is the correct HTML element for inserting a line break?",
+                    options: ["&lt;break&gt;", "&lt;br&gt;", "&lt;lb&gt;", "&lt;newline&gt;"],
+                    correct: 1
+                },
+                {
+                    question: "Which attribute is used to provide alternative text for an image?",
+                    options: ["title", "alt", "src", "longdesc"],
+                    correct: 1
+                },
+                {
+                    question: "What is the correct HTML for creating a hyperlink?",
+                    options: ["&lt;a url='http://example.com'&gt;Link&lt;/a&gt;", "&lt;a href='http://example.com'&gt;Link&lt;/a&gt;", "&lt;a&gt;http://example.com&lt;/a&gt;", "&lt;a name='http://example.com'&gt;Link&lt;/a&gt;"],
+                    correct: 1
+                }
+            ];
+            
+            setupQuizGame(questions);
+        }
+
+        function setupQuizGame(questions) {
+            let currentQuestion = 0;
+            let correctAnswers = 0;
+            
+            function loadQuestion() {
+                if (currentQuestion >= questions.length) {
+                    const finalScore = (correctAnswers / questions.length) * 100;
+                    gameState.currentScore = finalScore;
+                    endGame(finalScore);
+                    return;
+                }
+                
+                const q = questions[currentQuestion];
+                document.getElementById('questionNum').textContent = currentQuestion + 1;
+                document.getElementById('totalQuestions').textContent = questions.length;
+                document.getElementById('currentQuestion').textContent = q.question;
+                
+                const answersContainer = document.getElementById('answerOptions');
+                answersContainer.innerHTML = '';
+                
+                q.options.forEach((option, index) => {
+                    const button = document.createElement('button');
+                    button.className = 'quiz-option';
+                    button.innerHTML = option;
+                    button.onclick = () => selectAnswer(index, q.correct);
+                    answersContainer.appendChild(button);
+                });
+            }
+            
+            function selectAnswer(selected, correct) {
+                const options = document.querySelectorAll('.quiz-option');
+                options.forEach((option, index) => {
+                    option.disabled = true;
+                    if (index === correct) {
+                        option.classList.add('correct');
+                    } else if (index === selected && selected !== correct) {
+                        option.classList.add('wrong');
+                    }
+                });
+                
+                if (selected === correct) {
+                    correctAnswers++;
+                    gameState.currentScore += 20;
+                    updateGameDisplay();
+                }
+                
+                setTimeout(() => {
+                    currentQuestion++;
+                    loadQuestion();
+                }, 1500);
+            }
+            
+            loadQuestion();
+        }
+
+        function performGameAction() {
+            if (!gameState.isGameActive) {
+                startGameTimer();
+                gameState.isGameActive = true;
+                document.getElementById('gameActionBtn').innerHTML = '<i class="fas fa-redo"></i> Restart Game';
+                
+                // Enable game interactions
+                const typingInput = document.getElementById('typingInput');
+                if (typingInput) typingInput.disabled = false;
+            } else {
+                // Restart current game
+                startGame(currentGame);
+            }
+        }
+
+        function startGameTimer() {
+            gameState.timerInterval = setInterval(() => {
+                gameState.gameTimer++;
+                updateGameDisplay();
             }, 1000);
         }
 
-        function resetGame() {
-            clearInterval(timerInterval);
-            loadLevel(currentLevel);
+        function updateGameDisplay() {
+            document.getElementById('currentScore').textContent = gameState.currentScore;
+            const minutes = Math.floor(gameState.gameTimer / 60);
+            const seconds = gameState.gameTimer % 60;
+            document.getElementById('gameTimer').textContent = 
+                `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
         }
 
-        function checkLevelCompletion() {
-            const correctMatches = document.querySelectorAll('.tag-item.correct').length;
-            const totalPairs = levelData[currentLevel].pairs.length;
-            
-            if (correctMatches === totalPairs) {
-                completeLevel();
+        function endGame(finalScore) {
+            if (gameState.timerInterval) {
+                clearInterval(gameState.timerInterval);
             }
-        }
-
-        function completeLevel() {
-            clearInterval(timerInterval);
             
-            // Update progress
-            levelProgress[currentLevel] = 100;
-            updateLevelProgress();
-            
-            // Show completion modal
-            document.getElementById('modalScore').textContent = currentScore;
-            document.getElementById('modalTime').textContent = gameTimer;
-            document.getElementById('modalAccuracy').textContent = '100%';
-            
-            document.getElementById('completionModal').style.display = 'flex';
-        }
-
-        function nextLevel() {
-            if (currentLevel < 5) {
-                currentLevel++;
-                selectLevel(currentLevel);
+            // Update best score if this is better
+            if (finalScore > playerData.bestScores[currentGame - 1]) {
+                playerData.bestScores[currentGame - 1] = finalScore;
             }
-            closeModal();
-        }
-
-        function closeModal() {
-            document.getElementById('completionModal').style.display = 'none';
-        }
-
-        function showFeedback(message, type) {
-            const feedback = document.getElementById('feedback');
-            feedback.innerHTML = `<div class="feedback ${type}">${message}</div>`;
             
+            // Update total score and games played
+            playerData.totalScore += finalScore;
+            playerData.gamesPlayed++;
+            
+            // Save to localStorage
+            localStorage.setItem('htmlGameData', JSON.stringify(playerData));
+            
+            // Update display
+            updatePlayerStats();
+            updateBestScores();
+            
+            // Show completion message
             setTimeout(() => {
-                feedback.innerHTML = '';
-            }, 3000);
+                alert(`Game Complete!\nFinal Score: ${finalScore}\nTime: ${Math.floor(gameState.gameTimer / 60)}:${(gameState.gameTimer % 60).toString().padStart(2, '0')}\nTotal Score: ${playerData.totalScore}`);
+                closeGame();
+            }, 1000);
         }
 
-        function updateCurrentScore() {
-            document.getElementById('currentScore').textContent = currentScore;
+        function closeGame() {
+            document.getElementById('gameModal').classList.remove('active');
+            if (gameState.timerInterval) {
+                clearInterval(gameState.timerInterval);
+            }
+            gameState.isGameActive = false;
         }
 
-        function updateStats() {
-            document.getElementById('totalScore').textContent = currentScore;
-            document.getElementById('levelProgress').textContent = currentLevel;
-            document.getElementById('completedLevels').textContent = 
-                Object.values(levelProgress).filter(progress => progress === 100).length;
+        // Placeholder functions for other games
+        function loadStructureBuilderGame() {
+            document.getElementById('gameContent').innerHTML = `
+                <div class="structure-builder-game">
+                    <div class="builder-header">
+                        <h3>Build the HTML Structure!</h3>
+                        <p>Drag elements in the correct order to create a webpage structure</p>
+                    </div>
+                    <div class="builder-container">
+                        <div class="elements-pool">
+                            <h4>Available Elements</h4>
+                            <div id="elementsPool" class="elements-list"></div>
+                        </div>
+                        <div class="structure-area">
+                            <h4>Build Structure Here</h4>
+                            <div id="structureArea" class="drop-zone">
+                                <div class="drop-placeholder">Drop HTML elements here...</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="target-structure">
+                        <h4>Target Structure:</h4>
+                        <div class="target-preview" id="targetPreview"></div>
+                    </div>
+                </div>
+            `;
+            
+            const challenges = [
+                {
+                    target: ['&lt;html&gt;', '&lt;head&gt;', '&lt;title&gt;', '&lt;/title&gt;', '&lt;/head&gt;', '&lt;body&gt;', '&lt;h1&gt;', '&lt;/h1&gt;', '&lt;/body&gt;', '&lt;/html&gt;'],
+                    description: "Basic HTML document structure"
+                },
+                {
+                    target: ['&lt;div&gt;', '&lt;h2&gt;', '&lt;/h2&gt;', '&lt;p&gt;', '&lt;/p&gt;', '&lt;ul&gt;', '&lt;li&gt;', '&lt;/li&gt;', '&lt;/ul&gt;', '&lt;/div&gt;'],
+                    description: "Content section with list"
+                }
+            ];
+            
+            setupStructureBuilder(challenges[0]);
         }
 
-        function updateLevelProgress() {
-            Object.keys(levelProgress).forEach(level => {
-                const card = document.querySelector(`[data-level="${level}"]`);
-                const progressFill = card.querySelector('.progress-fill');
-                const progressText = card.querySelector('.level-progress span:last-child');
+        function setupStructureBuilder(challenge) {
+            const elementsPool = document.getElementById('elementsPool');
+            const structureArea = document.getElementById('structureArea');
+            const targetPreview = document.getElementById('targetPreview');
+            
+            // Show target structure
+            targetPreview.innerHTML = challenge.target.map(tag => `<code class="target-tag">${tag}</code>`).join(' ');
+            
+            // Create draggable elements (shuffled)
+            const shuffledElements = [...challenge.target].sort(() => Math.random() - 0.5);
+            elementsPool.innerHTML = '';
+            
+            shuffledElements.forEach((element, index) => {
+                const elementDiv = document.createElement('div');
+                elementDiv.className = 'draggable-element';
+                elementDiv.textContent = element;
+                elementDiv.draggable = true;
+                elementDiv.dataset.tag = element;
                 
-                progressFill.style.width = levelProgress[level] + '%';
-                progressText.textContent = levelProgress[level] + '%';
+                elementDiv.addEventListener('dragstart', (e) => {
+                    e.dataTransfer.setData('text/plain', element);
+                    e.target.classList.add('dragging');
+                });
+                
+                elementDiv.addEventListener('dragend', (e) => {
+                    e.target.classList.remove('dragging');
+                });
+                
+                elementsPool.appendChild(elementDiv);
             });
-        }
-
-        function loadLevelProgress() {
-            const saved = localStorage.getItem('htmlGameProgress');
-            if (saved) {
-                levelProgress = JSON.parse(saved);
-                updateLevelProgress();
+            
+            // Setup drop zone
+            structureArea.innerHTML = '<div class="drop-placeholder">Drop HTML elements here...</div>';
+            const userStructure = [];
+            
+            structureArea.addEventListener('dragover', (e) => {
+                e.preventDefault();
+                structureArea.classList.add('drag-over');
+            });
+            
+            structureArea.addEventListener('dragleave', () => {
+                structureArea.classList.remove('drag-over');
+            });
+            
+            structureArea.addEventListener('drop', (e) => {
+                e.preventDefault();
+                structureArea.classList.remove('drag-over');
+                
+                const draggedElement = e.dataTransfer.getData('text/plain');
+                userStructure.push(draggedElement);
+                
+                // Remove from pool
+                const elementInPool = elementsPool.querySelector(`[data-tag="${draggedElement}"]`);
+                if (elementInPool) elementInPool.remove();
+                
+                // Add to structure
+                if (structureArea.querySelector('.drop-placeholder')) {
+                    structureArea.innerHTML = '';
+                }
+                
+                const structureElement = document.createElement('div');
+                structureElement.className = 'structure-element';
+                structureElement.innerHTML = `
+                    <code>${draggedElement}</code>
+                    <button onclick="removeFromStructure(this, '${draggedElement}')" class="remove-btn">×</button>
+                `;
+                structureArea.appendChild(structureElement);
+                
+                // Check completion
+                if (userStructure.length === challenge.target.length) {
+                    checkStructureCompletion(userStructure, challenge.target);
+                }
+            });
+            
+            // Make remove function global
+            window.removeFromStructure = function(button, element) {
+                button.parentElement.remove();
+                const index = userStructure.indexOf(element);
+                if (index > -1) userStructure.splice(index, 1);
+                
+                // Add back to pool
+                const elementDiv = document.createElement('div');
+                elementDiv.className = 'draggable-element';
+                elementDiv.textContent = element;
+                elementDiv.draggable = true;
+                elementDiv.dataset.tag = element;
+                
+                elementDiv.addEventListener('dragstart', (e) => {
+                    e.dataTransfer.setData('text/plain', element);
+                    e.target.classList.add('dragging');
+                });
+                
+                elementDiv.addEventListener('dragend', (e) => {
+                    e.target.classList.remove('dragging');
+                });
+                
+                elementsPool.appendChild(elementDiv);
+                
+                if (structureArea.children.length === 0) {
+                    structureArea.innerHTML = '<div class="drop-placeholder">Drop HTML elements here...</div>';
+                }
+            };
+            
+            function checkStructureCompletion(userOrder, correctOrder) {
+                const isCorrect = JSON.stringify(userOrder) === JSON.stringify(correctOrder);
+                
+                if (isCorrect) {
+                    gameState.currentScore += 50;
+                    updateGameDisplay();
+                    showSuccess("Perfect structure! You've mastered HTML organization!");
+                } else {
+                    showError("Structure doesn't match. Try reordering the elements!");
+                }
             }
         }
 
-        function saveLevelProgress() {
-            localStorage.setItem('htmlGameProgress', JSON.stringify(levelProgress));
+        function loadCodeDetectiveGame() {
+            document.getElementById('gameContent').innerHTML = `
+                <div class="code-detective-game">
+                    <div class="detective-header">
+                        <h3>Code Detective - Find the Bugs! 🔍</h3>
+                        <p>Click on HTML errors to fix them. Find all bugs to win!</p>
+                    </div>
+                    <div class="detective-container">
+                        <div class="code-panel">
+                            <h4>Buggy HTML Code:</h4>
+                            <div id="buggyCode" class="code-display"></div>
+                        </div>
+                        <div class="detective-stats">
+                            <div class="stat-item">
+                                <span class="label">Bugs Found:</span>
+                                <span id="bugsFound" class="value">0</span>/<span id="totalBugs" class="value">0</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="label">Lives:</span>
+                                <span id="livesLeft" class="value">❤️❤️❤️</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="feedback" class="feedback-area"></div>
+                </div>
+            `;
+            
+            const buggyCodeChallenges = [
+                {
+                    code: `&lt;html
+&lt;head&gt;
+    &lt;title&gt;My Page&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;h1&gt;Welcome&lt;/h1
+    &lt;p&gt;This is a paragraph.&lt;/p&gt;
+    &lt;img src="image.jpg"&gt;
+&lt;/body&gt;
+&lt;/html&gt;`,
+                    errors: [
+                        { line: 0, text: '&lt;html', fix: '&lt;html&gt;', reason: 'Missing closing bracket' },
+                        { line: 5, text: '&lt;h1&gt;Welcome&lt;/h1', fix: '&lt;h1&gt;Welcome&lt;/h1&gt;', reason: 'Missing closing bracket' },
+                        { line: 7, text: '&lt;img src="image.jpg"&gt;', fix: '&lt;img src="image.jpg" alt="description"&gt;', reason: 'Missing alt attribute' }
+                    ]
+                }
+            ];
+            
+            setupCodeDetective(buggyCodeChallenges[0]);
         }
 
-        // Save progress when completing levels
-        function completeLevel() {
-            clearInterval(timerInterval);
+        function setupCodeDetective(challenge) {
+            const buggyCodeDiv = document.getElementById('buggyCode');
+            const totalBugsSpan = document.getElementById('totalBugs');
+            const bugsFoundSpan = document.getElementById('bugsFound');
+            const livesLeftSpan = document.getElementById('livesLeft');
+            const feedbackDiv = document.getElementById('feedback');
             
-            levelProgress[currentLevel] = 100;
-            updateLevelProgress();
-            saveLevelProgress();
+            let bugsFound = 0;
+            let lives = 3;
+            const foundErrors = new Set();
             
-            document.getElementById('modalScore').textContent = currentScore;
-            document.getElementById('modalTime').textContent = gameTimer;
-            document.getElementById('modalAccuracy').textContent = '100%';
+            totalBugsSpan.textContent = challenge.errors.length;
             
-            document.getElementById('completionModal').style.display = 'flex';
+            // Display code with clickable error elements
+            const codeLines = challenge.code.split('\n');
+            buggyCodeDiv.innerHTML = '';
+            
+            codeLines.forEach((line, lineIndex) => {
+                const lineDiv = document.createElement('div');
+                lineDiv.className = 'code-line';
+                
+                const lineNumberSpan = document.createElement('span');
+                lineNumberSpan.className = 'line-number';
+                lineNumberSpan.textContent = (lineIndex + 1).toString().padStart(2, '0');
+                lineDiv.appendChild(lineNumberSpan);
+                
+                const lineContentSpan = document.createElement('span');
+                lineContentSpan.className = 'line-content';
+                
+                // Check if this line has errors
+                const lineErrors = challenge.errors.filter(error => error.line === lineIndex);
+                
+                if (lineErrors.length > 0) {
+                    let processedLine = line;
+                    lineErrors.forEach((error, errorIndex) => {
+                        const errorId = `error-${lineIndex}-${errorIndex}`;
+                        processedLine = processedLine.replace(
+                            error.text,
+                            `<span class="error-highlight" data-error-id="${errorId}" onclick="checkError('${errorId}', ${lineIndex}, ${errorIndex})">${error.text}</span>`
+                        );
+                    });
+                    lineContentSpan.innerHTML = processedLine;
+                } else {
+                    lineContentSpan.textContent = line;
+                }
+                
+                lineDiv.appendChild(lineContentSpan);
+                buggyCodeDiv.appendChild(lineDiv);
+            });
+            
+            // Make checkError function global
+            window.checkError = function(errorId, lineIndex, errorIndex) {
+                if (foundErrors.has(errorId)) return;
+                
+                const error = challenge.errors.find(e => e.line === lineIndex);
+                if (error) {
+                    foundErrors.add(errorId);
+                    bugsFound++;
+                    gameState.currentScore += 25;
+                    
+                    // Mark as found
+                    const errorElement = document.querySelector(`[data-error-id="${errorId}"]`);
+                    errorElement.classList.add('error-found');
+                    errorElement.onclick = null;
+                    
+                    bugsFoundSpan.textContent = bugsFound;
+                    updateGameDisplay();
+                    
+                    feedbackDiv.innerHTML = `
+                        <div class="success-feedback">
+                            ✅ Great find! ${error.reason}<br>
+                            <strong>Fixed:</strong> <code>${error.fix}</code>
+                        </div>
+                    `;
+                    
+                    // Check completion
+                    if (bugsFound === challenge.errors.length) {
+                        setTimeout(() => {
+                            showSuccess("All bugs squashed! You're a true Code Detective! 🕵️‍♂️");
+                        }, 1000);
+                    }
+                } else {
+                    lives--;
+                    const heartsArray = ['❤️❤️❤️', '💔❤️❤️', '💔💔❤️', '💔💔💔'];
+                    livesLeftSpan.textContent = heartsArray[3 - lives];
+                    
+                    feedbackDiv.innerHTML = `
+                        <div class="error-feedback">
+                            ❌ That's not a bug! Lives left: ${lives}
+                        </div>
+                    `;
+                    
+                    if (lives <= 0) {
+                        setTimeout(() => {
+                            showError("Game Over! The bugs got away this time. Try again!");
+                        }, 1000);
+                    }
+                }
+                
+                setTimeout(() => {
+                    feedbackDiv.innerHTML = '';
+                }, 3000);
+            };
         }
+
+        function loadMemoryCardsGame() {
+            document.getElementById('gameContent').innerHTML = `
+                <div class="memory-cards-game">
+                    <div class="memory-header">
+                        <h3>Memory Cards - Match HTML Pairs! 🧠</h3>
+                        <p>Flip cards to find matching HTML elements and their descriptions</p>
+                    </div>
+                    <div class="memory-stats">
+                        <div class="stat">Pairs Found: <span id="pairsFound">0</span>/6</div>
+                        <div class="stat">Moves: <span id="moveCount">0</span></div>
+                    </div>
+                    <div id="memoryBoard" class="memory-board"></div>
+                </div>
+            `;
+            
+            const cardPairs = [
+                { element: '&lt;h1&gt;', description: 'Main Heading' },
+                { element: '&lt;p&gt;', description: 'Paragraph' },
+                { element: '&lt;img&gt;', description: 'Image' },
+                { element: '&lt;a&gt;', description: 'Link' },
+                { element: '&lt;div&gt;', description: 'Container' },
+                { element: '&lt;ul&gt;', description: 'Unordered List' }
+            ];
+            
+            setupMemoryGame(cardPairs);
+        }
+
+        function setupMemoryGame(pairs) {
+            const memoryBoard = document.getElementById('memoryBoard');
+            const pairsFoundSpan = document.getElementById('pairsFound');
+            const moveCountSpan = document.getElementById('moveCount');
+            
+            let flippedCards = [];
+            let matchedPairs = 0;
+            let moves = 0;
+            
+            // Create all cards (elements + descriptions)
+            const allCards = [];
+            pairs.forEach((pair, index) => {
+                allCards.push({ type: 'element', content: pair.element, pairId: index });
+                allCards.push({ type: 'description', content: pair.description, pairId: index });
+            });
+            
+            // Shuffle cards
+            const shuffledCards = allCards.sort(() => Math.random() - 0.5);
+            
+            // Create card elements
+            memoryBoard.innerHTML = '';
+            shuffledCards.forEach((card, index) => {
+                const cardElement = document.createElement('div');
+                cardElement.className = 'memory-card';
+                cardElement.dataset.cardIndex = index;
+                cardElement.dataset.pairId = card.pairId;
+                cardElement.dataset.type = card.type;
+                
+                cardElement.innerHTML = `
+                    <div class="card-front">
+                        <i class="fas fa-question"></i>
+                    </div>
+                    <div class="card-back">
+                        <div class="card-content ${card.type}">
+                            ${card.content}
+                        </div>
+                    </div>
+                `;
+                
+                cardElement.addEventListener('click', () => flipCard(cardElement));
+                memoryBoard.appendChild(cardElement);
+            });
+            
+
+            
+            function flipCard(cardElement) {
+                if (cardElement.classList.contains('flipped') || 
+                    cardElement.classList.contains('matched') ||
+                    flippedCards.length >= 2) {
+                    return;
+                }
+                
+                cardElement.classList.add('flipped');
+                flippedCards.push(cardElement);
+                
+                if (flippedCards.length === 2) {
+                    moves++;
+                    moveCountSpan.textContent = moves;
+                    
+                    setTimeout(checkMatch, 1000);
+                }
+            }
+            
+            function checkMatch() {
+                const [card1, card2] = flippedCards;
+                const pairId1 = card1.dataset.pairId;
+                const pairId2 = card2.dataset.pairId;
+                const type1 = card1.dataset.type;
+                const type2 = card2.dataset.type;
+                
+                if (pairId1 === pairId2 && type1 !== type2) {
+                    // Match found!
+                    card1.classList.add('matched');
+                    card2.classList.add('matched');
+                    matchedPairs++;
+                    
+                    pairsFoundSpan.textContent = matchedPairs;
+                    gameState.currentScore += 30;
+                    updateGameDisplay();
+                    
+                    // Check completion
+                    if (matchedPairs === pairs.length) {
+                        setTimeout(() => {
+                            showSuccess(`Memory Master! You matched all pairs with ${moves} moves!`);
+                        }, 500);
+                    }
+                } else {
+                    // No match
+                    card1.classList.remove('flipped');
+                    card2.classList.remove('flipped');
+                }
+                
+                flippedCards = [];
+            }
+        }
+
+        // Helper functions for feedback
+        function showSuccess(message) {
+            const modal = document.getElementById('successModal');
+            document.getElementById('successMessage').textContent = message;
+            document.getElementById('earnedPoints').textContent = gameState.currentScore;
+            modal.style.display = 'flex';
+        }
+
+        function showError(message) {
+            alert(message); // Simple alert for errors, can be enhanced with custom modal
+        }
+
+        function closeSuccess() {
+            document.getElementById('successModal').style.display = 'none';
+        }
+
+        function nextChallenge() {
+            closeSuccess();
+            // Could implement multiple challenge levels here
+        }
+
+        function closeGame() {
+            document.getElementById('gameModal').classList.remove('active');
+            // Save progress
+            saveGameProgress();
+        }
+
+        function saveGameProgress() {
+            if (gameState.currentScore > playerData.bestScores[currentGame - 1]) {
+                playerData.bestScores[currentGame - 1] = gameState.currentScore;
+                playerData.totalScore += gameState.currentScore;
+            }
+            localStorage.setItem('htmlGameData', JSON.stringify(playerData));
+            updatePlayerStats();
+            updateBestScores();
+        }
+
+        function updateGameDisplay() {
+            document.getElementById('currentScore').textContent = gameState.currentScore;
+        }
+
+        function endGame(score) {
+            setTimeout(() => {
+                showSuccess(`Game completed! Final score: ${score}`);
+            }, 1000);
+        }
+
+        function performGameAction() {
+            if (!gameState.isGameActive) {
+                gameState.isGameActive = true;
+                document.getElementById('gameActionBtn').innerHTML = '<i class="fas fa-pause"></i> Pause Game';
+                // Start game timer if needed
+            } else {
+                gameState.isGameActive = false;
+                document.getElementById('gameActionBtn').innerHTML = '<i class="fas fa-play"></i> Resume Game';
+            }
+        }
+
+        // Initialize when page loads
+        document.addEventListener('DOMContentLoaded', initializeGame);
     </script>
 </body>
 </html> 

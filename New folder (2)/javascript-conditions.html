@@ -71,7 +71,7 @@
     <!-- Challenges Section -->
     <section class="challenges-section">
         <div class="container">
-            <h2>🎯 Practice Challenges</h2>
+                            <h2><i class="fas fa-bullseye"></i> Practice Challenges</h2>
             <p class="challenges-intro">Complete these hands-on challenges to master conditions, logic, and functions:</p>
             
             <div class="challenges-grid">
@@ -84,10 +84,10 @@
                             <span class="time">12 min</span>
                         </div>
                     </div>
-                    <h3>🔀 Conditions & Logic</h3>
+                    <h3><i class="fas fa-code-branch"></i> Conditions & Logic</h3>
                     <p>Learn to make decisions in code using if, else, and comparison operators.</p>
                     
-                    <button class="challenge-btn" onclick="openChallenge(10)">
+                    <button class="challenge-btn" onclick="openChallenge(1)">
                         <i class="fas fa-play"></i>
                         Start Challenge
                     </button>
@@ -105,7 +105,7 @@
                     <h3>⚙️ Function Basics</h3>
                     <p>Create and use functions with parameters, arguments, and return statements.</p>
                     
-                    <button class="challenge-btn" onclick="openChallenge(11)">
+                    <button class="challenge-btn" onclick="openChallenge(2)">
                         <i class="fas fa-play"></i>
                         Start Challenge
                     </button>
@@ -120,10 +120,10 @@
                             <span class="time">18 min</span>
                         </div>
                     </div>
-                    <h3>🎯 Function-Based App</h3>
+                    <h3><i class="fas fa-bullseye"></i> Function-Based App</h3>
                     <p>Build a complete application using functions, conditions, and user input.</p>
                     
-                    <button class="challenge-btn" onclick="openChallenge(12)">
+                    <button class="challenge-btn" onclick="openChallenge(3)">
                         <i class="fas fa-play"></i>
                         Start Challenge
                     </button>
@@ -139,7 +139,7 @@
                 <!-- Main Content -->
                 <div class="content-main">
                     <div class="content-section">
-                        <h2>🔀 What are Conditions & Logic?</h2>
+                        <h2><i class="fas fa-code-branch"></i> What are Conditions & Logic?</h2>
                         <p>Conditions and logic allow your code to make decisions and respond differently based on various situations. Think of it as the <strong>brain</strong> of your program - just like you make decisions in life, your code can make decisions too!</p>
                         
                         <div class="concept-highlight">
@@ -520,12 +520,13 @@ runApp();</code></pre>
 
     <script src="script.js"></script>
     <script>
-        // Initialize Monaco Editor when page loads
+        // Simple Monaco Editor initialization
         require.config({ paths: { vs: 'https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.44.0/min/vs' } });
         require(['vs/editor/editor.main'], function() {
             console.log('Monaco Editor loaded successfully');
         });
         
+        // Simple challenge function - works immediately
         function openChallenge(challengeNumber) {
             openChallengeModal(challengeNumber);
         }

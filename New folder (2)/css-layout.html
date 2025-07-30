@@ -71,7 +71,7 @@
     <!-- Challenges Section -->
     <section class="challenges-section">
         <div class="container">
-            <h2>🎯 Practice Challenges</h2>
+                            <h2><i class="fas fa-bullseye"></i> Practice Challenges</h2>
             <p class="challenges-intro">Complete these hands-on challenges to master CSS layout and Flexbox:</p>
             
             <div class="challenges-grid">
@@ -87,7 +87,7 @@
                     <h3>📐 Basic Flexbox</h3>
                     <p>Create a simple layout using Flexbox properties.</p>
                     
-                    <button class="challenge-btn" onclick="openChallenge(14)">
+                    <button class="challenge-btn" onclick="openChallenge(1)">
                         <i class="fas fa-play"></i>
                         Start Challenge
                     </button>
@@ -102,10 +102,10 @@
                             <span class="time">15 min</span>
                         </div>
                     </div>
-                    <h3>🎯 Flexbox Navigation</h3>
+                    <h3><i class="fas fa-bullseye"></i> Flexbox Navigation</h3>
                     <p>Build a responsive navigation bar using Flexbox.</p>
                     
-                    <button class="challenge-btn" onclick="openChallenge(15)">
+                    <button class="challenge-btn" onclick="openChallenge(2)">
                         <i class="fas fa-play"></i>
                         Start Challenge
                     </button>
@@ -120,10 +120,10 @@
                             <span class="time">20 min</span>
                         </div>
                     </div>
-                    <h3>📱 Responsive Card Layout</h3>
+                    <h3><i class="fas fa-mobile-alt"></i> Responsive Card Layout</h3>
                     <p>Create a responsive card grid that adapts to different screen sizes.</p>
                     
-                    <button class="challenge-btn" onclick="openChallenge(16)">
+                    <button class="challenge-btn" onclick="openChallenge(3)">
                         <i class="fas fa-play"></i>
                         Start Challenge
                     </button>
@@ -535,13 +535,13 @@
 
     <script src="script.js"></script>
     <script>
-        // Initialize Monaco Editor when page loads
+        // Simple Monaco Editor initialization
         require.config({ paths: { vs: 'https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.44.0/min/vs' } });
         require(['vs/editor/editor.main'], function() {
             console.log('Monaco Editor loaded successfully for Day 4');
         });
         
-        // Day-specific functionality
+        // Simple challenge function - works immediately
         function openChallenge(challengeNumber) {
             openChallengeModal(challengeNumber);
         }

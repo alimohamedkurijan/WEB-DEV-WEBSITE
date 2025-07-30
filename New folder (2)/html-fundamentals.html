@@ -68,10 +68,12 @@
         </div>
     </section>
 
+    
+
     <!-- Challenges Section -->
     <section class="challenges-section">
         <div class="container">
-            <h2>🎯 Practice Challenges</h2>
+            <h2><i class="fas fa-bullseye"></i> Practice Challenges</h2>
             <p class="challenges-intro">Complete these hands-on challenges to master HTML fundamentals:</p>
             
             <div class="challenges-grid">
@@ -84,7 +86,7 @@
                             <span class="time">8 min</span>
                         </div>
                     </div>
-                    <h3>📝 Basic Structure</h3>
+                    <h3><i class="fas fa-edit"></i> Basic Structure</h3>
                     <p>Create a simple HTML page with proper document structure.</p>
                     
                     <button class="challenge-btn" onclick="openChallenge(1)">
@@ -138,7 +140,7 @@
                             <span class="time">15 min</span>
                         </div>
                     </div>
-                    <h3>🖼️ Images & Media</h3>
+                    <h3><i class="fas fa-images"></i> Images & Media</h3>
                     <p>Add images, videos, and other media elements to your page.</p>
                     
                     <button class="challenge-btn" onclick="openChallenge(4)">
@@ -196,7 +198,7 @@
                         <p>Every HTML document follows a standard structure with essential tags that tell the browser how to interpret the content.</p>
                         
                         <div class="concept-highlight">
-                            <h4>🏗️ Essential Tags:</h4>
+                            <h4><i class="fas fa-hammer"></i> Essential Tags:</h4>
                             <ul>
                                 <li><code>&lt;!DOCTYPE html&gt;</code> - Declares this is an HTML5 document</li>
                                 <li><code>&lt;html&gt;</code> - The root element containing everything</li>
@@ -227,7 +229,7 @@
                         </div>
 
                         <div class="tip-box">
-                            <h4>💡 Pro Tip:</h4>
+                            <h4><i class="fas fa-lightbulb"></i> Pro Tip:</h4>
                             <p>Proper indentation makes your HTML code more readable. Each nested element should be indented with 2 or 4 spaces.</p>
                         </div>
                     </div>
@@ -237,7 +239,7 @@
                         <p>HTML provides various tags to structure and format text content, making it readable and meaningful.</p>
                         
                         <div class="concept-highlight">
-                            <h4>📝 Text Elements:</h4>
+                            <h4><i class="fas fa-edit"></i> Text Elements:</h4>
                             <ul>
                                 <li><strong>Headings:</strong> <code>&lt;h1&gt;</code> to <code>&lt;h6&gt;</code> for titles and subtitles</li>
                                 <li><strong>Paragraphs:</strong> <code>&lt;p&gt;</code> for text blocks</li>
@@ -260,7 +262,7 @@
                         </div>
 
                         <div class="tip-box">
-                            <h4>🎯 Best Practice:</h4>
+                            <h4><i class="fas fa-bullseye"></i> Best Practice:</h4>
                             <p>Use <code>&lt;strong&gt;</code> and <code>&lt;em&gt;</code> for semantic meaning (importance/emphasis), and <code>&lt;b&gt;</code> and <code>&lt;i&gt;</code> only for visual styling.</p>
                         </div>
                     </div>
@@ -299,7 +301,7 @@
                         </div>
 
                         <div class="practice-exercise">
-                            <h4>🎯 Practice Exercise:</h4>
+                            <h4><i class="fas fa-bullseye"></i> Practice Exercise:</h4>
                             <p>Create a navigation menu with links to different sections of your page:</p>
                             <div class="code-example">
                                 <pre><code>&lt;nav&gt;
@@ -312,11 +314,11 @@
                     </div>
 
                     <div class="content-section">
-                        <h2>📋 Lists</h2>
+                        <h2><i class="fas fa-list"></i> Lists</h2>
                         <p>Lists help organize information in a structured way, making content easier to read and understand.</p>
                         
                         <div class="concept-highlight">
-                            <h4>📋 List Types:</h4>
+                            <h4><i class="fas fa-list"></i> List Types:</h4>
                             <ul>
                                 <li><strong>Ordered Lists:</strong> <code>&lt;ol&gt;</code> for numbered items</li>
                                 <li><strong>Unordered Lists:</strong> <code>&lt;ul&gt;</code> for bullet points</li>
@@ -363,7 +365,7 @@
                         </div>
 
                         <div class="tip-box">
-                            <h4>💡 Real-World Uses:</h4>
+                            <h4><i class="fas fa-lightbulb"></i> Real-World Uses:</h4>
                             <ul>
                                 <li>Recipe ingredients and steps</li>
                                 <li>Navigation menus</li>
@@ -374,11 +376,11 @@
                     </div>
 
                     <div class="content-section">
-                        <h2>🖼️ Images</h2>
+                        <h2><i class="fas fa-images"></i> Images</h2>
                         <p>Images make websites visually appealing and help convey information more effectively.</p>
                         
                         <div class="concept-highlight">
-                            <h4>🖼️ Image Attributes:</h4>
+                            <h4><i class="fas fa-images"></i> Image Attributes:</h4>
                             <ul>
                                 <li><code>src</code> - Source URL of the image</li>
                                 <li><code>alt</code> - Alternative text for accessibility</li>
@@ -419,18 +421,21 @@
                         </div>
 
                         <div class="practice-exercise">
-                            <h4>🎯 Live Demo:</h4>
+                            <h4><i class="fas fa-bullseye"></i> Live Demo:</h4>
                             <p>Try adding an image to your webpage:</p>
                             <div class="code-example">
-                                <pre><code>&lt;img src="https://via.placeholder.com/300x200/01D29B/FFFFFF?text=Sample+Image" 
-     alt="A sample placeholder image" 
-     title="This is a sample image"&gt;</code></pre>
+                                <pre><code>&lt;div style="width: 300px; height: 200px; background: #01D29B; 
+     color: white; display: flex; align-items: center; 
+     justify-content: center; font-weight: bold; border-radius: 8px;"&gt;
+    Sample Image
+&lt;/div&gt;</code></pre>
                             </div>
                             <div class="demo-output">
-                                <img src="https://via.placeholder.com/300x200/01D29B/FFFFFF?text=Sample+Image" 
-                                     alt="A sample placeholder image" 
-                                     title="This is a sample image"
-                                     style="border-radius: 8px; margin-top: 10px;">
+                                <div style="width: 300px; height: 200px; background: #01D29B; 
+                                     color: white; display: flex; align-items: center; 
+                                     justify-content: center; font-weight: bold; border-radius: 8px; margin-top: 10px;">
+                                    Sample Image
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -441,13 +446,13 @@
                     <div class="sidebar-section">
                         <h3>Quick Navigation</h3>
                         <ul class="sidebar-nav">
-                            <li><a href="#challenges">🎯 Challenges</a></li>
+                            <li><a href="#challenges"><i class="fas fa-bullseye"></i> Challenges</a></li>
                             <li><a href="#what-is-html">💻 What is HTML?</a></li>
                             <li><a href="#basic-structure">🧱 Basic HTML Structure</a></li>
                             <li><a href="#text-tags">✍️ Text Tags</a></li>
                             <li><a href="#links">🔗 Links</a></li>
-                            <li><a href="#lists">📋 Lists</a></li>
-                            <li><a href="#images">🖼️ Images</a></li>
+                                                    <li><a href="#lists"><i class="fas fa-list"></i> Lists</a></li>
+                        <li><a href="#images"><i class="fas fa-images"></i> Images</a></li>
                         </ul>
                     </div>
 
@@ -538,13 +543,13 @@
 
     <script src="script.js"></script>
     <script>
-        // Initialize Monaco Editor when page loads
+        // Simple Monaco Editor initialization
         require.config({ paths: { vs: 'https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.44.0/min/vs' } });
         require(['vs/editor/editor.main'], function() {
             console.log('Monaco Editor loaded successfully for Day 1');
         });
         
-        // Day-specific functionality
+        // Simple challenge function - works immediately
         function openChallenge(challengeNumber) {
             openChallengeModal(challengeNumber);
         }
