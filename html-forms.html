@@ -140,13 +140,13 @@
                 <div class="content-main">
                     <div class="content-section">
                         <h2>🧱 Div vs Span</h2>
-                        <p>Understanding the semantic meaning and proper usage of <code>&lt;div&gt;</code> and <code>&lt;span&gt;</code> elements is crucial for creating well-structured HTML.</p>
+                        <p>Understanding the semantic meaning and proper usage of <code><div></code> and <code><span></code> elements is crucial for creating well-structured HTML.</p>
                         
                         <div class="concept-highlight">
                             <h4>Key Differences:</h4>
                             <ul>
-                                <li><strong>&lt;div&gt;:</strong> Block-level element used for layout sections and containers</li>
-                                <li><strong>&lt;span&gt;:</strong> Inline element used for highlighting or styling text within a line</li>
+                                <li><strong><div>:</strong> Block-level element used for layout sections and containers</li>
+                                <li><strong><span>:</strong> Inline element used for highlighting or styling text within a line</li>
                             </ul>
                         </div>
 
@@ -157,19 +157,19 @@
                                     <i class="fas fa-copy"></i>
                                 </button>
                             </div>
-                            <pre><code>&lt;!-- Block-level div for layout --&gt;
-&lt;div class="form-group"&gt;
-    &lt;label for="name"&gt;Name:&lt;/label&gt;
-    &lt;input type="text" id="name"&gt;
-&lt;/div&gt;
+                            <pre><code><!-- Block-level div for layout -->
+<div class="form-group">
+    <label for="name">Name:</label>
+    <input type="text" id="name">
+</div>
 
-&lt;!-- Inline span for text styling --&gt;
-&lt;p&gt;Welcome &lt;span class="highlight"&gt;John&lt;/span&gt; to our website!&lt;/p&gt;</code></pre>
+<!-- Inline span for text styling -->
+<p>Welcome <span class="highlight">John</span> to our website!</p></code></pre>
                         </div>
 
                         <div class="tip-box">
                             <h4><i class="fas fa-lightbulb"></i> Pro Tip</h4>
-                            <p>Use <code>&lt;div&gt;</code> for structural layout and <code>&lt;span&gt;</code> for inline text styling. This semantic approach makes your code more readable and accessible.</p>
+                            <p>Use <code><div></code> for structural layout and <code><span></code> for inline text styling. This semantic approach makes your code more readable and accessible.</p>
                         </div>
                     </div>
 
@@ -180,7 +180,7 @@
                         <div class="concept-highlight">
                             <h4>Form Structure:</h4>
                             <ul>
-                                <li><strong>&lt;form&gt;:</strong> Container element that wraps all form controls</li>
+                                <li><strong><form>:</strong> Container element that wraps all form controls</li>
                                 <li><strong>action:</strong> Specifies where the form data should be sent</li>
                                 <li><strong>method:</strong> Defines how the data should be sent (GET or POST)</li>
                             </ul>
@@ -193,13 +193,13 @@
                                     <i class="fas fa-copy"></i>
                                 </button>
                             </div>
-                            <pre><code>&lt;form action="/submit" method="POST"&gt;
-    &lt;div class="form-group"&gt;
-        &lt;label for="username"&gt;Username:&lt;/label&gt;
-        &lt;input type="text" id="username" name="username"&gt;
-    &lt;/div&gt;
-    &lt;button type="submit"&gt;Submit&lt;/button&gt;
-&lt;/form&gt;</code></pre>
+                            <pre><code><form action="/submit" method="POST">
+    <div class="form-group">
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username">
+    </div>
+    <button type="submit">Submit</button>
+</form></code></pre>
                         </div>
                     </div>
 
@@ -223,23 +223,23 @@
                                     <i class="fas fa-copy"></i>
                                 </button>
                             </div>
-                            <pre><code>&lt;div class="form-group"&gt;
-    &lt;label for="fullname"&gt;Full Name:&lt;/label&gt;
-    &lt;input type="text" id="fullname" name="fullname" 
-           placeholder="Enter your full name" required&gt;
-&lt;/div&gt;
+                            <pre><code><div class="form-group">
+    <label for="fullname">Full Name:</label>
+    <input type="text" id="fullname" name="fullname" 
+           placeholder="Enter your full name" required>
+</div>
 
-&lt;div class="form-group"&gt;
-    &lt;label for="email"&gt;Email:&lt;/label&gt;
-    &lt;input type="email" id="email" name="email" 
-           placeholder="your@email.com" required&gt;
-&lt;/div&gt;
+<div class="form-group">
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email" 
+           placeholder="your@email.com" required>
+</div>
 
-&lt;div class="form-group"&gt;
-    &lt;label for="age"&gt;Age:&lt;/label&gt;
-    &lt;input type="number" id="age" name="age" 
-           min="1" max="120" placeholder="25"&gt;
-&lt;/div&gt;</code></pre>
+<div class="form-group">
+    <label for="age">Age:</label>
+    <input type="number" id="age" name="age" 
+           min="1" max="120" placeholder="25">
+</div></code></pre>
                         </div>
 
                         <div class="accessibility-note">
@@ -267,35 +267,35 @@
                                     <i class="fas fa-copy"></i>
                                 </button>
                             </div>
-                            <pre><code>&lt;!-- Gender selection (radio buttons) --&gt;
-&lt;div class="form-group"&gt;
-    &lt;label&gt;Gender:&lt;/label&gt;
-    &lt;div class="radio-group"&gt;
-        &lt;input type="radio" id="male" name="gender" value="male"&gt;
-        &lt;label for="male"&gt;Male&lt;/label&gt;
+                            <pre><code><!-- Gender selection (radio buttons) -->
+<div class="form-group">
+    <label>Gender:</label>
+    <div class="radio-group">
+        <input type="radio" id="male" name="gender" value="male">
+        <label for="male">Male</label>
         
-        &lt;input type="radio" id="female" name="gender" value="female"&gt;
-        &lt;label for="female"&gt;Female&lt;/label&gt;
+        <input type="radio" id="female" name="gender" value="female">
+        <label for="female">Female</label>
         
-        &lt;input type="radio" id="other" name="gender" value="other"&gt;
-        &lt;label for="other"&gt;Other&lt;/label&gt;
-    &lt;/div&gt;
-&lt;/div&gt;
+        <input type="radio" id="other" name="gender" value="other">
+        <label for="other">Other</label>
+    </div>
+</div>
 
-&lt;!-- Interests (checkboxes) --&gt;
-&lt;div class="form-group"&gt;
-    &lt;label&gt;Interests:&lt;/label&gt;
-    &lt;div class="checkbox-group"&gt;
-        &lt;input type="checkbox" id="coding" name="interests" value="coding"&gt;
-        &lt;label for="coding"&gt;Coding&lt;/label&gt;
+<!-- Interests (checkboxes) -->
+<div class="form-group">
+    <label>Interests:</label>
+    <div class="checkbox-group">
+        <input type="checkbox" id="coding" name="interests" value="coding">
+        <label for="coding">Coding</label>
         
-        &lt;input type="checkbox" id="design" name="interests" value="design"&gt;
-        &lt;label for="design"&gt;Design&lt;/label&gt;
+        <input type="checkbox" id="design" name="interests" value="design">
+        <label for="design">Design</label>
         
-        &lt;input type="checkbox" id="gaming" name="interests" value="gaming"&gt;
-        &lt;label for="gaming"&gt;Gaming&lt;/label&gt;
-    &lt;/div&gt;
-&lt;/div&gt;</code></pre>
+        <input type="checkbox" id="gaming" name="interests" value="gaming">
+        <label for="gaming">Gaming</label>
+    </div>
+</div></code></pre>
                         </div>
                     </div>
 
@@ -306,8 +306,8 @@
                         <div class="concept-highlight">
                             <h4>Element Types:</h4>
                             <ul>
-                                <li><strong>&lt;select&gt;:</strong> Dropdown menu with predefined options</li>
-                                <li><strong>&lt;textarea&gt;:</strong> Multi-line text input for longer content</li>
+                                <li><strong><select>:</strong> Dropdown menu with predefined options</li>
+                                <li><strong><textarea>:</strong> Multi-line text input for longer content</li>
                             </ul>
                         </div>
 
@@ -318,30 +318,30 @@
                                     <i class="fas fa-copy"></i>
                                 </button>
                             </div>
-                            <pre><code>&lt;!-- Country selection dropdown --&gt;
-&lt;div class="form-group"&gt;
-    &lt;label for="country"&gt;Country:&lt;/label&gt;
-    &lt;select id="country" name="country"&gt;
-        &lt;option value=""&gt;Select a country&lt;/option&gt;
-        &lt;option value="us"&gt;United States&lt;/option&gt;
-        &lt;option value="uk"&gt;United Kingdom&lt;/option&gt;
-        &lt;option value="ca"&gt;Canada&lt;/option&gt;
-        &lt;option value="au"&gt;Australia&lt;/option&gt;
-    &lt;/select&gt;
-&lt;/div&gt;
+                            <pre><code><!-- Country selection dropdown -->
+<div class="form-group">
+    <label for="country">Country:</label>
+    <select id="country" name="country">
+        <option value="">Select a country</option>
+        <option value="us">United States</option>
+        <option value="uk">United Kingdom</option>
+        <option value="ca">Canada</option>
+        <option value="au">Australia</option>
+    </select>
+</div>
 
-&lt;!-- Feedback textarea --&gt;
-&lt;div class="form-group"&gt;
-    &lt;label for="feedback"&gt;Feedback:&lt;/label&gt;
-    &lt;textarea id="feedback" name="feedback" 
+<!-- Feedback textarea -->
+<div class="form-group">
+    <label for="feedback">Feedback:</label>
+    <textarea id="feedback" name="feedback" 
               rows="4" cols="50" 
-              placeholder="Please share your thoughts..."&gt;&lt;/textarea&gt;
-&lt;/div&gt;</code></pre>
+              placeholder="Please share your thoughts..."></textarea>
+</div></code></pre>
                         </div>
 
                         <div class="practice-exercise">
                             <h4><i class="fas fa-bullseye"></i> Practice Exercise</h4>
-                            <p>Create a complete registration form that includes all the elements we've learned: text inputs, radio buttons, checkboxes, select dropdown, and textarea. Structure it properly with <code>&lt;div&gt;</code> elements and use <code>&lt;span&gt;</code> for emphasis where needed.</p>
+                            <p>Create a complete registration form that includes all the elements we've learned: text inputs, radio buttons, checkboxes, select dropdown, and textarea. Structure it properly with <code><div></code> elements and use <code><span></code> for emphasis where needed.</p>
                         </div>
                     </div>
                 </div>

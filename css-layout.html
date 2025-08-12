@@ -1,200 +1,256 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Day 4: CSS Layout - WebDev LMS</title>
-    <link rel="stylesheet" href="styles.css">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.44.0/min/vs/loader.min.js"></script>
-</head>
-<body>
+  </head>
+  <body>
     <!-- Navigation -->
     <nav class="navbar">
-        <div class="nav-container">
-            <div class="nav-logo" onclick="window.location.href='index.html'">
-                <i class="fas fa-code"></i>
-                <span>WebDev LMS</span>
-            </div>
-            <ul class="nav-menu">
-                <li><a href="index.html" class="nav-link" data-page="home">Home</a></li>
-                <li><a href="index.html#curriculum" class="nav-link" data-page="curriculum">Curriculum</a></li>
-                <li><a href="index.html#challenges" class="nav-link" data-page="challenges">Challenges</a></li>
-                <li><a href="index.html#resources" class="nav-link" data-page="resources">Resources</a></li>
-            </ul>
-            <div class="nav-actions">
-                <div class="page-indicator">
-                    <i class="fas fa-th-large"></i>
-                    <span>Day 4: CSS Layout</span>
-                </div>
-                <button class="nav-btn-secondary" onclick="window.location.href='css-advanced.html'">
-                    <i class="fas fa-arrow-right"></i>
-                    Next Day
-                </button>
-            </div>
-            <div class="hamburger">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
+      <div class="nav-container">
+        <div class="nav-logo" onclick="window.location.href='index.html'">
+          <i class="fas fa-code"></i>
+          <span>WebDev LMS</span>
         </div>
+        <ul class="nav-menu">
+          <li>
+            <a href="index.html" class="nav-link" data-page="home">Home</a>
+          </li>
+          <li>
+            <a
+              href="index.html#curriculum"
+              class="nav-link"
+              data-page="curriculum"
+              >Curriculum</a
+            >
+          </li>
+          <li>
+            <a
+              href="index.html#challenges"
+              class="nav-link"
+              data-page="challenges"
+              >Challenges</a
+            >
+          </li>
+          <li>
+            <a
+              href="index.html#resources"
+              class="nav-link"
+              data-page="resources"
+              >Resources</a
+            >
+          </li>
+        </ul>
+        <div class="nav-actions">
+          <div class="page-indicator">
+            <i class="fas fa-th-large"></i>
+            <span>Day 4: CSS Layout</span>
+          </div>
+          <button
+            class="nav-btn-secondary"
+            onclick="window.location.href='css-advanced.html'"
+          >
+            <i class="fas fa-arrow-right"></i>
+            Next Day
+          </button>
+        </div>
+        <div class="hamburger">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
     </nav>
 
     <!-- Day Header -->
     <section class="day-header">
-        <div class="container">
-            <div class="day-header-content">
-                <div class="day-badge">
-                    <span class="day-number">Day 4</span>
-                </div>
-                <h1>CSS Layout & Flexbox</h1>
-                <p>Master modern CSS layout techniques with Flexbox</p>
-                <div class="day-meta">
-                    <span class="meta-item">
-                        <i class="fas fa-clock"></i>
-                        Duration: 2-3 hours
-                    </span>
-                    <span class="meta-item">
-                        <i class="fas fa-signal"></i>
-                        Level: Intermediate
-                    </span>
-                    <span class="meta-item">
-                        <i class="fas fa-tasks"></i>
-                        Challenges: 3
-                    </span>
-                </div>
-            </div>
+      <div class="container">
+        <div class="day-header-content">
+          <div class="day-badge">
+            <span class="day-number">Day 4</span>
+          </div>
+          <h1>CSS Layout & Flexbox</h1>
+          <p>Master modern CSS layout techniques with Flexbox</p>
+          <div class="day-meta">
+            <span class="meta-item">
+              <i class="fas fa-clock"></i>
+              Duration: 2-3 hours
+            </span>
+            <span class="meta-item">
+              <i class="fas fa-signal"></i>
+              Level: Intermediate
+            </span>
+            <span class="meta-item">
+              <i class="fas fa-tasks"></i>
+              Challenges: 3
+            </span>
+          </div>
         </div>
+      </div>
     </section>
 
     <!-- Challenges Section -->
     <section class="challenges-section">
-        <div class="container">
-                            <h2><i class="fas fa-bullseye"></i> Practice Challenges</h2>
-            <p class="challenges-intro">Complete these hands-on challenges to master CSS layout and Flexbox:</p>
-            
-            <div class="challenges-grid">
-                <!-- Challenge 1 -->
-                <div class="challenge-card">
-                    <div class="challenge-header">
-                        <div class="challenge-number">01</div>
-                        <div class="challenge-meta">
-                            <span class="difficulty beginner">Beginner</span>
-                            <span class="time">10 min</span>
-                        </div>
-                    </div>
-                    <h3>📐 Basic Flexbox</h3>
-                    <p>Create a simple layout using Flexbox properties.</p>
-                    
-                    <button class="challenge-btn" onclick="openChallenge(1)">
-                        <i class="fas fa-play"></i>
-                        Start Challenge
-                    </button>
-                </div>
+      <div class="container">
+        <h2><i class="fas fa-bullseye"></i> Practice Challenges</h2>
+        <p class="challenges-intro">
+          Complete these hands-on challenges to master CSS layout and Flexbox:
+        </p>
 
-                <!-- Challenge 2 -->
-                <div class="challenge-card">
-                    <div class="challenge-header">
-                        <div class="challenge-number">02</div>
-                        <div class="challenge-meta">
-                            <span class="difficulty intermediate">Intermediate</span>
-                            <span class="time">15 min</span>
-                        </div>
-                    </div>
-                    <h3><i class="fas fa-bullseye"></i> Flexbox Navigation</h3>
-                    <p>Build a responsive navigation bar using Flexbox.</p>
-                    
-                    <button class="challenge-btn" onclick="openChallenge(2)">
-                        <i class="fas fa-play"></i>
-                        Start Challenge
-                    </button>
-                </div>
-
-                <!-- Challenge 3 -->
-                <div class="challenge-card">
-                    <div class="challenge-header">
-                        <div class="challenge-number">03</div>
-                        <div class="challenge-meta">
-                            <span class="difficulty intermediate">Intermediate</span>
-                            <span class="time">20 min</span>
-                        </div>
-                    </div>
-                    <h3><i class="fas fa-mobile-alt"></i> Responsive Card Layout</h3>
-                    <p>Create a responsive card grid that adapts to different screen sizes.</p>
-                    
-                    <button class="challenge-btn" onclick="openChallenge(3)">
-                        <i class="fas fa-play"></i>
-                        Start Challenge
-                    </button>
-                </div>
+        <div class="challenges-grid">
+          <!-- Challenge 1 -->
+          <div class="challenge-card">
+            <div class="challenge-header">
+              <div class="challenge-number">01</div>
+              <div class="challenge-meta">
+                <span class="difficulty beginner">Beginner</span>
+                <span class="time">10 min</span>
+              </div>
             </div>
+            <h3>📐 Basic Flexbox</h3>
+            <p>Create a simple layout using Flexbox properties.</p>
+
+            <button class="challenge-btn" onclick="openChallenge(1)">
+              <i class="fas fa-play"></i>
+              Start Challenge
+            </button>
+          </div>
+
+          <!-- Challenge 2 -->
+          <div class="challenge-card">
+            <div class="challenge-header">
+              <div class="challenge-number">02</div>
+              <div class="challenge-meta">
+                <span class="difficulty intermediate">Intermediate</span>
+                <span class="time">15 min</span>
+              </div>
+            </div>
+            <h3><i class="fas fa-bullseye"></i> Flexbox Navigation</h3>
+            <p>Build a responsive navigation bar using Flexbox.</p>
+
+            <button class="challenge-btn" onclick="openChallenge(2)">
+              <i class="fas fa-play"></i>
+              Start Challenge
+            </button>
+          </div>
+
+          <!-- Challenge 3 -->
+          <div class="challenge-card">
+            <div class="challenge-header">
+              <div class="challenge-number">03</div>
+              <div class="challenge-meta">
+                <span class="difficulty intermediate">Intermediate</span>
+                <span class="time">20 min</span>
+              </div>
+            </div>
+            <h3><i class="fas fa-mobile-alt"></i> Responsive Card Layout</h3>
+            <p>
+              Create a responsive card grid that adapts to different screen
+              sizes.
+            </p>
+
+            <button class="challenge-btn" onclick="openChallenge(3)">
+              <i class="fas fa-play"></i>
+              Start Challenge
+            </button>
+          </div>
         </div>
+      </div>
     </section>
 
     <!-- Content Section -->
     <section class="day-content">
-        <div class="container">
-            <div class="content-grid">
-                <!-- Main Content -->
-                <div class="content-main">
-                    <div class="content-section">
-                        <h2>🧭 What is Flexbox?</h2>
-                        <p><strong>Flexbox</strong> is a modern CSS layout method that makes it easy to create flexible, responsive layouts without using floats or positioning.</p>
-                        
-                        <div class="concept-highlight">
-                            <h4>Why Flexbox?</h4>
-                            <ul>
-                                <li><strong>Problem it solves:</strong> Difficult layouts with floats or inline-block</li>
-                                <li><strong>Flex container:</strong> Parent element with <code>display: flex</code></li>
-                                <li><strong>Flex items:</strong> Direct children that become flexible</li>
-                                <li><strong>Real-life analogy:</strong> Organizing boxes inside a shelf</li>
-                            </ul>
-                        </div>
+      <div class="container">
+        <div class="content-grid">
+          <!-- Main Content -->
+          <div class="content-main">
+            <div class="content-section">
+              <h2>🧭 What is Flexbox?</h2>
+              <p>
+                <strong>Flexbox</strong> is a modern CSS layout method that
+                makes it easy to create flexible, responsive layouts without
+                using floats or positioning.
+              </p>
 
-                        <div class="code-example">
-                            <div class="code-header">
-                                <span>Basic Flexbox Structure</span>
-                                <button class="copy-btn" onclick="copyCode(this)">
-                                    <i class="fas fa-copy"></i>
-                                </button>
-                            </div>
-                            <pre><code>/* HTML */
-&lt;div class="flex-container"&gt;
-    &lt;div class="flex-item"&gt;Item 1&lt;/div&gt;
-    &lt;div class="flex-item"&gt;Item 2&lt;/div&gt;
-    &lt;div class="flex-item"&gt;Item 3&lt;/div&gt;
-&lt;/div&gt;
+              <div class="concept-highlight">
+                <h4>Why Flexbox?</h4>
+                <ul>
+                  <li>
+                    <strong>Problem it solves:</strong> Difficult layouts with
+                    floats or inline-block
+                  </li>
+                  <li>
+                    <strong>Flex container:</strong> Parent element with
+                    <code>display: flex</code>
+                  </li>
+                  <li>
+                    <strong>Flex items:</strong> Direct children that become
+                    flexible
+                  </li>
+                  <li>
+                    <strong>Real-life analogy:</strong> Organizing boxes inside
+                    a shelf
+                  </li>
+                </ul>
+              </div>
+
+              <div class="code-example">
+                <div class="code-header">
+                  <span>Basic Flexbox Structure</span>
+                  <button class="copy-btn" onclick="copyCode(this)">
+                    <i class="fas fa-copy"></i>
+                  </button>
+                </div>
+                <pre><code>/* HTML */
+<div class="flex-container">
+    <div class="flex-item">Item 1</div>
+    <div class="flex-item">Item 2</div>
+    <div class="flex-item">Item 3</div>
+</div>
 
 /* CSS */
 .flex-container {
     display: flex;
 }</code></pre>
-                        </div>
-                    </div>
+              </div>
+            </div>
 
-                    <div class="content-section">
-                        <h2>🛠️ display: flex</h2>
-                        <p>The <code>display: flex</code> property transforms a container into a flex container, making its direct children flex items.</p>
-                        
-                        <div class="concept-highlight">
-                            <h4>What happens with display: flex:</h4>
-                            <ul>
-                                <li>Direct children become flex items</li>
-                                <li>Items flow in a row by default</li>
-                                <li>Items can grow and shrink to fit container</li>
-                                <li>No more float or inline-block issues</li>
-                            </ul>
-                        </div>
+            <div class="content-section">
+              <h2>🛠️ display: flex</h2>
+              <p>
+                The <code>display: flex</code> property transforms a container
+                into a flex container, making its direct children flex items.
+              </p>
 
-                        <div class="code-example">
-                            <div class="code-header">
-                                <span>Display Flex Example</span>
-                                <button class="copy-btn" onclick="copyCode(this)">
-                                    <i class="fas fa-copy"></i>
-                                </button>
-                            </div>
-                            <pre><code>/* Before: Items stack vertically */
+              <div class="concept-highlight">
+                <h4>What happens with display: flex:</h4>
+                <ul>
+                  <li>Direct children become flex items</li>
+                  <li>Items flow in a row by default</li>
+                  <li>Items can grow and shrink to fit container</li>
+                  <li>No more float or inline-block issues</li>
+                </ul>
+              </div>
+
+              <div class="code-example">
+                <div class="code-header">
+                  <span>Display Flex Example</span>
+                  <button class="copy-btn" onclick="copyCode(this)">
+                    <i class="fas fa-copy"></i>
+                  </button>
+                </div>
+                <pre><code>/* Before: Items stack vertically */
 .container {
     /* No display property */
 }
@@ -212,31 +268,40 @@
     padding: 15px;
     margin: 5px;
 }</code></pre>
-                        </div>
-                    </div>
+              </div>
+            </div>
 
-                    <div class="content-section">
-                        <h2>🔁 flex-direction</h2>
-                        <p>Controls the direction in which flex items are laid out within the flex container.</p>
-                        
-                        <div class="concept-highlight">
-                            <h4>flex-direction Values:</h4>
-                            <ul>
-                                <li><strong>row:</strong> Items flow left to right (default)</li>
-                                <li><strong>row-reverse:</strong> Items flow right to left</li>
-                                <li><strong>column:</strong> Items flow top to bottom</li>
-                                <li><strong>column-reverse:</strong> Items flow bottom to top</li>
-                            </ul>
-                        </div>
+            <div class="content-section">
+              <h2>🔁 flex-direction</h2>
+              <p>
+                Controls the direction in which flex items are laid out within
+                the flex container.
+              </p>
 
-                        <div class="code-example">
-                            <div class="code-header">
-                                <span>Flex Direction Examples</span>
-                                <button class="copy-btn" onclick="copyCode(this)">
-                                    <i class="fas fa-copy"></i>
-                                </button>
-                            </div>
-                            <pre><code>/* Horizontal layout (default) */
+              <div class="concept-highlight">
+                <h4>flex-direction Values:</h4>
+                <ul>
+                  <li>
+                    <strong>row:</strong> Items flow left to right (default)
+                  </li>
+                  <li>
+                    <strong>row-reverse:</strong> Items flow right to left
+                  </li>
+                  <li><strong>column:</strong> Items flow top to bottom</li>
+                  <li>
+                    <strong>column-reverse:</strong> Items flow bottom to top
+                  </li>
+                </ul>
+              </div>
+
+              <div class="code-example">
+                <div class="code-header">
+                  <span>Flex Direction Examples</span>
+                  <button class="copy-btn" onclick="copyCode(this)">
+                    <i class="fas fa-copy"></i>
+                  </button>
+                </div>
+                <pre><code>/* Horizontal layout (default) */
 .container {
     display: flex;
     flex-direction: row;
@@ -259,33 +324,42 @@
     display: flex;
     flex-direction: column-reverse;
 }</code></pre>
-                        </div>
-                    </div>
+              </div>
+            </div>
 
-                    <div class="content-section">
-                        <h2>📏 justify-content</h2>
-                        <p>Controls how flex items are distributed along the main axis (horizontal alignment in row direction).</p>
-                        
-                        <div class="concept-highlight">
-                            <h4>justify-content Values:</h4>
-                            <ul>
-                                <li><strong>flex-start:</strong> Items at the beginning (default)</li>
-                                <li><strong>center:</strong> Items centered</li>
-                                <li><strong>flex-end:</strong> Items at the end</li>
-                                <li><strong>space-between:</strong> Space between items</li>
-                                <li><strong>space-around:</strong> Space around items</li>
-                                <li><strong>space-evenly:</strong> Equal space between and around items</li>
-                            </ul>
-                        </div>
+            <div class="content-section">
+              <h2>📏 justify-content</h2>
+              <p>
+                Controls how flex items are distributed along the main axis
+                (horizontal alignment in row direction).
+              </p>
 
-                        <div class="code-example">
-                            <div class="code-header">
-                                <span>Justify Content Examples</span>
-                                <button class="copy-btn" onclick="copyCode(this)">
-                                    <i class="fas fa-copy"></i>
-                                </button>
-                            </div>
-                            <pre><code>/* Center items horizontally */
+              <div class="concept-highlight">
+                <h4>justify-content Values:</h4>
+                <ul>
+                  <li>
+                    <strong>flex-start:</strong> Items at the beginning
+                    (default)
+                  </li>
+                  <li><strong>center:</strong> Items centered</li>
+                  <li><strong>flex-end:</strong> Items at the end</li>
+                  <li><strong>space-between:</strong> Space between items</li>
+                  <li><strong>space-around:</strong> Space around items</li>
+                  <li>
+                    <strong>space-evenly:</strong> Equal space between and
+                    around items
+                  </li>
+                </ul>
+              </div>
+
+              <div class="code-example">
+                <div class="code-header">
+                  <span>Justify Content Examples</span>
+                  <button class="copy-btn" onclick="copyCode(this)">
+                    <i class="fas fa-copy"></i>
+                  </button>
+                </div>
+                <pre><code>/* Center items horizontally */
 .navbar {
     display: flex;
     justify-content: center;
@@ -302,32 +376,41 @@
     display: flex;
     justify-content: space-evenly;
 }</code></pre>
-                        </div>
-                    </div>
+              </div>
+            </div>
 
-                    <div class="content-section">
-                        <h2>📐 align-items</h2>
-                        <p>Controls how flex items are aligned along the cross axis (vertical alignment in row direction).</p>
-                        
-                        <div class="concept-highlight">
-                            <h4>align-items Values:</h4>
-                            <ul>
-                                <li><strong>stretch:</strong> Items stretch to fill container (default)</li>
-                                <li><strong>flex-start:</strong> Items at the top</li>
-                                <li><strong>center:</strong> Items centered vertically</li>
-                                <li><strong>flex-end:</strong> Items at the bottom</li>
-                                <li><strong>baseline:</strong> Items aligned by their text baseline</li>
-                            </ul>
-                        </div>
+            <div class="content-section">
+              <h2>📐 align-items</h2>
+              <p>
+                Controls how flex items are aligned along the cross axis
+                (vertical alignment in row direction).
+              </p>
 
-                        <div class="code-example">
-                            <div class="code-header">
-                                <span>Align Items Examples</span>
-                                <button class="copy-btn" onclick="copyCode(this)">
-                                    <i class="fas fa-copy"></i>
-                                </button>
-                            </div>
-                            <pre><code>/* Center items vertically */
+              <div class="concept-highlight">
+                <h4>align-items Values:</h4>
+                <ul>
+                  <li>
+                    <strong>stretch:</strong> Items stretch to fill container
+                    (default)
+                  </li>
+                  <li><strong>flex-start:</strong> Items at the top</li>
+                  <li><strong>center:</strong> Items centered vertically</li>
+                  <li><strong>flex-end:</strong> Items at the bottom</li>
+                  <li>
+                    <strong>baseline:</strong> Items aligned by their text
+                    baseline
+                  </li>
+                </ul>
+              </div>
+
+              <div class="code-example">
+                <div class="code-header">
+                  <span>Align Items Examples</span>
+                  <button class="copy-btn" onclick="copyCode(this)">
+                    <i class="fas fa-copy"></i>
+                  </button>
+                </div>
+                <pre><code>/* Center items vertically */
 .card-row {
     display: flex;
     align-items: center;
@@ -347,31 +430,46 @@
     flex-direction: column;
     align-items: stretch;
 }</code></pre>
-                        </div>
-                    </div>
+              </div>
+            </div>
 
-                    <div class="content-section">
-                        <h2>🧱 Combine Layout Concepts</h2>
-                        <p>Now let's combine all these properties to create practical layouts.</p>
-                        
-                        <div class="concept-highlight">
-                            <h4>Common Layout Patterns:</h4>
-                            <ul>
-                                <li><strong>Navigation bar:</strong> Horizontal layout with centered items</li>
-                                <li><strong>Card layout:</strong> Responsive grid with equal spacing</li>
-                                <li><strong>Sidebar layout:</strong> Vertical navigation with full height</li>
-                                <li><strong>3-section layout:</strong> Header, content, footer structure</li>
-                            </ul>
-                        </div>
+            <div class="content-section">
+              <h2>🧱 Combine Layout Concepts</h2>
+              <p>
+                Now let's combine all these properties to create practical
+                layouts.
+              </p>
 
-                        <div class="code-example">
-                            <div class="code-header">
-                                <span>Complete Layout Example</span>
-                                <button class="copy-btn" onclick="copyCode(this)">
-                                    <i class="fas fa-copy"></i>
-                                </button>
-                            </div>
-                            <pre><code>/* Navigation Bar */
+              <div class="concept-highlight">
+                <h4>Common Layout Patterns:</h4>
+                <ul>
+                  <li>
+                    <strong>Navigation bar:</strong> Horizontal layout with
+                    centered items
+                  </li>
+                  <li>
+                    <strong>Card layout:</strong> Responsive grid with equal
+                    spacing
+                  </li>
+                  <li>
+                    <strong>Sidebar layout:</strong> Vertical navigation with
+                    full height
+                  </li>
+                  <li>
+                    <strong>3-section layout:</strong> Header, content, footer
+                    structure
+                  </li>
+                </ul>
+              </div>
+
+              <div class="code-example">
+                <div class="code-header">
+                  <span>Complete Layout Example</span>
+                  <button class="copy-btn" onclick="copyCode(this)">
+                    <i class="fas fa-copy"></i>
+                  </button>
+                </div>
+                <pre><code>/* Navigation Bar */
 .navbar {
     display: flex;
     justify-content: space-between;
@@ -430,121 +528,152 @@
     height: 60px;
     background-color: #34495e;
 }</code></pre>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Sidebar -->
-                <div class="content-sidebar">
-                    <div class="sidebar-section">
-                        <h3>Quick Navigation</h3>
-                        <ul class="sidebar-nav">
-                            <li><a href="#what-is-flexbox">What is Flexbox?</a></li>
-                            <li><a href="#display-flex">display: flex</a></li>
-                            <li><a href="#flex-direction">flex-direction</a></li>
-                            <li><a href="#justify-content">justify-content</a></li>
-                            <li><a href="#align-items">align-items</a></li>
-                            <li><a href="#combine-layouts">Combine Layouts</a></li>
-                            <li><a href="#challenges">Challenges</a></li>
-                        </ul>
-                    </div>
-                    <div class="sidebar-section">
-                        <h3>Resources</h3>
-                        <ul class="resource-links">
-                            <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Box_Model" target="_blank">
-                                <i class="fas fa-external-link-alt"></i>
-                                MDN Box Model
-                            </a></li>
-                            <li><a href="https://css-tricks.com/almanac/properties/b/background/" target="_blank">
-                                <i class="fas fa-external-link-alt"></i>
-                                CSS Background Guide
-                            </a></li>
-                            <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Transitions" target="_blank">
-                                <i class="fas fa-external-link-alt"></i>
-                                CSS Transitions
-                            </a></li>
-                        </ul>
-                    </div>
-                </div>
+              </div>
             </div>
+          </div>
+
+          <!-- Sidebar -->
+          <div class="content-sidebar">
+            <div class="sidebar-section">
+              <h3>Quick Navigation</h3>
+              <ul class="sidebar-nav">
+                <li><a href="#what-is-flexbox">What is Flexbox?</a></li>
+                <li><a href="#display-flex">display: flex</a></li>
+                <li><a href="#flex-direction">flex-direction</a></li>
+                <li><a href="#justify-content">justify-content</a></li>
+                <li><a href="#align-items">align-items</a></li>
+                <li><a href="#combine-layouts">Combine Layouts</a></li>
+                <li><a href="#challenges">Challenges</a></li>
+              </ul>
+            </div>
+            <div class="sidebar-section">
+              <h3>Resources</h3>
+              <ul class="resource-links">
+                <li>
+                  <a
+                    href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Box_Model"
+                    target="_blank"
+                  >
+                    <i class="fas fa-external-link-alt"></i>
+                    MDN Box Model
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="https://css-tricks.com/almanac/properties/b/background/"
+                    target="_blank"
+                  >
+                    <i class="fas fa-external-link-alt"></i>
+                    CSS Background Guide
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Transitions"
+                    target="_blank"
+                  >
+                    <i class="fas fa-external-link-alt"></i>
+                    CSS Transitions
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
         </div>
+      </div>
     </section>
 
     <!-- Navigation Footer -->
     <section class="day-navigation">
-        <div class="container">
-            <div class="nav-buttons">
-                <button class="nav-btn" onclick="window.location.href='css-basics.html'">
-                    <i class="fas fa-arrow-left"></i>
-                    Previous: Day 3
-                </button>
-                <button class="nav-btn primary" onclick="window.location.href='css-advanced.html'">
-                    Next: Day 5
-                    <i class="fas fa-arrow-right"></i>
-                </button>
-            </div>
+      <div class="container">
+        <div class="nav-buttons">
+          <button
+            class="nav-btn"
+            onclick="window.location.href='css-basics.html'"
+          >
+            <i class="fas fa-arrow-left"></i>
+            Previous: Day 3
+          </button>
+          <button
+            class="nav-btn primary"
+            onclick="window.location.href='css-advanced.html'"
+          >
+            Next: Day 5
+            <i class="fas fa-arrow-right"></i>
+          </button>
         </div>
+      </div>
     </section>
 
     <!-- Challenge Modal -->
     <div id="challengeModal" class="challenge-modal">
-        <div class="challenge-modal-content">
-            <div class="challenge-modal-header">
-                <h2 id="modalChallengeTitle">Challenge Title</h2>
-                <div class="challenge-modal-actions">
-                    <button class="complete-btn" onclick="completeChallenge()">
-                        <i class="fas fa-check"></i>
-                        Complete Challenge
-                    </button>
-                    <button class="close-challenge-modal" onclick="closeChallengeModal()">
-                        <i class="fas fa-times"></i>
-                    </button>
-                </div>
-            </div>
-            <div class="challenge-modal-body">
-                <div id="modalChallengeContent">
-                    <!-- Challenge content will be loaded here -->
-                </div>
-            </div>
+      <div class="challenge-modal-content">
+        <div class="challenge-modal-header">
+          <h2 id="modalChallengeTitle">Challenge Title</h2>
+          <div class="challenge-modal-actions">
+            <button class="complete-btn" onclick="completeChallenge()">
+              <i class="fas fa-check"></i>
+              Complete Challenge
+            </button>
+            <button
+              class="close-challenge-modal"
+              onclick="closeChallengeModal()"
+            >
+              <i class="fas fa-times"></i>
+            </button>
+          </div>
         </div>
+        <div class="challenge-modal-body">
+          <div id="modalChallengeContent">
+            <!-- Challenge content will be loaded here -->
+          </div>
+        </div>
+      </div>
     </div>
 
     <!-- Footer -->
     <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h3>WebDev LMS</h3>
-                    <p>Master web development in 10 days with hands-on challenges and real-world projects.</p>
-                </div>
-                <div class="footer-section">
-                    <h4>Quick Links</h4>
-                    <ul>
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="index.html#curriculum">Curriculum</a></li>
-                        <li><a href="index.html#challenges">Challenges</a></li>
-                        <li><a href="index.html#resources">Resources</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2024 WebDev LMS. All rights reserved.</p>
-            </div>
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-section">
+            <h3>WebDev LMS</h3>
+            <p>
+              Master web development in 10 days with hands-on challenges and
+              real-world projects.
+            </p>
+          </div>
+          <div class="footer-section">
+            <h4>Quick Links</h4>
+            <ul>
+              <li><a href="index.html">Home</a></li>
+              <li><a href="index.html#curriculum">Curriculum</a></li>
+              <li><a href="index.html#challenges">Challenges</a></li>
+              <li><a href="index.html#resources">Resources</a></li>
+            </ul>
+          </div>
         </div>
+        <div class="footer-bottom">
+          <p>&copy; 2024 WebDev LMS. All rights reserved.</p>
+        </div>
+      </div>
     </footer>
 
     <script src="script.js"></script>
     <script>
-        // Simple Monaco Editor initialization
-        require.config({ paths: { vs: 'https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.44.0/min/vs' } });
-        require(['vs/editor/editor.main'], function() {
-            console.log('Monaco Editor loaded successfully for Day 4');
-        });
-        
-        // Simple challenge function - works immediately
-        function openChallenge(challengeNumber) {
-            openChallengeModal(challengeNumber);
-        }
+      // Simple Monaco Editor initialization
+      require.config({
+        paths: {
+          vs: "https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.44.0/min/vs",
+        },
+      });
+      require(["vs/editor/editor.main"], function () {
+        console.log("Monaco Editor loaded successfully for Day 4");
+      });
+
+      // Simple challenge function - works immediately
+      function openChallenge(challengeNumber) {
+        openChallengeModal(challengeNumber);
+      }
     </script>
-</body>
-</html> 
+  </body>
+</html>

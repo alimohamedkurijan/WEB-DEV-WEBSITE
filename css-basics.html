@@ -179,8 +179,8 @@ h1 {
                             <h4>Three CSS Methods:</h4>
                             <ul>
                                 <li><strong>Inline:</strong> <code>style=""</code> inside HTML tags</li>
-                                <li><strong>Internal:</strong> <code>&lt;style&gt;</code> inside <code>&lt;head&gt;</code></li>
-                                <li><strong>External:</strong> <code>.css</code> file linked with <code>&lt;link&gt;</code></li>
+                                <li><strong>Internal:</strong> <code><style></code> inside <code><head></code></li>
+                                <li><strong>External:</strong> <code>.css</code> file linked with <code><link></code></li>
                             </ul>
                         </div>
 
@@ -192,22 +192,22 @@ h1 {
                                 </button>
                             </div>
                             <pre><code>/* 1. Inline CSS */
-&lt;p style="color: red; font-size: 16px;"&gt;Red text&lt;/p&gt;
+<p style="color: red; font-size: 16px;">Red text</p>
 
 /* 2. Internal CSS */
-&lt;head&gt;
-    &lt;style&gt;
+<head>
+    <style>
         p {
             color: blue;
             font-size: 18px;
         }
-    &lt;/style&gt;
-&lt;/head&gt;
+    </style>
+</head>
 
 /* 3. External CSS */
-&lt;head&gt;
-    &lt;link rel="stylesheet" href="styles.css"&gt;
-&lt;/head&gt;</code></pre>
+<head>
+    <link rel="stylesheet" href="styles.css">
+</head></code></pre>
                         </div>
                     </div>
 
@@ -321,10 +321,10 @@ p {
                                 </button>
                             </div>
                             <pre><code>/* HTML */
-&lt;div id="header"&gt;Website Header&lt;/div&gt;
-&lt;div class="card"&gt;Card 1&lt;/div&gt;
-&lt;div class="card"&gt;Card 2&lt;/div&gt;
-&lt;div class="card"&gt;Card 3&lt;/div&gt;
+<div id="header">Website Header</div>
+<div class="card">Card 1</div>
+<div class="card">Card 2</div>
+<div class="card">Card 3</div>
 
 /* CSS */
 #header {
