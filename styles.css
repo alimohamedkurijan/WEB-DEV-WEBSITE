@@ -29,7 +29,11 @@ body {
   color: var(--text-primary);
   line-height: 1.6;
   overflow-x: hidden;
+  min-height: 100vh;
+  position: relative;
 }
+
+/* CSS successfully loaded and optimized */
 
 .container {
   max-width: 1200px;
@@ -157,6 +161,7 @@ body {
   font-size: 16px;
   background: transparent;
   border: 1px solid transparent;
+  
 }
 
 .nav-link:hover {
@@ -409,8 +414,8 @@ body {
   );
   color: var(--text-primary);
   border: none;
-  padding: 15px 30px;
-  font-size: 1.1rem;
+  padding: 10px 20px;
+  font-size: 0.95rem;
   font-weight: 600;
   border-radius: 50px;
   cursor: pointer;
@@ -418,6 +423,8 @@ body {
   display: inline-flex;
   align-items: center;
   gap: 10px;
+  max-width: 200px;
+  justify-content: center;
   box-shadow: var(--shadow);
 }
 
@@ -2362,6 +2369,56 @@ body {
   color: var(--text-secondary);
 }
 
+/* Force display of critical sections - Override any hiding rules */
+footer.footer {
+  display: block !important;
+  visibility: visible !important;
+  position: relative !important;
+  z-index: 999 !important;
+  opacity: 1 !important;
+}
+
+section#gaming.gaming-section {
+  display: block !important;
+  visibility: visible !important;
+  position: relative !important;
+  z-index: 998 !important;
+  opacity: 1 !important;
+  min-height: 600px !important;
+}
+
+/* Additional force visibility for gaming section */
+.gaming-section {
+  display: block !important;
+  visibility: visible !important;
+}
+
+.gaming-section .container {
+  display: block !important;
+  visibility: visible !important;
+}
+
+.gaming-section .section-header {
+  display: block !important;
+  visibility: visible !important;
+}
+
+.hero .hero-visual {
+  display: flex !important;
+  visibility: visible !important;
+  position: relative !important;
+  z-index: 997 !important;
+  opacity: 1 !important;
+}
+
+.gaming-section .games-grid {
+  display: grid !important;
+  visibility: visible !important;
+  position: relative !important;
+  z-index: 996 !important;
+  opacity: 1 !important;
+}
+
 /* Responsive Design */
 @media (max-width: 1200px) {
   .container {
@@ -3316,8 +3373,7 @@ body {
   .cta-button,
   .run-button,
   .reset-button,
-  .nav-btn,
-  .footer {
+  .nav-btn {
     display: none !important;
   }
 
@@ -4467,11 +4523,14 @@ body {
 
 /* Gaming Section Styles */
 .gaming-section {
-  background: linear-gradient(135deg, #01d29b 0%, #121212 100%);
-  padding: 80px 0;
-  color: var(--text-primary);
-  position: relative;
-  overflow: hidden;
+  background: linear-gradient(135deg, #01d29b 0%, #121212 100%) !important;
+  padding: 80px 0 !important;
+  color: var(--text-primary) !important;
+  position: relative !important;
+  overflow: hidden !important;
+  display: block !important;
+  visibility: visible !important;
+  min-height: 600px !important;
 }
 
 .gaming-section::before {

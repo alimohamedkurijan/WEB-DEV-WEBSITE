@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>WebDev LMS - 10-Day Learning Journey</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles.css?v=2">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.44.0/min/vs/loader.min.js"></script>
@@ -68,16 +68,16 @@
                         <span class="window-title">index.html</span>
                     </div>
                     <div class="code-content">
-                        <pre><code><!DOCTYPE html>
-<html>
-<head>
-    <title>My Website</title>
-</head>
-<body>
-    <h1>Hello World!</h1>
-    <p>Welcome to web development</p>
-</body>
-</html></code></pre>
+                        <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;title&gt;My Website&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;h1&gt;Hello World!&lt;/h1&gt;
+    &lt;p&gt;Welcome to web development&lt;/p&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
                     </div>
                 </div>
             </div>
@@ -466,6 +466,102 @@
         </div>
     </section>
 
+    <!-- Gaming Section -->
+    <section id="gaming" class="gaming-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title"><i class="fas fa-gamepad"></i> Interactive Learning Games</h2>
+                <p class="section-subtitle">Learn web development through fun, interactive games and challenges</p>
+            </div>
+            
+            <div class="games-grid">
+                <div class="game-card" onclick="window.location.href='html-games.html'">
+                    <div class="game-icon">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <div class="game-content">
+                        <h3>HTML Tag Master</h3>
+                        <p>Master HTML tags through interactive challenges and tag matching games</p>
+                        <div class="game-features">
+                            <span class="feature">Tag Matching</span>
+                            <span class="feature">Structure Building</span>
+                            <span class="feature">Code Puzzles</span>
+                        </div>
+                        <div class="game-stats">
+                            <div class="stat">
+                                <i class="fas fa-star"></i>
+                                <span>5 Levels</span>
+                            </div>
+                            <div class="stat">
+                                <i class="fas fa-clock"></i>
+                                <span>15 min</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="game-arrow">
+                        <i class="fas fa-play"></i>
+                    </div>
+                </div>
+
+                <div class="game-card" onclick="window.location.href='css-games.html'">
+                    <div class="game-icon">
+                        <i class="fas fa-palette"></i>
+                    </div>
+                    <div class="game-content">
+                        <h3>CSS Styling Quest</h3>
+                        <p>Learn CSS properties, selectors, and layouts through visual design challenges</p>
+                        <div class="game-features">
+                            <span class="feature">Style Matching</span>
+                            <span class="feature">Layout Puzzles</span>
+                            <span class="feature">Color Challenges</span>
+                        </div>
+                        <div class="game-stats">
+                            <div class="stat">
+                                <i class="fas fa-star"></i>
+                                <span>6 Levels</span>
+                            </div>
+                            <div class="stat">
+                                <i class="fas fa-clock"></i>
+                                <span>20 min</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="game-arrow">
+                        <i class="fas fa-play"></i>
+                    </div>
+                </div>
+
+                <div class="game-card" onclick="window.location.href='javascript-games.html'">
+                    <div class="game-icon">
+                        <i class="fas fa-gamepad"></i>
+                    </div>
+                    <div class="game-content">
+                        <h3>JavaScript Code Runner</h3>
+                        <p>Solve JavaScript puzzles, debug code, and build mini-games with real coding</p>
+                        <div class="game-features">
+                            <span class="feature">Code Debugging</span>
+                            <span class="feature">Logic Puzzles</span>
+                            <span class="feature">Mini Games</span>
+                        </div>
+                        <div class="game-stats">
+                            <div class="stat">
+                                <i class="fas fa-star"></i>
+                                <span>8 Levels</span>
+                            </div>
+                            <div class="stat">
+                                <i class="fas fa-clock"></i>
+                                <span>25 min</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="game-arrow">
+                        <i class="fas fa-play"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Day Lesson Modal -->
     <div id="lessonModal" class="lesson-modal">
         <div class="lesson-modal-content">
@@ -694,30 +790,144 @@
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h3>WebDev LMS</h3>
-                    <p>Master web development in 10 days with hands-on challenges and real-world projects.</p>
+    <!-- Footer Section -->
+    <footer>
+    <div style="background-color: #1e1e1e; color: white; padding: 50px 20px; margin-top: 60px; border-top: 3px solid #01d29b;">
+        <!-- Main Footer Content -->
+        <div style="max-width: 1200px; margin: 0 auto;">
+            <div style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 40px; margin-bottom: 40px;">
+                
+                <!-- Brand Column -->
+                <div style="flex: 1; min-width: 250px;">
+                    <div style="display: flex; align-items: center; margin-bottom: 20px;">
+                        <i class="fas fa-code" style="font-size: 24px; color: #01d29b; margin-right: 12px;"></i>
+                        <h2 style="margin: 0; color: white; font-size: 24px; font-weight: bold;">WebDev LMS</h2>
+                    </div>
+                    <p style="color: #cccccc; line-height: 1.6; margin-bottom: 20px; font-size: 16px;">
+                        Master web development in 9 days with hands-on challenges and real-world projects. Join thousands learning to code!
+                    </p>
+                    <div style="display: flex; gap: 15px;">
+                        <a href="#" style="color: #01d29b; font-size: 20px; transition: color 0.3s;"><i class="fab fa-github"></i></a>
+                        <a href="#" style="color: #01d29b; font-size: 20px; transition: color 0.3s;"><i class="fab fa-discord"></i></a>
+                        <a href="#" style="color: #01d29b; font-size: 20px; transition: color 0.3s;"><i class="fab fa-twitter"></i></a>
+                        <a href="#" style="color: #01d29b; font-size: 20px; transition: color 0.3s;"><i class="fab fa-youtube"></i></a>
+                    </div>
                 </div>
-                <div class="footer-section">
-                    <h4>Quick Links</h4>
-                    <ul>
-                        <li><a href="#home">Home</a></li>
-                        <li><a href="#curriculum">Curriculum</a></li>
-                        <li><a href="#challenges">Challenges</a></li>
-                        <li><a href="#gaming">Games</a></li>
-                        <li><a href="#resources">Resources</a></li>
+
+                <!-- Quick Links Column -->
+                <div style="flex: 1; min-width: 200px;">
+                    <h3 style="color: #01d29b; margin-bottom: 20px; font-size: 18px; font-weight: 600;">Quick Links</h3>
+                    <ul style="list-style: none; padding: 0; margin: 0;">
+                        <li style="margin-bottom: 12px;">
+                            <a href="#home" style="color: #cccccc; text-decoration: none; font-size: 15px; transition: color 0.3s;" 
+                               onmouseover="this.style.color='#01d29b'" onmouseout="this.style.color='#cccccc'">
+                                <i class="fas fa-home" style="margin-right: 8px; width: 16px;"></i>Home
+                            </a>
+                        </li>
+                        <li style="margin-bottom: 12px;">
+                            <a href="#curriculum" style="color: #cccccc; text-decoration: none; font-size: 15px; transition: color 0.3s;" 
+                               onmouseover="this.style.color='#01d29b'" onmouseout="this.style.color='#cccccc'">
+                                <i class="fas fa-book" style="margin-right: 8px; width: 16px;"></i>Curriculum
+                            </a>
+                        </li>
+                        <li style="margin-bottom: 12px;">
+                            <a href="#gaming" style="color: #cccccc; text-decoration: none; font-size: 15px; transition: color 0.3s;" 
+                               onmouseover="this.style.color='#01d29b'" onmouseout="this.style.color='#cccccc'">
+                                <i class="fas fa-gamepad" style="margin-right: 8px; width: 16px;"></i>Games
+                            </a>
+                        </li>
+                        <li style="margin-bottom: 12px;">
+                            <a href="#resources" style="color: #cccccc; text-decoration: none; font-size: 15px; transition: color 0.3s;" 
+                               onmouseover="this.style.color='#01d29b'" onmouseout="this.style.color='#cccccc'">
+                                <i class="fas fa-tools" style="margin-right: 8px; width: 16px;"></i>Resources
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Learning Paths Column -->
+                <div style="flex: 1; min-width: 200px;">
+                    <h3 style="color: #01d29b; margin-bottom: 20px; font-size: 18px; font-weight: 600;">Learning Paths</h3>
+                    <ul style="list-style: none; padding: 0; margin: 0;">
+                        <li style="margin-bottom: 12px;">
+                            <a href="html-fundamentals.html" style="color: #cccccc; text-decoration: none; font-size: 15px; transition: color 0.3s;" 
+                               onmouseover="this.style.color='#01d29b'" onmouseout="this.style.color='#cccccc'">
+                                <i class="fab fa-html5" style="margin-right: 8px; width: 16px;"></i>HTML Fundamentals
+                            </a>
+                        </li>
+                        <li style="margin-bottom: 12px;">
+                            <a href="css-basics.html" style="color: #cccccc; text-decoration: none; font-size: 15px; transition: color 0.3s;" 
+                               onmouseover="this.style.color='#01d29b'" onmouseout="this.style.color='#cccccc'">
+                                <i class="fab fa-css3-alt" style="margin-right: 8px; width: 16px;"></i>CSS Styling
+                            </a>
+                        </li>
+                        <li style="margin-bottom: 12px;">
+                            <a href="javascript-basics.html" style="color: #cccccc; text-decoration: none; font-size: 15px; transition: color 0.3s;" 
+                               onmouseover="this.style.color='#01d29b'" onmouseout="this.style.color='#cccccc'">
+                                <i class="fab fa-js-square" style="margin-right: 8px; width: 16px;"></i>JavaScript Basics
+                            </a>
+                        </li>
+                        <li style="margin-bottom: 12px;">
+                            <a href="final-project.html" style="color: #cccccc; text-decoration: none; font-size: 15px; transition: color 0.3s;" 
+                               onmouseover="this.style.color='#01d29b'" onmouseout="this.style.color='#cccccc'">
+                                <i class="fas fa-rocket" style="margin-right: 8px; width: 16px;"></i>Final Project
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Contact Column -->
+                <div style="flex: 1; min-width: 200px;">
+                    <h3 style="color: #01d29b; margin-bottom: 20px; font-size: 18px; font-weight: 600;">Get Help</h3>
+                    <ul style="list-style: none; padding: 0; margin: 0;">
+                        <li style="margin-bottom: 12px;">
+                            <a href="mailto:help@webdevlms.com" style="color: #cccccc; text-decoration: none; font-size: 15px; transition: color 0.3s;" 
+                               onmouseover="this.style.color='#01d29b'" onmouseout="this.style.color='#cccccc'">
+                                <i class="fas fa-envelope" style="margin-right: 8px; width: 16px;"></i>Contact Support
+                            </a>
+                        </li>
+                        <li style="margin-bottom: 12px;">
+                            <a href="#faq" style="color: #cccccc; text-decoration: none; font-size: 15px; transition: color 0.3s;" 
+                               onmouseover="this.style.color='#01d29b'" onmouseout="this.style.color='#cccccc'">
+                                <i class="fas fa-question-circle" style="margin-right: 8px; width: 16px;"></i>FAQ
+                            </a>
+                        </li>
+                        <li style="margin-bottom: 12px;">
+                            <a href="#community" style="color: #cccccc; text-decoration: none; font-size: 15px; transition: color 0.3s;" 
+                               onmouseover="this.style.color='#01d29b'" onmouseout="this.style.color='#cccccc'">
+                                <i class="fas fa-users" style="margin-right: 8px; width: 16px;"></i>Community
+                            </a>
+                        </li>
+                        <li style="margin-bottom: 12px;">
+                            <a href="#help" style="color: #cccccc; text-decoration: none; font-size: 15px; transition: color 0.3s;" 
+                               onmouseover="this.style.color='#01d29b'" onmouseout="this.style.color='#cccccc'">
+                                <i class="fas fa-life-ring" style="margin-right: 8px; width: 16px;"></i>Help Center
+                            </a>
+                        </li>
                     </ul>
                 </div>
             </div>
-            <div class="footer-bottom">
-                <p>&copy; 2024 WebDev LMS. All rights reserved.</p>
+
+            <!-- Footer Bottom -->
+            <div style="border-top: 1px solid #333; padding-top: 25px; text-align: center;">
+                <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 20px;">
+                    <p style="margin: 0; color: #999; font-size: 14px;">
+                        © 2024 WebDev LMS. All rights reserved. Made with ❤️ for developers
+                    </p>
+                    <div style="display: flex; gap: 25px;">
+                        <a href="#privacy" style="color: #999; text-decoration: none; font-size: 14px; transition: color 0.3s;" 
+                           onmouseover="this.style.color='#01d29b'" onmouseout="this.style.color='#999'">Privacy Policy</a>
+                        <a href="#terms" style="color: #999; text-decoration: none; font-size: 14px; transition: color 0.3s;" 
+                           onmouseover="this.style.color='#01d29b'" onmouseout="this.style.color='#999'">Terms of Service</a>
+                        <a href="#cookies" style="color: #999; text-decoration: none; font-size: 14px; transition: color 0.3s;" 
+                           onmouseover="this.style.color='#01d29b'" onmouseout="this.style.color='#999'">Cookies</a>
+                    </div>
+                </div>
             </div>
         </div>
-    </footer>
+    </div>
+</footer>
+<!-- FOOTER END -->
 
     <script src="script.js"></script>
     <script>
