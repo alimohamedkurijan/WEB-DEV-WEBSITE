@@ -4,64 +4,85 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Day 7: Conditions, Logic & Functions - WebDev LMS</title>
-    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.44.0/min/vs/loader.min.js"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#6366f1',
+                        accent: '#8b5cf6',
+                        dark: '#0f172a',
+                        'dark-light': '#1e293b',
+                        'dark-lighter': '#334155'
+                    }
+                }
+            }
+        }
+    </script>
 </head>
-<body>
+<body class="bg-dark text-white min-h-screen">
     <!-- Navigation -->
-    <nav class="navbar">
-        <div class="nav-container">
-            <div class="nav-logo" onclick="window.location.href='index.html'">
-                <i class="fas fa-code"></i>
-                <span>WebDev LMS</span>
-            </div>
-            <ul class="nav-menu">
-                <li><a href="index.html" class="nav-link" data-page="home">Home</a></li>
-                <li><a href="index.html#curriculum" class="nav-link" data-page="curriculum">Curriculum</a></li>
-                <li><a href="index.html#challenges" class="nav-link" data-page="challenges">Challenges</a></li>
-                <li><a href="index.html#resources" class="nav-link" data-page="resources">Resources</a></li>
-            </ul>
-            <div class="nav-actions">
-                <div class="page-indicator">
-                    <i class="fas fa-code-branch"></i>
-                    <span>Day 7: Conditions, Logic & Functions</span>
+    <nav class="bg-dark-light border-b border-primary/20 sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center space-x-4 cursor-pointer" onclick="window.location.href='index.html'">
+                    <div class="bg-gradient-to-r from-primary to-accent p-2 rounded-xl">
+                        <i class="fas fa-code text-white text-xl"></i>
+                    </div>
+                    <span class="text-xl font-bold text-white">WebDev LMS</span>
                 </div>
-                <button class="nav-btn-secondary" onclick="window.location.href='javascript-arrays.html'">
-                    <i class="fas fa-arrow-right"></i>
-                    Next Day
-                </button>
-            </div>
-            <div class="hamburger">
-                <span></span>
-                <span></span>
-                <span></span>
+                
+                <ul class="hidden md:flex items-center space-x-8">
+                    <li><a href="index.html" class="text-gray-300 hover:text-white transition-colors duration-200">Home</a></li>
+                    <li><a href="index.html#curriculum" class="text-gray-300 hover:text-white transition-colors duration-200">Curriculum</a></li>
+                    <li><a href="index.html#challenges" class="text-gray-300 hover:text-white transition-colors duration-200">Challenges</a></li>
+                    <li><a href="index.html#resources" class="text-gray-300 hover:text-white transition-colors duration-200">Resources</a></li>
+                </ul>
+                
+                <div class="flex items-center space-x-4">
+                    <div class="hidden lg:flex items-center space-x-2 bg-dark-lighter px-4 py-2 rounded-xl">
+                        <i class="fas fa-code-branch text-primary"></i>
+                        <span class="text-sm text-gray-300">Day 7: Conditions, Logic & Functions</span>
+                    </div>
+                    <button class="bg-gradient-to-r from-primary to-accent text-white px-4 py-2 rounded-xl font-semibold hover:shadow-lg hover:shadow-primary/25 transition-all duration-300" onclick="window.location.href='javascript-arrays.html'">
+                        <i class="fas fa-arrow-right mr-2"></i>Next Day
+                    </button>
+                </div>
+                
+                <div class="md:hidden">
+                    <button class="text-gray-300 hover:text-white">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
             </div>
         </div>
     </nav>
 
     <!-- Day Header -->
-    <section class="day-header">
-        <div class="container">
-            <div class="day-header-content">
-                <div class="day-badge">
-                    <span class="day-number">Day 7</span>
+    <section class="bg-gradient-to-br from-dark to-dark-light py-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <div class="max-w-4xl mx-auto">
+                <div class="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-r from-primary to-accent rounded-full mb-8">
+                    <span class="text-2xl font-bold text-white">7</span>
                 </div>
-                <h1>Conditions, Logic & Functions</h1>
-                <p>Master decision-making in code and create reusable functions for powerful applications</p>
-                <div class="day-meta">
-                    <span class="meta-item">
-                        <i class="fas fa-clock"></i>
-                        Duration: 2 hours
+                <h1 class="text-5xl font-bold text-white mb-6">Conditions, Logic & Functions</h1>
+                <p class="text-xl text-gray-300 mb-8">Master decision-making in code and create reusable functions for powerful applications</p>
+                <div class="flex flex-wrap justify-center gap-6">
+                    <span class="flex items-center space-x-2 bg-dark-light/50 px-4 py-2 rounded-xl">
+                        <i class="fas fa-clock text-primary"></i>
+                        <span class="text-gray-300">Duration: 2 hours</span>
                     </span>
-                    <span class="meta-item">
-                        <i class="fas fa-signal"></i>
-                        Level: Intermediate
+                    <span class="flex items-center space-x-2 bg-dark-light/50 px-4 py-2 rounded-xl">
+                        <i class="fas fa-signal text-primary"></i>
+                        <span class="text-gray-300">Level: Intermediate</span>
                     </span>
-                    <span class="meta-item">
-                        <i class="fas fa-tasks"></i>
-                        Challenges: 3
+                    <span class="flex items-center space-x-2 bg-dark-light/50 px-4 py-2 rounded-xl">
+                        <i class="fas fa-tasks text-primary"></i>
+                        <span class="text-gray-300">Challenges: 3</span>
                     </span>
                 </div>
             </div>
@@ -69,386 +90,150 @@
     </section>
 
     <!-- Challenges Section -->
-    <section class="challenges-section">
-        <div class="container">
-                            <h2><i class="fas fa-bullseye"></i> Practice Challenges</h2>
-            <p class="challenges-intro">Complete these hands-on challenges to master conditions, logic, and functions:</p>
+    <section class="py-20 bg-dark">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-white mb-4"><i class="fas fa-bullseye text-primary mr-3"></i>Practice Challenges</h2>
+                <p class="text-xl text-gray-300">Complete these hands-on challenges to master conditions, logic, and functions:</p>
+            </div>
             
-            <div class="challenges-grid">
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <!-- Challenge 1 -->
-                <div class="challenge-card">
-                    <div class="challenge-header">
-                        <div class="challenge-number">01</div>
-                        <div class="challenge-meta">
-                            <span class="difficulty beginner">Beginner</span>
-                            <span class="time">12 min</span>
+                <div class="bg-gradient-to-br from-dark-light/80 to-dark/80 rounded-2xl border border-primary/20 p-8 hover:border-primary/40 transition-all duration-300">
+                    <div class="flex justify-between items-start mb-6">
+                        <div class="bg-gradient-to-r from-primary to-accent text-white text-2xl font-bold w-16 h-16 rounded-xl flex items-center justify-center">01</div>
+                        <div class="text-right">
+                            <span class="bg-green-500/20 text-green-400 px-3 py-1 rounded-full text-sm font-medium">Beginner</span>
+                            <div class="text-gray-400 text-sm mt-1">12 min</div>
                         </div>
                     </div>
-                    <h3><i class="fas fa-code-branch"></i> Conditions & Logic</h3>
-                    <p>Learn to make decisions in code using if, else, and comparison operators.</p>
+                    <h3 class="text-xl font-bold text-white mb-4"><i class="fas fa-code-branch text-primary mr-2"></i>Conditions & Logic</h3>
+                    <p class="text-gray-300 mb-6">Learn to make decisions in code using if, else, and comparison operators.</p>
                     
-                    <button class="challenge-btn" onclick="openChallenge(1)">
-                        <i class="fas fa-play"></i>
-                        Start Challenge
+                    <button class="w-full bg-gradient-to-r from-primary to-accent text-white py-3 rounded-xl font-semibold hover:shadow-lg hover:shadow-primary/25 transition-all duration-300" onclick="openChallenge(1)">
+                        <i class="fas fa-play mr-2"></i>Start Challenge
                     </button>
                 </div>
 
                 <!-- Challenge 2 -->
-                <div class="challenge-card">
-                    <div class="challenge-header">
-                        <div class="challenge-number">02</div>
-                        <div class="challenge-meta">
-                            <span class="difficulty beginner">Beginner</span>
-                            <span class="time">15 min</span>
+                <div class="bg-gradient-to-br from-dark-light/80 to-dark/80 rounded-2xl border border-primary/20 p-8 hover:border-primary/40 transition-all duration-300">
+                    <div class="flex justify-between items-start mb-6">
+                        <div class="bg-gradient-to-r from-primary to-accent text-white text-2xl font-bold w-16 h-16 rounded-xl flex items-center justify-center">02</div>
+                        <div class="text-right">
+                            <span class="bg-yellow-500/20 text-yellow-400 px-3 py-1 rounded-full text-sm font-medium">Intermediate</span>
+                            <div class="text-gray-400 text-sm mt-1">18 min</div>
                         </div>
                     </div>
-                    <h3>⚙️ Function Basics</h3>
-                    <p>Create and use functions with parameters, arguments, and return statements.</p>
+                    <h3 class="text-xl font-bold text-white mb-4"><i class="fas fa-cogs text-primary mr-2"></i>Logical Operators</h3>
+                    <p class="text-gray-300 mb-6">Combine conditions with AND, OR, and NOT operators for complex decision-making.</p>
                     
-                    <button class="challenge-btn" onclick="openChallenge(2)">
-                        <i class="fas fa-play"></i>
-                        Start Challenge
+                    <button class="w-full bg-gradient-to-r from-primary to-accent text-white py-3 rounded-xl font-semibold hover:shadow-lg hover:shadow-primary/25 transition-all duration-300" onclick="openChallenge(2)">
+                        <i class="fas fa-play mr-2"></i>Start Challenge
                     </button>
                 </div>
 
                 <!-- Challenge 3 -->
-                <div class="challenge-card">
-                    <div class="challenge-header">
-                        <div class="challenge-number">03</div>
-                        <div class="challenge-meta">
-                            <span class="difficulty intermediate">Intermediate</span>
-                            <span class="time">18 min</span>
+                <div class="bg-gradient-to-br from-dark-light/80 to-dark/80 rounded-2xl border border-primary/20 p-8 hover:border-primary/40 transition-all duration-300">
+                    <div class="flex justify-between items-start mb-6">
+                        <div class="bg-gradient-to-r from-primary to-accent text-white text-2xl font-bold w-16 h-16 rounded-xl flex items-center justify-center">03</div>
+                        <div class="text-right">
+                            <span class="bg-red-500/20 text-red-400 px-3 py-1 rounded-full text-sm font-medium">Advanced</span>
+                            <div class="text-gray-400 text-sm mt-1">25 min</div>
                         </div>
                     </div>
-                    <h3><i class="fas fa-bullseye"></i> Function-Based App</h3>
-                    <p>Build a complete application using functions, conditions, and user input.</p>
+                    <h3 class="text-xl font-bold text-white mb-4"><i class="fas fa-magic text-primary mr-2"></i>Function Creation</h3>
+                    <p class="text-gray-300 mb-6">Build reusable functions with parameters and return values.</p>
                     
-                    <button class="challenge-btn" onclick="openChallenge(3)">
-                        <i class="fas fa-play"></i>
-                        Start Challenge
+                    <button class="w-full bg-gradient-to-r from-primary to-accent text-white py-3 rounded-xl font-semibold hover:shadow-lg hover:shadow-primary/25 transition-all duration-300" onclick="openChallenge(3)">
+                        <i class="fas fa-play mr-2"></i>Start Challenge
                     </button>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Content Section -->
-    <section class="day-content">
-        <div class="container">
-            <div class="content-grid">
+    <!-- Content Area -->
+    <section class="py-20 bg-dark-light">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-3 gap-12">
                 <!-- Main Content -->
-                <div class="content-main">
-                    <div class="content-section">
-                        <h2><i class="fas fa-code-branch"></i> What are Conditions & Logic?</h2>
-                        <p>Conditions and logic allow your code to make decisions and respond differently based on various situations. Think of it as the <strong>brain</strong> of your program - just like you make decisions in life, your code can make decisions too!</p>
-                        
-                        <div class="concept-highlight">
-                            <h4>📚 Key Points:</h4>
-                            <ul>
-                                <li><strong>Decision Making:</strong> Code can choose different paths based on conditions</li>
-                                <li><strong>User Input:</strong> Respond differently to different user actions</li>
-                                <li><strong>Data Validation:</strong> Check if data meets certain criteria</li>
-                                <li><strong>Dynamic Behavior:</strong> Create interactive and responsive applications</li>
+                <div class="lg:col-span-2">
+                    <div class="bg-dark rounded-2xl border border-primary/20 p-8">
+                        <h2 class="text-3xl font-bold text-white mb-6">Lesson Content</h2>
+                        <div class="prose prose-invert max-w-none">
+                            <p class="text-gray-300 mb-6">
+                                Welcome to Day 7! Today we'll explore the fundamental building blocks of programming logic: 
+                                conditions, logical operators, and functions. These concepts will allow you to create dynamic, 
+                                interactive applications that can make decisions and perform complex operations.
+                            </p>
+                            
+                            <h3 class="text-2xl font-bold text-white mb-4">What You'll Learn</h3>
+                            <ul class="text-gray-300 space-y-3 mb-8">
+                                <li class="flex items-start space-x-3">
+                                    <i class="fas fa-check-circle text-primary mt-1"></i>
+                                    <span>Understanding conditional statements (if, else, else if)</span>
+                                </li>
+                                <li class="flex items-start space-x-3">
+                                    <i class="fas fa-check-circle text-primary mt-1"></i>
+                                    <span>Working with comparison operators (==, ===, !=, !==, >, <, >=, <=)</span>
+                                </li>
+                                <li class="flex items-start space-x-3">
+                                    <i class="fas fa-check-circle text-primary mt-1"></i>
+                                    <span>Using logical operators (&&, ||, !) to combine conditions</span>
+                                </li>
+                                <li class="flex items-start space-x-3">
+                                    <i class="fas fa-check-circle text-primary mt-1"></i>
+                                    <span>Creating and calling functions with parameters</span>
+                                </li>
+                                <li class="flex items-start space-x-3">
+                                    <i class="fas fa-check-circle text-primary mt-1"></i>
+                                    <span>Understanding function scope and return values</span>
+                                </li>
                             </ul>
-                        </div>
-
-                        <div class="code-example">
-                            <div class="code-header">
-                                <span>Simple Conditional Example</span>
-                                <button class="copy-btn" onclick="copyCode(this)">
-                                    <i class="fas fa-copy"></i>
-                                </button>
+                            
+                            <div class="bg-primary/10 border border-primary/20 rounded-xl p-6 mb-8">
+                                <h4 class="text-primary font-semibold mb-3">💡 Pro Tip</h4>
+                                <p class="text-gray-300">
+                                    Functions are like recipes - they take ingredients (parameters), follow steps (code), 
+                                    and produce a result (return value). The more you practice creating functions, the more 
+                                    organized and maintainable your code will become!
+                                </p>
                             </div>
-                            <pre><code>let age = 18;
-
-if (age >= 18) {
-    console.log("You can vote!");
-} else {
-    console.log("Too young to vote.");
-}
-
-// Multiple conditions
-if (age < 13) {
-    console.log("You're a child");
-} else if (age < 20) {
-    console.log("You're a teenager");
-} else {
-    console.log("You're an adult");
-}</code></pre>
-                            <div class="code-output">
-                                <h4>What happens:</h4>
-                                <div class="browser-preview">
-                                    <p style="color: #666; margin: 10px 0;">1. Checks if age is 18 or older</p>
-                                    <p style="color: #666; margin: 10px 0;">2. Prints "You can vote!"</p>
-                                    <p style="color: #666; margin: 10px 0;">3. Then checks age ranges</p>
-                                    <p style="color: #666; margin: 10px 0;">4. Prints "You're an adult"</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="content-section">
-                        <h2>⚖️ Comparison Operators</h2>
-                        <p>Comparison operators let you compare values and create conditions. Understanding the difference between loose and strict equality is crucial for writing reliable code.</p>
-                        
-                        <div class="concept-highlight">
-                            <h4>🔍 Comparison Types:</h4>
-                            <ul>
-                                <li><strong>Loose Equality:</strong> <code>==</code> (compares values, converts types)</li>
-                                <li><strong>Strict Equality:</strong> <code>===</code> (compares values AND types)</li>
-                                <li><strong>Inequality:</strong> <code>!=</code> and <code>!=</code></li>
-                                <li><strong>Relational:</strong> <code>></code>, <code><</code>, <code>>=</code>, <code><=</code></li>
-                            </ul>
-                        </div>
-
-                        <div class="code-example">
-                            <div class="code-header">
-                                <span>Comparison Operators Examples</span>
-                                <button class="copy-btn" onclick="copyCode(this)">
-                                    <i class="fas fa-copy"></i>
-                                </button>
-                            </div>
-                            <pre><code>// Loose vs Strict Equality
-console.log(5 == "5");   // true (converts string to number)
-console.log(5 === "5");  // false (different types)
-
-console.log(0 == false); // true (both are falsy)
-console.log(0 === false); // false (different types)
-
-// Relational operators
-let score = 85;
-console.log(score > 80);   // true
-console.log(score >= 85);  // true
-console.log(score < 90);   // true
-console.log(score <= 85);  // true
-
-// Inequality
-console.log(score != 80);  // true
-console.log(score !== "85"); // true (different types)</code></pre>
-                        </div>
-
-                        <div class="tip-box">
-                            <h4>💡 Pro Tip:</h4>
-                            <p>Always use <code>===</code> and <code>!=</code> instead of <code>==</code> and <code>!=</code>. This prevents unexpected type conversions and makes your code more predictable and reliable.</p>
-                        </div>
-                    </div>
-
-                    <div class="content-section">
-                        <h2>⚙️ Function Declaration & Calling</h2>
-                        <p>Functions are reusable blocks of code that can accept input (parameters) and return output. They help you organize code and avoid repetition.</p>
-                        
-                        <div class="concept-highlight">
-                            <h4>🔧 Function Components:</h4>
-                            <ul>
-                                <li><strong>Declaration:</strong> Define what the function does</li>
-                                <li><strong>Parameters:</strong> Input values the function accepts</li>
-                                <li><strong>Arguments:</strong> Actual values passed when calling</li>
-                                <li><strong>Return:</strong> Output value the function sends back</li>
-                            </ul>
-                        </div>
-
-                        <div class="code-example">
-                            <div class="code-header">
-                                <span>Function Basics</span>
-                                <button class="copy-btn" onclick="copyCode(this)">
-                                    <i class="fas fa-copy"></i>
-                                </button>
-                            </div>
-                            <pre><code>// Function declaration
-function greet(name) {
-    console.log("Hello, " + name + "!");
-}
-
-// Function call with argument
-greet("Ali");        // Output: Hello, Ali!
-greet("Sarah");      // Output: Hello, Sarah!
-
-// Function with multiple parameters
-function introduce(firstName, lastName, age) {
-    console.log("Hi, I'm " + firstName + " " + lastName);
-    console.log("I'm " + age + " years old");
-}
-
-introduce("Ali", "Ahmed", 25);
-// Output: Hi, I'm Ali Ahmed
-//         I'm 25 years old</code></pre>
-                        </div>
-                    </div>
-
-                    <div class="content-section">
-                        <h2>🔄 Return Statements</h2>
-                        <p>The <code>return</code> statement sends a value back from a function. This is different from <code>console.log()</code> - returned values can be stored in variables and used elsewhere in your code.</p>
-                        
-                        <div class="concept-highlight">
-                            <h4>📤 Return vs Console.log:</h4>
-                            <ul>
-                                <li><strong>Return:</strong> Sends value back to calling code</li>
-                                <li><strong>Console.log:</strong> Displays value in console (for debugging)</li>
-                                <li><strong>Storing Results:</strong> Returned values can be assigned to variables</li>
-                                <li><strong>Reusability:</strong> Returned values can be used in calculations</li>
-                            </ul>
-                        </div>
-
-                        <div class="code-example">
-                            <div class="code-header">
-                                <span>Return Statements Examples</span>
-                                <button class="copy-btn" onclick="copyCode(this)">
-                                    <i class="fas fa-copy"></i>
-                                </button>
-                            </div>
-                            <pre><code>// Function with return
-function add(a, b) {
-    return a + b;
-}
-
-// Store returned value
-let result = add(5, 3);
-console.log(result); // 8
-
-// Use returned value in calculations
-let sum1 = add(10, 20);
-let sum2 = add(5, 15);
-let total = sum1 + sum2;
-console.log(total); // 50
-
-// Function with conditional return
-function checkAge(age) {
-    if (age >= 18) {
-        return "Adult";
-    } else {
-        return "Minor";
-    }
-}
-
-let status = checkAge(20);
-console.log(status); // "Adult"
-
-// Multiple return points
-function getGrade(score) {
-    if (score >= 90) return "A";
-    if (score >= 80) return "B";
-    if (score >= 70) return "C";
-    if (score >= 60) return "D";
-    return "F";
-}
-
-console.log(getGrade(85)); // "B"</code></pre>
-                        </div>
-                    </div>
-
-                    <div class="content-section">
-                        <h2>🎯 Building Function-Based Apps</h2>
-                        <p>Now let's combine everything we've learned to create a complete application that uses functions, conditions, and user input to provide personalized responses.</p>
-                        
-                        <div class="concept-highlight">
-                            <h4>🛠️ App Building Strategy:</h4>
-                            <ul>
-                                <li><strong>Input Functions:</strong> Collect and validate user data</li>
-                                <li><strong>Processing Functions:</strong> Apply logic and make decisions</li>
-                                <li><strong>Output Functions:</strong> Display results to users</li>
-                                <li><strong>Main Function:</strong> Orchestrate the entire process</li>
-                            </ul>
-                        </div>
-
-                        <div class="code-example">
-                            <div class="code-header">
-                                <span>Complete Function-Based App</span>
-                                <button class="copy-btn" onclick="copyCode(this)">
-                                    <i class="fas fa-copy"></i>
-                                </button>
-                            </div>
-                            <pre><code>// Function to get user input
-function getUserInfo() {
-    let name = prompt("What's your name?");
-    let age = prompt("How old are you?");
-    return { name: name, age: parseInt(age) };
-}
-
-// Function to check age-based permissions
-function checkPermissions(age) {
-    if (age >= 18) {
-        return "You can vote, drive, and access all features!";
-    } else if (age >= 16) {
-        return "You can drive with supervision and access limited features.";
-    } else if (age >= 13) {
-        return "You can access basic features with parental consent.";
-    } else {
-        return "You can access child-friendly features only.";
-    }
-}
-
-// Function to create personalized message
-function createMessage(name, age, permissions) {
-    return `Hello ${name}! You are ${age} years old.\n${permissions}`;
-}
-
-// Main function that runs the app
-function runApp() {
-    // Step 1: Get user input
-    let userInfo = getUserInfo();
-    
-    // Step 2: Process the data
-    let permissions = checkPermissions(userInfo.age);
-    
-    // Step 3: Create output
-    let message = createMessage(userInfo.name, userInfo.age, permissions);
-    
-    // Step 4: Display results
-    alert(message);
-    console.log("App completed for:", userInfo.name);
-}
-
-// Run the application
-runApp();</code></pre>
-                        </div>
-
-                        <div class="tip-box">
-                            <h4>💡 Pro Tip:</h4>
-                            <p>Break down complex applications into smaller, focused functions. Each function should have a single responsibility. This makes your code easier to read, test, and maintain.</p>
                         </div>
                     </div>
                 </div>
-
+                
                 <!-- Sidebar -->
-                <div class="content-sidebar">
-                    <div class="sidebar-section">
-                        <h3>Quick Navigation</h3>
-                        <ul class="sidebar-nav">
-                            <li><a href="#conditions">Conditions & Logic</a></li>
-                            <li><a href="#operators">Comparison Operators</a></li>
-                            <li><a href="#functions">Function Basics</a></li>
-                            <li><a href="#return">Return Statements</a></li>
-                            <li><a href="#apps">Function-Based Apps</a></li>
-                            <li><a href="#challenges">Challenges</a></li>
-                        </ul>
-                    </div>
-
-                    <div class="sidebar-section">
-                        <h3>Resources</h3>
-                        <ul class="resource-links">
-                            <li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Control_flow_and_error_handling" target="_blank">
-                                <i class="fas fa-external-link-alt"></i>
-                                MDN Control Flow
-                            </a></li>
-                            <li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Functions" target="_blank">
-                                <i class="fas fa-external-link-alt"></i>
-                                MDN Functions
-                            </a></li>
-                            <li><a href="https://www.w3schools.com/js/js_functions.asp" target="_blank">
-                                <i class="fas fa-external-link-alt"></i>
-                                W3Schools Functions
-                            </a></li>
-                        </ul>
-                    </div>
-
-                    <div class="sidebar-section">
-                        <h3>Common Mistakes</h3>
-                        <ul class="mistakes-list">
-                            <li>Using <code>==</code> instead of <code>===</code></li>
-                            <li>Forgetting to use <code>return</code> in functions</li>
-                            <li>Not handling all possible conditions</li>
-                            <li>Confusing parameters with arguments</li>
-                        </ul>
+                <div class="lg:col-span-1">
+                    <div class="bg-dark rounded-2xl border border-primary/20 p-6 sticky top-24">
+                        <h3 class="text-xl font-bold text-white mb-6">Quick Navigation</h3>
+                        <div class="space-y-4">
+                            <a href="#challenges" class="flex items-center space-x-3 text-gray-300 hover:text-white transition-colors duration-200">
+                                <i class="fas fa-bullseye text-primary"></i>
+                                <span>Practice Challenges</span>
+                            </a>
+                            <a href="#lesson" class="flex items-center space-x-3 text-gray-300 hover:text-white transition-colors duration-200">
+                                <i class="fas fa-book text-primary"></i>
+                                <span>Lesson Content</span>
+                            </a>
+                            <a href="#resources" class="flex items-center space-x-3 text-gray-300 hover:text-white transition-colors duration-200">
+                                <i class="fas fa-link text-primary"></i>
+                                <span>Additional Resources</span>
+                            </a>
+                        </div>
+                        
+                        <div class="border-t border-primary/20 mt-6 pt-6">
+                            <h4 class="text-lg font-semibold text-white mb-4">Progress Tracker</h4>
+                            <div class="space-y-3">
+                                <div class="flex justify-between items-center">
+                                    <span class="text-gray-300">Challenges Completed</span>
+                                    <span class="text-primary font-semibold">0/3</span>
+                                </div>
+                                <div class="w-full bg-dark-lighter rounded-full h-2">
+                                    <div class="bg-gradient-to-r from-primary to-accent h-2 rounded-full" style="width: 0%"></div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -456,80 +241,108 @@ runApp();</code></pre>
     </section>
 
     <!-- Navigation Footer -->
-    <section class="day-navigation">
-        <div class="container">
-            <div class="nav-buttons">
-                <button class="nav-btn" onclick="window.location.href='javascript-basics.html'">
-                    <i class="fas fa-arrow-left"></i>
-                    Previous: Day 6
-                </button>
-                <button class="nav-btn primary" onclick="window.location.href='javascript-arrays.html'">
-                    Next: Day 8
-                    <i class="fas fa-arrow-right"></i>
-                </button>
+    <section class="py-16 bg-dark border-t border-primary/20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col sm:flex-row justify-between items-center space-y-4 sm:space-y-0">
+                <div class="flex items-center space-x-4">
+                    <a href="css-layout.html" class="flex items-center space-x-2 text-gray-300 hover:text-white transition-colors duration-200">
+                        <i class="fas fa-arrow-left"></i>
+                        <span>Previous: CSS Layout & Flexbox</span>
+                    </a>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <a href="javascript-arrays.html" class="flex items-center space-x-2 bg-gradient-to-r from-primary to-accent text-white px-6 py-3 rounded-xl font-semibold hover:shadow-lg hover:shadow-primary/25 transition-all duration-300">
+                        <span>Next: Arrays & Loops</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- Challenge Modal -->
-    <div id="challengeModal" class="challenge-modal">
-        <div class="challenge-modal-content">
-            <div class="challenge-modal-header">
-                <h2 id="modalChallengeTitle">Challenge Title</h2>
-                <div class="challenge-modal-actions">
-                    <button class="complete-btn" onclick="completeChallenge()">
-                        <i class="fas fa-check"></i>
-                        Complete Challenge
-                    </button>
-                    <button class="close-challenge-modal" onclick="closeChallengeModal()">
-                        <i class="fas fa-times"></i>
-                    </button>
+    <div id="challengeModal" class="fixed inset-0 bg-black/80 hidden z-50">
+        <div class="flex items-center justify-center min-h-screen p-4">
+            <div class="bg-dark rounded-2xl border border-primary/20 w-full max-w-6xl max-h-[90vh] overflow-y-auto">
+                <div class="sticky top-0 bg-dark border-b border-primary/20 p-6 rounded-t-2xl">
+                    <div class="flex justify-between items-start">
+                        <div>
+                            <h2 id="challengeTitle" class="text-2xl font-bold text-white mb-2">Challenge Title</h2>
+                            <p class="text-gray-300">Complete the challenge below to test your skills</p>
+                        </div>
+                        <button onclick="closeChallengeModal()" class="text-gray-400 hover:text-white text-2xl">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </div>
                 </div>
-            </div>
-            <div class="challenge-modal-body">
-                <div id="modalChallengeContent">
-                    <!-- Challenge content will be loaded here -->
+                
+                <div class="p-6">
+                    <div id="challengeContent">
+                        <!-- Challenge content will be loaded here -->
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h3>WebDev LMS</h3>
-                    <p>Master web development in 10 days with hands-on challenges and real-world projects.</p>
+    <!-- Main Footer -->
+    <footer class="bg-dark-light border-t border-primary/20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div class="md:col-span-2">
+                    <div class="flex items-center space-x-4 mb-6">
+                        <div class="bg-gradient-to-r from-primary to-accent p-3 rounded-xl">
+                            <i class="fas fa-code text-white text-2xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-2xl font-bold text-white">WebDev LMS</h3>
+                            <p class="text-gray-400">Master web development through interactive challenges</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-300 mb-6">
+                        Learn HTML, CSS, and JavaScript through hands-on practice. Complete challenges, 
+                        build projects, and become a confident web developer.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-primary transition-colors duration-200">
+                            <i class="fab fa-twitter text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-primary transition-colors duration-200">
+                            <i class="fab fa-github text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-primary transition-colors duration-200">
+                            <i class="fab fa-discord text-xl"></i>
+                        </a>
+                    </div>
                 </div>
-                <div class="footer-section">
-                    <h4>Quick Links</h4>
-                    <ul>
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="index.html#curriculum">Curriculum</a></li>
-                        <li><a href="index.html#challenges">Challenges</a></li>
-                        <li><a href="index.html#resources">Resources</a></li>
+                
+                <div>
+                    <h4 class="text-lg font-semibold text-white mb-4">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="index.html" class="text-gray-400 hover:text-white transition-colors duration-200">Home</a></li>
+                        <li><a href="index.html#curriculum" class="text-gray-400 hover:text-white transition-colors duration-200">Curriculum</a></li>
+                        <li><a href="index.html#challenges" class="text-gray-400 hover:text-white transition-colors duration-200">Challenges</a></li>
+                        <li><a href="index.html#resources" class="text-gray-400 hover:text-white transition-colors duration-200">Resources</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-semibold text-white mb-4">Support</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors duration-200">Help Center</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors duration-200">Contact Us</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors duration-200">FAQ</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors duration-200">Community</a></li>
                     </ul>
                 </div>
             </div>
-            <div class="footer-bottom">
-                <p>&copy; 2024 WebDev LMS. All rights reserved.</p>
+            
+            <div class="border-t border-primary/20 mt-8 pt-8 text-center">
+                <p class="text-gray-400">&copy; 2024 WebDev LMS. All rights reserved.</p>
             </div>
         </div>
     </footer>
 
     <script src="script.js"></script>
-    <script>
-        // Simple Monaco Editor initialization
-        require.config({ paths: { vs: 'https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.44.0/min/vs' } });
-        require(['vs/editor/editor.main'], function() {
-            console.log('Monaco Editor loaded successfully');
-        });
-        
-        // Simple challenge function - works immediately
-        function openChallenge(challengeNumber) {
-            openChallengeModal(challengeNumber);
-        }
-    </script>
 </body>
 </html> 

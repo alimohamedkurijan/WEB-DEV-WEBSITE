@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Day 5: JavaScript Basics - WebDev LMS</title>
+    <title>Day 7: JavaScript DOM - WebDev LMS</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
       tailwind.config = {
@@ -48,12 +48,12 @@
             <span
               class="bg-primary/20 text-primary px-3 py-1 rounded-full text-sm font-medium"
             >
-              Day 5: JavaScript Basics
+              Day 7: JavaScript DOM
             </span>
           </div>
           <div class="flex items-center space-x-4">
             <a
-              href="css-advanced.html"
+              href="responsive-design.html"
               class="bg-gradient-to-r from-primary to-accent text-white px-6 py-2 rounded-xl font-semibold hover:shadow-lg hover:shadow-primary/25 transition-all duration-300"
             >
               Next Day <i class="fas fa-arrow-right ml-2"></i>
@@ -71,21 +71,21 @@
         <div
           class="inline-block bg-primary/20 text-primary px-4 py-2 rounded-full text-sm font-semibold mb-6"
         >
-          Day 5
+          Day 7
         </div>
         <h1 class="text-5xl md:text-6xl font-bold text-white mb-6">
-          JavaScript Basics
+          JavaScript DOM
         </h1>
         <p class="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
-          Learn JavaScript fundamentals: variables, data types, functions, and
-          control flow to make your websites interactive
+          Learn to manipulate the Document Object Model: select elements, handle
+          events, and create dynamic web experiences
         </p>
         <div
           class="flex items-center justify-center space-x-6 mt-8 text-gray-400"
         >
           <div class="flex items-center">
             <i class="fas fa-clock mr-2"></i>
-            <span>3 hours</span>
+            <span>4 hours</span>
           </div>
           <div class="flex items-center">
             <i class="fas fa-tasks mr-2"></i>
@@ -93,7 +93,7 @@
           </div>
           <div class="flex items-center">
             <i class="fas fa-star mr-2"></i>
-            <span>Intermediate</span>
+            <span>Advanced</span>
           </div>
         </div>
       </div>
@@ -127,20 +127,20 @@
                   class="inline-block bg-green-500/20 text-green-400 text-xs font-semibold px-3 py-1 rounded-full mb-2"
                   >Beginner</span
                 >
-                <div class="text-gray-400 text-sm">8 min</div>
+                <div class="text-gray-400 text-sm">10 min</div>
               </div>
             </div>
             <h3 class="text-xl font-bold text-white mb-4 flex items-center">
-              <i class="fas fa-code text-primary mr-3"></i>
-              Variables & Data Types
+              <i class="fas fa-search text-primary mr-3"></i>
+              DOM Selection
             </h3>
             <p class="text-gray-300 mb-6 leading-relaxed">
-              Create variables and work with different data types in JavaScript.
+              Learn to select and manipulate HTML elements using JavaScript.
             </p>
 
             <button
               class="w-full bg-gradient-to-r from-primary to-accent text-white py-3 rounded-2xl font-semibold hover:shadow-lg hover:shadow-primary/25 transition-all duration-300"
-              onclick="openChallenge(17)"
+              onclick="openChallenge(25)"
             >
               <i class="fas fa-play mr-2"></i>
               Start Challenge
@@ -151,7 +151,7 @@
           <div
             class="bg-gradient-to-br from-dark-light/80 to-dark/80 backdrop-blur-xl rounded-3xl border border-primary/30 p-8 hover:border-primary/50 transition-all duration-300 hover:shadow-2xl hover:shadow-primary/20"
           >
-            <div class="flex justify-between items-start mb-6">
+            <div class="flex items-center justify-between mb-6">
               <div
                 class="w-12 h-12 bg-gradient-to-br from-primary to-accent rounded-2xl flex items-center justify-center text-white font-bold text-lg"
               >
@@ -162,20 +162,21 @@
                   class="inline-block bg-yellow-500/20 text-yellow-400 text-xs font-semibold px-3 py-1 rounded-full mb-2"
                   >Intermediate</span
                 >
-                <div class="text-gray-400 text-sm">10 min</div>
+                <div class="text-gray-400 text-sm">12 min</div>
               </div>
             </div>
             <h3 class="text-xl font-bold text-white mb-4 flex items-center">
-              <i class="fas fa-calculator text-primary mr-3"></i>
-              Operators & Math
+              <i class="fas fa-mouse-pointer text-primary mr-3"></i>
+              Event Handling
             </h3>
             <p class="text-gray-300 mb-6 leading-relaxed">
-              Use arithmetic operators and perform mathematical calculations.
+              Handle user interactions like clicks, form submissions, and
+              keyboard events.
             </p>
 
             <button
               class="w-full bg-gradient-to-r from-primary to-accent text-white py-3 rounded-2xl font-semibold hover:shadow-lg hover:shadow-primary/25 transition-all duration-300"
-              onclick="openChallenge(18)"
+              onclick="openChallenge(26)"
             >
               <i class="fas fa-play mr-2"></i>
               Start Challenge
@@ -186,7 +187,7 @@
           <div
             class="bg-gradient-to-br from-dark-light/80 to-dark/80 backdrop-blur-xl rounded-3xl border border-primary/30 p-8 hover:border-primary/50 transition-all duration-300 hover:shadow-2xl hover:shadow-primary/20"
           >
-            <div class="flex justify-between items-start mb-6">
+            <div class="flex items-center justify-between mb-6">
               <div
                 class="w-12 h-12 bg-gradient-to-br from-primary to-accent rounded-2xl flex items-center justify-center text-white font-bold text-lg"
               >
@@ -197,20 +198,20 @@
                   class="inline-block bg-yellow-500/20 text-yellow-400 text-xs font-semibold px-3 py-1 rounded-full mb-2"
                   >Intermediate</span
                 >
-                <div class="text-gray-400 text-sm">12 min</div>
+                <div class="text-gray-400 text-sm">15 min</div>
               </div>
             </div>
             <h3 class="text-xl font-bold text-white mb-4 flex items-center">
-              <i class="fas fa-sitemap text-primary mr-3"></i>
-              Control Flow
+              <i class="fas fa-edit text-primary mr-3"></i>
+              DOM Manipulation
             </h3>
             <p class="text-gray-300 mb-6 leading-relaxed">
-              Use if statements, loops, and conditional logic in your code.
+              Create, modify, and remove elements dynamically from the DOM.
             </p>
 
             <button
               class="w-full bg-gradient-to-r from-primary to-accent text-white py-3 rounded-2xl font-semibold hover:shadow-lg hover:shadow-primary/25 transition-all duration-300"
-              onclick="openChallenge(19)"
+              onclick="openChallenge(27)"
             >
               <i class="fas fa-play mr-2"></i>
               Start Challenge
@@ -221,7 +222,7 @@
           <div
             class="bg-gradient-to-br from-dark-light/80 to-dark/80 backdrop-blur-xl rounded-3xl border border-primary/30 p-8 hover:border-primary/50 transition-all duration-300 hover:shadow-2xl hover:shadow-primary/20"
           >
-            <div class="flex justify-between items-start mb-6">
+            <div class="flex items-center justify-between mb-6">
               <div
                 class="w-12 h-12 bg-gradient-to-br from-primary to-accent rounded-2xl flex items-center justify-center text-white font-bold text-lg"
               >
@@ -232,20 +233,20 @@
                   class="inline-block bg-red-500/20 text-red-400 text-xs font-semibold px-3 py-1 rounded-full mb-2"
                   >Advanced</span
                 >
-                <div class="text-gray-400 text-sm">15 min</div>
+                <div class="text-gray-400 text-sm">18 min</div>
               </div>
             </div>
             <h3 class="text-xl font-bold text-white mb-4 flex items-center">
-              <i class="fas fa-cogs text-primary mr-3"></i>
-              Functions
+              <i class="fas fa-tasks text-primary mr-3"></i>
+              Interactive App
             </h3>
             <p class="text-gray-300 mb-6 leading-relaxed">
-              Create and use functions to organize and reuse your code.
+              Build a complete interactive application using all DOM concepts.
             </p>
 
             <button
               class="w-full bg-gradient-to-r from-primary to-accent text-white py-3 rounded-2xl font-semibold hover:shadow-lg hover:shadow-primary/25 transition-all duration-300"
-              onclick="openChallenge(20)"
+              onclick="openChallenge(28)"
             >
               <i class="fas fa-play mr-2"></i>
               Start Challenge
@@ -261,7 +262,7 @@
         <div class="grid grid-cols-1 lg:grid-cols-4 gap-12">
           <!-- Main Content -->
           <div class="lg:col-span-3 space-y-16">
-            <!-- What is JavaScript -->
+            <!-- What is the DOM -->
             <div
               class="bg-gradient-to-br from-dark-light/50 to-dark/50 backdrop-blur-xl rounded-3xl border border-primary/20 p-8"
             >
@@ -272,51 +273,73 @@
                   1
                 </div>
                 <h2 class="text-3xl font-bold text-white">
-                  🎯 What is JavaScript?
+                  🌳 What is the DOM?
                 </h2>
               </div>
               <div class="text-gray-300 space-y-4 leading-relaxed">
                 <p>
-                  <strong>JavaScript</strong> is a programming language that
-                  adds interactivity and dynamic behavior to web pages.
+                  <strong>The Document Object Model (DOM)</strong> is a
+                  programming interface for HTML and XML documents. It
+                  represents the page as a tree of objects that JavaScript can
+                  manipulate.
                 </p>
                 <p>
-                  It's the language that makes websites come alive - from simple
-                  form validation to complex web applications and games.
+                  Think of the DOM as a family tree where each HTML element is a
+                  node, and JavaScript can access, modify, add, or remove these
+                  nodes to create dynamic web experiences.
                 </p>
+
                 <div
                   class="bg-primary/10 border border-primary/20 rounded-2xl p-6 my-6"
                 >
                   <h4 class="text-primary font-semibold mb-3">
-                    💡 Key Features
+                    💡 DOM Tree Structure
                   </h4>
-                  <ul class="text-gray-300 space-y-2">
-                    <li>
-                      <strong>Client-side:</strong> Runs in the user's browser
-                    </li>
-                    <li>
-                      <strong>Dynamic:</strong> Can change content and behavior
-                      on the fly
-                    </li>
-                    <li>
-                      <strong>Event-driven:</strong> Responds to user actions
-                      and events
-                    </li>
-                    <li>
-                      <strong>Versatile:</strong> Used for frontend, backend,
-                      and mobile apps
-                    </li>
-                  </ul>
+                  <div class="text-gray-300 space-y-2 text-sm">
+                    <div class="flex items-center">
+                      <i class="fas fa-chevron-right text-primary mr-2"></i>
+                      <strong>Document</strong> (Root)
+                    </div>
+                    <div class="flex items-center ml-4">
+                      <i class="fas fa-chevron-right text-primary mr-2"></i>
+                      <strong>HTML</strong>
+                    </div>
+                    <div class="flex items-center ml-8">
+                      <i class="fas fa-chevron-right text-primary mr-2"></i>
+                      <strong>Head</strong> (Title, Meta, CSS)
+                    </div>
+                    <div class="flex items-center ml-8">
+                      <i class="fas fa-chevron-right text-primary mr-2"></i>
+                      <strong>Body</strong> (Content)
+                    </div>
+                    <div class="flex items-center ml-12">
+                      <i class="fas fa-chevron-right text-primary mr-2"></i>
+                      <strong>Div, P, Button</strong> (Elements)
+                    </div>
+                  </div>
                 </div>
-                <p>
-                  JavaScript is essential for modern web development and works
-                  alongside HTML (structure) and CSS (styling) to create
-                  complete web experiences.
-                </p>
+
+                <div class="bg-black rounded-xl p-4 my-6">
+                  <code class="text-green-400 text-sm">
+                    // DOM represents this HTML structure:<br />
+                    &lt;html&gt;<br />
+                    &nbsp;&nbsp;&lt;head&gt;<br />
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;title&gt;Page
+                    Title&lt;/title&gt;<br />
+                    &nbsp;&nbsp;&lt;/head&gt;<br />
+                    &nbsp;&nbsp;&lt;body&gt;<br />
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;div id="main"&gt;<br />
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;p&gt;Hello
+                    World&lt;/p&gt;<br />
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;/div&gt;<br />
+                    &nbsp;&nbsp;&lt;/body&gt;<br />
+                    &lt;/html&gt;
+                  </code>
+                </div>
               </div>
             </div>
 
-            <!-- Variables & Data Types -->
+            <!-- DOM Selection Methods -->
             <div
               class="bg-gradient-to-br from-dark-light/50 to-dark/50 backdrop-blur-xl rounded-3xl border border-primary/20 p-8"
             >
@@ -327,110 +350,113 @@
                   2
                 </div>
                 <h2 class="text-3xl font-bold text-white">
-                  📦 Variables & Data Types
+                  🔍 DOM Selection Methods
                 </h2>
               </div>
               <div class="text-gray-300 space-y-4 leading-relaxed">
                 <p>
-                  Variables are containers that store data values. JavaScript
-                  has several data types:
+                  JavaScript provides several methods to select elements from
+                  the DOM, each with different use cases and capabilities.
                 </p>
 
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6 my-6">
                   <div
                     class="bg-dark-light/50 rounded-2xl p-6 border border-primary/20"
                   >
-                    <h4 class="text-primary font-semibold mb-3">🔢 Numbers</h4>
+                    <h4 class="text-primary font-semibold mb-3">
+                      🆔 ID Selection
+                    </h4>
                     <ul class="space-y-2 text-sm">
                       <li>
                         <code class="bg-black px-2 py-1 rounded text-green-400"
-                          >let age = 25;</code
+                          >getElementById('id')</code
                         >
                       </li>
-                      <li>
-                        <code class="bg-black px-2 py-1 rounded text-green-400"
-                          >let price = 19.99;</code
-                        >
-                      </li>
-                      <li>Includes integers and decimals</li>
+                      <li>Returns single element</li>
+                      <li>Fastest method</li>
+                      <li>Most specific</li>
                     </ul>
                   </div>
 
                   <div
                     class="bg-dark-light/50 rounded-2xl p-6 border border-primary/20"
                   >
-                    <h4 class="text-primary font-semibold mb-3">📝 Strings</h4>
+                    <h4 class="text-primary font-semibold mb-3">
+                      🏷️ Class Selection
+                    </h4>
                     <ul class="space-y-2 text-sm">
                       <li>
                         <code class="bg-black px-2 py-1 rounded text-green-400"
-                          >let name = "John";</code
+                          >getElementsByClassName('class')</code
                         >
                       </li>
-                      <li>
-                        <code class="bg-black px-2 py-1 rounded text-green-400"
-                          >let message = 'Hello World';</code
-                        >
-                      </li>
-                      <li>Text enclosed in quotes</li>
+                      <li>Returns HTMLCollection</li>
+                      <li>Multiple elements</li>
+                      <li>Good for styling groups</li>
                     </ul>
                   </div>
 
                   <div
                     class="bg-dark-light/50 rounded-2xl p-6 border border-primary/20"
                   >
-                    <h4 class="text-primary font-semibold mb-3">✅ Booleans</h4>
+                    <h4 class="text-primary font-semibold mb-3">
+                      🏷️ Tag Selection
+                    </h4>
                     <ul class="space-y-2 text-sm">
                       <li>
                         <code class="bg-black px-2 py-1 rounded text-green-400"
-                          >let isActive = true;</code
+                          >getElementsByTagName('tag')</code
                         >
                       </li>
-                      <li>
-                        <code class="bg-black px-2 py-1 rounded text-green-400"
-                          >let isLoggedIn = false;</code
-                        >
-                      </li>
-                      <li>true or false values</li>
+                      <li>Returns HTMLCollection</li>
+                      <li>All elements of type</li>
+                      <li>Useful for bulk operations</li>
                     </ul>
                   </div>
 
                   <div
                     class="bg-dark-light/50 rounded-2xl p-6 border border-primary/20"
                   >
-                    <h4 class="text-primary font-semibold mb-3">📋 Arrays</h4>
+                    <h4 class="text-primary font-semibold mb-3">
+                      🎯 Modern Selection
+                    </h4>
                     <ul class="space-y-2 text-sm">
                       <li>
                         <code class="bg-black px-2 py-1 rounded text-green-400"
-                          >let colors = ["red", "green", "blue"];</code
+                          >querySelector('selector')</code
                         >
                       </li>
-                      <li>
-                        <code class="bg-black px-2 py-1 rounded text-green-400"
-                          >let numbers = [1, 2, 3, 4, 5];</code
-                        >
-                      </li>
-                      <li>Ordered collections of values</li>
+                      <li>CSS-style selectors</li>
+                      <li>Returns first match</li>
+                      <li>Very flexible</li>
                     </ul>
                   </div>
                 </div>
 
                 <div class="bg-black rounded-xl p-4 my-6">
                   <code class="text-green-400 text-sm">
-                    // Variable declaration examples<br />
-                    let firstName = "John";<br />
-                    const age = 30;<br />
-                    var isStudent = true;<br />
+                    // Different selection methods<br />
+                    const elementById = document.getElementById('myId');<br />
+                    const elementsByClass =
+                    document.getElementsByClassName('myClass');<br />
+                    const elementsByTag = document.getElementsByTagName('p');<br />
+                    const elementByQuery =
+                    document.querySelector('.myClass');<br />
+                    const allElementsByQuery =
+                    document.querySelectorAll('.myClass');<br />
                     <br />
-                    // Data type checking<br />
-                    console.log(typeof firstName); // "string"<br />
-                    console.log(typeof age); // "number"<br />
-                    console.log(typeof isStudent); // "boolean"
+                    // CSS-style selectors with querySelector<br />
+                    const firstButton = document.querySelector('button');<br />
+                    const specificButton =
+                    document.querySelector('button.primary');<br />
+                    const nestedElement = document.querySelector('#container
+                    .item');
                   </code>
                 </div>
               </div>
             </div>
 
-            <!-- Operators & Math -->
+            <!-- Event Handling -->
             <div
               class="bg-gradient-to-br from-dark-light/50 to-dark/50 backdrop-blur-xl rounded-3xl border border-primary/20 p-8"
             >
@@ -440,52 +466,36 @@
                 >
                   3
                 </div>
-                <h2 class="text-3xl font-bold text-white">
-                  🔢 Operators & Math
-                </h2>
+                <h2 class="text-3xl font-bold text-white">🎯 Event Handling</h2>
               </div>
               <div class="text-gray-300 space-y-4 leading-relaxed">
                 <p>
-                  JavaScript provides various operators for performing
-                  calculations and comparisons:
+                  Events are actions that happen in the browser, such as clicks,
+                  form submissions, or page loads. JavaScript can listen for
+                  these events and respond accordingly.
                 </p>
 
                 <div
                   class="bg-primary/10 border border-primary/20 rounded-2xl p-6 my-6"
                 >
                   <h4 class="text-primary font-semibold mb-3">
-                    🧮 Arithmetic Operators
+                    🖱️ Common Event Types
                   </h4>
                   <ul class="text-gray-300 space-y-2">
                     <li>
-                      <strong>+</strong> Addition:
-                      <code class="bg-black px-2 py-1 rounded text-green-400"
-                        >5 + 3 = 8</code
-                      >
+                      <strong>Mouse Events:</strong> click, dblclick, mouseover,
+                      mouseout, mousedown, mouseup
                     </li>
                     <li>
-                      <strong>-</strong> Subtraction:
-                      <code class="bg-black px-2 py-1 rounded text-green-400"
-                        >10 - 4 = 6</code
-                      >
+                      <strong>Keyboard Events:</strong> keydown, keyup, keypress
                     </li>
                     <li>
-                      <strong>*</strong> Multiplication:
-                      <code class="bg-black px-2 py-1 rounded text-green-400"
-                        >6 * 7 = 42</code
-                      >
+                      <strong>Form Events:</strong> submit, change, input,
+                      focus, blur
                     </li>
                     <li>
-                      <strong>/</strong> Division:
-                      <code class="bg-black px-2 py-1 rounded text-green-400"
-                        >15 / 3 = 5</code
-                      >
-                    </li>
-                    <li>
-                      <strong>%</strong> Modulus:
-                      <code class="bg-black px-2 py-1 rounded text-green-400"
-                        >17 % 5 = 2</code
-                      >
+                      <strong>Document Events:</strong> DOMContentLoaded, load,
+                      resize, scroll
                     </li>
                   </ul>
                 </div>
@@ -495,39 +505,17 @@
                     class="bg-dark-light/50 rounded-2xl p-6 border border-primary/20"
                   >
                     <h4 class="text-primary font-semibold mb-3">
-                      🔍 Comparison Operators
+                      📝 Event Listeners
                     </h4>
                     <ul class="space-y-2 text-sm">
                       <li>
                         <code class="bg-black px-2 py-1 rounded text-green-400"
-                          >==</code
+                          >addEventListener()</code
                         >
-                        Equal to (loose)
                       </li>
-                      <li>
-                        <code class="bg-black px-2 py-1 rounded text-green-400"
-                          >===</code
-                        >
-                        Equal to (strict)
-                      </li>
-                      <li>
-                        <code class="bg-black px-2 py-1 rounded text-green-400"
-                          >!=</code
-                        >
-                        Not equal to
-                      </li>
-                      <li>
-                        <code class="bg-black px-2 py-1 rounded text-green-400"
-                          >></code
-                        >
-                        Greater than
-                      </li>
-                      <li>
-                        <code class="bg-black px-2 py-1 rounded text-green-400"
-                          ><</code
-                        >
-                        Less than
-                      </li>
+                      <li>Modern approach</li>
+                      <li>Multiple handlers</li>
+                      <li>Better control</li>
                     </ul>
                   </div>
 
@@ -535,52 +523,52 @@
                     class="bg-dark-light/50 rounded-2xl p-6 border border-primary/20"
                   >
                     <h4 class="text-primary font-semibold mb-3">
-                      🔗 Logical Operators
+                      🔗 Inline Events
                     </h4>
                     <ul class="space-y-2 text-sm">
                       <li>
                         <code class="bg-black px-2 py-1 rounded text-green-400"
-                          >&&</code
+                          >onclick="function()"</code
                         >
-                        AND (both must be true)
                       </li>
-                      <li>
-                        <code class="bg-black px-2 py-1 rounded text-green-400"
-                          >||</code
-                        >
-                        OR (either can be true)
-                      </li>
-                      <li>
-                        <code class="bg-black px-2 py-1 rounded text-green-400"
-                          >!</code
-                        >
-                        NOT (inverts boolean)
-                      </li>
+                      <li>Simple setup</li>
+                      <li>Single handler</li>
+                      <li>Less flexible</li>
                     </ul>
                   </div>
                 </div>
 
                 <div class="bg-black rounded-xl p-4 my-6">
                   <code class="text-green-400 text-sm">
-                    // Math operations<br />
-                    let x = 10;<br />
-                    let y = 5;<br />
+                    // Adding event listeners<br />
+                    const button = document.querySelector('#myButton');<br />
                     <br />
-                    let sum = x + y; // 15<br />
-                    let difference = x - y; // 5<br />
-                    let product = x * y; // 50<br />
-                    let quotient = x / y; // 2<br />
-                    let remainder = x % y; // 0<br />
+                    // Method 1: addEventListener (recommended)<br />
+                    button.addEventListener('click', function() {<br />
+                    &nbsp;&nbsp;console.log('Button clicked!');<br />
+                    });<br />
                     <br />
-                    // Comparison<br />
-                    let isGreater = x > y; // true<br />
-                    let isEqual = x === y; // false
+                    // Method 2: Inline event<br />
+                    // &lt;button onclick="handleClick()"&gt;Click
+                    me&lt;/button&gt;<br />
+                    <br />
+                    // Method 3: Property assignment<br />
+                    button.onclick = function() {<br />
+                    &nbsp;&nbsp;console.log('Button clicked!');<br />
+                    };<br />
+                    <br />
+                    // Event object provides information about the event<br />
+                    button.addEventListener('click', function(event) {<br />
+                    &nbsp;&nbsp;console.log('Event:', event);<br />
+                    &nbsp;&nbsp;console.log('Target:', event.target);<br />
+                    &nbsp;&nbsp;console.log('Type:', event.type);<br />
+                    });
                   </code>
                 </div>
               </div>
             </div>
 
-            <!-- Control Flow -->
+            <!-- DOM Manipulation -->
             <div
               class="bg-gradient-to-br from-dark-light/50 to-dark/50 backdrop-blur-xl rounded-3xl border border-primary/20 p-8"
             >
@@ -590,12 +578,15 @@
                 >
                   4
                 </div>
-                <h2 class="text-3xl font-bold text-white">🔄 Control Flow</h2>
+                <h2 class="text-3xl font-bold text-white">
+                  🔧 DOM Manipulation
+                </h2>
               </div>
               <div class="text-gray-300 space-y-4 leading-relaxed">
                 <p>
-                  Control flow statements allow you to make decisions and repeat
-                  actions in your code:
+                  DOM manipulation allows you to dynamically change the content,
+                  structure, and styling of web pages without reloading the
+                  page.
                 </p>
 
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6 my-6">
@@ -603,40 +594,56 @@
                     class="bg-dark-light/50 rounded-2xl p-6 border border-primary/20"
                   >
                     <h4 class="text-primary font-semibold mb-3">
-                      🎯 If Statements
+                      📝 Content Changes
                     </h4>
-                    <div class="bg-black rounded-xl p-4">
-                      <code class="text-green-400 text-sm">
-                        if (age >= 18) {<br />
-                        &nbsp;&nbsp;console.log("Adult");<br />
-                        } else if (age >= 13) {<br />
-                        &nbsp;&nbsp;console.log("Teenager");<br />
-                        } else {<br />
-                        &nbsp;&nbsp;console.log("Child");<br />
-                        }
-                      </code>
-                    </div>
+                    <ul class="space-y-2 text-sm">
+                      <li>
+                        <code class="bg-black px-2 py-1 rounded text-green-400"
+                          >innerHTML</code
+                        >
+                        HTML content
+                      </li>
+                      <li>
+                        <code class="bg-black px-2 py-1 rounded text-green-400"
+                          >textContent</code
+                        >
+                        Text only
+                      </li>
+                      <li>
+                        <code class="bg-black px-2 py-1 rounded text-green-400"
+                          >innerText</code
+                        >
+                        Visible text
+                      </li>
+                    </ul>
                   </div>
 
                   <div
                     class="bg-dark-light/50 rounded-2xl p-6 border border-primary/20"
                   >
-                    <h4 class="text-primary font-semibold mb-3">🔄 Loops</h4>
-                    <div class="bg-black rounded-xl p-4">
-                      <code class="text-green-400 text-sm">
-                        // For loop<br />
-                        for (let i = 0; i < 5; i++) {<br />
-                        &nbsp;&nbsp;console.log(i);<br />
-                        }<br />
-                        <br />
-                        // While loop<br />
-                        let count = 0;<br />
-                        while (count < 3) {<br />
-                        &nbsp;&nbsp;console.log(count);<br />
-                        &nbsp;&nbsp;count++;<br />
-                        }
-                      </code>
-                    </div>
+                    <h4 class="text-primary font-semibold mb-3">
+                      🎨 Style Changes
+                    </h4>
+                    <ul class="space-y-2 text-sm">
+                      <li>
+                        <code class="bg-black px-2 py-1 rounded text-green-400"
+                          >style.property</code
+                        >
+                        Inline styles
+                      </li>
+                      <li>
+                        <code class="bg-black px-2 py-1 rounded text-green-400"
+                          >classList</code
+                        >
+                        CSS classes
+                      </li>
+                      <li>
+                        <code class="bg-black px-2 py-1 rounded text-green-400"
+                          >setAttribute()</code
+                        >
+                        Attributes
+                      </li>
+                    </ul>
                   </div>
                 </div>
 
@@ -644,25 +651,51 @@
                   class="bg-primary/10 border border-primary/20 rounded-2xl p-6 my-6"
                 >
                   <h4 class="text-primary font-semibold mb-3">
-                    💡 Common Patterns
+                    🏗️ Creating Elements
                   </h4>
                   <ul class="text-gray-300 space-y-2">
                     <li>
-                      <strong>Conditional Logic:</strong> Use if/else to make
-                      decisions
+                      <strong>createElement():</strong> Create new HTML elements
                     </li>
                     <li>
-                      <strong>Iteration:</strong> Use loops to repeat actions
+                      <strong>appendChild():</strong> Add elements to the DOM
                     </li>
                     <li>
-                      <strong>Switch Statements:</strong> Alternative to
-                      multiple if/else
+                      <strong>removeChild():</strong> Remove elements from the
+                      DOM
                     </li>
                     <li>
-                      <strong>Ternary Operator:</strong> Shorthand for simple
-                      conditions
+                      <strong>cloneNode():</strong> Copy existing elements
                     </li>
                   </ul>
+                </div>
+
+                <div class="bg-black rounded-xl p-4 my-6">
+                  <code class="text-green-400 text-sm">
+                    // Changing content<br />
+                    const element = document.querySelector('#myElement');<br />
+                    element.innerHTML = '&lt;strong&gt;New
+                    content&lt;/strong&gt;';<br />
+                    element.textContent = 'Plain text content';<br />
+                    <br />
+                    // Changing styles<br />
+                    element.style.backgroundColor = 'red';<br />
+                    element.style.fontSize = '20px';<br />
+                    element.classList.add('highlight');<br />
+                    element.classList.remove('old-class');<br />
+                    <br />
+                    // Creating new elements<br />
+                    const newDiv = document.createElement('div');<br />
+                    newDiv.textContent = 'New element';<br />
+                    newDiv.className = 'new-class';<br />
+                    <br />
+                    // Adding to DOM<br />
+                    document.body.appendChild(newDiv);<br />
+                    <br />
+                    // Removing elements<br />
+                    const parent = element.parentNode;<br />
+                    parent.removeChild(element);
+                  </code>
                 </div>
               </div>
             </div>
@@ -679,32 +712,32 @@
               </h3>
               <nav class="space-y-3">
                 <a
-                  href="#what-is-javascript"
+                  href="#what-is-dom"
                   class="block text-gray-300 hover:text-primary transition-colors duration-200"
                 >
                   <i class="fas fa-chevron-right mr-2 text-primary"></i>
-                  What is JavaScript?
+                  What is the DOM?
                 </a>
                 <a
-                  href="#variables"
+                  href="#selection"
                   class="block text-gray-300 hover:text-primary transition-colors duration-200"
                 >
                   <i class="fas fa-chevron-right mr-2 text-primary"></i>
-                  Variables & Data Types
+                  DOM Selection Methods
                 </a>
                 <a
-                  href="#operators"
+                  href="#events"
                   class="block text-gray-300 hover:text-primary transition-colors duration-200"
                 >
                   <i class="fas fa-chevron-right mr-2 text-primary"></i>
-                  Operators & Math
+                  Event Handling
                 </a>
                 <a
-                  href="#control-flow"
+                  href="#manipulation"
                   class="block text-gray-300 hover:text-primary transition-colors duration-200"
                 >
                   <i class="fas fa-chevron-right mr-2 text-primary"></i>
-                  Control Flow
+                  DOM Manipulation
                 </a>
               </nav>
             </div>
@@ -720,28 +753,28 @@
                   class="block text-gray-300 hover:text-primary transition-colors duration-200"
                 >
                   <i class="fas fa-external-link-alt mr-2 text-primary"></i>
-                  JavaScript Reference
+                  DOM Reference
                 </a>
                 <a
                   href="#"
                   class="block text-gray-300 hover:text-primary transition-colors duration-200"
                 >
                   <i class="fas fa-external-link-alt mr-2 text-primary"></i>
-                  MDN JavaScript Guide
+                  Event Handling Guide
                 </a>
                 <a
                   href="#"
                   class="block text-gray-300 hover:text-primary transition-colors duration-200"
                 >
                   <i class="fas fa-external-link-alt mr-2 text-primary"></i>
-                  JavaScript Playground
+                  DOM Manipulation Tips
                 </a>
                 <a
                   href="#"
                   class="block text-gray-300 hover:text-primary transition-colors duration-200"
                 >
                   <i class="fas fa-external-link-alt mr-2 text-primary"></i>
-                  ES6 Features
+                  JavaScript Events
                 </a>
               </div>
             </div>
@@ -757,17 +790,17 @@
           class="flex flex-col sm:flex-row justify-between items-center space-y-4 sm:space-y-0"
         >
           <a
-            href="css-layout.html"
+            href="css-advanced.html"
             class="bg-gradient-to-r from-gray-600 to-gray-700 text-white px-8 py-3 rounded-2xl font-semibold hover:shadow-lg transition-all duration-300"
           >
             <i class="fas fa-arrow-left mr-2"></i>
-            Previous: Day 4
+            Previous: Day 6
           </a>
           <a
-            href="css-advanced.html"
+            href="responsive-design.html"
             class="bg-gradient-to-r from-primary to-accent text-white px-8 py-3 rounded-2xl font-semibold hover:shadow-lg hover:shadow-primary/25 transition-all duration-300"
           >
-            Next: Day 6
+            Next: Day 8
             <i class="fas fa-arrow-right ml-2"></i>
           </a>
         </div>

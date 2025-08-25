@@ -1,826 +1,939 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Day 1: HTML Fundamentals - WebDev LMS</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        primary: '#01d29b',
-                        secondary: '#121212',
-                        accent: '#00b894',
-                        dark: '#1e1e1e',
-                        'dark-light': '#2a2a2a'
-                    }
-                }
-            }
-        }
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              primary: "#01d29b",
+              secondary: "#121212",
+              accent: "#00b894",
+              dark: "#1e1e1e",
+              "dark-light": "#2a2a2a",
+            },
+          },
+        },
+      };
     </script>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.44.0/min/vs/loader.min.js"></script>
-</head>
-<body>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        font-family: "Inter", sans-serif;
+      }
+    </style>
+  </head>
+  <body class="bg-secondary text-white min-h-screen">
     <!-- Navigation -->
-    <nav class="bg-gradient-to-r from-dark to-dark-light border-b border-primary/20 sticky top-0 z-50 backdrop-blur-xl">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center h-16">
-                <div class="flex items-center space-x-3 cursor-pointer" onclick="window.location.href='index.html'">
-                    <div class="w-10 h-10 bg-gradient-to-br from-primary to-accent rounded-xl flex items-center justify-center">
-                        <i class="fas fa-code text-white text-xl"></i>
-                    </div>
-                    <span class="text-2xl font-bold text-white">WebDev LMS</span>
-                </div>
-                
-                <ul class="hidden md:flex space-x-8">
-                    <li><a href="index.html" class="text-gray-300 hover:text-primary transition-colors duration-300 font-medium">Home</a></li>
-                    <li><a href="index.html#curriculum" class="text-gray-300 hover:text-primary transition-colors duration-300 font-medium">Curriculum</a></li>
-                    <li><a href="index.html#challenges" class="text-gray-300 hover:text-primary transition-colors duration-300 font-medium">Challenges</a></li>
-                    <li><a href="index.html#resources" class="text-gray-300 hover:text-primary transition-colors duration-300 font-medium">Resources</a></li>
-                </ul>
-                
-                <div class="flex items-center space-x-4">
-                    <div class="hidden lg:flex items-center space-x-3 bg-dark-light/50 px-4 py-2 rounded-xl border border-primary/20">
-                        <i class="fas fa-book-open text-primary"></i>
-                        <span class="text-white font-medium">Day 1: HTML Fundamentals</span>
-                    </div>
-                    <button class="bg-gradient-to-r from-primary to-accent text-white px-6 py-2 rounded-xl font-semibold hover:shadow-lg hover:shadow-primary/25 transition-all duration-300" onclick="window.location.href='html-forms.html'">
-                        <i class="fas fa-arrow-right mr-2"></i>
-                        Next Day
-                    </button>
-                </div>
-            </div>
+    <nav
+      class="fixed top-0 left-0 right-0 z-50 bg-dark/80 backdrop-blur-xl border-b border-primary/20"
+    >
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between items-center h-16">
+          <div class="flex items-center space-x-4">
+            <a href="index.html" class="text-primary font-bold text-xl">
+              <i class="fas fa-code mr-2"></i>WebDev LMS
+            </a>
+            <span
+              class="bg-primary/20 text-primary px-3 py-1 rounded-full text-sm font-medium"
+            >
+              Day 1: HTML Fundamentals
+            </span>
+          </div>
+          <div class="flex items-center space-x-4">
+            <a
+              href="html-forms.html"
+              class="bg-gradient-to-r from-primary to-accent text-white px-6 py-2 rounded-xl font-semibold hover:shadow-lg hover:shadow-primary/25 transition-all duration-300"
+            >
+              Next Day <i class="fas fa-arrow-right ml-2"></i>
+            </a>
+          </div>
         </div>
+      </div>
     </nav>
 
     <!-- Day Header -->
-    <section class="bg-gradient-to-br from-dark via-dark-light to-dark py-20">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <div class="space-y-8">
-                <div class="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-br from-primary to-accent rounded-3xl shadow-2xl shadow-primary/25">
-                    <span class="text-3xl font-bold text-white">1</span>
-                </div>
-                <h1 class="text-5xl lg:text-6xl font-bold text-white leading-tight">
-                    HTML Fundamentals
-                </h1>
-                <p class="text-xl lg:text-2xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
-                    Learn the building blocks of web development with HTML
-                </p>
-                <div class="flex flex-wrap justify-center gap-6">
-                    <div class="flex items-center space-x-3 bg-dark-light/50 px-6 py-3 rounded-2xl border border-primary/20">
-                        <i class="fas fa-clock text-primary text-xl"></i>
-                        <span class="text-white font-medium">Duration: 2-3 hours</span>
-                    </div>
-                    <div class="flex items-center space-x-3 bg-dark-light/50 px-6 py-3 rounded-2xl border border-primary/20">
-                        <i class="fas fa-signal text-primary text-xl"></i>
-                        <span class="text-white font-medium">Level: Beginner</span>
-                    </div>
-                    <div class="flex items-center space-x-3 bg-dark-light/50 px-6 py-3 rounded-2xl border border-primary/20">
-                        <i class="fas fa-tasks text-primary text-xl"></i>
-                        <span class="text-white font-medium">Challenges: 4</span>
-                    </div>
-                </div>
-            </div>
+    <section
+      class="pt-24 pb-16 bg-gradient-to-br from-dark-light/50 to-dark/50"
+    >
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <div
+          class="inline-block bg-primary/20 text-primary px-4 py-2 rounded-full text-sm font-semibold mb-6"
+        >
+          Day 1
         </div>
+        <h1 class="text-5xl md:text-6xl font-bold text-white mb-6">
+          HTML Fundamentals
+        </h1>
+        <p class="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
+          Learn the building blocks of web development with HTML structure,
+          elements, and semantic markup
+        </p>
+        <div
+          class="flex items-center justify-center space-x-6 mt-8 text-gray-400"
+        >
+          <div class="flex items-center">
+            <i class="fas fa-clock mr-2"></i>
+            <span>2 hours</span>
+          </div>
+          <div class="flex items-center">
+            <i class="fas fa-tasks mr-2"></i>
+            <span>4 lessons</span>
+          </div>
+          <div class="flex items-center">
+            <i class="fas fa-star mr-2"></i>
+            <span>Beginner</span>
+          </div>
+        </div>
+      </div>
     </section>
-
-    
 
     <!-- Challenges Section -->
-    <section class="py-20 bg-gradient-to-br from-dark-light/30 to-dark/30">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <h2 class="text-4xl lg:text-5xl font-bold text-white mb-6 flex items-center justify-center">
-                    <i class="fas fa-bullseye text-primary mr-4"></i>
-                    Practice Challenges
-                </h2>
-                <p class="text-xl text-gray-300 max-w-3xl mx-auto">
-                    Complete these hands-on challenges to master HTML fundamentals
-                </p>
-            </div>
-            
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-                <!-- Challenge 1 -->
-                <div class="bg-gradient-to-br from-dark-light/50 to-dark/50 backdrop-blur-xl rounded-3xl border border-primary/20 p-8 hover:border-primary/40 transition-all duration-300 hover:shadow-2xl hover:shadow-primary/10">
-                    <div class="flex justify-between items-start mb-6">
-                        <div class="w-12 h-12 bg-gradient-to-br from-primary to-accent rounded-2xl flex items-center justify-center text-white font-bold text-lg">
-                            01
-                        </div>
-                        <div class="text-right">
-                            <span class="inline-block bg-green-500/20 text-green-400 text-xs font-semibold px-3 py-1 rounded-full mb-2">Beginner</span>
-                            <div class="text-gray-400 text-sm">8 min</div>
-                        </div>
-                    </div>
-                    <h3 class="text-xl font-bold text-white mb-4 flex items-center">
-                        <i class="fas fa-edit text-primary mr-3"></i>
-                        Basic Structure
-                    </h3>
-                    <p class="text-gray-300 mb-6 leading-relaxed">
-                        Create a simple HTML page with proper document structure.
-                    </p>
-                    
-                    <button class="w-full bg-gradient-to-r from-primary to-accent text-white py-3 rounded-2xl font-semibold hover:shadow-lg hover:shadow-primary/25 transition-all duration-300" onclick="openChallenge(1)">
-                        <i class="fas fa-play mr-2"></i>
-                        Start Challenge
-                    </button>
-                </div>
-
-                <!-- Challenge 2 -->
-                <div class="bg-gradient-to-br from-dark-light/50 to-dark/50 backdrop-blur-xl rounded-3xl border border-primary/20 p-8 hover:border-primary/40 transition-all duration-300 hover:shadow-2xl hover:shadow-primary/10">
-                    <div class="flex justify-between items-start mb-6">
-                        <div class="w-12 h-12 bg-gradient-to-br from-primary to-accent rounded-2xl flex items-center justify-center text-white font-bold text-lg">
-                            02
-                        </div>
-                        <div class="text-right">
-                            <span class="inline-block bg-green-500/20 text-green-400 text-xs font-semibold px-3 py-1 rounded-full mb-2">Beginner</span>
-                            <div class="text-gray-400 text-sm">10 min</div>
-                        </div>
-                    </div>
-                    <h3 class="text-xl font-bold text-white mb-4 flex items-center">
-                        <span class="mr-3">📄</span>
-                        Content Elements
-                    </h3>
-                    <p class="text-gray-300 mb-6 leading-relaxed">
-                        Use headings, paragraphs, and text formatting elements.
-                    </p>
-                    
-                    <button class="w-full bg-gradient-to-r from-primary to-accent text-white py-3 rounded-2xl font-semibold hover:shadow-lg hover:shadow-primary/25 transition-all duration-300" onclick="openChallenge(2)">
-                        <i class="fas fa-play mr-2"></i>
-                        Start Challenge
-                    </button>
-                </div>
-
-                <!-- Challenge 3 -->
-                <div class="bg-gradient-to-br from-dark-light/50 to-dark/50 backdrop-blur-xl rounded-3xl border border-primary/20 p-8 hover:border-primary/40 transition-all duration-300 hover:shadow-2xl hover:shadow-primary/10">
-                    <div class="flex justify-between items-start mb-6">
-                        <div class="w-12 h-12 bg-gradient-to-br from-primary to-accent rounded-2xl flex items-center justify-center text-white font-bold text-lg">
-                            03
-                        </div>
-                        <div class="text-right">
-                            <span class="inline-block bg-green-500/20 text-green-400 text-xs font-semibold px-3 py-1 rounded-full mb-2">Beginner</span>
-                            <div class="text-gray-400 text-sm">12 min</div>
-                        </div>
-                    </div>
-                    <h3 class="text-xl font-bold text-white mb-4 flex items-center">
-                        <span class="mr-3">🔗</span>
-                        Links & Lists
-                    </h3>
-                    <p class="text-gray-300 mb-6 leading-relaxed">
-                        Create navigation links and organize content with lists.
-                    </p>
-                    
-                    <button class="w-full bg-gradient-to-r from-primary to-accent text-white py-3 rounded-2xl font-semibold hover:shadow-lg hover:shadow-primary/25 transition-all duration-300" onclick="openChallenge(3)">
-                        <i class="fas fa-play mr-2"></i>
-                        Start Challenge
-                    </button>
-                </div>
-
-                <!-- Challenge 4 -->
-                <div class="bg-gradient-to-br from-dark-light/50 to-dark/50 backdrop-blur-xl rounded-3xl border border-primary/20 p-8 hover:border-primary/40 transition-all duration-300 hover:shadow-2xl hover:shadow-primary/10">
-                    <div class="flex justify-between items-start mb-6">
-                        <div class="w-12 h-12 bg-gradient-to-br from-primary to-accent rounded-2xl flex items-center justify-center text-white font-bold text-lg">
-                            04
-                        </div>
-                        <div class="text-right">
-                            <span class="inline-block bg-yellow-500/20 text-yellow-400 text-xs font-semibold px-3 py-1 rounded-full mb-2">Intermediate</span>
-                            <div class="text-gray-400 text-sm">15 min</div>
-                        </div>
-                    </div>
-                    <h3 class="text-xl font-bold text-white mb-4 flex items-center">
-                        <i class="fas fa-images text-primary mr-3"></i>
-                        Images & Media
-                    </h3>
-                    <p class="text-gray-300 mb-6 leading-relaxed">
-                        Add images, videos, and other media elements to your page.
-                    </p>
-                    
-                    <button class="w-full bg-gradient-to-r from-primary to-accent text-white py-3 rounded-2xl font-semibold hover:shadow-lg hover:shadow-primary/25 transition-all duration-300" onclick="openChallenge(4)">
-                        <i class="fas fa-play mr-2"></i>
-                        Start Challenge
-                    </button>
-                </div>
-            </div>
+    <section class="py-20 bg-gradient-to-br from-dark to-dark">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+          <h2 class="text-4xl font-bold text-white mb-4">
+            Practice Challenges
+          </h2>
+          <p class="text-xl text-gray-300">
+            Apply what you learn with hands-on exercises
+          </p>
         </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <!-- Challenge 1 -->
+          <div
+            class="bg-gradient-to-br from-dark-light/80 to-dark/80 backdrop-blur-xl rounded-3xl border border-primary/30 p-8 hover:border-primary/50 transition-all duration-300 hover:shadow-2xl hover:shadow-primary/20"
+          >
+            <div class="flex justify-between items-start mb-6">
+              <div
+                class="w-12 h-12 bg-gradient-to-br from-primary to-accent rounded-2xl flex items-center justify-center text-white font-bold text-lg"
+              >
+                01
+              </div>
+              <div class="text-right">
+                <span
+                  class="inline-block bg-green-500/20 text-green-400 text-xs font-semibold px-3 py-1 rounded-full mb-2"
+                  >Beginner</span
+                >
+                <div class="text-gray-400 text-sm">5 min</div>
+              </div>
+            </div>
+            <h3 class="text-xl font-bold text-white mb-4 flex items-center">
+              <i class="fas fa-cube text-primary mr-3"></i>
+              Basic Structure
+            </h3>
+            <p class="text-gray-300 mb-6 leading-relaxed">
+              Create a simple HTML page with proper document structure.
+            </p>
+
+            <button
+              class="w-full bg-gradient-to-r from-primary to-accent text-white py-3 rounded-2xl font-semibold hover:shadow-lg hover:shadow-primary/25 transition-all duration-300"
+              onclick="openChallenge(1)"
+            >
+              <i class="fas fa-play mr-2"></i>
+              Start Challenge
+            </button>
+          </div>
+
+          <!-- Challenge 2 -->
+          <div
+            class="bg-gradient-to-br from-dark-light/80 to-dark/80 backdrop-blur-xl rounded-3xl border border-primary/30 p-8 hover:border-primary/50 transition-all duration-300 hover:shadow-2xl hover:shadow-primary/20"
+          >
+            <div class="flex justify-between items-start mb-6">
+              <div
+                class="w-12 h-12 bg-gradient-to-br from-primary to-accent rounded-2xl flex items-center justify-center text-white font-bold text-lg"
+              >
+                02
+              </div>
+              <div class="text-right">
+                <span
+                  class="inline-block bg-green-500/20 text-green-400 text-xs font-semibold px-3 py-1 rounded-full mb-2"
+                  >Beginner</span
+                >
+                <div class="text-gray-400 text-sm">8 min</div>
+              </div>
+            </div>
+            <h3 class="text-xl font-bold text-white mb-4 flex items-center">
+              <i class="fas fa-heading text-primary mr-3"></i>
+              Content Elements
+            </h3>
+            <p class="text-gray-300 mb-6 leading-relaxed">
+              Use headings, paragraphs, and text formatting elements.
+            </p>
+
+            <button
+              class="w-full bg-gradient-to-r from-primary to-accent text-white py-3 rounded-2xl font-semibold hover:shadow-lg hover:shadow-primary/25 transition-all duration-300"
+              onclick="openChallenge(2)"
+            >
+              <i class="fas fa-play mr-2"></i>
+              Start Challenge
+            </button>
+          </div>
+
+          <!-- Challenge 3 -->
+          <div
+            class="bg-gradient-to-br from-dark-light/80 to-dark/80 backdrop-blur-xl rounded-3xl border border-primary/30 p-8 hover:border-primary/50 transition-all duration-300 hover:shadow-2xl hover:shadow-primary/20"
+          >
+            <div class="flex justify-between items-start mb-6">
+              <div
+                class="w-12 h-12 bg-gradient-to-br from-primary to-accent rounded-2xl flex items-center justify-center text-white font-bold text-lg"
+              >
+                03
+              </div>
+              <div class="text-right">
+                <span
+                  class="inline-block bg-yellow-500/20 text-yellow-400 text-xs font-semibold px-3 py-1 rounded-full mb-2"
+                  >Intermediate</span
+                >
+                <div class="text-gray-400 text-sm">10 min</div>
+              </div>
+            </div>
+            <h3 class="text-xl font-bold text-white mb-4 flex items-center">
+              <i class="fas fa-link text-primary mr-3"></i>
+              Links & Lists
+            </h3>
+            <p class="text-gray-300 mb-6 leading-relaxed">
+              Create navigation links and organize content with lists.
+            </p>
+
+            <button
+              class="w-full bg-gradient-to-r from-primary to-accent text-white py-3 rounded-2xl font-semibold hover:shadow-lg hover:shadow-primary/25 transition-all duration-300"
+              onclick="openChallenge(3)"
+            >
+              <i class="fas fa-play mr-2"></i>
+              Start Challenge
+            </button>
+          </div>
+
+          <!-- Challenge 4 -->
+          <div
+            class="bg-gradient-to-br from-dark-light/80 to-dark/80 backdrop-blur-xl rounded-3xl border border-primary/30 p-8 hover:border-primary/50 transition-all duration-300 hover:shadow-2xl hover:shadow-primary/20"
+          >
+            <div class="flex justify-between items-start mb-6">
+              <div
+                class="w-12 h-12 bg-gradient-to-br from-primary to-accent rounded-2xl flex items-center justify-center text-white font-bold text-lg"
+              >
+                04
+              </div>
+              <div class="text-right">
+                <span
+                  class="inline-block bg-yellow-500/20 text-yellow-400 text-xs font-semibold px-3 py-1 rounded-full mb-2"
+                  >Intermediate</span
+                >
+                <div class="text-gray-400 text-sm">12 min</div>
+              </div>
+            </div>
+            <h3 class="text-xl font-bold text-white mb-4 flex items-center">
+              <i class="fas fa-image text-primary mr-3"></i>
+              Images & Media
+            </h3>
+            <p class="text-gray-300 mb-6 leading-relaxed">
+              Add images, videos, and other media elements to your page.
+            </p>
+
+            <button
+              class="w-full bg-gradient-to-r from-primary to-accent text-white py-3 rounded-2xl font-semibold hover:shadow-lg hover:shadow-primary/25 transition-all duration-300"
+              onclick="openChallenge(4)"
+            >
+              <i class="fas fa-play mr-2"></i>
+              Start Challenge
+            </button>
+          </div>
+        </div>
+      </div>
     </section>
 
-    <!-- Content Section -->
-    <section class="py-20 bg-gradient-to-br from-dark to-dark-light">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid grid-cols-1 lg:grid-cols-4 gap-12">
-                <!-- Main Content -->
-                <div class="lg:col-span-3 space-y-12">
-                    <div class="bg-gradient-to-br from-dark-light/50 to-dark/50 backdrop-blur-xl rounded-3xl border border-primary/20 p-8">
-                        <h2 class="text-3xl lg:text-4xl font-bold text-white mb-6 flex items-center">
-                            <span class="mr-4">💻</span>
-                            What is HTML?
-                        </h2>
-                        <p class="text-lg text-gray-300 leading-relaxed mb-6">
-                            HTML (HyperText Markup Language) is the foundation of all web pages. Think of it as the <strong class="text-primary">skeleton</strong> of a website - just like bones give structure to your body, HTML gives structure to web pages.
-                        </p>
-                        
-                        <div class="bg-primary/10 border border-primary/20 rounded-2xl p-6 mb-6">
-                            <h4 class="text-xl font-bold text-primary mb-4 flex items-center">
-                                <span class="mr-3">📚</span>
-                                Key Points:
-                            </h4>
-                            <ul class="space-y-3">
-                                <li class="flex items-start space-x-3">
-                                    <span class="text-primary font-bold">•</span>
-                                    <span class="text-gray-300"><strong>Structure:</strong> HTML defines the structure and content of web pages</span>
-                                </li>
-                                <li class="flex items-start space-x-3">
-                                    <span class="text-primary font-bold">•</span>
-                                    <span class="text-gray-300"><strong>Markup:</strong> Uses tags to "mark up" content with meaning</span>
-                                </li>
-                                <li class="flex items-start space-x-3">
-                                    <span class="text-primary font-bold">•</span>
-                                    <span class="text-gray-300"><strong>Universal:</strong> Every website you visit uses HTML</span>
-                                </li>
-                                <li class="flex items-start space-x-3">
-                                    <span class="text-primary font-bold">•</span>
-                                    <span class="text-gray-300"><strong>Browser Rendering:</strong> Browsers read HTML and display it as formatted pages</span>
-                                </li>
-                            </ul>
-                        </div>
-
-                        <div class="bg-dark-light/50 backdrop-blur-xl rounded-2xl border border-primary/20 overflow-hidden mb-6">
-                            <div class="bg-dark-light border-b border-primary/20 px-6 py-4 flex items-center justify-between">
-                                <span class="text-white font-medium">Raw HTML vs Browser Display</span>
-                                <button class="text-gray-400 hover:text-primary transition-colors duration-300" onclick="copyCode(this)">
-                                    <i class="fas fa-copy"></i>
-                                </button>
-                            </div>
-                            <div class="bg-black p-6">
-                                <pre class="text-green-400 font-mono text-sm leading-relaxed"><code>&lt;h1&gt;My First Website&lt;/h1&gt;
-&lt;p&gt;This is a paragraph with &lt;strong&gt;bold text&lt;/strong&gt;.&lt;/p&gt;
-&lt;a href="https://example.com"&gt;Click here&lt;/a&gt;</code></pre>
-                            </div>
-                            <div class="bg-white p-6">
-                                <h4 class="text-lg font-bold text-gray-800 mb-4">Browser Display:</h4>
-                                <div class="space-y-3">
-                                    <h1 class="text-3xl font-bold text-gray-800">My First Website</h1>
-                                    <p class="text-gray-600">This is a paragraph with <strong>bold text</strong>.</p>
-                                    <a href="#" class="text-primary hover:text-accent transition-colors duration-300">Click here</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="bg-gradient-to-br from-dark-light/50 to-dark/50 backdrop-blur-xl rounded-3xl border border-primary/20 p-8">
-                        <h2 class="text-3xl lg:text-4xl font-bold text-white mb-6 flex items-center">
-                            <span class="mr-4">🧱</span>
-                            Basic HTML Structure
-                        </h2>
-                        <p class="text-lg text-gray-300 leading-relaxed mb-6">
-                            Every HTML document follows a standard structure with essential tags that tell the browser how to interpret the content.
-                        </p>
-                        
-                        <div class="bg-primary/10 border border-primary/20 rounded-2xl p-6 mb-6">
-                            <h4 class="text-xl font-bold text-primary mb-4 flex items-center">
-                                <i class="fas fa-hammer mr-3"></i>
-                                Essential Tags:
-                            </h4>
-                            <ul class="space-y-3">
-                                <li class="flex items-start space-x-3">
-                                    <span class="text-primary font-bold">•</span>
-                                    <span class="text-gray-300"><code class="bg-dark-light px-2 py-1 rounded text-primary font-mono"><!DOCTYPE html></code> - Declares this is an HTML5 document</span>
-                                </li>
-                                <li class="flex items-start space-x-3">
-                                    <span class="text-primary font-bold">•</span>
-                                    <span class="text-gray-300"><code class="bg-dark-light px-2 py-1 rounded text-primary font-mono"><html></code> - The root element containing everything</span>
-                                </li>
-                                <li class="flex items-start space-x-3">
-                                    <span class="text-primary font-bold">•</span>
-                                    <span class="text-gray-300"><code class="bg-dark-light px-2 py-1 rounded text-primary font-mono"><head></code> - Contains metadata (title, styles, scripts)</span>
-                                </li>
-                                <li class="flex items-start space-x-3">
-                                    <span class="text-primary font-bold">•</span>
-                                    <span class="text-gray-300"><code class="bg-dark-light px-2 py-1 rounded text-primary font-mono"><body></code> - Contains the visible page content</span>
-                                </li>
-                            </ul>
-                        </div>
-
-                        <div class="bg-dark-light/50 backdrop-blur-xl rounded-2xl border border-primary/20 overflow-hidden mb-6">
-                            <div class="bg-dark-light border-b border-primary/20 px-6 py-4 flex items-center justify-between">
-                                <span class="text-white font-medium">Complete HTML Structure</span>
-                                <button class="text-gray-400 hover:text-primary transition-colors duration-300" onclick="copyCode(this)">
-                                    <i class="fas fa-copy"></i>
-                                </button>
-                            </div>
-                            <div class="bg-black p-6">
-                                <pre class="text-green-400 font-mono text-sm leading-relaxed"><code><!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My First Web Page</title>
-</head>
-<body>
-    <h1>Welcome to My Website</h1>
-    <p>This is the main content of my page.</p>
-</body>
-</html></code></pre>
-                            </div>
-                        </div>
-
-                        <div class="bg-accent/10 border border-accent/20 rounded-2xl p-6">
-                            <h4 class="text-xl font-bold text-accent mb-4 flex items-center">
-                                <i class="fas fa-lightbulb mr-3"></i>
-                                Pro Tip:
-                            </h4>
-                            <p class="text-gray-300">Proper indentation makes your HTML code more readable. Each nested element should be indented with 2 or 4 spaces.</p>
-                        </div>
-                    </div>
-
-                    <div class="bg-gradient-to-br from-dark-light/50 to-dark/50 backdrop-blur-xl rounded-3xl border border-primary/20 p-8">
-                        <h2 class="text-3xl lg:text-4xl font-bold text-white mb-6 flex items-center">
-                            <span class="mr-4">✍️</span>
-                            Text Tags
-                        </h2>
-                        <p class="text-lg text-gray-300 leading-relaxed mb-6">
-                            HTML provides various tags to structure and format text content, making it readable and meaningful.
-                        </p>
-                        
-                        <div class="bg-primary/10 border border-primary/20 rounded-2xl p-6 mb-6">
-                            <h4 class="text-xl font-bold text-primary mb-4 flex items-center">
-                                <i class="fas fa-edit mr-3"></i>
-                                Text Elements:
-                            </h4>
-                            <ul class="space-y-3">
-                                <li class="flex items-start space-x-3">
-                                    <span class="text-primary font-bold">•</span>
-                                    <span class="text-gray-300"><strong>Headings:</strong> <code class="bg-dark-light px-2 py-1 rounded text-primary font-mono"><h1></code> to <code class="bg-dark-light px-2 py-1 rounded text-primary font-mono"><h6></code> for titles and subtitles</span>
-                                </li>
-                                <li class="flex items-start space-x-3">
-                                    <span class="text-primary font-bold">•</span>
-                                    <span class="text-gray-300"><strong>Paragraphs:</strong> <code class="bg-dark-light px-2 py-1 rounded text-primary font-mono"><p></code> for text blocks</span>
-                                </li>
-                                <li class="flex items-start space-x-3">
-                                    <span class="text-primary font-bold">•</span>
-                                    <span class="text-gray-300"><strong>Bold:</strong> <code class="bg-dark-light px-2 py-1 rounded text-primary font-mono"><strong></code> (semantic) or <code class="bg-dark-light px-2 py-1 rounded text-primary font-mono"><b></code> (visual)</span>
-                                </li>
-                                <li class="flex items-start space-x-3">
-                                    <span class="text-primary font-bold">•</span>
-                                    <span class="text-gray-300"><strong>Italic:</strong> <code class="bg-dark-light px-2 py-1 rounded text-primary font-mono"><em></code> (semantic) or <code class="bg-dark-light px-2 py-1 rounded text-primary font-mono"><i></code> (visual)</span>
-                                </li>
-                            </ul>
-                        </div>
-
-                        <div class="bg-dark-light/50 backdrop-blur-xl rounded-2xl border border-primary/20 overflow-hidden mb-6">
-                            <div class="bg-dark-light border-b border-primary/20 px-6 py-4 flex items-center justify-between">
-                                <span class="text-white font-medium">Text Formatting Example</span>
-                                <button class="text-gray-400 hover:text-primary transition-colors duration-300" onclick="copyCode(this)">
-                                    <i class="fas fa-copy"></i>
-                                </button>
-                            </div>
-                            <div class="bg-black p-6">
-                                <pre class="text-green-400 font-mono text-sm leading-relaxed"><code>&lt;h1&gt;Main Title&lt;/h1&gt;
-&lt;h2&gt;Subtitle&lt;/h2&gt;
-&lt;p&gt;This is a &lt;strong&gt;paragraph&lt;/strong&gt; with &lt;em&gt;emphasized text&lt;/em&gt;.&lt;/p&gt;
-&lt;p&gt;You can also use &lt;b&gt;bold&lt;/b&gt; and &lt;i&gt;italic&lt;/i&gt; for visual styling.&lt;/p&gt;</code></pre>
-                            </div>
-                        </div>
-
-                        <div class="bg-accent/10 border border-accent/20 rounded-2xl p-6">
-                            <h4 class="text-xl font-bold text-accent mb-4 flex items-center">
-                                <i class="fas fa-bullseye mr-3"></i>
-                                Best Practice:
-                            </h4>
-                            <p class="text-gray-300">Use <code class="bg-dark-light px-2 py-1 rounded text-primary font-mono"><strong></code> and <code class="bg-dark-light px-2 py-1 rounded text-primary font-mono"><em></code> for semantic meaning (importance/emphasis), and <code class="bg-dark-light px-2 py-1 rounded text-primary font-mono"><b></code> and <code class="bg-dark-light px-2 py-1 rounded text-primary font-mono"><i></code> only for visual styling.</p>
-                        </div>
-                    </div>
-
-                    <div class="bg-gradient-to-br from-dark-light/50 to-dark/50 backdrop-blur-xl rounded-3xl border border-primary/20 p-8">
-                        <h2 class="text-3xl lg:text-4xl font-bold text-white mb-6 flex items-center">
-                            <span class="mr-4">🔗</span>
-                            Links
-                        </h2>
-                        <p class="text-lg text-gray-300 leading-relaxed mb-6">
-                            Links (hyperlinks) connect web pages together and are fundamental to the web experience.
-                        </p>
-                        
-                        <div class="bg-primary/10 border border-primary/20 rounded-2xl p-6 mb-6">
-                            <h4 class="text-xl font-bold text-primary mb-4 flex items-center">
-                                <span class="mr-3">🔗</span>
-                                Link Types:
-                            </h4>
-                            <ul class="space-y-3">
-                                <li class="flex items-start space-x-3">
-                                    <span class="text-primary font-bold">•</span>
-                                    <span class="text-gray-300"><strong>Absolute URLs:</strong> Complete web addresses (https://example.com)</span>
-                                </li>
-                                <li class="flex items-start space-x-3">
-                                    <span class="text-primary font-bold">•</span>
-                                    <span class="text-gray-300"><strong>Relative URLs:</strong> Paths relative to current page (./page.html)</span>
-                                </li>
-                                <li class="flex items-start space-x-3">
-                                    <span class="text-primary font-bold">•</span>
-                                    <span class="text-gray-300"><strong>Internal Links:</strong> Links to sections on the same page (#section)</span>
-                                </li>
-                            </ul>
-                        </div>
-
-                        <div class="bg-dark-light/50 backdrop-blur-xl rounded-2xl border border-primary/20 overflow-hidden mb-6">
-                            <div class="bg-dark-light border-b border-primary/20 px-6 py-4 flex items-center justify-between">
-                                <span class="text-white font-medium">Link Examples</span>
-                                <button class="text-gray-400 hover:text-primary transition-colors duration-300" onclick="copyCode(this)">
-                                    <i class="fas fa-copy"></i>
-                                </button>
-                            </div>
-                            <div class="bg-black p-6">
-                                <pre class="text-green-400 font-mono text-sm leading-relaxed"><code>&lt;!-- External link --&gt;
-&lt;a href="https://www.google.com"&gt;Visit Google&lt;/a&gt;
-
-&lt;!-- Link opening in new tab --&gt;
-&lt;a href="https://www.google.com" target="_blank"&gt;Open in New Tab&lt;/a&gt;
-
-&lt;!-- Internal link --&gt;
-&lt;a href="#section1"&gt;Jump to Section 1&lt;/a&gt;
-
-&lt;!-- Email link --&gt;
-&lt;a href="mailto:contact@example.com"&gt;Send Email&lt;/a&gt;</code></pre>
-                            </div>
-                        </div>
-
-                        <div class="bg-accent/10 border border-accent/20 rounded-2xl p-6">
-                            <h4 class="text-xl font-bold text-accent mb-4 flex items-center">
-                                <i class="fas fa-bullseye mr-3"></i>
-                                Practice Exercise:
-                            </h4>
-                            <p class="text-gray-300 mb-4">Create a navigation menu with links to different sections of your page:</p>
-                            <div class="bg-dark-light rounded-xl p-4">
-                                <pre class="text-green-400 font-mono text-sm"><code>&lt;nav&gt;
-    &lt;a href="#home"&gt;Home&lt;/a&gt;
-    &lt;a href="#about"&gt;About&lt;/a&gt;
-    &lt;a href="#contact"&gt;Contact&lt;/a&gt;
-&lt;/nav&gt;</code></pre>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="bg-gradient-to-br from-dark-light/50 to-dark/50 backdrop-blur-xl rounded-3xl border border-primary/20 p-8">
-                        <h2 class="text-3xl lg:text-4xl font-bold text-white mb-6 flex items-center">
-                            <i class="fas fa-list text-primary mr-4"></i>
-                            Lists
-                        </h2>
-                        <p class="text-lg text-gray-300 leading-relaxed mb-6">
-                            Lists help organize information in a structured way, making content easier to read and understand.
-                        </p>
-                        
-                        <div class="bg-primary/10 border border-primary/20 rounded-2xl p-6 mb-6">
-                            <h4 class="text-xl font-bold text-primary mb-4 flex items-center">
-                                <i class="fas fa-list mr-3"></i>
-                                List Types:
-                            </h4>
-                            <ul class="space-y-3">
-                                <li class="flex items-start space-x-3">
-                                    <span class="text-primary font-bold">•</span>
-                                    <span class="text-gray-300"><strong>Ordered Lists:</strong> <code class="bg-dark-light px-2 py-1 rounded text-primary font-mono"><ol></code> for numbered items</span>
-                                </li>
-                                <li class="flex items-start space-x-3">
-                                    <span class="text-primary font-bold">•</span>
-                                    <span class="text-gray-300"><strong>Unordered Lists:</strong> <code class="bg-dark-light px-2 py-1 rounded text-primary font-mono"><ul></code> for bullet points</span>
-                                </li>
-                                <li class="flex items-start space-x-3">
-                                    <span class="text-primary font-bold">•</span>
-                                    <span class="text-gray-300"><strong>List Items:</strong> <code class="bg-dark-light px-2 py-1 rounded text-primary font-mono"><li></code> for individual items</span>
-                                </li>
-                            </ul>
-                        </div>
-
-                        <div class="bg-dark-light/50 backdrop-blur-xl rounded-2xl border border-primary/20 overflow-hidden mb-6">
-                            <div class="bg-dark-light border-b border-primary/20 px-6 py-4 flex items-center justify-between">
-                                <span class="text-white font-medium">List Examples</span>
-                                <button class="text-gray-400 hover:text-primary transition-colors duration-300" onclick="copyCode(this)">
-                                    <i class="fas fa-copy"></i>
-                                </button>
-                            </div>
-                            <div class="bg-black p-6">
-                                <pre class="text-green-400 font-mono text-sm leading-relaxed"><code>&lt;!-- Ordered List (numbered) --&gt;
-&lt;ol&gt;
-    &lt;li&gt;First step&lt;/li&gt;
-    &lt;li&gt;Second step&lt;/li&gt;
-    &lt;li&gt;Third step&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;!-- Unordered List (bullets) --&gt;
-&lt;ul&gt;
-    &lt;li&gt;Apple&lt;/li&gt;
-    &lt;li&gt;Banana&lt;/li&gt;
-    &lt;li&gt;Orange&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;!-- Nested Lists --&gt;
-&lt;ul&gt;
-    &lt;li&gt;Fruits
-        &lt;ul&gt;
-            &lt;li&gt;Apple&lt;/li&gt;
-            &lt;li&gt;Banana&lt;/li&gt;
-        &lt;/ul&gt;
-    &lt;/li&gt;
-    &lt;li&gt;Vegetables
-        &lt;ul&gt;
-            &lt;li&gt;Carrot&lt;/li&gt;
-            &lt;li&gt;Broccoli&lt;/li&gt;
-        &lt;/ul&gt;
-    &lt;/li&gt;
-&lt;/ul&gt;</code></pre>
-                            </div>
-                        </div>
-
-                        <div class="bg-accent/10 border border-accent/20 rounded-2xl p-6">
-                            <h4 class="text-xl font-bold text-accent mb-4 flex items-center">
-                                <i class="fas fa-lightbulb mr-3"></i>
-                                Real-World Uses:
-                            </h4>
-                            <ul class="space-y-2">
-                                <li class="text-gray-300">• Recipe ingredients and steps</li>
-                                <li class="text-gray-300">• Navigation menus</li>
-                                <li class="text-gray-300">• Feature lists</li>
-                                <li class="text-gray-300">• Checklists and to-dos</li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <div class="bg-gradient-to-br from-dark-light/50 to-dark/50 backdrop-blur-xl rounded-3xl border border-primary/20 p-8">
-                        <h2 class="text-3xl lg:text-4xl font-bold text-white mb-6 flex items-center">
-                            <i class="fas fa-images text-primary mr-4"></i>
-                            Images
-                        </h2>
-                        <p class="text-lg text-gray-300 leading-relaxed mb-6">
-                            Images make websites visually appealing and help convey information more effectively.
-                        </p>
-                        
-                        <div class="bg-primary/10 border border-primary/20 rounded-2xl p-6 mb-6">
-                            <h4 class="text-xl font-bold text-primary mb-4 flex items-center">
-                                <i class="fas fa-images mr-3"></i>
-                                Image Attributes:
-                            </h4>
-                            <ul class="space-y-3">
-                                <li class="flex items-start space-x-3">
-                                    <span class="text-primary font-bold">•</span>
-                                    <span class="text-gray-300"><code class="bg-dark-light px-2 py-1 rounded text-primary font-mono">src</code> - Source URL of the image</span>
-                                </li>
-                                <li class="flex items-start space-x-3">
-                                    <span class="text-primary font-bold">•</span>
-                                    <span class="text-gray-300"><code class="bg-dark-light px-2 py-1 rounded text-primary font-mono">alt</code> - Alternative text for accessibility</span>
-                                </li>
-                                <li class="flex items-start space-x-3">
-                                    <span class="text-primary font-bold">•</span>
-                                    <span class="text-gray-300"><code class="bg-dark-light px-2 py-1 rounded text-primary font-mono">width</code> and <code class="bg-dark-light px-2 py-1 rounded text-primary font-mono">height</code> - Image dimensions</span>
-                                </li>
-                                <li class="flex items-start space-x-3">
-                                    <span class="text-primary font-bold">•</span>
-                                    <span class="text-gray-300"><code class="bg-dark-light px-2 py-1 rounded text-primary font-mono">title</code> - Tooltip text on hover</span>
-                                </li>
-                            </ul>
-                        </div>
-
-                        <div class="bg-dark-light/50 backdrop-blur-xl rounded-2xl border border-primary/20 overflow-hidden mb-6">
-                            <div class="bg-dark-light border-b border-primary/20 px-6 py-4 flex items-center justify-between">
-                                <span class="text-white font-medium">Image Examples</span>
-                                <button class="text-gray-400 hover:text-primary transition-colors duration-300" onclick="copyCode(this)">
-                                    <i class="fas fa-copy"></i>
-                                </button>
-                            </div>
-                            <div class="bg-black p-6">
-                                <pre class="text-green-400 font-mono text-sm leading-relaxed"><code>&lt;!-- Basic image --&gt;
-&lt;img src="photo.jpg" alt="A beautiful sunset"&gt;
-
-&lt;!-- Image with dimensions --&gt;
-&lt;img src="photo.jpg" alt="A beautiful sunset" width="300" height="200"&gt;
-
-&lt;!-- Image with title --&gt;
-&lt;img src="photo.jpg" alt="A beautiful sunset" title="Sunset at the beach"&gt;
-
-&lt;!-- External image --&gt;
-&lt;img src="https://example.com/image.jpg" alt="External image"&gt;</code></pre>
-                            </div>
-                        </div>
-
-                        <div class="bg-yellow-500/10 border border-yellow-500/20 rounded-2xl p-6 mb-6">
-                            <h4 class="text-xl font-bold text-yellow-400 mb-4 flex items-center">
-                                <span class="mr-3">♿</span>
-                                Accessibility Importance:
-                            </h4>
-                            <p class="text-gray-300 mb-4">The <code class="bg-dark-light px-2 py-1 rounded text-primary font-mono">alt</code> attribute is crucial for:</p>
-                            <ul class="space-y-2">
-                                <li class="text-gray-300">• Screen readers for visually impaired users</li>
-                                <li class="text-gray-300">• Displaying when images fail to load</li>
-                                <li class="text-gray-300">• SEO (Search Engine Optimization)</li>
-                                <li class="text-gray-300">• Better user experience</li>
-                            </ul>
-                        </div>
-
-                        <div class="bg-accent/10 border border-accent/20 rounded-2xl p-6">
-                            <h4 class="text-xl font-bold text-accent mb-4 flex items-center">
-                                <i class="fas fa-bullseye mr-3"></i>
-                                Live Demo:
-                            </h4>
-                            <p class="text-gray-300 mb-4">Try adding an image to your webpage:</p>
-                            <div class="bg-dark-light rounded-xl p-4 mb-4">
-                                <pre class="text-green-400 font-mono text-sm"><code>&lt;div style="width: 300px; height: 200px; background: #01D29B; 
-     color: white; display: flex; align-items: center; 
-     justify-content: center; font-weight: bold; border-radius: 8px;"&gt;
-    Sample Image
-&lt;/div&gt;</code></pre>
-                            </div>
-                            <div class="flex justify-center">
-                                <div class="w-75 h-50 bg-primary text-white flex items-center justify-center font-bold rounded-2xl">
-                                    Sample Image
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+    <!-- Main Content -->
+    <section class="py-20 bg-dark-light/30">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 lg:grid-cols-4 gap-12">
+          <!-- Main Content -->
+          <div class="lg:col-span-3 space-y-16">
+            <!-- What is HTML -->
+            <div
+              class="bg-gradient-to-br from-dark-light/50 to-dark/50 backdrop-blur-xl rounded-3xl border border-primary/20 p-8"
+            >
+              <div class="flex items-center mb-6">
+                <div
+                  class="w-12 h-12 bg-gradient-to-br from-primary to-accent rounded-2xl flex items-center justify-center text-white font-bold text-lg mr-4"
+                >
+                  1
                 </div>
-
-                <!-- Sidebar -->
-                <div class="space-y-8">
-                    <div class="bg-gradient-to-br from-dark-light/50 to-dark/50 backdrop-blur-xl rounded-3xl border border-primary/20 p-6">
-                        <h3 class="text-xl font-bold text-white mb-4 flex items-center">
-                            <i class="fas fa-compass text-primary mr-3"></i>
-                            Quick Navigation
-                        </h3>
-                        <ul class="space-y-3">
-                            <li>
-                                <a href="#challenges" class="flex items-center space-x-3 text-gray-300 hover:text-primary transition-colors duration-300">
-                                    <i class="fas fa-bullseye text-primary"></i>
-                                    <span>Challenges</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#what-is-html" class="flex items-center space-x-3 text-gray-300 hover:text-primary transition-colors duration-300">
-                                    <span>💻</span>
-                                    <span>What is HTML?</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#basic-structure" class="flex items-center space-x-3 text-gray-300 hover:text-primary transition-colors duration-300">
-                                    <span>🧱</span>
-                                    <span>Basic HTML Structure</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#text-tags" class="flex items-center space-x-3 text-gray-300 hover:text-primary transition-colors duration-300">
-                                    <span>✍️</span>
-                                    <span>Text Tags</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#links" class="flex items-center space-x-3 text-gray-300 hover:text-primary transition-colors duration-300">
-                                    <span>🔗</span>
-                                    <span>Links</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#lists" class="flex items-center space-x-3 text-gray-300 hover:text-primary transition-colors duration-300">
-                                    <i class="fas fa-list text-primary"></i>
-                                    <span>Lists</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#images" class="flex items-center space-x-3 text-gray-300 hover:text-primary transition-colors duration-300">
-                                    <i class="fas fa-images text-primary"></i>
-                                    <span>Images</span>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-
-                    <div class="bg-gradient-to-br from-dark-light/50 to-dark/50 backdrop-blur-xl rounded-3xl border border-primary/20 p-6">
-                        <h3 class="text-xl font-bold text-white mb-4 flex items-center">
-                            <i class="fas fa-book text-primary mr-3"></i>
-                            Resources
-                        </h3>
-                        <ul class="space-y-3">
-                            <li>
-                                <a href="https://developer.mozilla.org/en-US/docs/Web/HTML" target="_blank" class="flex items-center space-x-3 text-gray-300 hover:text-primary transition-colors duration-300">
-                                    <i class="fas fa-external-link-alt text-primary"></i>
-                                    <span>MDN HTML Guide</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="https://www.w3schools.com/html/" target="_blank" class="flex items-center space-x-3 text-gray-300 hover:text-primary transition-colors duration-300">
-                                    <i class="fas fa-external-link-alt text-primary"></i>
-                                    <span>W3Schools HTML</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="https://html.spec.whatwg.org/" target="_blank" class="flex items-center space-x-3 text-gray-300 hover:text-primary transition-colors duration-300">
-                                    <i class="fas fa-external-link-alt text-primary"></i>
-                                    <span>HTML Specification</span>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
+                <h2 class="text-3xl font-bold text-white">🎯 What is HTML?</h2>
+              </div>
+              <div class="text-gray-300 space-y-4 leading-relaxed">
+                <p><strong>HTML = HyperText Markup Language</strong></p>
+                <p>
+                  HTML is the standard markup language for creating web pages.
+                  It describes the structure of web content using a system of
+                  elements and tags.
+                </p>
+                <div
+                  class="bg-primary/10 border border-primary/20 rounded-2xl p-6 my-6"
+                >
+                  <h4 class="text-primary font-semibold mb-3">
+                    💡 Key Concepts
+                  </h4>
+                  <ul class="text-gray-300 space-y-2">
+                    <li>
+                      <strong>Markup:</strong> HTML uses tags to mark up content
+                    </li>
+                    <li>
+                      <strong>Structure:</strong> Defines the layout and
+                      organization of web pages
+                    </li>
+                    <li>
+                      <strong>Semantic:</strong> Provides meaning to content for
+                      browsers and screen readers
+                    </li>
+                  </ul>
                 </div>
+                <p>
+                  HTML is the foundation of every website - it's what gives
+                  structure to your content and makes it readable by web
+                  browsers.
+                </p>
+              </div>
             </div>
+
+            <!-- Basic Structure -->
+            <div
+              class="bg-gradient-to-br from-dark-light/50 to-dark/50 backdrop-blur-xl rounded-3xl border border-primary/20 p-8"
+            >
+              <div class="flex items-center mb-6">
+                <div
+                  class="w-12 h-12 bg-gradient-to-br from-primary to-accent rounded-2xl flex items-center justify-center text-white font-bold text-lg mr-4"
+                >
+                  2
+                </div>
+                <h2 class="text-3xl font-bold text-white">
+                  🏗️ Basic HTML Structure
+                </h2>
+              </div>
+              <div class="text-gray-300 space-y-4 leading-relaxed">
+                <p>
+                  Every HTML document follows a standard structure with
+                  essential elements:
+                </p>
+
+                <div class="bg-dark-light/50 rounded-2xl p-6 my-6">
+                  <h4 class="text-primary font-semibold mb-3">
+                    📋 Essential Elements
+                  </h4>
+                  <ul class="space-y-2 text-gray-300">
+                    <li>
+                      <code class="bg-black px-2 py-1 rounded text-green-400"
+                        >&lt;!DOCTYPE html&gt;</code
+                      >
+                      - Document type declaration
+                    </li>
+                    <li>
+                      <code class="bg-black px-2 py-1 rounded text-green-400"
+                        >&lt;html&gt;</code
+                      >
+                      - Root element
+                    </li>
+                    <li>
+                      <code class="bg-black px-2 py-1 rounded text-green-400"
+                        >&lt;head&gt;</code
+                      >
+                      - Contains metadata
+                    </li>
+                    <li>
+                      <code class="bg-black px-2 py-1 rounded text-green-400"
+                        >&lt;body&gt;</code
+                      >
+                      - Contains visible content
+                    </li>
+                  </ul>
+                </div>
+
+                <div class="bg-black rounded-xl p-4 my-6">
+                  <code class="text-green-400 text-sm">
+                    &lt;!DOCTYPE html&gt;<br />
+                    &lt;html lang="en"&gt;<br />
+                    &lt;head&gt;<br />
+                    &nbsp;&nbsp;&lt;meta charset="UTF-8"&gt;<br />
+                    &nbsp;&nbsp;&lt;title&gt;Page Title&lt;/title&gt;<br />
+                    &lt;/head&gt;<br />
+                    &lt;body&gt;<br />
+                    &nbsp;&nbsp;&lt;h1&gt;Hello World&lt;/h1&gt;<br />
+                    &lt;/body&gt;<br />
+                    &lt;/html&gt;
+                  </code>
+                </div>
+              </div>
+            </div>
+
+            <!-- HTML Elements -->
+            <div
+              class="bg-gradient-to-br from-dark-light/50 to-dark/50 backdrop-blur-xl rounded-3xl border border-primary/20 p-8"
+            >
+              <div class="flex items-center mb-6">
+                <div
+                  class="w-12 h-12 bg-gradient-to-br from-primary to-accent rounded-2xl flex items-center justify-center text-white font-bold text-lg mr-4"
+                >
+                  3
+                </div>
+                <h2 class="text-3xl font-bold text-white">
+                  🧩 HTML Elements & Tags
+                </h2>
+              </div>
+              <div class="text-gray-300 space-y-4 leading-relaxed">
+                <p>
+                  HTML elements are the building blocks of web pages. Each
+                  element has an opening tag, content, and closing tag.
+                </p>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 my-6">
+                  <div
+                    class="bg-dark-light/50 rounded-2xl p-6 border border-primary/20"
+                  >
+                    <h4 class="text-primary font-semibold mb-3">
+                      📝 Text Elements
+                    </h4>
+                    <ul class="space-y-2 text-sm">
+                      <li>
+                        <code class="bg-black px-2 py-1 rounded text-green-400"
+                          >&lt;h1&gt;</code
+                        >
+                        to
+                        <code class="bg-black px-2 py-1 rounded text-green-400"
+                          >&lt;h6&gt;</code
+                        >
+                        - Headings
+                      </li>
+                      <li>
+                        <code class="bg-black px-2 py-1 rounded text-green-400"
+                          >&lt;p&gt;</code
+                        >
+                        - Paragraphs
+                      </li>
+                      <li>
+                        <code class="bg-black px-2 py-1 rounded text-green-400"
+                          >&lt;strong&gt;</code
+                        >
+                        - Bold text
+                      </li>
+                      <li>
+                        <code class="bg-black px-2 py-1 rounded text-green-400"
+                          >&lt;em&gt;</code
+                        >
+                        - Italic text
+                      </li>
+                    </ul>
+                  </div>
+
+                  <div
+                    class="bg-dark-light/50 rounded-2xl p-6 border border-primary/20"
+                  >
+                    <h4 class="text-primary font-semibold mb-3">
+                      🔗 Link Elements
+                    </h4>
+                    <ul class="space-y-2 text-sm">
+                      <li>
+                        <code class="bg-black px-2 py-1 rounded text-green-400"
+                          >&lt;a&gt;</code
+                        >
+                        - Hyperlinks
+                      </li>
+                      <li>
+                        <code class="bg-black px-2 py-1 rounded text-green-400"
+                          >&lt;img&gt;</code
+                        >
+                        - Images
+                      </li>
+                      <li>
+                        <code class="bg-black px-2 py-1 rounded text-green-400"
+                          >&lt;video&gt;</code
+                        >
+                        - Video content
+                      </li>
+                      <li>
+                        <code class="bg-black px-2 py-1 rounded text-green-400"
+                          >&lt;audio&gt;</code
+                        >
+                        - Audio content
+                      </li>
+                    </ul>
+                  </div>
+
+                  <div
+                    class="bg-dark-light/50 rounded-2xl p-6 border border-primary/20"
+                  >
+                    <h4 class="text-primary font-semibold mb-3">
+                      📋 List Elements
+                    </h4>
+                    <ul class="space-y-2 text-sm">
+                      <li>
+                        <code class="bg-black px-2 py-1 rounded text-green-400"
+                          >&lt;ul&gt;</code
+                        >
+                        - Unordered lists
+                      </li>
+                      <li>
+                        <code class="bg-black px-2 py-1 rounded text-green-400"
+                          >&lt;ol&gt;</code
+                        >
+                        - Ordered lists
+                      </li>
+                      <li>
+                        <code class="bg-black px-2 py-1 rounded text-green-400"
+                          >&lt;li&gt;</code
+                        >
+                        - List items
+                      </li>
+                    </ul>
+                  </div>
+
+                  <div
+                    class="bg-dark-light/50 rounded-2xl p-6 border border-primary/20"
+                  >
+                    <h4 class="text-primary font-semibold mb-3">
+                      🏗️ Structure Elements
+                    </h4>
+                    <ul class="space-y-2 text-sm">
+                      <li>
+                        <code class="bg-black px-2 py-1 rounded text-green-400"
+                          >&lt;div&gt;</code
+                        >
+                        - Content division
+                      </li>
+                      <li>
+                        <code class="bg-black px-2 py-1 rounded text-green-400"
+                          >&lt;section&gt;</code
+                        >
+                        - Section content
+                      </li>
+                      <li>
+                        <code class="bg-black px-2 py-1 rounded text-green-400"
+                          >&lt;header&gt;</code
+                        >
+                        - Header content
+                      </li>
+                      <li>
+                        <code class="bg-black px-2 py-1 rounded text-green-400"
+                          >&lt;footer&gt;</code
+                        >
+                        - Footer content
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Semantic HTML -->
+            <div
+              class="bg-gradient-to-br from-dark-light/50 to-dark/50 backdrop-blur-xl rounded-3xl border border-primary/20 p-8"
+            >
+              <div class="flex items-center mb-6">
+                <div
+                  class="w-12 h-12 bg-gradient-to-br from-primary to-accent rounded-2xl flex items-center justify-center text-white font-bold text-lg mr-4"
+                >
+                  4
+                </div>
+                <h2 class="text-3xl font-bold text-white">🎯 Semantic HTML</h2>
+              </div>
+              <div class="text-gray-300 space-y-4 leading-relaxed">
+                <p>
+                  Semantic HTML uses meaningful tags that clearly describe their
+                  purpose to both browsers and developers.
+                </p>
+
+                <div
+                  class="bg-primary/10 border border-primary/20 rounded-2xl p-6 my-6"
+                >
+                  <h4 class="text-primary font-semibold mb-3">
+                    💡 Why Use Semantic HTML?
+                  </h4>
+                  <ul class="text-gray-300 space-y-2">
+                    <li>
+                      <strong>Accessibility:</strong> Screen readers can better
+                      understand your content
+                    </li>
+                    <li>
+                      <strong>SEO:</strong> Search engines can better index your
+                      pages
+                    </li>
+                    <li>
+                      <strong>Maintainability:</strong> Code is easier to read
+                      and maintain
+                    </li>
+                    <li>
+                      <strong>Future-proof:</strong> Better compatibility with
+                      new technologies
+                    </li>
+                  </ul>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 my-6">
+                  <div
+                    class="bg-dark-light/50 rounded-2xl p-6 border border-primary/20"
+                  >
+                    <h4 class="text-primary font-semibold mb-3">
+                      ✅ Semantic Elements
+                    </h4>
+                    <ul class="space-y-2 text-sm">
+                      <li>
+                        <code class="bg-black px-2 py-1 rounded text-green-400"
+                          >&lt;nav&gt;</code
+                        >
+                        - Navigation
+                      </li>
+                      <li>
+                        <code class="bg-black px-2 py-1 rounded text-green-400"
+                          >&lt;main&gt;</code
+                        >
+                        - Main content
+                      </li>
+                      <li>
+                        <code class="bg-black px-2 py-1 rounded text-green-400"
+                          >&lt;article&gt;</code
+                        >
+                        - Article content
+                      </li>
+                      <li>
+                        <code class="bg-black px-2 py-1 rounded text-green-400"
+                          >&lt;aside&gt;</code
+                        >
+                        - Sidebar content
+                      </li>
+                    </ul>
+                  </div>
+
+                  <div
+                    class="bg-dark-light/50 rounded-2xl p-6 border border-primary/20"
+                  >
+                    <h4 class="text-primary font-semibold mb-3">
+                      ❌ Non-semantic Elements
+                    </h4>
+                    <ul class="space-y-2 text-sm">
+                      <li>
+                        <code class="bg-black px-2 py-1 rounded text-green-400"
+                          >&lt;div&gt;</code
+                        >
+                        - Generic container
+                      </li>
+                      <li>
+                        <code class="bg-black px-2 py-1 rounded text-green-400"
+                          >&lt;span&gt;</code
+                        >
+                        - Generic inline
+                      </li>
+                      <li>
+                        <code class="bg-black px-2 py-1 rounded text-green-400"
+                          >&lt;b&gt;</code
+                        >
+                        - Bold (use &lt;strong&gt; instead)
+                      </li>
+                      <li>
+                        <code class="bg-black px-2 py-1 rounded text-green-400"
+                          >&lt;i&gt;</code
+                        >
+                        - Italic (use &lt;em&gt; instead)
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Sidebar -->
+          <div class="lg:col-span-1 space-y-8">
+            <!-- Quick Navigation -->
+            <div
+              class="bg-gradient-to-br from-dark-light/50 to-dark/50 backdrop-blur-xl rounded-3xl border border-primary/20 p-6"
+            >
+              <h3 class="text-xl font-bold text-white mb-4">
+                📚 Quick Navigation
+              </h3>
+              <nav class="space-y-3">
+                <a
+                  href="#what-is-html"
+                  class="block text-gray-300 hover:text-primary transition-colors duration-200"
+                >
+                  <i class="fas fa-chevron-right mr-2 text-primary"></i>
+                  What is HTML?
+                </a>
+                <a
+                  href="#basic-structure"
+                  class="block text-gray-300 hover:text-primary transition-colors duration-200"
+                >
+                  <i class="fas fa-chevron-right mr-2 text-primary"></i>
+                  Basic Structure
+                </a>
+                <a
+                  href="#html-elements"
+                  class="block text-gray-300 hover:text-primary transition-colors duration-200"
+                >
+                  <i class="fas fa-chevron-right mr-2 text-primary"></i>
+                  HTML Elements
+                </a>
+                <a
+                  href="#semantic-html"
+                  class="block text-gray-300 hover:text-primary transition-colors duration-200"
+                >
+                  <i class="fas fa-chevron-right mr-2 text-primary"></i>
+                  Semantic HTML
+                </a>
+              </nav>
+            </div>
+
+            <!-- Resources -->
+            <div
+              class="bg-gradient-to-br from-dark-light/50 to-dark/50 backdrop-blur-xl rounded-3xl border border-primary/20 p-6"
+            >
+              <h3 class="text-xl font-bold text-white mb-4">🔗 Resources</h3>
+              <div class="space-y-3">
+                <a
+                  href="#"
+                  class="block text-gray-300 hover:text-primary transition-colors duration-200"
+                >
+                  <i class="fas fa-external-link-alt mr-2 text-primary"></i>
+                  HTML Reference Guide
+                </a>
+                <a
+                  href="#"
+                  class="block text-gray-300 hover:text-primary transition-colors duration-200"
+                >
+                  <i class="fas fa-external-link-alt mr-2 text-primary"></i>
+                  HTML Validator
+                </a>
+                <a
+                  href="#"
+                  class="block text-gray-300 hover:text-primary transition-colors duration-200"
+                >
+                  <i class="fas fa-external-link-alt mr-2 text-primary"></i>
+                  Semantic HTML Guide
+                </a>
+                <a
+                  href="#"
+                  class="block text-gray-300 hover:text-primary transition-colors duration-200"
+                >
+                  <i class="fas fa-external-link-alt mr-2 text-primary"></i>
+                  HTML Cheat Sheet
+                </a>
+              </div>
+            </div>
+          </div>
         </div>
+      </div>
     </section>
 
     <!-- Navigation Footer -->
-    <section class="py-16 bg-gradient-to-r from-dark to-dark-light">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex flex-col sm:flex-row justify-between items-center space-y-4 sm:space-y-0">
-                <button class="bg-dark-light/50 text-white px-8 py-3 rounded-2xl font-semibold hover:bg-dark-light transition-all duration-300 border border-primary/20 hover:border-primary/40" onclick="window.location.href='index.html'">
-                    <i class="fas fa-home mr-3"></i>
-                    Back to Home
-                </button>
-                <button class="bg-gradient-to-r from-primary to-accent text-white px-8 py-3 rounded-2xl font-semibold hover:shadow-lg hover:shadow-primary/25 transition-all duration-300" onclick="window.location.href='html-forms.html'">
-                    Next: Day 2
-                    <i class="fas fa-arrow-right ml-3"></i>
-                </button>
-            </div>
+    <section class="py-16 bg-dark-light/20">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div
+          class="flex flex-col sm:flex-row justify-between items-center space-y-4 sm:space-y-0"
+        >
+          <a
+            href="index.html"
+            class="bg-gradient-to-r from-gray-600 to-gray-700 text-white px-8 py-3 rounded-2xl font-semibold hover:shadow-lg transition-all duration-300"
+          >
+            <i class="fas fa-arrow-left mr-2"></i>
+            Back to Home
+          </a>
+          <a
+            href="html-forms.html"
+            class="bg-gradient-to-r from-primary to-accent text-white px-8 py-3 rounded-2xl font-semibold hover:shadow-lg hover:shadow-primary/25 transition-all duration-300"
+          >
+            Next: Day 2
+            <i class="fas fa-arrow-right ml-2"></i>
+          </a>
         </div>
+      </div>
     </section>
 
     <!-- Challenge Modal -->
-    <div id="challengeModal" class="fixed inset-0 bg-black/80 backdrop-blur-xl z-50 hidden">
-        <div class="flex items-center justify-center min-h-screen p-4">
-            <div class="bg-gradient-to-br from-dark-light to-dark rounded-3xl border border-primary/20 max-w-4xl w-full max-h-[90vh] overflow-y-auto">
-                <div class="sticky top-0 bg-dark-light/80 backdrop-blur-xl border-b border-primary/20 px-8 py-6 rounded-t-3xl">
-                    <div class="flex justify-between items-center">
-                        <h2 id="modalChallengeTitle" class="text-2xl font-bold text-white">Challenge Title</h2>
-                        <div class="flex items-center space-x-4">
-                            <button class="bg-gradient-to-r from-primary to-accent text-white px-6 py-2 rounded-xl font-semibold hover:shadow-lg hover:shadow-primary/25 transition-all duration-300" onclick="completeChallenge()">
-                                <i class="fas fa-check mr-2"></i>
-                                Complete Challenge
-                            </button>
-                            <button class="text-gray-400 hover:text-white transition-colors duration-300 text-2xl" onclick="closeChallengeModal()">
-                                <i class="fas fa-times"></i>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-                <div class="p-8">
-                    <div id="modalChallengeContent">
-                        <!-- Challenge content will be loaded here -->
-                    </div>
-                </div>
+    <div id="challengeModal" class="fixed inset-0 z-50 hidden">
+      <div class="absolute inset-0 bg-black/80 backdrop-blur-sm"></div>
+      <div class="relative min-h-screen flex items-center justify-center p-4">
+        <div
+          class="bg-dark-light/95 backdrop-blur-xl rounded-3xl border border-primary/30 w-full max-w-6xl max-h-[90vh] overflow-y-auto"
+        >
+          <div
+            class="sticky top-0 bg-dark-light/95 backdrop-blur-xl border-b border-primary/20 p-6 rounded-t-3xl"
+          >
+            <div class="flex justify-between items-center">
+              <h2 id="challengeTitle" class="text-2xl font-bold text-white">
+                Challenge
+              </h2>
+              <button
+                onclick="closeChallengeModal()"
+                class="text-gray-400 hover:text-white transition-colors duration-200"
+              >
+                <i class="fas fa-times text-2xl"></i>
+              </button>
             </div>
+          </div>
+          <div id="challengeContent" class="p-6">
+            <!-- Challenge content will be loaded here -->
+          </div>
         </div>
+      </div>
     </div>
 
     <!-- Footer -->
-    <footer class="bg-gradient-to-r from-dark to-dark-light border-t border-primary/20">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
-                <div>
-                    <h3 class="text-2xl font-bold text-white mb-4">WebDev LMS</h3>
-                    <p class="text-gray-300 leading-relaxed">
-                        Master web development in 10 days with hands-on challenges and real-world projects.
-                    </p>
-                </div>
-                <div>
-                    <h4 class="text-xl font-semibold text-white mb-4">Quick Links</h4>
-                    <ul class="space-y-2">
-                        <li><a href="index.html" class="text-gray-300 hover:text-primary transition-colors duration-300">Home</a></li>
-                        <li><a href="index.html#curriculum" class="text-gray-300 hover:text-primary transition-colors duration-300">Curriculum</a></li>
-                        <li><a href="index.html#challenges" class="text-gray-300 hover:text-primary transition-colors duration-300">Challenges</a></li>
-                        <li><a href="index.html#resources" class="text-gray-300 hover:text-primary transition-colors duration-300">Resources</a></li>
-                    </ul>
-                </div>
+    <footer class="bg-dark border-t border-primary/20">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+          <div class="col-span-1 md:col-span-2">
+            <div class="flex items-center mb-4">
+              <i class="fas fa-code text-3xl text-primary mr-3"></i>
+              <span class="text-2xl font-bold text-white">WebDev LMS</span>
             </div>
-            <div class="border-t border-primary/20 pt-8 text-center">
-                <p class="text-gray-400">&copy; 2024 WebDev LMS. All rights reserved.</p>
+            <p class="text-gray-400 mb-6 max-w-md">
+              Master web development with our comprehensive learning platform.
+              From HTML basics to advanced JavaScript, we've got you covered.
+            </p>
+            <div class="flex space-x-4">
+              <a
+                href="#"
+                class="text-gray-400 hover:text-primary transition-colors duration-200"
+              >
+                <i class="fab fa-twitter text-xl"></i>
+              </a>
+              <a
+                href="#"
+                class="text-gray-400 hover:text-primary transition-colors duration-200"
+              >
+                <i class="fab fa-github text-xl"></i>
+              </a>
+              <a
+                href="#"
+                class="text-gray-400 hover:text-primary transition-colors duration-200"
+              >
+                <i class="fab fa-linkedin text-xl"></i>
+              </a>
             </div>
+          </div>
+
+          <div>
+            <h3 class="text-white font-semibold mb-4">Learning Paths</h3>
+            <ul class="space-y-2 text-gray-400">
+              <li>
+                <a
+                  href="#"
+                  class="hover:text-primary transition-colors duration-200"
+                  >HTML Fundamentals</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="hover:text-primary transition-colors duration-200"
+                  >CSS Styling</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="hover:text-primary transition-colors duration-200"
+                  >JavaScript Basics</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="hover:text-primary transition-colors duration-200"
+                  >Advanced Topics</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <h3 class="text-white font-semibold mb-4">Resources</h3>
+            <ul class="space-y-2 text-gray-400">
+              <li>
+                <a
+                  href="#"
+                  class="hover:text-primary transition-colors duration-200"
+                  >Documentation</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="hover:text-primary transition-colors duration-200"
+                  >Code Examples</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="hover:text-primary transition-colors duration-200"
+                  >Video Tutorials</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="hover:text-primary transition-colors duration-200"
+                  >Community</a
+                >
+              </li>
+            </ul>
+          </div>
         </div>
+
+        <div
+          class="border-t border-primary/20 mt-8 pt-8 text-center text-gray-400"
+        >
+          <p>&copy; 2024 WebDev LMS. All rights reserved.</p>
+        </div>
+      </div>
     </footer>
 
+    <!-- Monaco Editor CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.44.0/min/vs/loader.min.js"></script>
+
+    <!-- Custom Scripts -->
     <script src="script.js"></script>
+
     <script>
-        // Monaco Editor initialization
-        require.config({ paths: { vs: 'https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.44.0/min/vs' } });
-        require(['vs/editor/editor.main'], function() {
-            console.log('Monaco Editor loaded successfully for Day 1');
+      // Initialize Monaco Editor for this page
+      require.config({
+        paths: {
+          vs: "https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.44.0/min/vs",
+        },
+      });
+
+      require(["vs/editor/editor.main"], function () {
+        // Monaco Editor is now loaded
+        console.log("Monaco Editor loaded successfully");
+      });
+
+      // Copy code function for this page
+      function copyCode(button) {
+        const codeBlock = button.previousElementSibling;
+        const code = codeBlock.textContent;
+
+        navigator.clipboard.writeText(code).then(() => {
+          const originalText = button.innerHTML;
+          button.innerHTML = '<i class="fas fa-check mr-2"></i>Copied!';
+          button.classList.add("bg-green-500");
+
+          setTimeout(() => {
+            button.innerHTML = originalText;
+            button.classList.remove("bg-green-500");
+          }, 2000);
         });
-        
-        // Copy code functionality for the new Tailwind structure
-        function copyCode(button) {
-            const codeBlock = button.closest('.bg-dark-light\\/50').querySelector('code');
-            if (codeBlock) {
-                const textArea = document.createElement('textarea');
-                textArea.value = codeBlock.textContent;
-                document.body.appendChild(textArea);
-                textArea.select();
-                document.execCommand('copy');
-                document.body.removeChild(textArea);
-
-                // Show feedback
-                const originalText = button.innerHTML;
-                button.innerHTML = '<i class="fas fa-check"></i>';
-                button.classList.add('text-primary');
-
-                setTimeout(() => {
-                    button.innerHTML = originalText;
-                    button.classList.remove('text-primary');
-                }, 2000);
-            }
-        }
+      }
     </script>
-</body>
-</html> 
+  </body>
+</html>

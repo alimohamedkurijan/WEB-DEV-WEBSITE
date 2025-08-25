@@ -3,165 +3,251 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Day 4: CSS Layout - WebDev LMS</title>
-    <link rel="stylesheet" href="styles.css" />
+    <title>Day 4: CSS Layout & Flexbox - WebDev LMS</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              primary: "#01d29b",
+              secondary: "#121212",
+              accent: "#00b894",
+              dark: "#1e1e1e",
+              "dark-light": "#2a2a2a",
+            },
+          },
+        },
+      };
+    </script>
     <link
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
       rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
     />
     <link
       href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
       rel="stylesheet"
     />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.44.0/min/vs/loader.min.js"></script>
+    <style>
+      body {
+        font-family: "Inter", sans-serif;
+      }
+    </style>
   </head>
-  <body>
+  <body class="bg-secondary text-white min-h-screen">
     <!-- Navigation -->
-    <nav class="navbar">
-      <div class="nav-container">
-        <div class="nav-logo" onclick="window.location.href='index.html'">
-          <i class="fas fa-code"></i>
-          <span>WebDev LMS</span>
-        </div>
-        <ul class="nav-menu">
-          <li>
-            <a href="index.html" class="nav-link" data-page="home">Home</a>
-          </li>
-          <li>
-            <a
-              href="index.html#curriculum"
-              class="nav-link"
-              data-page="curriculum"
-              >Curriculum</a
+    <nav
+      class="fixed top-0 left-0 right-0 z-50 bg-dark/80 backdrop-blur-xl border-b border-primary/20"
+    >
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between items-center h-16">
+          <div class="flex items-center space-x-4">
+            <a href="index.html" class="text-primary font-bold text-xl">
+              <i class="fas fa-code mr-2"></i>WebDev LMS
+            </a>
+            <span
+              class="bg-primary/20 text-primary px-3 py-1 rounded-full text-sm font-medium"
             >
-          </li>
-          <li>
-            <a
-              href="index.html#challenges"
-              class="nav-link"
-              data-page="challenges"
-              >Challenges</a
-            >
-          </li>
-          <li>
-            <a
-              href="index.html#resources"
-              class="nav-link"
-              data-page="resources"
-              >Resources</a
-            >
-          </li>
-        </ul>
-        <div class="nav-actions">
-          <div class="page-indicator">
-            <i class="fas fa-th-large"></i>
-            <span>Day 4: CSS Layout</span>
+              Day 4: CSS Layout & Flexbox
+            </span>
           </div>
-          <button
-            class="nav-btn-secondary"
-            onclick="window.location.href='css-advanced.html'"
-          >
-            <i class="fas fa-arrow-right"></i>
-            Next Day
-          </button>
-        </div>
-        <div class="hamburger">
-          <span></span>
-          <span></span>
-          <span></span>
+          <div class="flex items-center space-x-4">
+            <a
+              href="javascript-basics.html"
+              class="bg-gradient-to-r from-primary to-accent text-white px-6 py-2 rounded-xl font-semibold hover:shadow-lg hover:shadow-primary/25 transition-all duration-300"
+            >
+              Next Day <i class="fas fa-arrow-right ml-2"></i>
+            </a>
+          </div>
         </div>
       </div>
     </nav>
 
     <!-- Day Header -->
-    <section class="day-header">
-      <div class="container">
-        <div class="day-header-content">
-          <div class="day-badge">
-            <span class="day-number">Day 4</span>
+    <section
+      class="pt-24 pb-16 bg-gradient-to-br from-dark-light/50 to-dark/50"
+    >
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <div
+          class="inline-block bg-primary/20 text-primary px-4 py-2 rounded-full text-sm font-semibold mb-6"
+        >
+          Day 4
+        </div>
+        <h1 class="text-5xl md:text-6xl font-bold text-white mb-6">
+          CSS Layout & Flexbox
+        </h1>
+        <p class="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
+          Master modern CSS layout techniques with Flexbox to create responsive
+          and flexible web designs
+        </p>
+        <div
+          class="flex items-center justify-center space-x-6 mt-8 text-gray-400"
+        >
+          <div class="flex items-center">
+            <i class="fas fa-clock mr-2"></i>
+            <span>2.5 hours</span>
           </div>
-          <h1>CSS Layout & Flexbox</h1>
-          <p>Master modern CSS layout techniques with Flexbox</p>
-          <div class="day-meta">
-            <span class="meta-item">
-              <i class="fas fa-clock"></i>
-              Duration: 2-3 hours
-            </span>
-            <span class="meta-item">
-              <i class="fas fa-signal"></i>
-              Level: Intermediate
-            </span>
-            <span class="meta-item">
-              <i class="fas fa-tasks"></i>
-              Challenges: 3
-            </span>
+          <div class="flex items-center">
+            <i class="fas fa-tasks mr-2"></i>
+            <span>4 lessons</span>
+          </div>
+          <div class="flex items-center">
+            <i class="fas fa-star mr-2"></i>
+            <span>Intermediate</span>
           </div>
         </div>
       </div>
     </section>
 
     <!-- Challenges Section -->
-    <section class="challenges-section">
-      <div class="container">
-        <h2><i class="fas fa-bullseye"></i> Practice Challenges</h2>
-        <p class="challenges-intro">
-          Complete these hands-on challenges to master CSS layout and Flexbox:
-        </p>
+    <section class="py-20 bg-gradient-to-br from-dark to-dark">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+          <h2 class="text-4xl font-bold text-white mb-4">
+            Practice Challenges
+          </h2>
+          <p class="text-xl text-gray-300">
+            Apply what you learn with hands-on exercises
+          </p>
+        </div>
 
-        <div class="challenges-grid">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           <!-- Challenge 1 -->
-          <div class="challenge-card">
-            <div class="challenge-header">
-              <div class="challenge-number">01</div>
-              <div class="challenge-meta">
-                <span class="difficulty beginner">Beginner</span>
-                <span class="time">10 min</span>
+          <div
+            class="bg-gradient-to-br from-dark-light/80 to-dark/80 backdrop-blur-xl rounded-3xl border border-primary/30 p-8 hover:border-primary/50 transition-all duration-300 hover:shadow-2xl hover:shadow-primary/20"
+          >
+            <div class="flex justify-between items-start mb-6">
+              <div
+                class="w-12 h-12 bg-gradient-to-br from-primary to-accent rounded-2xl flex items-center justify-center text-white font-bold text-lg"
+              >
+                01
+              </div>
+              <div class="text-right">
+                <span
+                  class="inline-block bg-green-500/20 text-green-400 text-xs font-semibold px-3 py-1 rounded-full mb-2"
+                  >Beginner</span
+                >
+                <div class="text-gray-400 text-sm">6 min</div>
               </div>
             </div>
-            <h3>📐 Basic Flexbox</h3>
-            <p>Create a simple layout using Flexbox properties.</p>
+            <h3 class="text-xl font-bold text-white mb-4 flex items-center">
+              <i class="fas fa-boxes text-primary mr-3"></i>
+              Basic Flexbox
+            </h3>
+            <p class="text-gray-300 mb-6 leading-relaxed">
+              Create a simple flexbox layout with basic alignment properties.
+            </p>
 
-            <button class="challenge-btn" onclick="openChallenge(1)">
-              <i class="fas fa-play"></i>
+            <button
+              class="w-full bg-gradient-to-r from-primary to-accent text-white py-3 rounded-2xl font-semibold hover:shadow-lg hover:shadow-primary/25 transition-all duration-300"
+              onclick="openChallenge(13)"
+            >
+              <i class="fas fa-play mr-2"></i>
               Start Challenge
             </button>
           </div>
 
           <!-- Challenge 2 -->
-          <div class="challenge-card">
-            <div class="challenge-header">
-              <div class="challenge-number">02</div>
-              <div class="challenge-meta">
-                <span class="difficulty intermediate">Intermediate</span>
-                <span class="time">15 min</span>
+          <div
+            class="bg-gradient-to-br from-dark-light/80 to-dark/80 backdrop-blur-xl rounded-3xl border border-primary/30 p-8 hover:border-primary/50 transition-all duration-300 hover:shadow-2xl hover:shadow-primary/20"
+          >
+            <div class="flex justify-between items-start mb-6">
+              <div
+                class="w-12 h-12 bg-gradient-to-br from-primary to-accent rounded-2xl flex items-center justify-center text-white font-bold text-lg"
+              >
+                02
+              </div>
+              <div class="text-right">
+                <span
+                  class="inline-block bg-yellow-500/20 text-yellow-400 text-xs font-semibold px-3 py-1 rounded-full mb-2"
+                  >Intermediate</span
+                >
+                <div class="text-gray-400 text-sm">8 min</div>
               </div>
             </div>
-            <h3><i class="fas fa-bullseye"></i> Flexbox Navigation</h3>
-            <p>Build a responsive navigation bar using Flexbox.</p>
+            <h3 class="text-xl font-bold text-white mb-4 flex items-center">
+              <i class="fas fa-arrows-alt-h text-primary mr-3"></i>
+              Flex Direction
+            </h3>
+            <p class="text-gray-300 mb-6 leading-relaxed">
+              Master flex-direction and create both row and column layouts.
+            </p>
 
-            <button class="challenge-btn" onclick="openChallenge(2)">
-              <i class="fas fa-play"></i>
+            <button
+              class="w-full bg-gradient-to-r from-primary to-accent text-white py-3 rounded-2xl font-semibold hover:shadow-lg hover:shadow-primary/25 transition-all duration-300"
+              onclick="openChallenge(14)"
+            >
+              <i class="fas fa-play mr-2"></i>
               Start Challenge
             </button>
           </div>
 
           <!-- Challenge 3 -->
-          <div class="challenge-card">
-            <div class="challenge-header">
-              <div class="challenge-number">03</div>
-              <div class="challenge-meta">
-                <span class="difficulty intermediate">Intermediate</span>
-                <span class="time">20 min</span>
+          <div
+            class="bg-gradient-to-br from-dark-light/80 to-dark/80 backdrop-blur-xl rounded-3xl border border-primary/30 p-8 hover:border-primary/50 transition-all duration-300 hover:shadow-2xl hover:shadow-primary/20"
+          >
+            <div class="flex justify-between items-start mb-6">
+              <div
+                class="w-12 h-12 bg-gradient-to-br from-primary to-accent rounded-2xl flex items-center justify-center text-white font-bold text-lg"
+              >
+                03
+              </div>
+              <div class="text-right">
+                <span
+                  class="inline-block bg-yellow-500/20 text-yellow-400 text-xs font-semibold px-3 py-1 rounded-full mb-2"
+                  >Intermediate</span
+                >
+                <div class="text-gray-400 text-sm">10 min</div>
               </div>
             </div>
-            <h3><i class="fas fa-mobile-alt"></i> Responsive Card Layout</h3>
-            <p>
-              Create a responsive card grid that adapts to different screen
-              sizes.
+            <h3 class="text-xl font-bold text-white mb-4 flex items-center">
+              <i class="fas fa-compress-arrows-alt text-primary mr-3"></i>
+              Flex Properties
+            </h3>
+            <p class="text-gray-300 mb-6 leading-relaxed">
+              Use flex-grow, flex-shrink, and flex-basis for dynamic sizing.
             </p>
 
-            <button class="challenge-btn" onclick="openChallenge(3)">
-              <i class="fas fa-play"></i>
+            <button
+              class="w-full bg-gradient-to-r from-primary to-accent text-white py-3 rounded-2xl font-semibold hover:shadow-lg hover:shadow-primary/25 transition-all duration-300"
+              onclick="openChallenge(15)"
+            >
+              <i class="fas fa-play mr-2"></i>
+              Start Challenge
+            </button>
+          </div>
+
+          <!-- Challenge 4 -->
+          <div
+            class="bg-gradient-to-br from-dark-light/80 to-dark/80 backdrop-blur-xl rounded-3xl border border-primary/30 p-8 hover:border-primary/50 transition-all duration-300 hover:shadow-2xl hover:shadow-primary/20"
+          >
+            <div class="flex justify-between items-start mb-6">
+              <div
+                class="w-12 h-12 bg-gradient-to-br from-primary to-accent rounded-2xl flex items-center justify-center text-white font-bold text-lg"
+              >
+                04
+              </div>
+              <div class="text-right">
+                <span
+                  class="inline-block bg-red-500/20 text-red-400 text-xs font-semibold px-3 py-1 rounded-full mb-2"
+                  >Advanced</span
+                >
+                <div class="text-gray-400 text-sm">15 min</div>
+              </div>
+            </div>
+            <h3 class="text-xl font-bold text-white mb-4 flex items-center">
+              <i class="fas fa-th-large text-primary mr-3"></i>
+              Complex Layouts
+            </h3>
+            <p class="text-gray-300 mb-6 leading-relaxed">
+              Build a responsive navigation and card grid using flexbox.
+            </p>
+
+            <button
+              class="w-full bg-gradient-to-r from-primary to-accent text-white py-3 rounded-2xl font-semibold hover:shadow-lg hover:shadow-primary/25 transition-all duration-300"
+              onclick="openChallenge(16)"
+            >
+              <i class="fas fa-play mr-2"></i>
               Start Challenge
             </button>
           </div>
@@ -169,414 +255,463 @@
       </div>
     </section>
 
-    <!-- Content Section -->
-    <section class="day-content">
-      <div class="container">
-        <div class="content-grid">
+    <!-- Main Content -->
+    <section class="py-20 bg-dark-light/30">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 lg:grid-cols-4 gap-12">
           <!-- Main Content -->
-          <div class="content-main">
-            <div class="content-section">
-              <h2>🧭 What is Flexbox?</h2>
-              <p>
-                <strong>Flexbox</strong> is a modern CSS layout method that
-                makes it easy to create flexible, responsive layouts without
-                using floats or positioning.
-              </p>
-
-              <div class="concept-highlight">
-                <h4>Why Flexbox?</h4>
-                <ul>
-                  <li>
-                    <strong>Problem it solves:</strong> Difficult layouts with
-                    floats or inline-block
-                  </li>
-                  <li>
-                    <strong>Flex container:</strong> Parent element with
-                    <code>display: flex</code>
-                  </li>
-                  <li>
-                    <strong>Flex items:</strong> Direct children that become
-                    flexible
-                  </li>
-                  <li>
-                    <strong>Real-life analogy:</strong> Organizing boxes inside
-                    a shelf
-                  </li>
-                </ul>
-              </div>
-
-              <div class="code-example">
-                <div class="code-header">
-                  <span>Basic Flexbox Structure</span>
-                  <button class="copy-btn" onclick="copyCode(this)">
-                    <i class="fas fa-copy"></i>
-                  </button>
+          <div class="lg:col-span-3 space-y-16">
+            <!-- What is Flexbox -->
+            <div
+              class="bg-gradient-to-br from-dark-light/50 to-dark/50 backdrop-blur-xl rounded-3xl border border-primary/20 p-8"
+            >
+              <div class="flex items-center mb-6">
+                <div
+                  class="w-12 h-12 bg-gradient-to-br from-primary to-accent rounded-2xl flex items-center justify-center text-white font-bold text-lg mr-4"
+                >
+                  1
                 </div>
-                <pre><code>/* HTML */
-<div class="flex-container">
-    <div class="flex-item">Item 1</div>
-    <div class="flex-item">Item 2</div>
-    <div class="flex-item">Item 3</div>
-</div>
-
-/* CSS */
-.flex-container {
-    display: flex;
-}</code></pre>
+                <h2 class="text-3xl font-bold text-white">
+                  🎯 What is Flexbox?
+                </h2>
+              </div>
+              <div class="text-gray-300 space-y-4 leading-relaxed">
+                <p>
+                  <strong>Flexbox (Flexible Box Layout)</strong> is a CSS layout
+                  model designed for creating responsive and flexible web
+                  layouts.
+                </p>
+                <p>
+                  It provides an efficient way to distribute space among items
+                  in a container and align them, even when their size is unknown
+                  or dynamic.
+                </p>
+                <div
+                  class="bg-primary/10 border border-primary/20 rounded-2xl p-6 my-6"
+                >
+                  <h4 class="text-primary font-semibold mb-3">
+                    💡 Key Benefits
+                  </h4>
+                  <ul class="text-gray-300 space-y-2">
+                    <li>
+                      <strong>Responsive:</strong> Automatically adjusts to
+                      different screen sizes
+                    </li>
+                    <li>
+                      <strong>Flexible:</strong> Items can grow, shrink, and
+                      reorder as needed
+                    </li>
+                    <li>
+                      <strong>Alignment:</strong> Easy centering and
+                      distribution of elements
+                    </li>
+                    <li>
+                      <strong>Direction:</strong> Can flow in rows or columns
+                    </li>
+                  </ul>
+                </div>
+                <p>
+                  Flexbox is perfect for navigation bars, card layouts, forms,
+                  and any component that needs to be responsive and flexible.
+                </p>
               </div>
             </div>
 
-            <div class="content-section">
-              <h2>🛠️ display: flex</h2>
-              <p>
-                The <code>display: flex</code> property transforms a container
-                into a flex container, making its direct children flex items.
-              </p>
-
-              <div class="concept-highlight">
-                <h4>What happens with display: flex:</h4>
-                <ul>
-                  <li>Direct children become flex items</li>
-                  <li>Items flow in a row by default</li>
-                  <li>Items can grow and shrink to fit container</li>
-                  <li>No more float or inline-block issues</li>
-                </ul>
-              </div>
-
-              <div class="code-example">
-                <div class="code-header">
-                  <span>Display Flex Example</span>
-                  <button class="copy-btn" onclick="copyCode(this)">
-                    <i class="fas fa-copy"></i>
-                  </button>
+            <!-- Flexbox Container -->
+            <div
+              class="bg-gradient-to-br from-dark-light/50 to-dark/50 backdrop-blur-xl rounded-3xl border border-primary/20 p-8"
+            >
+              <div class="flex items-center mb-6">
+                <div
+                  class="w-12 h-12 bg-gradient-to-br from-primary to-accent rounded-2xl flex items-center justify-center text-white font-bold text-lg mr-4"
+                >
+                  2
                 </div>
-                <pre><code>/* Before: Items stack vertically */
-.container {
-    /* No display property */
-}
+                <h2 class="text-3xl font-bold text-white">
+                  🏗️ Flexbox Container
+                </h2>
+              </div>
+              <div class="text-gray-300 space-y-4 leading-relaxed">
+                <p>
+                  To use flexbox, you need to create a flex container by setting
+                  <code class="bg-primary/20 text-primary px-2 py-1 rounded"
+                    >display: flex</code
+                  >
+                  on an element.
+                </p>
 
-/* After: Items align horizontally */
-.container {
-    display: flex;
-    background-color: #f0f0f0;
-    padding: 20px;
-}
+                <div class="bg-dark-light/50 rounded-2xl p-6 my-6">
+                  <h4 class="text-primary font-semibold mb-3">
+                    📋 Container Properties
+                  </h4>
+                  <ul class="space-y-2 text-gray-300">
+                    <li>
+                      <code class="bg-black px-2 py-1 rounded text-green-400"
+                        >display: flex</code
+                      >
+                      - Creates a flex container
+                    </li>
+                    <li>
+                      <code class="bg-black px-2 py-1 rounded text-green-400"
+                        >flex-direction</code
+                      >
+                      - Sets the main axis direction
+                    </li>
+                    <li>
+                      <code class="bg-black px-2 py-1 rounded text-green-400"
+                        >justify-content</code
+                      >
+                      - Aligns items along main axis
+                    </li>
+                    <li>
+                      <code class="bg-black px-2 py-1 rounded text-green-400"
+                        >align-items</code
+                      >
+                      - Aligns items along cross axis
+                    </li>
+                  </ul>
+                </div>
 
-.flex-item {
-    background-color: #3498db;
-    color: white;
-    padding: 15px;
-    margin: 5px;
-}</code></pre>
+                <div class="bg-black rounded-xl p-4 my-6">
+                  <code class="text-green-400 text-sm">
+                    .flex-container {<br />
+                    &nbsp;&nbsp;display: flex;<br />
+                    &nbsp;&nbsp;flex-direction: row;<br />
+                    &nbsp;&nbsp;justify-content: center;<br />
+                    &nbsp;&nbsp;align-items: center;<br />
+                    &nbsp;&nbsp;gap: 1rem;<br />
+                    }
+                  </code>
+                </div>
+
+                <p>
+                  The flex container becomes the parent element that controls
+                  how its direct children (flex items) are laid out.
+                </p>
               </div>
             </div>
 
-            <div class="content-section">
-              <h2>🔁 flex-direction</h2>
-              <p>
-                Controls the direction in which flex items are laid out within
-                the flex container.
-              </p>
-
-              <div class="concept-highlight">
-                <h4>flex-direction Values:</h4>
-                <ul>
-                  <li>
-                    <strong>row:</strong> Items flow left to right (default)
-                  </li>
-                  <li>
-                    <strong>row-reverse:</strong> Items flow right to left
-                  </li>
-                  <li><strong>column:</strong> Items flow top to bottom</li>
-                  <li>
-                    <strong>column-reverse:</strong> Items flow bottom to top
-                  </li>
-                </ul>
-              </div>
-
-              <div class="code-example">
-                <div class="code-header">
-                  <span>Flex Direction Examples</span>
-                  <button class="copy-btn" onclick="copyCode(this)">
-                    <i class="fas fa-copy"></i>
-                  </button>
+            <!-- Flex Direction & Alignment -->
+            <div
+              class="bg-gradient-to-br from-dark-light/50 to-dark/50 backdrop-blur-xl rounded-3xl border border-primary/20 p-8"
+            >
+              <div class="flex items-center mb-6">
+                <div
+                  class="w-12 h-12 bg-gradient-to-br from-primary to-accent rounded-2xl flex items-center justify-center text-white font-bold text-lg mr-4"
+                >
+                  3
                 </div>
-                <pre><code>/* Horizontal layout (default) */
-.container {
-    display: flex;
-    flex-direction: row;
-}
+                <h2 class="text-3xl font-bold text-white">
+                  📐 Flex Direction & Alignment
+                </h2>
+              </div>
+              <div class="text-gray-300 space-y-4 leading-relaxed">
+                <p>
+                  Flexbox provides powerful alignment and direction control for
+                  your layouts:
+                </p>
 
-/* Vertical layout */
-.container {
-    display: flex;
-    flex-direction: column;
-}
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 my-6">
+                  <div
+                    class="bg-dark-light/50 rounded-2xl p-6 border border-primary/20"
+                  >
+                    <h4 class="text-primary font-semibold mb-3">
+                      🔄 Flex Direction
+                    </h4>
+                    <ul class="space-y-2 text-sm">
+                      <li>
+                        <code class="bg-black px-2 py-1 rounded text-green-400"
+                          >row</code
+                        >
+                        - Items flow left to right (default)
+                      </li>
+                      <li>
+                        <code class="bg-black px-2 py-1 rounded text-green-400"
+                          >row-reverse</code
+                        >
+                        - Items flow right to left
+                      </li>
+                      <li>
+                        <code class="bg-black px-2 py-1 rounded text-green-400"
+                          >column</code
+                        >
+                        - Items flow top to bottom
+                      </li>
+                      <li>
+                        <code class="bg-black px-2 py-1 rounded text-green-400"
+                          >column-reverse</code
+                        >
+                        - Items flow bottom to top
+                      </li>
+                    </ul>
+                  </div>
 
-/* Reverse horizontal */
-.container {
-    display: flex;
-    flex-direction: row-reverse;
-}
+                  <div
+                    class="bg-dark-light/50 rounded-2xl p-6 border border-primary/20"
+                  >
+                    <h4 class="text-primary font-semibold mb-3">
+                      🎯 Justify Content
+                    </h4>
+                    <ul class="space-y-2 text-sm">
+                      <li>
+                        <code class="bg-black px-2 py-1 rounded text-green-400"
+                          >flex-start</code
+                        >
+                        - Items at start (default)
+                      </li>
+                      <li>
+                        <code class="bg-black px-2 py-1 rounded text-green-400"
+                          >center</code
+                        >
+                        - Items centered
+                      </li>
+                      <li>
+                        <code class="bg-black px-2 py-1 rounded text-green-400"
+                          >flex-end</code
+                        >
+                        - Items at end
+                      </li>
+                      <li>
+                        <code class="bg-black px-2 py-1 rounded text-green-400"
+                          >space-between</code
+                        >
+                        - Equal spacing
+                      </li>
+                    </ul>
+                  </div>
 
-/* Reverse vertical */
-.container {
-    display: flex;
-    flex-direction: column-reverse;
-}</code></pre>
+                  <div
+                    class="bg-dark-light/50 rounded-2xl p-6 border border-primary/20"
+                  >
+                    <h4 class="text-primary font-semibold mb-3">
+                      📏 Align Items
+                    </h4>
+                    <ul class="space-y-2 text-sm">
+                      <li>
+                        <code class="bg-black px-2 py-1 rounded text-green-400"
+                          >stretch</code
+                        >
+                        - Items stretch to fill (default)
+                      </li>
+                      <li>
+                        <code class="bg-black px-2 py-1 rounded text-green-400"
+                          >center</code
+                        >
+                        - Items centered
+                      </li>
+                      <li>
+                        <code class="bg-black px-2 py-1 rounded text-green-400"
+                          >flex-start</code
+                        >
+                        - Items at start
+                      </li>
+                      <li>
+                        <code class="bg-black px-2 py-1 rounded text-green-400"
+                          >flex-end</code
+                        >
+                        - Items at end
+                      </li>
+                    </ul>
+                  </div>
+
+                  <div
+                    class="bg-dark-light/50 rounded-2xl p-6 border border-primary/20"
+                  >
+                    <h4 class="text-primary font-semibold mb-3">🔄 Wrap</h4>
+                    <ul class="space-y-2 text-sm">
+                      <li>
+                        <code class="bg-black px-2 py-1 rounded text-green-400"
+                          >nowrap</code
+                        >
+                        - No wrapping (default)
+                      </li>
+                      <li>
+                        <code class="bg-black px-2 py-1 rounded text-green-400"
+                          >wrap</code
+                        >
+                        - Wrap to next line
+                      </li>
+                      <li>
+                        <code class="bg-black px-2 py-1 rounded text-green-400"
+                          >wrap-reverse</code
+                        >
+                        - Wrap in reverse
+                      </li>
+                    </ul>
+                  </div>
+                </div>
               </div>
             </div>
 
-            <div class="content-section">
-              <h2>📏 justify-content</h2>
-              <p>
-                Controls how flex items are distributed along the main axis
-                (horizontal alignment in row direction).
-              </p>
-
-              <div class="concept-highlight">
-                <h4>justify-content Values:</h4>
-                <ul>
-                  <li>
-                    <strong>flex-start:</strong> Items at the beginning
-                    (default)
-                  </li>
-                  <li><strong>center:</strong> Items centered</li>
-                  <li><strong>flex-end:</strong> Items at the end</li>
-                  <li><strong>space-between:</strong> Space between items</li>
-                  <li><strong>space-around:</strong> Space around items</li>
-                  <li>
-                    <strong>space-evenly:</strong> Equal space between and
-                    around items
-                  </li>
-                </ul>
-              </div>
-
-              <div class="code-example">
-                <div class="code-header">
-                  <span>Justify Content Examples</span>
-                  <button class="copy-btn" onclick="copyCode(this)">
-                    <i class="fas fa-copy"></i>
-                  </button>
+            <!-- Flex Items -->
+            <div
+              class="bg-gradient-to-br from-dark-light/50 to-dark/50 backdrop-blur-xl rounded-3xl border border-primary/20 p-8"
+            >
+              <div class="flex items-center mb-6">
+                <div
+                  class="w-12 h-12 bg-gradient-to-br from-primary to-accent rounded-2xl flex items-center justify-center text-white font-bold text-lg mr-4"
+                >
+                  4
                 </div>
-                <pre><code>/* Center items horizontally */
-.navbar {
-    display: flex;
-    justify-content: center;
-}
-
-/* Space items evenly */
-.card-container {
-    display: flex;
-    justify-content: space-between;
-}
-
-/* Center with equal spacing */
-.button-group {
-    display: flex;
-    justify-content: space-evenly;
-}</code></pre>
+                <h2 class="text-3xl font-bold text-white">📦 Flex Items</h2>
               </div>
-            </div>
+              <div class="text-gray-300 space-y-4 leading-relaxed">
+                <p>
+                  Individual flex items can have their own properties to control
+                  how they behave within the container:
+                </p>
 
-            <div class="content-section">
-              <h2>📐 align-items</h2>
-              <p>
-                Controls how flex items are aligned along the cross axis
-                (vertical alignment in row direction).
-              </p>
-
-              <div class="concept-highlight">
-                <h4>align-items Values:</h4>
-                <ul>
-                  <li>
-                    <strong>stretch:</strong> Items stretch to fill container
-                    (default)
-                  </li>
-                  <li><strong>flex-start:</strong> Items at the top</li>
-                  <li><strong>center:</strong> Items centered vertically</li>
-                  <li><strong>flex-end:</strong> Items at the bottom</li>
-                  <li>
-                    <strong>baseline:</strong> Items aligned by their text
-                    baseline
-                  </li>
-                </ul>
-              </div>
-
-              <div class="code-example">
-                <div class="code-header">
-                  <span>Align Items Examples</span>
-                  <button class="copy-btn" onclick="copyCode(this)">
-                    <i class="fas fa-copy"></i>
-                  </button>
+                <div
+                  class="bg-primary/10 border border-primary/20 rounded-2xl p-6 my-6"
+                >
+                  <h4 class="text-primary font-semibold mb-3">
+                    🔧 Item Properties
+                  </h4>
+                  <ul class="text-gray-300 space-y-2">
+                    <li>
+                      <strong>flex-grow:</strong> How much an item can grow
+                      relative to others
+                    </li>
+                    <li>
+                      <strong>flex-shrink:</strong> How much an item can shrink
+                      relative to others
+                    </li>
+                    <li>
+                      <strong>flex-basis:</strong> The initial size of an item
+                    </li>
+                    <li>
+                      <strong>align-self:</strong> Override container's
+                      align-items for specific item
+                    </li>
+                    <li>
+                      <strong>order:</strong> Change the visual order of items
+                    </li>
+                  </ul>
                 </div>
-                <pre><code>/* Center items vertically */
-.card-row {
-    display: flex;
-    align-items: center;
-    height: 200px;
-}
 
-/* Align items to bottom */
-.footer {
-    display: flex;
-    align-items: flex-end;
-    height: 100px;
-}
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 my-6">
+                  <div
+                    class="bg-dark-light/50 rounded-2xl p-6 border border-primary/20"
+                  >
+                    <h4 class="text-primary font-semibold mb-3">
+                      📝 Common Values
+                    </h4>
+                    <div class="bg-black rounded-xl p-4">
+                      <code class="text-green-400 text-sm">
+                        .flex-item {<br />
+                        &nbsp;&nbsp;flex: 1; /* shorthand for flex-grow: 1 */<br />
+                        &nbsp;&nbsp;flex: 0 1 auto; /* flex-grow: 0,
+                        flex-shrink: 1, flex-basis: auto */<br />
+                        &nbsp;&nbsp;flex: 2 1 200px; /* grow: 2, shrink: 1,
+                        basis: 200px */<br />
+                        }
+                      </code>
+                    </div>
+                  </div>
 
-/* Stretch items to full height */
-.sidebar {
-    display: flex;
-    flex-direction: column;
-    align-items: stretch;
-}</code></pre>
-              </div>
-            </div>
-
-            <div class="content-section">
-              <h2>🧱 Combine Layout Concepts</h2>
-              <p>
-                Now let's combine all these properties to create practical
-                layouts.
-              </p>
-
-              <div class="concept-highlight">
-                <h4>Common Layout Patterns:</h4>
-                <ul>
-                  <li>
-                    <strong>Navigation bar:</strong> Horizontal layout with
-                    centered items
-                  </li>
-                  <li>
-                    <strong>Card layout:</strong> Responsive grid with equal
-                    spacing
-                  </li>
-                  <li>
-                    <strong>Sidebar layout:</strong> Vertical navigation with
-                    full height
-                  </li>
-                  <li>
-                    <strong>3-section layout:</strong> Header, content, footer
-                    structure
-                  </li>
-                </ul>
-              </div>
-
-              <div class="code-example">
-                <div class="code-header">
-                  <span>Complete Layout Example</span>
-                  <button class="copy-btn" onclick="copyCode(this)">
-                    <i class="fas fa-copy"></i>
-                  </button>
+                  <div
+                    class="bg-dark-light/50 rounded-2xl p-6 border border-primary/20"
+                  >
+                    <h4 class="text-primary font-semibold mb-3">
+                      💡 Use Cases
+                    </h4>
+                    <ul class="space-y-2 text-sm">
+                      <li>Equal width columns</li>
+                      <li>Responsive navigation</li>
+                      <li>Card layouts</li>
+                      <li>Form layouts</li>
+                    </ul>
+                  </div>
                 </div>
-                <pre><code>/* Navigation Bar */
-.navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1rem;
-    background-color: #333;
-    color: white;
-}
 
-/* Card Container */
-.card-container {
-    display: flex;
-    justify-content: space-around;
-    align-items: stretch;
-    flex-wrap: wrap;
-    gap: 20px;
-    padding: 20px;
-}
-
-/* 3-Section Layout */
-.page-layout {
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-}
-
-.header {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 80px;
-    background-color: #2c3e50;
-}
-
-.content {
-    display: flex;
-    flex: 1;
-}
-
-.sidebar {
-    display: flex;
-    flex-direction: column;
-    width: 250px;
-    background-color: #ecf0f1;
-}
-
-.main-content {
-    flex: 1;
-    padding: 20px;
-}
-
-.footer {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 60px;
-    background-color: #34495e;
-}</code></pre>
+                <p>
+                  The
+                  <code class="bg-primary/20 text-primary px-2 py-1 rounded"
+                    >flex</code
+                  >
+                  shorthand property combines flex-grow, flex-shrink, and
+                  flex-basis in one declaration.
+                </p>
               </div>
             </div>
           </div>
 
           <!-- Sidebar -->
-          <div class="content-sidebar">
-            <div class="sidebar-section">
-              <h3>Quick Navigation</h3>
-              <ul class="sidebar-nav">
-                <li><a href="#what-is-flexbox">What is Flexbox?</a></li>
-                <li><a href="#display-flex">display: flex</a></li>
-                <li><a href="#flex-direction">flex-direction</a></li>
-                <li><a href="#justify-content">justify-content</a></li>
-                <li><a href="#align-items">align-items</a></li>
-                <li><a href="#combine-layouts">Combine Layouts</a></li>
-                <li><a href="#challenges">Challenges</a></li>
-              </ul>
+          <div class="lg:col-span-1 space-y-8">
+            <!-- Quick Navigation -->
+            <div
+              class="bg-gradient-to-br from-dark-light/50 to-dark/50 backdrop-blur-xl rounded-3xl border border-primary/20 p-6"
+            >
+              <h3 class="text-xl font-bold text-white mb-4">
+                📚 Quick Navigation
+              </h3>
+              <nav class="space-y-3">
+                <a
+                  href="#what-is-flexbox"
+                  class="block text-gray-300 hover:text-primary transition-colors duration-200"
+                >
+                  <i class="fas fa-chevron-right mr-2 text-primary"></i>
+                  What is Flexbox?
+                </a>
+                <a
+                  href="#flexbox-container"
+                  class="block text-gray-300 hover:text-primary transition-colors duration-200"
+                >
+                  <i class="fas fa-chevron-right mr-2 text-primary"></i>
+                  Flexbox Container
+                </a>
+                <a
+                  href="#flex-direction"
+                  class="block text-gray-300 hover:text-primary transition-colors duration-200"
+                >
+                  <i class="fas fa-chevron-right mr-2 text-primary"></i>
+                  Flex Direction & Alignment
+                </a>
+                <a
+                  href="#flex-items"
+                  class="block text-gray-300 hover:text-primary transition-colors duration-200"
+                >
+                  <i class="fas fa-chevron-right mr-2 text-primary"></i>
+                  Flex Items
+                </a>
+              </nav>
             </div>
-            <div class="sidebar-section">
-              <h3>Resources</h3>
-              <ul class="resource-links">
-                <li>
-                  <a
-                    href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Box_Model"
-                    target="_blank"
-                  >
-                    <i class="fas fa-external-link-alt"></i>
-                    MDN Box Model
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="https://css-tricks.com/almanac/properties/b/background/"
-                    target="_blank"
-                  >
-                    <i class="fas fa-external-link-alt"></i>
-                    CSS Background Guide
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Transitions"
-                    target="_blank"
-                  >
-                    <i class="fas fa-external-link-alt"></i>
-                    CSS Transitions
-                  </a>
-                </li>
-              </ul>
+
+            <!-- Resources -->
+            <div
+              class="bg-gradient-to-br from-dark-light/50 to-dark/50 backdrop-blur-xl rounded-3xl border border-primary/20 p-6"
+            >
+              <h3 class="text-xl font-bold text-white mb-4">🔗 Resources</h3>
+              <div class="space-y-3">
+                <a
+                  href="#"
+                  class="block text-gray-300 hover:text-primary transition-colors duration-200"
+                >
+                  <i class="fas fa-external-link-alt mr-2 text-primary"></i>
+                  Flexbox Complete Guide
+                </a>
+                <a
+                  href="#"
+                  class="block text-gray-300 hover:text-primary transition-colors duration-200"
+                >
+                  <i class="fas fa-external-link-alt mr-2 text-primary"></i>
+                  Flexbox Visual Guide
+                </a>
+                <a
+                  href="#"
+                  class="block text-gray-300 hover:text-primary transition-colors duration-200"
+                >
+                  <i class="fas fa-external-link-alt mr-2 text-primary"></i>
+                  Flexbox Playground
+                </a>
+                <a
+                  href="#"
+                  class="block text-gray-300 hover:text-primary transition-colors duration-200"
+                >
+                  <i class="fas fa-external-link-alt mr-2 text-primary"></i>
+                  Browser Support
+                </a>
+              </div>
             </div>
           </div>
         </div>
@@ -584,47 +719,52 @@
     </section>
 
     <!-- Navigation Footer -->
-    <section class="day-navigation">
-      <div class="container">
-        <div class="nav-buttons">
-          <button
-            class="nav-btn"
-            onclick="window.location.href='css-basics.html'"
+    <section class="py-16 bg-dark-light/20">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div
+          class="flex flex-col sm:flex-row justify-between items-center space-y-4 sm:space-y-0"
+        >
+          <a
+            href="css-basics.html"
+            class="bg-gradient-to-r from-gray-600 to-gray-700 text-white px-8 py-3 rounded-2xl font-semibold hover:shadow-lg transition-all duration-300"
           >
-            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-left mr-2"></i>
             Previous: Day 3
-          </button>
-          <button
-            class="nav-btn primary"
-            onclick="window.location.href='css-advanced.html'"
+          </a>
+          <a
+            href="javascript-basics.html"
+            class="bg-gradient-to-r from-primary to-accent text-white px-8 py-3 rounded-2xl font-semibold hover:shadow-lg hover:shadow-primary/25 transition-all duration-300"
           >
             Next: Day 5
-            <i class="fas fa-arrow-right"></i>
-          </button>
+            <i class="fas fa-arrow-right ml-2"></i>
+          </a>
         </div>
       </div>
     </section>
 
     <!-- Challenge Modal -->
-    <div id="challengeModal" class="challenge-modal">
-      <div class="challenge-modal-content">
-        <div class="challenge-modal-header">
-          <h2 id="modalChallengeTitle">Challenge Title</h2>
-          <div class="challenge-modal-actions">
-            <button class="complete-btn" onclick="completeChallenge()">
-              <i class="fas fa-check"></i>
-              Complete Challenge
-            </button>
-            <button
-              class="close-challenge-modal"
-              onclick="closeChallengeModal()"
-            >
-              <i class="fas fa-times"></i>
-            </button>
+    <div id="challengeModal" class="fixed inset-0 z-50 hidden">
+      <div class="absolute inset-0 bg-black/80 backdrop-blur-sm"></div>
+      <div class="relative min-h-screen flex items-center justify-center p-4">
+        <div
+          class="bg-dark-light/95 backdrop-blur-xl rounded-3xl border border-primary/30 w-full max-w-6xl max-h-[90vh] overflow-y-auto"
+        >
+          <div
+            class="sticky top-0 bg-dark-light/95 backdrop-blur-xl border-b border-primary/20 p-6 rounded-t-3xl"
+          >
+            <div class="flex justify-between items-center">
+              <h2 id="challengeTitle" class="text-2xl font-bold text-white">
+                Challenge
+              </h2>
+              <button
+                onclick="closeChallengeModal()"
+                class="text-gray-400 hover:text-white transition-colors duration-200"
+              >
+                <i class="fas fa-times text-2xl"></i>
+              </button>
+            </div>
           </div>
-        </div>
-        <div class="challenge-modal-body">
-          <div id="modalChallengeContent">
+          <div id="challengeContent" class="p-6">
             <!-- Challenge content will be loaded here -->
           </div>
         </div>
@@ -632,47 +772,151 @@
     </div>
 
     <!-- Footer -->
-    <footer class="footer">
-      <div class="container">
-        <div class="footer-content">
-          <div class="footer-section">
-            <h3>WebDev LMS</h3>
-            <p>
-              Master web development in 10 days with hands-on challenges and
-              real-world projects.
+    <footer class="bg-dark border-t border-primary/20">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+          <div class="col-span-1 md:col-span-2">
+            <div class="flex items-center mb-4">
+              <i class="fas fa-code text-3xl text-primary mr-3"></i>
+              <span class="text-2xl font-bold text-white">WebDev LMS</span>
+            </div>
+            <p class="text-gray-400 mb-6 max-w-md">
+              Master web development with our comprehensive learning platform.
+              From HTML basics to advanced JavaScript, we've got you covered.
             </p>
+            <div class="flex space-x-4">
+              <a
+                href="#"
+                class="text-gray-400 hover:text-primary transition-colors duration-200"
+              >
+                <i class="fab fa-twitter text-xl"></i>
+              </a>
+              <a
+                href="#"
+                class="text-gray-400 hover:text-primary transition-colors duration-200"
+              >
+                <i class="fab fa-github text-xl"></i>
+              </a>
+              <a
+                href="#"
+                class="text-gray-400 hover:text-primary transition-colors duration-200"
+              >
+                <i class="fab fa-linkedin text-xl"></i>
+              </a>
+            </div>
           </div>
-          <div class="footer-section">
-            <h4>Quick Links</h4>
-            <ul>
-              <li><a href="index.html">Home</a></li>
-              <li><a href="index.html#curriculum">Curriculum</a></li>
-              <li><a href="index.html#challenges">Challenges</a></li>
-              <li><a href="index.html#resources">Resources</a></li>
+
+          <div>
+            <h3 class="text-white font-semibold mb-4">Learning Paths</h3>
+            <ul class="space-y-2 text-gray-400">
+              <li>
+                <a
+                  href="#"
+                  class="hover:text-primary transition-colors duration-200"
+                  >HTML Fundamentals</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="hover:text-primary transition-colors duration-200"
+                  >CSS Styling</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="hover:text-primary transition-colors duration-200"
+                  >JavaScript Basics</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="hover:text-primary transition-colors duration-200"
+                  >Advanced Topics</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <h3 class="text-white font-semibold mb-4">Resources</h3>
+            <ul class="space-y-2 text-gray-400">
+              <li>
+                <a
+                  href="#"
+                  class="hover:text-primary transition-colors duration-200"
+                  >Documentation</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="hover:text-primary transition-colors duration-200"
+                  >Code Examples</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="hover:text-primary transition-colors duration-200"
+                  >Video Tutorials</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="hover:text-primary transition-colors duration-200"
+                  >Community</a
+                >
+              </li>
             </ul>
           </div>
         </div>
-        <div class="footer-bottom">
+
+        <div
+          class="border-t border-primary/20 mt-8 pt-8 text-center text-gray-400"
+        >
           <p>&copy; 2024 WebDev LMS. All rights reserved.</p>
         </div>
       </div>
     </footer>
 
+    <!-- Monaco Editor CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.44.0/min/vs/loader.min.js"></script>
+
+    <!-- Custom Scripts -->
     <script src="script.js"></script>
+
     <script>
-      // Simple Monaco Editor initialization
+      // Initialize Monaco Editor for this page
       require.config({
         paths: {
           vs: "https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.44.0/min/vs",
         },
       });
+
       require(["vs/editor/editor.main"], function () {
-        console.log("Monaco Editor loaded successfully for Day 4");
+        // Monaco Editor is now loaded
+        console.log("Monaco Editor loaded successfully");
       });
 
-      // Simple challenge function - works immediately
-      function openChallenge(challengeNumber) {
-        openChallengeModal(challengeNumber);
+      // Copy code function for this page
+      function copyCode(button) {
+        const codeBlock = button.previousElementSibling;
+        const code = codeBlock.textContent;
+
+        navigator.clipboard.writeText(code).then(() => {
+          const originalText = button.innerHTML;
+          button.innerHTML = '<i class="fas fa-check mr-2"></i>Copied!';
+          button.classList.add("bg-green-500");
+
+          setTimeout(() => {
+            button.innerHTML = originalText;
+            button.classList.remove("bg-green-500");
+          }, 2000);
+        });
       }
     </script>
   </body>

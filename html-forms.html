@@ -1,462 +1,920 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Day 2: HTML Forms & Media - WebDev LMS</title>
-    <link rel="stylesheet" href="styles.css">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.44.0/min/vs/loader.min.js"></script>
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Day 2: HTML Forms - WebDev LMS</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              primary: "#01d29b",
+              secondary: "#121212",
+              accent: "#00b894",
+              dark: "#1e1e1e",
+              "dark-light": "#2a2a2a",
+            },
+          },
+        },
+      };
+    </script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        font-family: "Inter", sans-serif;
+      }
+    </style>
+  </head>
+  <body class="bg-secondary text-white min-h-screen">
     <!-- Navigation -->
-    <nav class="navbar">
-        <div class="nav-container">
-            <div class="nav-logo" onclick="window.location.href='index.html'">
-                <i class="fas fa-code"></i>
-                <span>WebDev LMS</span>
-            </div>
-            <ul class="nav-menu">
-                <li><a href="index.html" class="nav-link" data-page="home">Home</a></li>
-                <li><a href="index.html#curriculum" class="nav-link" data-page="curriculum">Curriculum</a></li>
-                <li><a href="index.html#challenges" class="nav-link" data-page="challenges">Challenges</a></li>
-                <li><a href="index.html#resources" class="nav-link" data-page="resources">Resources</a></li>
-            </ul>
-            <div class="nav-actions">
-                <div class="page-indicator">
-                    <i class="fas fa-book-open"></i>
-                    <span>Day 2: HTML Forms & Media</span>
-                </div>
-                <button class="nav-btn-secondary" onclick="window.location.href='css-basics.html'">
-                    <i class="fas fa-arrow-right"></i>
-                    Next Day
-                </button>
-            </div>
-            <div class="hamburger">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
+    <nav
+      class="fixed top-0 left-0 right-0 z-50 bg-dark/80 backdrop-blur-xl border-b border-primary/20"
+    >
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between items-center h-16">
+          <div class="flex items-center space-x-4">
+            <a href="index.html" class="text-primary font-bold text-xl">
+              <i class="fas fa-code mr-2"></i>WebDev LMS
+            </a>
+            <span
+              class="bg-primary/20 text-primary px-3 py-1 rounded-full text-sm font-medium"
+            >
+              Day 2: HTML Forms
+            </span>
+          </div>
+          <div class="flex items-center space-x-4">
+            <a
+              href="css-basics.html"
+              class="bg-gradient-to-r from-primary to-accent text-white px-6 py-2 rounded-xl font-semibold hover:shadow-lg hover:shadow-primary/25 transition-all duration-300"
+            >
+              Next Day <i class="fas fa-arrow-right ml-2"></i>
+            </a>
+          </div>
         </div>
+      </div>
     </nav>
 
     <!-- Day Header -->
-    <section class="day-header">
-        <div class="container">
-            <div class="day-header-content">
-                <div class="day-badge">
-                    <span class="day-number">Day 2</span>
-                </div>
-                <h1>HTML Forms & Elements</h1>
-                <p>Master form creation and advanced HTML elements</p>
-                <div class="day-meta">
-                    <span class="meta-item">
-                        <i class="fas fa-clock"></i>
-                        Duration: 2-3 hours
-                    </span>
-                    <span class="meta-item">
-                        <i class="fas fa-signal"></i>
-                        Level: Beginner
-                    </span>
-                    <span class="meta-item">
-                        <i class="fas fa-tasks"></i>
-                        Challenges: 3
-                    </span>
-                </div>
-            </div>
+    <section
+      class="pt-24 pb-16 bg-gradient-to-br from-dark-light/50 to-dark/50"
+    >
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <div
+          class="inline-block bg-primary/20 text-primary px-4 py-2 rounded-full text-sm font-semibold mb-6"
+        >
+          Day 2
         </div>
+        <h1 class="text-5xl md:text-6xl font-bold text-white mb-6">
+          HTML Forms
+        </h1>
+        <p class="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
+          Create interactive forms to collect user input and build dynamic web
+          applications
+        </p>
+        <div
+          class="flex items-center justify-center space-x-6 mt-8 text-gray-400"
+        >
+          <div class="flex items-center">
+            <i class="fas fa-clock mr-2"></i>
+            <span>2 hours</span>
+          </div>
+          <div class="flex items-center">
+            <i class="fas fa-tasks mr-2"></i>
+            <span>4 lessons</span>
+          </div>
+          <div class="flex items-center">
+            <i class="fas fa-star mr-2"></i>
+            <span>Beginner</span>
+          </div>
+        </div>
+      </div>
     </section>
 
     <!-- Challenges Section -->
-    <section class="challenges-section">
-        <div class="container">
-                            <h2><i class="fas fa-bullseye"></i> Practice Challenges</h2>
-            <p class="challenges-intro">Complete these hands-on challenges to master HTML forms and elements:</p>
-            
-            <div class="challenges-grid">
-                <!-- Challenge 1 -->
-                <div class="challenge-card">
-                    <div class="challenge-header">
-                        <div class="challenge-number">01</div>
-                        <div class="challenge-meta">
-                            <span class="difficulty beginner">Beginner</span>
-                            <span class="time">10 min</span>
-                        </div>
-                    </div>
-                    <h3><i class="fas fa-list"></i> Basic Form</h3>
-                    <p>Create a simple contact form with text inputs and a submit button.</p>
-                    
-                    <button class="challenge-btn" onclick="openChallenge(1)">
-                        <i class="fas fa-play"></i>
-                        Start Challenge
-                    </button>
-                </div>
-
-                <!-- Challenge 2 -->
-                <div class="challenge-card">
-                    <div class="challenge-header">
-                        <div class="challenge-number">02</div>
-                        <div class="challenge-meta">
-                            <span class="difficulty beginner">Beginner</span>
-                            <span class="time">12 min</span>
-                        </div>
-                    </div>
-                    <h3>☑️ Input Types</h3>
-                    <p>Use different input types: email, number, password, and date.</p>
-                    
-                    <button class="challenge-btn" onclick="openChallenge(2)">
-                        <i class="fas fa-play"></i>
-                        Start Challenge
-                    </button>
-                </div>
-
-                <!-- Challenge 3 -->
-                <div class="challenge-card">
-                    <div class="challenge-header">
-                        <div class="challenge-number">03</div>
-                        <div class="challenge-meta">
-                            <span class="difficulty intermediate">Intermediate</span>
-                            <span class="time">15 min</span>
-                        </div>
-                    </div>
-                    <h3>🔘 Radio & Checkbox</h3>
-                    <p>Create form elements with radio buttons and checkboxes for user selections.</p>
-                    
-                    <button class="challenge-btn" onclick="openChallenge(3)">
-                        <i class="fas fa-play"></i>
-                        Start Challenge
-                    </button>
-                </div>
-            </div>
+    <section class="py-20 bg-gradient-to-br from-dark to-dark">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+          <h2 class="text-4xl font-bold text-white mb-4">
+            Practice Challenges
+          </h2>
+          <p class="text-xl text-gray-300">
+            Apply what you learn with hands-on exercises
+          </p>
         </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <!-- Challenge 1 -->
+          <div
+            class="bg-gradient-to-br from-dark-light/80 to-dark/80 backdrop-blur-xl rounded-3xl border border-primary/30 p-8 hover:border-primary/50 transition-all duration-300 hover:shadow-2xl hover:shadow-primary/20"
+          >
+            <div class="flex justify-between items-start mb-6">
+              <div
+                class="w-12 h-12 bg-gradient-to-br from-primary to-accent rounded-2xl flex items-center justify-center text-white font-bold text-lg"
+              >
+                01
+              </div>
+              <div class="text-right">
+                <span
+                  class="inline-block bg-green-500/20 text-green-400 text-xs font-semibold px-3 py-1 rounded-full mb-2"
+                  >Beginner</span
+                >
+                <div class="text-gray-400 text-sm">5 min</div>
+              </div>
+            </div>
+            <h3 class="text-xl font-bold text-white mb-4 flex items-center">
+              <i class="fas fa-wpforms text-primary mr-3"></i>
+              Basic Form
+            </h3>
+            <p class="text-gray-300 mb-6 leading-relaxed">
+              Create a basic HTML form with input fields and labels.
+            </p>
+
+            <button
+              class="w-full bg-gradient-to-r from-primary to-accent text-white py-3 rounded-2xl font-semibold hover:shadow-lg hover:shadow-primary/25 transition-all duration-300"
+              onclick="openChallenge(5)"
+            >
+              <i class="fas fa-play mr-2"></i>
+              Start Challenge
+            </button>
+          </div>
+
+          <!-- Challenge 2 -->
+          <div
+            class="bg-gradient-to-br from-dark-light/80 to-dark/80 backdrop-blur-xl rounded-3xl border border-primary/30 p-8 hover:border-primary/50 transition-all duration-300 hover:shadow-2xl hover:shadow-primary/20"
+          >
+            <div class="flex justify-between items-start mb-6">
+              <div
+                class="w-12 h-12 bg-gradient-to-br from-primary to-accent rounded-2xl flex items-center justify-center text-white font-bold text-lg"
+              >
+                02
+              </div>
+              <div class="text-right">
+                <span
+                  class="inline-block bg-yellow-500/20 text-yellow-400 text-xs font-semibold px-3 py-1 rounded-full mb-2"
+                  >Intermediate</span
+                >
+                <div class="text-gray-400 text-sm">8 min</div>
+              </div>
+            </div>
+            <h3 class="text-xl font-bold text-white mb-4 flex items-center">
+              <i class="fas fa-keyboard text-primary mr-3"></i>
+              Input Types
+            </h3>
+            <p class="text-gray-300 mb-6 leading-relaxed">
+              Create a form with different input types for various data.
+            </p>
+
+            <button
+              class="w-full bg-gradient-to-r from-primary to-accent text-white py-3 rounded-2xl font-semibold hover:shadow-lg hover:shadow-primary/25 transition-all duration-300"
+              onclick="openChallenge(6)"
+            >
+              <i class="fas fa-play mr-2"></i>
+              Start Challenge
+            </button>
+          </div>
+
+          <!-- Challenge 3 -->
+          <div
+            class="bg-gradient-to-br from-dark-light/80 to-dark/80 backdrop-blur-xl rounded-3xl border border-primary/30 p-8 hover:border-primary/50 transition-all duration-300 hover:shadow-2xl hover:shadow-primary/20"
+          >
+            <div class="flex justify-between items-start mb-6">
+              <div
+                class="w-12 h-12 bg-gradient-to-br from-primary to-accent rounded-2xl flex items-center justify-center text-white font-bold text-lg"
+              >
+                03
+              </div>
+              <div class="text-right">
+                <span
+                  class="inline-block bg-yellow-500/20 text-yellow-400 text-xs font-semibold px-3 py-1 rounded-full mb-2"
+                  >Intermediate</span
+                >
+                <div class="text-gray-400 text-sm">10 min</div>
+              </div>
+            </div>
+            <h3 class="text-xl font-bold text-white mb-4 flex items-center">
+              <i class="fas fa-list-alt text-primary mr-3"></i>
+              Form Elements
+            </h3>
+            <p class="text-gray-300 mb-6 leading-relaxed">
+              Use advanced form elements like dropdowns, textareas, and buttons.
+            </p>
+
+            <button
+              class="w-full bg-gradient-to-r from-primary to-accent text-white py-3 rounded-2xl font-semibold hover:shadow-lg hover:shadow-primary/25 transition-all duration-300"
+              onclick="openChallenge(7)"
+            >
+              <i class="fas fa-play mr-2"></i>
+              Start Challenge
+            </button>
+          </div>
+
+          <!-- Challenge 4 -->
+          <div
+            class="bg-gradient-to-br from-dark-light/80 to-dark/80 backdrop-blur-xl rounded-3xl border border-primary/30 p-8 hover:border-primary/50 transition-all duration-300 hover:shadow-2xl hover:shadow-primary/20"
+          >
+            <div class="flex justify-between items-start mb-6">
+              <div
+                class="w-12 h-12 bg-gradient-to-br from-primary to-accent rounded-2xl flex items-center justify-center text-white font-bold text-lg"
+              >
+                04
+              </div>
+              <div class="text-right">
+                <span
+                  class="inline-block bg-red-500/20 text-red-400 text-xs font-semibold px-3 py-1 rounded-full mb-2"
+                  >Advanced</span
+                >
+                <div class="text-gray-400 text-sm">12 min</div>
+              </div>
+            </div>
+            <h3 class="text-xl font-bold text-white mb-4 flex items-center">
+              <i class="fas fa-shield-alt text-primary mr-3"></i>
+              Advanced Forms
+            </h3>
+            <p class="text-gray-300 mb-6 leading-relaxed">
+              Create a form with validation attributes and user experience
+              enhancements.
+            </p>
+
+            <button
+              class="w-full bg-gradient-to-r from-primary to-accent text-white py-3 rounded-2xl font-semibold hover:shadow-lg hover:shadow-primary/25 transition-all duration-300"
+              onclick="openChallenge(8)"
+            >
+              <i class="fas fa-play mr-2"></i>
+              Start Challenge
+            </button>
+          </div>
+        </div>
+      </div>
     </section>
 
-    <!-- Content Section -->
-    <section class="day-content">
-        <div class="container">
-            <div class="content-grid">
-                <!-- Main Content -->
-                <div class="content-main">
-                    <div class="content-section">
-                        <h2>🧱 Div vs Span</h2>
-                        <p>Understanding the semantic meaning and proper usage of <code><div></code> and <code><span></code> elements is crucial for creating well-structured HTML.</p>
-                        
-                        <div class="concept-highlight">
-                            <h4>Key Differences:</h4>
-                            <ul>
-                                <li><strong><div>:</strong> Block-level element used for layout sections and containers</li>
-                                <li><strong><span>:</strong> Inline element used for highlighting or styling text within a line</li>
-                            </ul>
-                        </div>
-
-                        <div class="code-example">
-                            <div class="code-header">
-                                <span>Div vs Span Example</span>
-                                <button class="copy-btn" onclick="copyCode(this)">
-                                    <i class="fas fa-copy"></i>
-                                </button>
-                            </div>
-                            <pre><code><!-- Block-level div for layout -->
-<div class="form-group">
-    <label for="name">Name:</label>
-    <input type="text" id="name">
-</div>
-
-<!-- Inline span for text styling -->
-<p>Welcome <span class="highlight">John</span> to our website!</p></code></pre>
-                        </div>
-
-                        <div class="tip-box">
-                            <h4><i class="fas fa-lightbulb"></i> Pro Tip</h4>
-                            <p>Use <code><div></code> for structural layout and <code><span></code> for inline text styling. This semantic approach makes your code more readable and accessible.</p>
-                        </div>
-                    </div>
-
-                    <div class="content-section">
-                        <h2><i class="fas fa-edit"></i> Introduction to Forms</h2>
-                        <p>Forms are the backbone of user interaction on the web. They allow users to submit data, make selections, and interact with your website.</p>
-                        
-                        <div class="concept-highlight">
-                            <h4>Form Structure:</h4>
-                            <ul>
-                                <li><strong><form>:</strong> Container element that wraps all form controls</li>
-                                <li><strong>action:</strong> Specifies where the form data should be sent</li>
-                                <li><strong>method:</strong> Defines how the data should be sent (GET or POST)</li>
-                            </ul>
-                        </div>
-
-                        <div class="code-example">
-                            <div class="code-header">
-                                <span>Basic Form Structure</span>
-                                <button class="copy-btn" onclick="copyCode(this)">
-                                    <i class="fas fa-copy"></i>
-                                </button>
-                            </div>
-                            <pre><code><form action="/submit" method="POST">
-    <div class="form-group">
-        <label for="username">Username:</label>
-        <input type="text" id="username" name="username">
-    </div>
-    <button type="submit">Submit</button>
-</form></code></pre>
-                        </div>
-                    </div>
-
-                    <div class="content-section">
-                        <h2>✍️ Basic Input Types</h2>
-                        <p>HTML provides various input types to collect different kinds of data from users.</p>
-                        
-                        <div class="concept-highlight">
-                            <h4>Common Input Types:</h4>
-                            <ul>
-                                <li><strong>text:</strong> Single-line text input</li>
-                                <li><strong>email:</strong> Email address with validation</li>
-                                <li><strong>number:</strong> Numeric input with optional min/max values</li>
-                            </ul>
-                        </div>
-
-                        <div class="code-example">
-                            <div class="code-header">
-                                <span>Input Types Example</span>
-                                <button class="copy-btn" onclick="copyCode(this)">
-                                    <i class="fas fa-copy"></i>
-                                </button>
-                            </div>
-                            <pre><code><div class="form-group">
-    <label for="fullname">Full Name:</label>
-    <input type="text" id="fullname" name="fullname" 
-           placeholder="Enter your full name" required>
-</div>
-
-<div class="form-group">
-    <label for="email">Email:</label>
-    <input type="email" id="email" name="email" 
-           placeholder="your@email.com" required>
-</div>
-
-<div class="form-group">
-    <label for="age">Age:</label>
-    <input type="number" id="age" name="age" 
-           min="1" max="120" placeholder="25">
-</div></code></pre>
-                        </div>
-
-                        <div class="accessibility-note">
-                            <h4>♿ Accessibility Note</h4>
-                            <p>Always use the <code>name</code> attribute for form inputs and associate labels with inputs using the <code>for</code> attribute. This helps screen readers and improves form usability.</p>
-                        </div>
-                    </div>
-
-                    <div class="content-section">
-                        <h2><i class="fas fa-check-circle"></i> Radio & Checkbox Inputs</h2>
-                        <p>Radio buttons and checkboxes allow users to make selections from predefined options.</p>
-                        
-                        <div class="concept-highlight">
-                            <h4>Key Differences:</h4>
-                            <ul>
-                                <li><strong>Radio:</strong> Only one option can be selected (use same name attribute)</li>
-                                <li><strong>Checkbox:</strong> Multiple options can be selected</li>
-                            </ul>
-                        </div>
-
-                        <div class="code-example">
-                            <div class="code-header">
-                                <span>Radio and Checkbox Example</span>
-                                <button class="copy-btn" onclick="copyCode(this)">
-                                    <i class="fas fa-copy"></i>
-                                </button>
-                            </div>
-                            <pre><code><!-- Gender selection (radio buttons) -->
-<div class="form-group">
-    <label>Gender:</label>
-    <div class="radio-group">
-        <input type="radio" id="male" name="gender" value="male">
-        <label for="male">Male</label>
-        
-        <input type="radio" id="female" name="gender" value="female">
-        <label for="female">Female</label>
-        
-        <input type="radio" id="other" name="gender" value="other">
-        <label for="other">Other</label>
-    </div>
-</div>
-
-<!-- Interests (checkboxes) -->
-<div class="form-group">
-    <label>Interests:</label>
-    <div class="checkbox-group">
-        <input type="checkbox" id="coding" name="interests" value="coding">
-        <label for="coding">Coding</label>
-        
-        <input type="checkbox" id="design" name="interests" value="design">
-        <label for="design">Design</label>
-        
-        <input type="checkbox" id="gaming" name="interests" value="gaming">
-        <label for="gaming">Gaming</label>
-    </div>
-</div></code></pre>
-                        </div>
-                    </div>
-
-                    <div class="content-section">
-                        <h2><i class="fas fa-caret-down"></i> Select & <i class="fas fa-edit"></i> Textarea</h2>
-                        <p>Select dropdowns and textarea elements provide additional input options for users.</p>
-                        
-                        <div class="concept-highlight">
-                            <h4>Element Types:</h4>
-                            <ul>
-                                <li><strong><select>:</strong> Dropdown menu with predefined options</li>
-                                <li><strong><textarea>:</strong> Multi-line text input for longer content</li>
-                            </ul>
-                        </div>
-
-                        <div class="code-example">
-                            <div class="code-header">
-                                <span>Select and Textarea Example</span>
-                                <button class="copy-btn" onclick="copyCode(this)">
-                                    <i class="fas fa-copy"></i>
-                                </button>
-                            </div>
-                            <pre><code><!-- Country selection dropdown -->
-<div class="form-group">
-    <label for="country">Country:</label>
-    <select id="country" name="country">
-        <option value="">Select a country</option>
-        <option value="us">United States</option>
-        <option value="uk">United Kingdom</option>
-        <option value="ca">Canada</option>
-        <option value="au">Australia</option>
-    </select>
-</div>
-
-<!-- Feedback textarea -->
-<div class="form-group">
-    <label for="feedback">Feedback:</label>
-    <textarea id="feedback" name="feedback" 
-              rows="4" cols="50" 
-              placeholder="Please share your thoughts..."></textarea>
-</div></code></pre>
-                        </div>
-
-                        <div class="practice-exercise">
-                            <h4><i class="fas fa-bullseye"></i> Practice Exercise</h4>
-                            <p>Create a complete registration form that includes all the elements we've learned: text inputs, radio buttons, checkboxes, select dropdown, and textarea. Structure it properly with <code><div></code> elements and use <code><span></code> for emphasis where needed.</p>
-                        </div>
-                    </div>
+    <!-- Main Content -->
+    <section class="py-20 bg-dark-light/30">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 lg:grid-cols-4 gap-12">
+          <!-- Main Content -->
+          <div class="lg:col-span-3 space-y-16">
+            <!-- What are HTML Forms -->
+            <div
+              class="bg-gradient-to-br from-dark-light/50 to-dark/50 backdrop-blur-xl rounded-3xl border border-primary/20 p-8"
+            >
+              <div class="flex items-center mb-6">
+                <div
+                  class="w-12 h-12 bg-gradient-to-br from-primary to-accent rounded-2xl flex items-center justify-center text-white font-bold text-lg mr-4"
+                >
+                  1
                 </div>
-
-                <!-- Sidebar -->
-                <div class="content-sidebar">
-                    <div class="sidebar-section">
-                        <h3>Quick Navigation</h3>
-                        <ul class="sidebar-nav">
-                            <li><a href="#div-span">Div vs Span</a></li>
-                            <li><a href="#forms">Introduction to Forms</a></li>
-                            <li><a href="#input-types">Basic Input Types</a></li>
-                            <li><a href="#radio-checkbox">Radio & Checkbox</a></li>
-                            <li><a href="#select-textarea">Select & Textarea</a></li>
-                            <li><a href="#challenges">Challenges</a></li>
-                        </ul>
-                    </div>
-
-                    <div class="sidebar-section">
-                        <h3>Resources</h3>
-                        <ul class="resource-links">
-                            <li><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/form" target="_blank">
-                                <i class="fas fa-external-link-alt"></i>
-                                MDN Forms Guide
-                            </a></li>
-                            <li><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input" target="_blank">
-                                <i class="fas fa-external-link-alt"></i>
-                                MDN Input Elements
-                            </a></li>
-                            <li><a href="https://www.w3schools.com/html/html_forms.asp" target="_blank">
-                                <i class="fas fa-external-link-alt"></i>
-                                W3Schools Forms
-                            </a></li>
-                        </ul>
-                    </div>
+                <h2 class="text-3xl font-bold text-white">
+                  🎯 What are HTML Forms?
+                </h2>
+              </div>
+              <div class="text-gray-300 space-y-4 leading-relaxed">
+                <p>
+                  <strong>HTML Forms</strong> are interactive elements that
+                  allow users to input data and submit information to web
+                  servers.
+                </p>
+                <p>
+                  Forms are essential for creating dynamic websites where users
+                  can interact with your content - from simple contact forms to
+                  complex data entry systems.
+                </p>
+                <div
+                  class="bg-primary/10 border border-primary/20 rounded-2xl p-6 my-6"
+                >
+                  <h4 class="text-primary font-semibold mb-3">
+                    💡 Common Use Cases
+                  </h4>
+                  <ul class="text-gray-300 space-y-2">
+                    <li>
+                      <strong>Contact Forms:</strong> Let users send messages
+                    </li>
+                    <li>
+                      <strong>Login/Registration:</strong> User authentication
+                    </li>
+                    <li><strong>Search:</strong> Find specific content</li>
+                    <li><strong>Surveys:</strong> Collect user feedback</li>
+                    <li>
+                      <strong>E-commerce:</strong> Product orders and checkout
+                    </li>
+                  </ul>
                 </div>
+                <p>
+                  Forms consist of various input elements like text fields,
+                  checkboxes, radio buttons, and submit buttons that work
+                  together to collect and process user data.
+                </p>
+              </div>
             </div>
+
+            <!-- Basic Form Structure -->
+            <div
+              class="bg-gradient-to-br from-dark-light/50 to-dark/50 backdrop-blur-xl rounded-3xl border border-primary/20 p-8"
+            >
+              <div class="flex items-center mb-6">
+                <div
+                  class="w-12 h-12 bg-gradient-to-br from-primary to-accent rounded-2xl flex items-center justify-center text-white font-bold text-lg mr-4"
+                >
+                  2
+                </div>
+                <h2 class="text-3xl font-bold text-white">
+                  🏗️ Basic Form Structure
+                </h2>
+              </div>
+              <div class="text-gray-300 space-y-4 leading-relaxed">
+                <p>
+                  Every HTML form follows a standard structure with essential
+                  elements:
+                </p>
+
+                <div class="bg-dark-light/50 rounded-2xl p-6 my-6">
+                  <h4 class="text-primary font-semibold mb-3">
+                    📋 Essential Form Elements
+                  </h4>
+                  <ul class="space-y-2 text-gray-300">
+                    <li>
+                      <code class="bg-black px-2 py-1 rounded text-green-400"
+                        >&lt;form&gt;</code
+                      >
+                      - Container for all form elements
+                    </li>
+                    <li>
+                      <code class="bg-black px-2 py-1 rounded text-green-400"
+                        >&lt;input&gt;</code
+                      >
+                      - Various input field types
+                    </li>
+                    <li>
+                      <code class="bg-black px-2 py-1 rounded text-green-400"
+                        >&lt;label&gt;</code
+                      >
+                      - Descriptive text for inputs
+                    </li>
+                    <li>
+                      <code class="bg-black px-2 py-1 rounded text-green-400"
+                        >&lt;button&gt;</code
+                      >
+                      - Submit or action buttons
+                    </li>
+                  </ul>
+                </div>
+
+                <div class="bg-black rounded-xl p-4 my-6">
+                  <code class="text-green-400 text-sm">
+                    &lt;form action="/submit" method="post"&gt;<br />
+                    &nbsp;&nbsp;&lt;label for="name"&gt;Name:&lt;/label&gt;<br />
+                    &nbsp;&nbsp;&lt;input type="text" id="name"
+                    name="name"&gt;<br />
+                    &nbsp;&nbsp;&lt;button
+                    type="submit"&gt;Submit&lt;/button&gt;<br />
+                    &lt;/form&gt;
+                  </code>
+                </div>
+
+                <p>
+                  The
+                  <code class="bg-primary/20 text-primary px-2 py-1 rounded"
+                    >action</code
+                  >
+                  attribute specifies where the form data is sent, and
+                  <code class="bg-primary/20 text-primary px-2 py-1 rounded"
+                    >method</code
+                  >
+                  defines how it's transmitted.
+                </p>
+              </div>
+            </div>
+
+            <!-- Input Types -->
+            <div
+              class="bg-gradient-to-br from-dark-light/50 to-dark/50 backdrop-blur-xl rounded-3xl border border-primary/20 p-8"
+            >
+              <div class="flex items-center mb-6">
+                <div
+                  class="w-12 h-12 bg-gradient-to-br from-primary to-accent rounded-2xl flex items-center justify-center text-white font-bold text-lg mr-4"
+                >
+                  3
+                </div>
+                <h2 class="text-3xl font-bold text-white">⌨️ Input Types</h2>
+              </div>
+              <div class="text-gray-300 space-y-4 leading-relaxed">
+                <p>
+                  HTML provides various input types to collect different kinds
+                  of data from users:
+                </p>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 my-6">
+                  <div
+                    class="bg-dark-light/50 rounded-2xl p-6 border border-primary/20"
+                  >
+                    <h4 class="text-primary font-semibold mb-3">
+                      📝 Text Inputs
+                    </h4>
+                    <ul class="space-y-2 text-sm">
+                      <li>
+                        <code class="bg-black px-2 py-1 rounded text-green-400"
+                          >text</code
+                        >
+                        - Single line text
+                      </li>
+                      <li>
+                        <code class="bg-black px-2 py-1 rounded text-green-400"
+                          >email</code
+                        >
+                        - Email address
+                      </li>
+                      <li>
+                        <code class="bg-black px-2 py-1 rounded text-green-400"
+                          >password</code
+                        >
+                        - Hidden text input
+                      </li>
+                      <li>
+                        <code class="bg-black px-2 py-1 rounded text-green-400"
+                          >number</code
+                        >
+                        - Numeric values
+                      </li>
+                    </ul>
+                  </div>
+
+                  <div
+                    class="bg-dark-light/50 rounded-2xl p-6 border border-primary/20"
+                  >
+                    <h4 class="text-primary font-semibold mb-3">
+                      📅 Date & Time
+                    </h4>
+                    <ul class="space-y-2 text-sm">
+                      <li>
+                        <code class="bg-black px-2 py-1 rounded text-green-400"
+                          >date</code
+                        >
+                        - Date picker
+                      </li>
+                      <li>
+                        <code class="bg-black px-2 py-1 rounded text-green-400"
+                          >time</code
+                        >
+                        - Time picker
+                      </li>
+                      <li>
+                        <code class="bg-black px-2 py-1 rounded text-green-400"
+                          >datetime-local</code
+                        >
+                        - Date and time
+                      </li>
+                      <li>
+                        <code class="bg-black px-2 py-1 rounded text-green-400"
+                          >month</code
+                        >
+                        - Month picker
+                      </li>
+                    </ul>
+                  </div>
+
+                  <div
+                    class="bg-dark-light/50 rounded-2xl p-6 border border-primary/20"
+                  >
+                    <h4 class="text-primary font-semibold mb-3">
+                      🔘 Selection Inputs
+                    </h4>
+                    <ul class="space-y-2 text-sm">
+                      <li>
+                        <code class="bg-black px-2 py-1 rounded text-green-400"
+                          >checkbox</code
+                        >
+                        - Multiple choice
+                      </li>
+                      <li>
+                        <code class="bg-black px-2 py-1 rounded text-green-400"
+                          >radio</code
+                        >
+                        - Single choice
+                      </li>
+                      <li>
+                        <code class="bg-black px-2 py-1 rounded text-green-400"
+                          >select</code
+                        >
+                        - Dropdown menu
+                      </li>
+                      <li>
+                        <code class="bg-black px-2 py-1 rounded text-green-400"
+                          >file</code
+                        >
+                        - File upload
+                      </li>
+                    </ul>
+                  </div>
+
+                  <div
+                    class="bg-dark-light/50 rounded-2xl p-6 border border-primary/20"
+                  >
+                    <h4 class="text-primary font-semibold mb-3">
+                      🎨 Special Inputs
+                    </h4>
+                    <ul class="space-y-2 text-sm">
+                      <li>
+                        <code class="bg-black px-2 py-1 rounded text-green-400"
+                          >color</code
+                        >
+                        - Color picker
+                      </li>
+                      <li>
+                        <code class="bg-black px-2 py-1 rounded text-green-400"
+                          >range</code
+                        >
+                        - Slider control
+                      </li>
+                      <li>
+                        <code class="bg-black px-2 py-1 rounded text-green-400"
+                          >search</code
+                        >
+                        - Search field
+                      </li>
+                      <li>
+                        <code class="bg-black px-2 py-1 rounded text-green-400"
+                          >tel</code
+                        >
+                        - Phone number
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Form Validation -->
+            <div
+              class="bg-gradient-to-br from-dark-light/50 to-dark/50 backdrop-blur-xl rounded-3xl border border-primary/20 p-8"
+            >
+              <div class="flex items-center mb-6">
+                <div
+                  class="w-12 h-12 bg-gradient-to-br from-primary to-accent rounded-2xl flex items-center justify-center text-white font-bold text-lg mr-4"
+                >
+                  4
+                </div>
+                <h2 class="text-3xl font-bold text-white">
+                  ✅ Form Validation
+                </h2>
+              </div>
+              <div class="text-gray-300 space-y-4 leading-relaxed">
+                <p>
+                  HTML5 provides built-in validation attributes to ensure users
+                  enter correct data:
+                </p>
+
+                <div
+                  class="bg-primary/10 border border-primary/20 rounded-2xl p-6 my-6"
+                >
+                  <h4 class="text-primary font-semibold mb-3">
+                    🔒 Validation Attributes
+                  </h4>
+                  <ul class="text-gray-300 space-y-2">
+                    <li>
+                      <strong>required:</strong> Field must be filled before
+                      submission
+                    </li>
+                    <li>
+                      <strong>pattern:</strong> Custom regex pattern for
+                      validation
+                    </li>
+                    <li><strong>min/max:</strong> Numeric value limits</li>
+                    <li><strong>placeholder:</strong> Helpful hint text</li>
+                    <li>
+                      <strong>autocomplete:</strong> Browser autofill
+                      suggestions
+                    </li>
+                  </ul>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 my-6">
+                  <div
+                    class="bg-dark-light/50 rounded-2xl p-6 border border-primary/20"
+                  >
+                    <h4 class="text-primary font-semibold mb-3">
+                      📝 Example with Validation
+                    </h4>
+                    <div class="bg-black rounded-xl p-4">
+                      <code class="text-green-400 text-sm">
+                        &lt;input type="email"<br />
+                        &nbsp;&nbsp;&nbsp;required<br />
+                        &nbsp;&nbsp;&nbsp;placeholder="Enter your email"<br />
+                        &nbsp;&nbsp;&nbsp;pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"&gt;
+                      </code>
+                    </div>
+                  </div>
+
+                  <div
+                    class="bg-dark-light/50 rounded-2xl p-6 border border-primary/20"
+                  >
+                    <h4 class="text-primary font-semibold mb-3">💡 Benefits</h4>
+                    <ul class="space-y-2 text-sm">
+                      <li>Better user experience</li>
+                      <li>Reduced server load</li>
+                      <li>Immediate feedback</li>
+                      <li>Accessibility improvements</li>
+                    </ul>
+                  </div>
+                </div>
+
+                <p>
+                  Modern browsers automatically validate these fields and show
+                  helpful error messages when validation fails.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Sidebar -->
+          <div class="lg:col-span-1 space-y-8">
+            <!-- Quick Navigation -->
+            <div
+              class="bg-gradient-to-br from-dark-light/50 to-dark/50 backdrop-blur-xl rounded-3xl border border-primary/20 p-6"
+            >
+              <h3 class="text-xl font-bold text-white mb-4">
+                📚 Quick Navigation
+              </h3>
+              <nav class="space-y-3">
+                <a
+                  href="#what-are-forms"
+                  class="block text-gray-300 hover:text-primary transition-colors duration-200"
+                >
+                  <i class="fas fa-chevron-right mr-2 text-primary"></i>
+                  What are HTML Forms?
+                </a>
+                <a
+                  href="#basic-structure"
+                  class="block text-gray-300 hover:text-primary transition-colors duration-200"
+                >
+                  <i class="fas fa-chevron-right mr-2 text-primary"></i>
+                  Basic Form Structure
+                </a>
+                <a
+                  href="#input-types"
+                  class="block text-gray-300 hover:text-primary transition-colors duration-200"
+                >
+                  <i class="fas fa-chevron-right mr-2 text-primary"></i>
+                  Input Types
+                </a>
+                <a
+                  href="#form-validation"
+                  class="block text-gray-300 hover:text-primary transition-colors duration-200"
+                >
+                  <i class="fas fa-chevron-right mr-2 text-primary"></i>
+                  Form Validation
+                </a>
+              </nav>
+            </div>
+
+            <!-- Resources -->
+            <div
+              class="bg-gradient-to-br from-dark-light/50 to-dark/50 backdrop-blur-xl rounded-3xl border border-primary/20 p-6"
+            >
+              <h3 class="text-xl font-bold text-white mb-4">🔗 Resources</h3>
+              <div class="space-y-3">
+                <a
+                  href="#"
+                  class="block text-gray-300 hover:text-primary transition-colors duration-200"
+                >
+                  <i class="fas fa-external-link-alt mr-2 text-primary"></i>
+                  HTML Forms Guide
+                </a>
+                <a
+                  href="#"
+                  class="block text-gray-300 hover:text-primary transition-colors duration-200"
+                >
+                  <i class="fas fa-external-link-alt mr-2 text-primary"></i>
+                  Input Types Reference
+                </a>
+                <a
+                  href="#"
+                  class="block text-gray-300 hover:text-primary transition-colors duration-200"
+                >
+                  <i class="fas fa-external-link-alt mr-2 text-primary"></i>
+                  Form Validation Guide
+                </a>
+                <a
+                  href="#"
+                  class="block text-gray-300 hover:text-primary transition-colors duration-200"
+                >
+                  <i class="fas fa-external-link-alt mr-2 text-primary"></i>
+                  Accessibility Best Practices
+                </a>
+              </div>
+            </div>
+          </div>
         </div>
+      </div>
     </section>
 
     <!-- Navigation Footer -->
-    <section class="day-navigation">
-        <div class="container">
-            <div class="nav-buttons">
-                <button class="nav-btn" onclick="window.location.href='html-fundamentals.html'">
-                    <i class="fas fa-arrow-left"></i>
-                    Previous: Day 1
-                </button>
-                <button class="nav-btn primary" onclick="window.location.href='css-basics.html'">
-                    Next: Day 3
-                    <i class="fas fa-arrow-right"></i>
-                </button>
-            </div>
+    <section class="py-16 bg-dark-light/20">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div
+          class="flex flex-col sm:flex-row justify-between items-center space-y-4 sm:space-y-0"
+        >
+          <a
+            href="html-fundamentals.html"
+            class="bg-gradient-to-r from-gray-600 to-gray-700 text-white px-8 py-3 rounded-2xl font-semibold hover:shadow-lg transition-all duration-300"
+          >
+            <i class="fas fa-arrow-left mr-2"></i>
+            Previous: Day 1
+          </a>
+          <a
+            href="css-basics.html"
+            class="bg-gradient-to-r from-primary to-accent text-white px-8 py-3 rounded-2xl font-semibold hover:shadow-lg hover:shadow-primary/25 transition-all duration-300"
+          >
+            Next: Day 3
+            <i class="fas fa-arrow-right ml-2"></i>
+          </a>
         </div>
+      </div>
     </section>
 
     <!-- Challenge Modal -->
-    <div id="challengeModal" class="challenge-modal">
-        <div class="challenge-modal-content">
-            <div class="challenge-modal-header">
-                <h2 id="modalChallengeTitle">Challenge Title</h2>
-                <div class="challenge-modal-actions">
-                    <button class="complete-btn" onclick="completeChallenge()">
-                        <i class="fas fa-check"></i>
-                        Complete Challenge
-                    </button>
-                    <button class="close-challenge-modal" onclick="closeChallengeModal()">
-                        <i class="fas fa-times"></i>
-                    </button>
-                </div>
+    <div id="challengeModal" class="fixed inset-0 z-50 hidden">
+      <div class="absolute inset-0 bg-black/80 backdrop-blur-sm"></div>
+      <div class="relative min-h-screen flex items-center justify-center p-4">
+        <div
+          class="bg-dark-light/95 backdrop-blur-xl rounded-3xl border border-primary/30 w-full max-w-6xl max-h-[90vh] overflow-y-auto"
+        >
+          <div
+            class="sticky top-0 bg-dark-light/95 backdrop-blur-xl border-b border-primary/20 p-6 rounded-t-3xl"
+          >
+            <div class="flex justify-between items-center">
+              <h2 id="challengeTitle" class="text-2xl font-bold text-white">
+                Challenge
+              </h2>
+              <button
+                onclick="closeChallengeModal()"
+                class="text-gray-400 hover:text-white transition-colors duration-200"
+              >
+                <i class="fas fa-times text-2xl"></i>
+              </button>
             </div>
-            <div class="challenge-modal-body">
-                <div id="modalChallengeContent">
-                    <!-- Challenge content will be loaded here -->
-                </div>
-            </div>
+          </div>
+          <div id="challengeContent" class="p-6">
+            <!-- Challenge content will be loaded here -->
+          </div>
         </div>
+      </div>
     </div>
 
     <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h3>WebDev LMS</h3>
-                    <p>Master web development in 10 days with hands-on challenges and real-world projects.</p>
-                </div>
-                <div class="footer-section">
-                    <h4>Quick Links</h4>
-                    <ul>
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="index.html#curriculum">Curriculum</a></li>
-                        <li><a href="index.html#challenges">Challenges</a></li>
-                        <li><a href="index.html#resources">Resources</a></li>
-                    </ul>
-                </div>
+    <footer class="bg-dark border-t border-primary/20">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+          <div class="col-span-1 md:col-span-2">
+            <div class="flex items-center mb-4">
+              <i class="fas fa-code text-3xl text-primary mr-3"></i>
+              <span class="text-2xl font-bold text-white">WebDev LMS</span>
             </div>
-            <div class="footer-bottom">
-                <p>&copy; 2024 WebDev LMS. All rights reserved.</p>
+            <p class="text-gray-400 mb-6 max-w-md">
+              Master web development with our comprehensive learning platform.
+              From HTML basics to advanced JavaScript, we've got you covered.
+            </p>
+            <div class="flex space-x-4">
+              <a
+                href="#"
+                class="text-gray-400 hover:text-primary transition-colors duration-200"
+              >
+                <i class="fab fa-twitter text-xl"></i>
+              </a>
+              <a
+                href="#"
+                class="text-gray-400 hover:text-primary transition-colors duration-200"
+              >
+                <i class="fab fa-github text-xl"></i>
+              </a>
+              <a
+                href="#"
+                class="text-gray-400 hover:text-primary transition-colors duration-200"
+              >
+                <i class="fab fa-linkedin text-xl"></i>
+              </a>
             </div>
+          </div>
+
+          <div>
+            <h3 class="text-white font-semibold mb-4">Learning Paths</h3>
+            <ul class="space-y-2 text-gray-400">
+              <li>
+                <a
+                  href="#"
+                  class="hover:text-primary transition-colors duration-200"
+                  >HTML Fundamentals</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="hover:text-primary transition-colors duration-200"
+                  >CSS Styling</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="hover:text-primary transition-colors duration-200"
+                  >JavaScript Basics</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="hover:text-primary transition-colors duration-200"
+                  >Advanced Topics</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <h3 class="text-white font-semibold mb-4">Resources</h3>
+            <ul class="space-y-2 text-gray-400">
+              <li>
+                <a
+                  href="#"
+                  class="hover:text-primary transition-colors duration-200"
+                  >Documentation</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="hover:text-primary transition-colors duration-200"
+                  >Code Examples</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="hover:text-primary transition-colors duration-200"
+                  >Video Tutorials</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="hover:text-primary transition-colors duration-200"
+                  >Community</a
+                >
+              </li>
+            </ul>
+          </div>
         </div>
+
+        <div
+          class="border-t border-primary/20 mt-8 pt-8 text-center text-gray-400"
+        >
+          <p>&copy; 2024 WebDev LMS. All rights reserved.</p>
+        </div>
+      </div>
     </footer>
 
+    <!-- Monaco Editor CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.44.0/min/vs/loader.min.js"></script>
+
+    <!-- Custom Scripts -->
     <script src="script.js"></script>
+
     <script>
-        // Simple Monaco Editor initialization
-        require.config({ paths: { vs: 'https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.44.0/min/vs' } });
-        require(['vs/editor/editor.main'], function() {
-            console.log('Monaco Editor loaded successfully for Day 2');
+      // Initialize Monaco Editor for this page
+      require.config({
+        paths: {
+          vs: "https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.44.0/min/vs",
+        },
+      });
+
+      require(["vs/editor/editor.main"], function () {
+        // Monaco Editor is now loaded
+        console.log("Monaco Editor loaded successfully");
+      });
+
+      // Copy code function for this page
+      function copyCode(button) {
+        const codeBlock = button.previousElementSibling;
+        const code = codeBlock.textContent;
+
+        navigator.clipboard.writeText(code).then(() => {
+          const originalText = button.innerHTML;
+          button.innerHTML = '<i class="fas fa-check mr-2"></i>Copied!';
+          button.classList.add("bg-green-500");
+
+          setTimeout(() => {
+            button.innerHTML = originalText;
+            button.classList.remove("bg-green-500");
+          }, 2000);
         });
-        
-        // Simple challenge function - works immediately
-        function openChallenge(challengeNumber) {
-            openChallengeModal(challengeNumber);
-        }
+      }
     </script>
-</body>
-</html> 
+  </body>
+</html>

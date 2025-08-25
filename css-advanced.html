@@ -1,641 +1,1051 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Day 5: Box Model & Styling - WebDev LMS</title>
-    <link rel="stylesheet" href="styles.css">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.44.0/min/vs/loader.min.js"></script>
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Day 6: CSS Advanced - WebDev LMS</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              primary: "#01d29b",
+              secondary: "#121212",
+              accent: "#00b894",
+              dark: "#1e1e1e",
+              "dark-light": "#2a2a2a",
+            },
+          },
+        },
+      };
+    </script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        font-family: "Inter", sans-serif;
+      }
+    </style>
+  </head>
+  <body class="bg-secondary text-white min-h-screen">
     <!-- Navigation -->
-    <nav class="navbar">
-        <div class="nav-container">
-            <div class="nav-logo" onclick="window.location.href='index.html'">
-                <i class="fas fa-code"></i>
-                <span>WebDev LMS</span>
-            </div>
-            <ul class="nav-menu">
-                <li><a href="index.html" class="nav-link" data-page="home">Home</a></li>
-                <li><a href="index.html#curriculum" class="nav-link" data-page="curriculum">Curriculum</a></li>
-                <li><a href="index.html#challenges" class="nav-link" data-page="challenges">Challenges</a></li>
-                <li><a href="index.html#resources" class="nav-link" data-page="resources">Resources</a></li>
-            </ul>
-            <div class="nav-actions">
-                <div class="page-indicator">
-                    <i class="fas fa-box"></i>
-                    <span>Day 5: Box Model & Styling</span>
-                </div>
-                <button class="nav-btn-secondary" onclick="window.location.href='javascript-basics.html'">
-                    <i class="fas fa-arrow-right"></i>
-                    Next Day
-                </button>
-            </div>
-            <div class="hamburger">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
+    <nav
+      class="fixed top-0 left-0 right-0 z-50 bg-dark/80 backdrop-blur-xl border-b border-primary/20"
+    >
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between items-center h-16">
+          <div class="flex items-center space-x-4">
+            <a href="index.html" class="text-primary font-bold text-xl">
+              <i class="fas fa-code mr-2"></i>WebDev LMS
+            </a>
+            <span
+              class="bg-primary/20 text-primary px-3 py-1 rounded-full text-sm font-medium"
+            >
+              Day 6: CSS Advanced
+            </span>
+          </div>
+          <div class="flex items-center space-x-4">
+            <a
+              href="javascript-dom.html"
+              class="bg-gradient-to-r from-primary to-accent text-white px-6 py-2 rounded-xl font-semibold hover:shadow-lg hover:shadow-primary/25 transition-all duration-300"
+            >
+              Next Day <i class="fas fa-arrow-right ml-2"></i>
+            </a>
+          </div>
         </div>
+      </div>
     </nav>
 
     <!-- Day Header -->
-    <section class="day-header">
-        <div class="container">
-            <div class="day-header-content">
-                <div class="day-badge">
-                    <span class="day-number">Day 5</span>
-                </div>
-                <h1>Box Model & Advanced Styling</h1>
-                <p>Master the CSS box model, background styling, hover effects, and responsive design fundamentals</p>
-                <div class="day-meta">
-                    <span class="meta-item">
-                        <i class="fas fa-clock"></i>
-                        Duration: 2-3 hours
-                    </span>
-                    <span class="meta-item">
-                        <i class="fas fa-signal"></i>
-                        Level: Intermediate
-                    </span>
-                    <span class="meta-item">
-                        <i class="fas fa-tasks"></i>
-                        Challenges: 4
-                    </span>
-                </div>
-            </div>
+    <section
+      class="pt-24 pb-16 bg-gradient-to-br from-dark-light/50 to-dark/50"
+    >
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <div
+          class="inline-block bg-primary/20 text-primary px-4 py-2 rounded-full text-sm font-semibold mb-6"
+        >
+          Day 6
         </div>
+        <h1 class="text-5xl md:text-6xl font-bold text-white mb-6">
+          CSS Advanced
+        </h1>
+        <p class="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
+          Master advanced CSS techniques: animations, transforms, gradients, and
+          responsive design patterns
+        </p>
+        <div
+          class="flex items-center justify-center space-x-6 mt-8 text-gray-400"
+        >
+          <div class="flex items-center">
+            <i class="fas fa-clock mr-2"></i>
+            <span>4 hours</span>
+          </div>
+          <div class="flex items-center">
+            <i class="fas fa-tasks mr-2"></i>
+            <span>4 lessons</span>
+          </div>
+          <div class="flex items-center">
+            <i class="fas fa-star mr-2"></i>
+            <span>Advanced</span>
+          </div>
+        </div>
+      </div>
     </section>
 
     <!-- Challenges Section -->
-    <section class="challenges-section">
-        <div class="container">
-                            <h2><i class="fas fa-bullseye"></i> Practice Challenges</h2>
-            <p class="challenges-intro">Complete these hands-on challenges to master CSS box model and styling:</p>
-            
-            <div class="challenges-grid">
-                <!-- Challenge 1 -->
-                <div class="challenge-card">
-                    <div class="challenge-header">
-                        <div class="challenge-number">01</div>
-                        <div class="challenge-meta">
-                            <span class="difficulty beginner">Beginner</span>
-                            <span class="time">10 min</span>
-                        </div>
-                    </div>
-                    <h3><i class="fas fa-box"></i> Box Model Mastery</h3>
-                    <p>Create a card with proper spacing using content, padding, border, and margin.</p>
-                    
-                    <button class="challenge-btn" onclick="openChallenge(1)">
-                        <i class="fas fa-play"></i>
-                        Start Challenge
-                    </button>
-                </div>
-
-                <!-- Challenge 2 -->
-                <div class="challenge-card">
-                    <div class="challenge-header">
-                        <div class="challenge-number">02</div>
-                        <div class="challenge-meta">
-                            <span class="difficulty intermediate">Intermediate</span>
-                            <span class="time">12 min</span>
-                        </div>
-                    </div>
-                    <h3><i class="fas fa-palette"></i> Background Styling</h3>
-                    <p>Style a banner section with background color and gradient effects.</p>
-                    
-                    <button class="challenge-btn" onclick="openChallenge(2)">
-                        <i class="fas fa-play"></i>
-                        Start Challenge
-                    </button>
-                </div>
-
-                <!-- Challenge 3 -->
-                <div class="challenge-card">
-                    <div class="challenge-header">
-                        <div class="challenge-number">03</div>
-                        <div class="challenge-meta">
-                            <span class="difficulty intermediate">Intermediate</span>
-                            <span class="time">15 min</span>
-                        </div>
-                    </div>
-                    <h3><i class="fas fa-magic"></i> Hover Effects</h3>
-                    <p>Create interactive buttons with smooth hover transitions and effects.</p>
-                    
-                    <button class="challenge-btn" onclick="openChallenge(3)">
-                        <i class="fas fa-play"></i>
-                        Start Challenge
-                    </button>
-                </div>
-
-                <!-- Challenge 4 -->
-                <div class="challenge-card">
-                    <div class="challenge-header">
-                        <div class="challenge-number">04</div>
-                        <div class="challenge-meta">
-                            <span class="difficulty advanced">Advanced</span>
-                            <span class="time">18 min</span>
-                        </div>
-                    </div>
-                    <h3><i class="fas fa-mobile-alt"></i> Responsive Layout</h3>
-                    <p>Build a responsive card layout that adapts to different screen sizes.</p>
-                    
-                    <button class="challenge-btn" onclick="openChallenge(4)">
-                        <i class="fas fa-play"></i>
-                        Start Challenge
-                    </button>
-                </div>
-            </div>
+    <section class="py-20 bg-gradient-to-br from-dark to-dark">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+          <h2 class="text-4xl font-bold text-white mb-4">
+            Practice Challenges
+          </h2>
+          <p class="text-xl text-gray-300">
+            Apply what you learn with hands-on exercises
+          </p>
         </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <!-- Challenge 1 -->
+          <div
+            class="bg-gradient-to-br from-dark-light/80 to-dark/80 backdrop-blur-xl rounded-3xl border border-primary/30 p-8 hover:border-primary/50 transition-all duration-300 hover:shadow-2xl hover:shadow-primary/20"
+          >
+            <div class="flex justify-between items-start mb-6">
+              <div
+                class="w-12 h-12 bg-gradient-to-br from-primary to-accent rounded-2xl flex items-center justify-center text-white font-bold text-lg"
+              >
+                01
+              </div>
+              <div class="text-right">
+                <span
+                  class="inline-block bg-green-500/20 text-green-400 text-xs font-semibold px-3 py-1 rounded-full mb-2"
+                  >Beginner</span
+                >
+                <div class="text-gray-400 text-sm">10 min</div>
+              </div>
+            </div>
+            <h3 class="text-xl font-bold text-white mb-4 flex items-center">
+              <i class="fas fa-palette text-primary mr-3"></i>
+              CSS Gradients
+            </h3>
+            <p class="text-gray-300 mb-6 leading-relaxed">
+              Create beautiful gradient backgrounds and borders using CSS.
+            </p>
+
+            <button
+              class="w-full bg-gradient-to-r from-primary to-accent text-white py-3 rounded-2xl font-semibold hover:shadow-lg hover:shadow-primary/25 transition-all duration-300"
+              onclick="openChallenge(21)"
+            >
+              <i class="fas fa-play mr-2"></i>
+              Start Challenge
+            </button>
+          </div>
+
+          <!-- Challenge 2 -->
+          <div
+            class="bg-gradient-to-br from-dark-light/80 to-dark/80 backdrop-blur-xl rounded-3xl border border-primary/30 p-8 hover:border-primary/50 transition-all duration-300 hover:shadow-2xl hover:shadow-primary/20"
+          >
+            <div class="flex items-center justify-between mb-6">
+              <div
+                class="w-12 h-12 bg-gradient-to-br from-primary to-accent rounded-2xl flex items-center justify-center text-white font-bold text-lg"
+              >
+                02
+              </div>
+              <div class="text-right">
+                <span
+                  class="inline-block bg-yellow-500/20 text-yellow-400 text-xs font-semibold px-3 py-1 rounded-full mb-2"
+                  >Intermediate</span
+                >
+                <div class="text-gray-400 text-sm">12 min</div>
+              </div>
+            </div>
+            <h3 class="text-xl font-bold text-white mb-4 flex items-center">
+              <i class="fas fa-magic text-primary mr-3"></i>
+              CSS Transforms
+            </h3>
+            <p class="text-gray-300 mb-6 leading-relaxed">
+              Use transforms to rotate, scale, and move elements in 2D and 3D
+              space.
+            </p>
+
+            <button
+              class="w-full bg-gradient-to-r from-primary to-accent text-white py-3 rounded-2xl font-semibold hover:shadow-lg hover:shadow-primary/25 transition-all duration-300"
+              onclick="openChallenge(22)"
+            >
+              <i class="fas fa-play mr-2"></i>
+              Start Challenge
+            </button>
+          </div>
+
+          <!-- Challenge 3 -->
+          <div
+            class="bg-gradient-to-br from-dark-light/80 to-dark/80 backdrop-blur-xl rounded-3xl border border-primary/30 p-8 hover:border-primary/50 transition-all duration-300 hover:shadow-2xl hover:shadow-primary/20"
+          >
+            <div class="flex items-center justify-between mb-6">
+              <div
+                class="w-12 h-12 bg-gradient-to-br from-primary to-accent rounded-2xl flex items-center justify-center text-white font-bold text-lg"
+              >
+                03
+              </div>
+              <div class="text-right">
+                <span
+                  class="inline-block bg-yellow-500/20 text-yellow-400 text-xs font-semibold px-3 py-1 rounded-full mb-2"
+                  >Intermediate</span
+                >
+                <div class="text-gray-400 text-sm">15 min</div>
+              </div>
+            </div>
+            <h3 class="text-xl font-bold text-white mb-4 flex items-center">
+              <i class="fas fa-play text-primary mr-3"></i>
+              CSS Animations
+            </h3>
+            <p class="text-gray-300 mb-6 leading-relaxed">
+              Create smooth animations and transitions using keyframes and
+              animation properties.
+            </p>
+
+            <button
+              class="w-full bg-gradient-to-r from-primary to-accent text-white py-3 rounded-2xl font-semibold hover:shadow-lg hover:shadow-primary/25 transition-all duration-300"
+              onclick="openChallenge(23)"
+            >
+              <i class="fas fa-play mr-2"></i>
+              Start Challenge
+            </button>
+          </div>
+
+          <!-- Challenge 4 -->
+          <div
+            class="bg-gradient-to-br from-dark-light/80 to-dark/80 backdrop-blur-xl rounded-3xl border border-primary/30 p-8 hover:border-primary/50 transition-all duration-300 hover:shadow-2xl hover:shadow-primary/20"
+          >
+            <div class="flex items-center justify-between mb-6">
+              <div
+                class="w-12 h-12 bg-gradient-to-br from-primary to-accent rounded-2xl flex items-center justify-center text-white font-bold text-lg"
+              >
+                04
+              </div>
+              <div class="text-right">
+                <span
+                  class="inline-block bg-red-500/20 text-red-400 text-xs font-semibold px-3 py-1 rounded-full mb-2"
+                  >Advanced</span
+                >
+                <div class="text-gray-400 text-sm">18 min</div>
+              </div>
+            </div>
+            <h3 class="text-xl font-bold text-white mb-4 flex items-center">
+              <i class="fas fa-mobile-alt text-primary mr-3"></i>
+              Responsive Design
+            </h3>
+            <p class="text-gray-300 mb-6 leading-relaxed">
+              Build responsive layouts that work perfectly on all device sizes.
+            </p>
+
+            <button
+              class="w-full bg-gradient-to-r from-primary to-accent text-white py-3 rounded-2xl font-semibold hover:shadow-lg hover:shadow-primary/25 transition-all duration-300"
+              onclick="openChallenge(24)"
+            >
+              <i class="fas fa-play mr-2"></i>
+              Start Challenge
+            </button>
+          </div>
+        </div>
+      </div>
     </section>
 
-    <!-- Content Section -->
-    <section class="day-content">
-        <div class="container">
-            <div class="content-grid">
-                <!-- Main Content -->
-                <div class="content-main">
-                    <div class="content-section" id="box-model">
-                        <h2><i class="fas fa-box"></i> Understanding the CSS Box Model</h2>
-                        <p>The CSS box model is fundamental to understanding how elements are sized and spaced. Every HTML element is treated as a box with four layers that determine its final size and position.</p>
-                        
-                        <div class="concept-highlight">
-                            <h4><i class="fas fa-layer-group"></i> Box Model Layers:</h4>
-                            <ul>
-                                <li><strong>Content:</strong> The actual content of the element (text, images, etc.)</li>
-                                <li><strong>Padding:</strong> Clear space around the content, inside the border</li>
-                                <li><strong>Border:</strong> A border around the padding and content</li>
-                                <li><strong>Margin:</strong> Clear space outside the border</li>
-                            </ul>
-                        </div>
-                
-                        <div class="box-model-diagram">
-                            <div class="box-layer margin">
-                                <div class="box-layer border">
-                                    <div class="box-layer padding">
-                                        <div class="box-layer content">
-                                            Content
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="box-labels">
-                                <span class="label margin-label">Margin</span>
-                                <span class="label border-label">Border</span>
-                                <span class="label padding-label">Padding</span>
-                                <span class="label content-label">Content</span>
-                            </div>
-                        </div>
+    <!-- Main Content -->
+    <section class="py-20 bg-dark-light/30">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 lg:grid-cols-4 gap-12">
+          <!-- Main Content -->
+          <div class="lg:col-span-3 space-y-16">
+            <!-- CSS Gradients -->
+            <div
+              class="bg-gradient-to-br from-dark-light/50 to-dark/50 backdrop-blur-xl rounded-3xl border border-primary/20 p-8"
+            >
+              <div class="flex items-center mb-6">
+                <div
+                  class="w-12 h-12 bg-gradient-to-br from-primary to-accent rounded-2xl flex items-center justify-center text-white font-bold text-lg mr-4"
+                >
+                  1
+                </div>
+                <h2 class="text-3xl font-bold text-white">🌈 CSS Gradients</h2>
+              </div>
+              <div class="text-gray-300 space-y-4 leading-relaxed">
+                <p>
+                  <strong>CSS Gradients</strong> allow you to create smooth
+                  transitions between two or more colors, creating beautiful
+                  visual effects.
+                </p>
+                <p>
+                  Gradients can be used for backgrounds, borders, and even text
+                  effects, adding depth and visual interest to your designs.
+                </p>
 
-                        <div class="code-example">
-                            <div class="code-header">
-                                <span>Box Model Example</span>
-                                <button class="copy-btn" onclick="copyCode(this)">
-                                    <i class="fas fa-copy"></i>
-                                </button>
-                            </div>
-                            <pre><code>.card {
-    width: 300px;
-    padding: 20px;
-    border: 2px solid #3498db;
-    margin: 15px;
-    background-color: #f8f9fa;
-}
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 my-6">
+                  <div
+                    class="bg-dark-light/50 rounded-2xl p-6 border border-primary/20"
+                  >
+                    <h4 class="text-primary font-semibold mb-3">
+                      🔴 Linear Gradients
+                    </h4>
+                    <ul class="space-y-2 text-sm">
+                      <li>
+                        <code class="bg-black px-2 py-1 rounded text-green-400"
+                          >linear-gradient(to right, red, blue)</code
+                        >
+                      </li>
+                      <li>
+                        <code class="bg-black px-2 py-1 rounded text-green-400"
+                          >linear-gradient(45deg, #ff6b6b, #4ecdc4)</code
+                        >
+                      </li>
+                      <li>Direction-based color transitions</li>
+                    </ul>
+                  </div>
 
-.card-content {
-    margin: 0;
-    padding: 10px;
-    border: 1px solid #e9ecef;
-}</code></pre>
-                        </div>
-                        <div class="tip-box">
-                            <h4><i class="fas fa-lightbulb"></i> Pro Tip:</h4>
-                            <p>Remember the box model order: <strong>Content → Padding → Border → Margin</strong>. Use <code>box-sizing: border-box</code> to include padding and border in the element's total width and height.</p>
-                        </div>
-                    </div>
-
-                    <div class="content-section" id="background-styling">
-                        <h2><i class="fas fa-palette"></i> Background Styling</h2>
-                        <p>CSS provides powerful tools for styling element backgrounds, from simple colors to complex images and gradients.</p>
-                        
-                        <div class="concept-highlight">
-                            <h4><i class="fas fa-palette"></i> Background Properties:</h4>
-                            <ul>
-                                <li><code>background-color</code>: Sets solid background colors</li>
-                                <li><code>background-image</code>: Applies images as backgrounds</li>
-                                <li><code>background-repeat</code>: Controls image repetition</li>
-                                <li><code>background-position</code>: Positions background images</li>
-                                <li><code>background-size</code>: Controls image sizing</li>
-                            </ul>
-                        </div>
-
-                        <div class="code-example">
-                            <div class="code-header">
-                                <span>Background Styling Example</span>
-                                <button class="copy-btn" onclick="copyCode(this)">
-                                    <i class="fas fa-copy"></i>
-                                </button>
-                            </div>
-                            <pre><code>.banner {
-    background-color: #2c3e50;
-    background-image: url('hero-bg.jpg');
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-    padding: 60px 20px;
-    color: white;
-    text-align: center;
-}
-
-.gradient-section {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    padding: 40px;
-    color: white;}</code></pre>
-                        </div>
-
-                        <div class="demo-section">
-                            <h4>Live Demo:</h4>
-                            <div class="demo-banner" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 30px; color: white; text-align: center; border-radius: 8px; margin: 20px 0;">
-                                <h3>Styled Banner Section</h3>
-                                <p>This banner uses background gradients and proper spacing</p>
-                            </div>
-                        </div>
-
-                        <div class="accessibility-note">
-                            <h4>♿ Accessibility Note:</h4>
-                            <p>When using background images, ensure sufficient contrast between text and background. Consider providing a fallback background color for better readability.</p>
-                        </div>
-                    </div>
-
-                    <div class="content-section" id="hover-effects">
-                        <h2>🎯 Hover Effects & Transitions</h2>
-                        <p>Hover effects and transitions make your websites interactive and engaging. They provide visual feedback and smooth animations.</p>
-                        
-                        <div class="concept-highlight">
-                            <h4>✨ Pseudo-classes:</h4>
-                            <ul>
-                                <li><code>:hover</code>: Applied when mouse hovers over element</li>
-                                <li><code>:active</code>: Applied when element is clicked</li>
-                                <li><code>:focus</code>: Applied when element receives focus</li>
-                            </ul>
-                        </div>
-
-                        <div class="concept-highlight">
-                            <h4>⏱️ Transition Properties:</h4>
-                            <ul>
-                                <li><code>transition-property</code>: Which properties to animate</li>
-                                <li><code>transition-duration</code>: How long the animation takes</li>
-                                <li><code>transition-timing-function</code>: Animation curve (ease, linear, etc.)</li>
-                                <li><code>transition-delay</code>: Delay before animation starts</li>
-                            </ul>
-                        </div>
-
-                        <div class="code-example">
-                            <div class="code-header">
-                                <span>Interactive Button Example</span>
-                                <button class="copy-btn" onclick="copyCode(this)">
-                                    <i class="fas fa-copy"></i>
-                                </button>
-                            </div>
-                            <pre><code>.btn {
-    padding: 12px 24px;
-    background-color: #3498db;
-    color: white;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-}
-
-.btn:hover {
-    background-color: #2980b9;
-    transform: translateY(-2px);
-    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-}
-
-.btn:active {
-    transform: translateY(0);
-    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
-}</code></pre>
-                        </div>
-                        <div class="tip-box">
-                            <h4>💡 Pro Tip:</h4>
-                            <p>Use <code>transition: all 0.3s ease</code> for smooth animations, but be specific with <code>transition-property</code> for better performance. Combine <code>transform</code> and <code>box-shadow</code> for engaging hover effects.</p>
-                        </div>
-
-                        <div class="demo-section">
-                            <h4>Live Demo:</h4>
-                            <button class="demo-btn" style="padding: 12px 24px; background-color: #3498db; color: white; border: none; border-radius: 6px; cursor: pointer; transition: all 0.3s ease; font-size: 16px;">
-                                Hover Me!
-                            </button>
-                            <style>
-                                .demo-btn:hover {
-                                    background-color: #2980b9 !important;
-                                    transform: translateY(-2px);
-                                    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-                                }
-                                .demo-btn:active {
-                                    transform: translateY(0);
-                                    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
-                                }
-                            </style>
-                        </div>
-                    </div>
-
-                    <div class="content-section" id="responsive-design">
-                        <h2>📱 Responsive Design Basics</h2>
-                        <p>Responsive design ensures your websites look great on all devices, from mobile phones to desktop computers.</p>
-                        
-                        <div class="concept-highlight">
-                            <h4>📊 Why Responsiveness Matters:</h4>
-                            <ul>
-                                <li>Mobile users make up over 50% of web traffic</li>
-                                <li>Better user experience across all devices</li>
-                                <li>Improved SEO rankings</li>
-                                <li>Future-proof your designs</li>
-                            </ul>
-                        </div>
-
-                        <div class="concept-highlight">
-                            <h4>🔧 Key Techniques:</h4>
-                            <ul>
-                                <li><code>max-width</code>: Prevents elements from becoming too wide</li>
-                                <li><code>width: 100%</code>: Makes elements fluid</li>
-                                <li><code>%</code> units: Relative sizing for flexibility</li>
-                                <li><code>flexbox</code> and <code>grid</code>: Modern layout systems</li>
-                            </ul>
-                        </div>
-
-                        <div class="code-example">
-                            <div class="code-header">
-                                <span>Responsive Card Layout</span>
-                                <button class="copy-btn" onclick="copyCode(this)">
-                                    <i class="fas fa-copy"></i>
-                                </button>
-                            </div>
-                            <pre><code>.card-container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    padding: 20px;
-}
-
-.card {
-    flex: 1;
-    min-width: 300px;
-    max-width: 400px;
-    padding: 20px;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-}
-
-/* Responsive images */
-.responsive-img {
-    width: 100%;
-    height: auto;
-    max-width: 100%;
-}
-
-/* Media queries for different screen sizes */
-@media (max-width: 768px) {
-    .card {
-        min-width: 100%;
-        margin-bottom: 15px;
-    }
-}</code></pre>
-                        </div>
-                        <div class="practice-exercise">
-                            <h4>🎯 Practice Exercise:</h4>
-                            <p>Create a responsive navigation menu that transforms from a horizontal layout on desktop to a hamburger menu on mobile. Use media queries and flexbox to achieve this responsive behavior.</p>
-                        </div>
-
-                        <div class="demo-section">
-                            <h4>Live Demo:</h4>
-                            <div class="responsive-demo" style="display: flex; flex-wrap: wrap; gap: 15px; margin: 20px 0;">
-                                <div style="flex: 1; min-width: 200px; padding: 15px; border: 1px solid #ddd; border-radius: 6px; background: #f8f9fa;">
-                                    <h4>Card 1</h4>
-                                    <p>This card adapts to different screen sizes</p>
-                                </div>
-                                <div style="flex: 1; min-width: 200px; padding: 15px; border: 1px solid #ddd; border-radius: 6px; background: #f8f9fa;">
-                                    <h4>Card 2</h4>
-                                    <p>Try resizing your browser window</p>
-                                </div>
-                                <div style="flex: 1; min-width: 200px; padding: 15px; border: 1px solid #ddd; border-radius: 6px; background: #f8f9fa;">
-                                    <h4>Card 3</h4>
-                                    <p>Cards will stack on smaller screens</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                  <div
+                    class="bg-dark-light/50 rounded-2xl p-6 border border-primary/20"
+                  >
+                    <h4 class="text-primary font-semibold mb-3">
+                      ⭕ Radial Gradients
+                    </h4>
+                    <ul class="space-y-2 text-sm">
+                      <li>
+                        <code class="bg-black px-2 py-1 rounded text-green-400"
+                          >radial-gradient(circle, red, blue)</code
+                        >
+                      </li>
+                      <li>
+                        <code class="bg-black px-2 py-1 rounded text-green-400"
+                          >radial-gradient(ellipse, #ff6b6b, #4ecdc4)</code
+                        >
+                      </li>
+                      <li>Center-outward color transitions</li>
+                    </ul>
+                  </div>
                 </div>
 
-                <!-- Sidebar -->
-                <div class="content-sidebar">
-                    <div class="sidebar-section">
-                        <h3>Quick Navigation</h3>
-                        <ul class="sidebar-nav">
-                            <li><a href="#box-model">Box Model</a></li>
-                            <li><a href="#background-styling">Background Styling</a></li>
-                            <li><a href="#hover-effects">Hover Effects</a></li>
-                            <li><a href="#responsive-design">Responsive Design</a></li>
-                            <li><a href="#challenges">Challenges</a></li>
-                        </ul>
-                    </div>
-                    <div class="sidebar-section">
-                        <h3>Resources</h3>
-                        <ul class="resource-links">
-                            <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Box_Model" target="_blank">
-                                <i class="fas fa-external-link-alt"></i>
-                                MDN Box Model
-                            </a></li>
-                            <li><a href="https://css-tricks.com/almanac/properties/b/background/" target="_blank">
-                                <i class="fas fa-external-link-alt"></i>
-                                CSS Background Guide
-                            </a></li>
-                            <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Transitions" target="_blank">
-                                <i class="fas fa-external-link-alt"></i>
-                                CSS Transitions
-                            </a></li>
-                        </ul>
-                    </div>
+                <div class="bg-black rounded-xl p-4 my-6">
+                  <code class="text-green-400 text-sm">
+                    /* Linear gradient examples */<br />
+                    .gradient-bg {<br />
+                    &nbsp;&nbsp;background: linear-gradient(45deg, #667eea,
+                    #764ba2);<br />
+                    }<br />
+                    <br />
+                    /* Radial gradient examples */<br />
+                    .circle-gradient {<br />
+                    &nbsp;&nbsp;background: radial-gradient(circle, #f093fb,
+                    #f5576c);<br />
+                    }<br />
+                    <br />
+                    /* Multiple color stops */<br />
+                    .rainbow-gradient {<br />
+                    &nbsp;&nbsp;background: linear-gradient(to right, red,
+                    orange, yellow, green, blue, indigo, violet);<br />
+                    }
+                  </code>
                 </div>
+              </div>
             </div>
+
+            <!-- CSS Transforms -->
+            <div
+              class="bg-gradient-to-br from-dark-light/50 to-dark/50 backdrop-blur-xl rounded-3xl border border-primary/20 p-8"
+            >
+              <div class="flex items-center mb-6">
+                <div
+                  class="w-12 h-12 bg-gradient-to-br from-primary to-accent rounded-2xl flex items-center justify-center text-white font-bold text-lg mr-4"
+                >
+                  2
+                </div>
+                <h2 class="text-3xl font-bold text-white">🔄 CSS Transforms</h2>
+              </div>
+              <div class="text-gray-300 space-y-4 leading-relaxed">
+                <p>
+                  CSS transforms allow you to modify the appearance and position
+                  of elements without affecting the document flow.
+                </p>
+
+                <div
+                  class="bg-primary/10 border border-primary/20 rounded-2xl p-6 my-6"
+                >
+                  <h4 class="text-primary font-semibold mb-3">
+                    🎯 2D Transforms
+                  </h4>
+                  <ul class="text-gray-300 space-y-2">
+                    <li>
+                      <strong>translate():</strong> Move elements horizontally
+                      and vertically
+                    </li>
+                    <li>
+                      <strong>rotate():</strong> Rotate elements around their
+                      center
+                    </li>
+                    <li>
+                      <strong>scale():</strong> Make elements larger or smaller
+                    </li>
+                    <li>
+                      <strong>skew():</strong> Distort elements by tilting them
+                    </li>
+                  </ul>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 my-6">
+                  <div
+                    class="bg-dark-light/50 rounded-2xl p-6 border border-primary/20"
+                  >
+                    <h4 class="text-primary font-semibold mb-3">
+                      📐 3D Transforms
+                    </h4>
+                    <ul class="space-y-2 text-sm">
+                      <li>
+                        <code class="bg-black px-2 py-1 rounded text-green-400"
+                          >rotateX()</code
+                        >
+                        Rotate around X-axis
+                      </li>
+                      <li>
+                        <code class="bg-black px-2 py-1 rounded text-green-400"
+                          >rotateY()</code
+                        >
+                        Rotate around Y-axis
+                      </li>
+                      <li>
+                        <code class="bg-black px-2 py-1 rounded text-green-400"
+                          >rotateZ()</code
+                        >
+                        Rotate around Z-axis
+                      </li>
+                      <li>
+                        <code class="bg-black px-2 py-1 rounded text-green-400"
+                          >translateZ()</code
+                        >
+                        Move along Z-axis
+                      </li>
+                    </ul>
+                  </div>
+
+                  <div
+                    class="bg-dark-light/50 rounded-2xl p-6 border border-primary/20"
+                  >
+                    <h4 class="text-primary font-semibold mb-3">
+                      🔧 Transform Origin
+                    </h4>
+                    <ul class="space-y-2 text-sm">
+                      <li>
+                        <code class="bg-black px-2 py-1 rounded text-green-400"
+                          >center</code
+                        >
+                        Default center point
+                      </li>
+                      <li>
+                        <code class="bg-black px-2 py-1 rounded text-green-400"
+                          >top left</code
+                        >
+                        Top-left corner
+                      </li>
+                      <li>
+                        <code class="bg-black px-2 py-1 rounded text-green-400"
+                          >bottom right</code
+                        >
+                        Bottom-right corner
+                      </li>
+                      <li>
+                        <code class="bg-black px-2 py-1 rounded text-green-400"
+                          >50% 50%</code
+                        >
+                        Custom percentage
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+
+                <div class="bg-black rounded-xl p-4 my-6">
+                  <code class="text-green-400 text-sm">
+                    /* 2D transform examples */<br />
+                    .rotate-element {<br />
+                    &nbsp;&nbsp;transform: rotate(45deg);<br />
+                    }<br />
+                    <br />
+                    .scale-element {<br />
+                    &nbsp;&nbsp;transform: scale(1.5);<br />
+                    }<br />
+                    <br />
+                    /* Multiple transforms */<br />
+                    .complex-transform {<br />
+                    &nbsp;&nbsp;transform: translate(50px, 100px) rotate(45deg)
+                    scale(1.2);<br />
+                    }<br />
+                    <br />
+                    /* 3D transforms */<br />
+                    .rotate-3d {<br />
+                    &nbsp;&nbsp;transform: rotateX(45deg) rotateY(30deg);<br />
+                    &nbsp;&nbsp;transform-style: preserve-3d;<br />
+                    }
+                  </code>
+                </div>
+              </div>
+            </div>
+
+            <!-- CSS Animations -->
+            <div
+              class="bg-gradient-to-br from-dark-light/50 to-dark/50 backdrop-blur-xl rounded-3xl border border-primary/20 p-8"
+            >
+              <div class="flex items-center mb-6">
+                <div
+                  class="w-12 h-12 bg-gradient-to-br from-primary to-accent rounded-2xl flex items-center justify-center text-white font-bold text-lg mr-4"
+                >
+                  3
+                </div>
+                <h2 class="text-3xl font-bold text-white">🎬 CSS Animations</h2>
+              </div>
+              <div class="text-gray-300 space-y-4 leading-relaxed">
+                <p>
+                  CSS animations bring your websites to life with smooth,
+                  performant animations that enhance user experience.
+                </p>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 my-6">
+                  <div
+                    class="bg-dark-light/50 rounded-2xl p-6 border border-primary/20"
+                  >
+                    <h4 class="text-primary font-semibold mb-3">
+                      ⏱️ Transitions
+                    </h4>
+                    <ul class="space-y-2 text-sm">
+                      <li>
+                        <code class="bg-black px-2 py-1 rounded text-green-400"
+                          >transition: all 0.3s ease</code
+                        >
+                      </li>
+                      <li>
+                        <code class="bg-black px-2 py-1 rounded text-green-400"
+                          >transition-property: transform</code
+                        >
+                      </li>
+                      <li>
+                        <code class="bg-black px-2 py-1 rounded text-green-400"
+                          >transition-duration: 0.5s</code
+                        >
+                      </li>
+                      <li>
+                        <code class="bg-black px-2 py-1 rounded text-green-400"
+                          >transition-timing-function: ease-in-out</code
+                        >
+                      </li>
+                    </ul>
+                  </div>
+
+                  <div
+                    class="bg-dark-light/50 rounded-2xl p-6 border border-primary/20"
+                  >
+                    <h4 class="text-primary font-semibold mb-3">
+                      🎭 Keyframes
+                    </h4>
+                    <ul class="space-y-2 text-sm">
+                      <li>
+                        <code class="bg-black px-2 py-1 rounded text-green-400"
+                          >@keyframes slideIn</code
+                        >
+                        Define animation sequence
+                      </li>
+                      <li>
+                        <code class="bg-black px-2 py-1 rounded text-green-400"
+                          >0%</code
+                        >
+                        Starting state
+                      </li>
+                      <li>
+                        <code class="bg-black px-2 py-1 rounded text-green-400"
+                          >50%</code
+                        >
+                        Middle state
+                      </li>
+                      <li>
+                        <code class="bg-black px-2 py-1 rounded text-green-400"
+                          >100%</code
+                        >
+                        Ending state
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+
+                <div
+                  class="bg-primary/10 border border-primary/20 rounded-2xl p-6 my-6"
+                >
+                  <h4 class="text-primary font-semibold mb-3">
+                    ⚙️ Animation Properties
+                  </h4>
+                  <ul class="text-gray-300 space-y-2">
+                    <li>
+                      <strong>animation-name:</strong> Name of the keyframe
+                      animation
+                    </li>
+                    <li>
+                      <strong>animation-duration:</strong> How long the
+                      animation takes
+                    </li>
+                    <li>
+                      <strong>animation-timing-function:</strong> Speed curve of
+                      the animation
+                    </li>
+                    <li>
+                      <strong>animation-delay:</strong> Delay before animation
+                      starts
+                    </li>
+                    <li>
+                      <strong>animation-iteration-count:</strong> How many times
+                      to repeat
+                    </li>
+                    <li>
+                      <strong>animation-direction:</strong> Forward, backward,
+                      or alternating
+                    </li>
+                  </ul>
+                </div>
+
+                <div class="bg-black rounded-xl p-4 my-6">
+                  <code class="text-green-400 text-sm">
+                    /* Transition example */<br />
+                    .button {<br />
+                    &nbsp;&nbsp;transition: all 0.3s ease;<br />
+                    }<br />
+                    <br />
+                    .button:hover {<br />
+                    &nbsp;&nbsp;transform: scale(1.1);<br />
+                    &nbsp;&nbsp;background-color: #ff6b6b;<br />
+                    }<br />
+                    <br />
+                    /* Keyframe animation */<br />
+                    @keyframes bounce {<br />
+                    &nbsp;&nbsp;0%, 20%, 50%, 80%, 100% {<br />
+                    &nbsp;&nbsp;&nbsp;&nbsp;transform: translateY(0);<br />
+                    &nbsp;&nbsp;}<br />
+                    &nbsp;&nbsp;40% {<br />
+                    &nbsp;&nbsp;&nbsp;&nbsp;transform: translateY(-30px);<br />
+                    &nbsp;&nbsp;}<br />
+                    &nbsp;&nbsp;60% {<br />
+                    &nbsp;&nbsp;&nbsp;&nbsp;transform: translateY(-15px);<br />
+                    &nbsp;&nbsp;}<br />
+                    }<br />
+                    <br />
+                    .bouncing-element {<br />
+                    &nbsp;&nbsp;animation: bounce 2s infinite;<br />
+                    }
+                  </code>
+                </div>
+              </div>
+            </div>
+
+            <!-- Responsive Design -->
+            <div
+              class="bg-gradient-to-br from-dark-light/50 to-dark/50 backdrop-blur-xl rounded-3xl border border-primary/20 p-8"
+            >
+              <div class="flex items-center mb-6">
+                <div
+                  class="w-12 h-12 bg-gradient-to-br from-primary to-accent rounded-2xl flex items-center justify-center text-white font-bold text-lg mr-4"
+                >
+                  4
+                </div>
+                <h2 class="text-3xl font-bold text-white">
+                  📱 Responsive Design
+                </h2>
+              </div>
+              <div class="text-gray-300 space-y-4 leading-relaxed">
+                <p>
+                  Responsive design ensures your websites look and work
+                  perfectly on all devices, from mobile phones to desktop
+                  computers.
+                </p>
+
+                <div
+                  class="bg-primary/10 border border-primary/20 rounded-2xl p-6 my-6"
+                >
+                  <h4 class="text-primary font-semibold mb-3">
+                    📐 Media Queries
+                  </h4>
+                  <ul class="text-gray-300 space-y-2">
+                    <li>
+                      <strong>Mobile-first:</strong> Design for mobile first,
+                      then enhance for larger screens
+                    </li>
+                    <li>
+                      <strong>Breakpoints:</strong> Common breakpoints: 768px
+                      (tablet), 1024px (desktop)
+                    </li>
+                    <li>
+                      <strong>Flexible layouts:</strong> Use relative units (%,
+                      em, rem) instead of fixed pixels
+                    </li>
+                    <li>
+                      <strong>Flexible images:</strong> Images that scale with
+                      their containers
+                    </li>
+                  </ul>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 my-6">
+                  <div
+                    class="bg-dark-light/50 rounded-2xl p-6 border border-primary/20"
+                  >
+                    <h4 class="text-primary font-semibold mb-3">
+                      📱 Mobile-First Approach
+                    </h4>
+                    <ul class="space-y-2 text-sm">
+                      <li>Start with mobile layout</li>
+                      <li>Use min-width media queries</li>
+                      <li>Progressive enhancement</li>
+                      <li>Touch-friendly interactions</li>
+                    </ul>
+                  </div>
+
+                  <div
+                    class="bg-dark-light/50 rounded-2xl p-6 border border-primary/20"
+                  >
+                    <h4 class="text-primary font-semibold mb-3">
+                      🖥️ Desktop Enhancements
+                    </h4>
+                    <ul class="space-y-2 text-sm">
+                      <li>Larger navigation menus</li>
+                      <li>Multi-column layouts</li>
+                      <li>Hover effects</li>
+                      <li>More detailed content</li>
+                    </ul>
+                  </div>
+                </div>
+
+                <div class="bg-black rounded-xl p-4 my-6">
+                  <code class="text-green-400 text-sm">
+                    /* Mobile-first responsive design */<br />
+                    .container {<br />
+                    &nbsp;&nbsp;width: 100%;<br />
+                    &nbsp;&nbsp;padding: 0 15px;<br />
+                    &nbsp;&nbsp;margin: 0 auto;<br />
+                    }<br />
+                    <br />
+                    /* Tablet breakpoint */<br />
+                    @media (min-width: 768px) {<br />
+                    &nbsp;&nbsp;.container {<br />
+                    &nbsp;&nbsp;&nbsp;&nbsp;max-width: 750px;<br />
+                    &nbsp;&nbsp;}<br />
+                    &nbsp;&nbsp;.grid {<br />
+                    &nbsp;&nbsp;&nbsp;&nbsp;grid-template-columns: repeat(2,
+                    1fr);<br />
+                    &nbsp;&nbsp;}<br />
+                    }<br />
+                    <br />
+                    /* Desktop breakpoint */<br />
+                    @media (min-width: 1024px) {<br />
+                    &nbsp;&nbsp;.container {<br />
+                    &nbsp;&nbsp;&nbsp;&nbsp;max-width: 970px;<br />
+                    &nbsp;&nbsp;}<br />
+                    &nbsp;&nbsp;.grid {<br />
+                    &nbsp;&nbsp;&nbsp;&nbsp;grid-template-columns: repeat(3,
+                    1fr);<br />
+                    &nbsp;&nbsp;}<br />
+                    }<br />
+                    <br />
+                    /* Large desktop */<br />
+                    @media (min-width: 1200px) {<br />
+                    &nbsp;&nbsp;.container {<br />
+                    &nbsp;&nbsp;&nbsp;&nbsp;max-width: 1170px;<br />
+                    &nbsp;&nbsp;}<br />
+                    }
+                  </code>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Sidebar -->
+          <div class="lg:col-span-1 space-y-8">
+            <!-- Quick Navigation -->
+            <div
+              class="bg-gradient-to-br from-dark-light/50 to-dark/50 backdrop-blur-xl rounded-3xl border border-primary/20 p-6"
+            >
+              <h3 class="text-xl font-bold text-white mb-4">
+                📚 Quick Navigation
+              </h3>
+              <nav class="space-y-3">
+                <a
+                  href="#gradients"
+                  class="block text-gray-300 hover:text-primary transition-colors duration-200"
+                >
+                  <i class="fas fa-chevron-right mr-2 text-primary"></i>
+                  CSS Gradients
+                </a>
+                <a
+                  href="#transforms"
+                  class="block text-gray-300 hover:text-primary transition-colors duration-200"
+                >
+                  <i class="fas fa-chevron-right mr-2 text-primary"></i>
+                  CSS Transforms
+                </a>
+                <a
+                  href="#animations"
+                  class="block text-gray-300 hover:text-primary transition-colors duration-200"
+                >
+                  <i class="fas fa-chevron-right mr-2 text-primary"></i>
+                  CSS Animations
+                </a>
+                <a
+                  href="#responsive"
+                  class="block text-gray-300 hover:text-primary transition-colors duration-200"
+                >
+                  <i class="fas fa-chevron-right mr-2 text-primary"></i>
+                  Responsive Design
+                </a>
+              </nav>
+            </div>
+
+            <!-- Resources -->
+            <div
+              class="bg-gradient-to-br from-dark-light/50 to-dark/50 backdrop-blur-xl rounded-3xl border border-primary/20 p-6"
+            >
+              <h3 class="text-xl font-bold text-white mb-4">🔗 Resources</h3>
+              <div class="space-y-3">
+                <a
+                  href="#"
+                  class="block text-gray-300 hover:text-primary transition-colors duration-200"
+                >
+                  <i class="fas fa-external-link-alt mr-2 text-primary"></i>
+                  CSS Animations Guide
+                </a>
+                <a
+                  href="#"
+                  class="block text-gray-300 hover:text-primary transition-colors duration-200"
+                >
+                  <i class="fas fa-external-link-alt mr-2 text-primary"></i>
+                  CSS Transforms Reference
+                </a>
+                <a
+                  href="#"
+                  class="block text-gray-300 hover:text-primary transition-colors duration-200"
+                >
+                  <i class="fas fa-external-link-alt mr-2 text-primary"></i>
+                  Responsive Design Patterns
+                </a>
+                <a
+                  href="#"
+                  class="block text-gray-300 hover:text-primary transition-colors duration-200"
+                >
+                  <i class="fas fa-external-link-alt mr-2 text-primary"></i>
+                  CSS Gradients Generator
+                </a>
+              </div>
+            </div>
+          </div>
         </div>
+      </div>
     </section>
 
     <!-- Navigation Footer -->
-    <section class="day-navigation">
-        <div class="container">
-            <div class="nav-buttons">
-                <button class="nav-btn" onclick="window.location.href='css-layout.html'">
-                    <i class="fas fa-arrow-left"></i>
-                    Previous: Day 4
-                </button>
-                <button class="nav-btn primary" onclick="window.location.href='javascript-basics.html'">
-                    Next: Day 6
-                    <i class="fas fa-arrow-right"></i>
-                </button>
-            </div>
+    <section class="py-16 bg-dark-light/20">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div
+          class="flex flex-col sm:flex-row justify-between items-center space-y-4 sm:space-y-0"
+        >
+          <a
+            href="javascript-basics.html"
+            class="bg-gradient-to-r from-gray-600 to-gray-700 text-white px-8 py-3 rounded-2xl font-semibold hover:shadow-lg transition-all duration-300"
+          >
+            <i class="fas fa-arrow-left mr-2"></i>
+            Previous: Day 5
+          </a>
+          <a
+            href="javascript-dom.html"
+            class="bg-gradient-to-r from-primary to-accent text-white px-8 py-3 rounded-2xl font-semibold hover:shadow-lg hover:shadow-primary/25 transition-all duration-300"
+          >
+            Next: Day 7
+            <i class="fas fa-arrow-right ml-2"></i>
+          </a>
         </div>
+      </div>
     </section>
 
     <!-- Challenge Modal -->
-    <div id="challengeModal" class="challenge-modal">
-        <div class="challenge-modal-content">
-            <div class="challenge-modal-header">
-                <h2 id="modalChallengeTitle">Challenge Title</h2>
-                <div class="challenge-modal-actions">
-                    <button class="complete-btn" onclick="completeChallenge()">
-                        <i class="fas fa-check"></i>
-                        Complete Challenge
-                    </button>
-                    <button class="close-challenge-modal" onclick="closeChallengeModal()">
-                        <i class="fas fa-times"></i>
-                    </button>
-                </div>
+    <div id="challengeModal" class="fixed inset-0 z-50 hidden">
+      <div class="absolute inset-0 bg-black/80 backdrop-blur-sm"></div>
+      <div class="relative min-h-screen flex items-center justify-center p-4">
+        <div
+          class="bg-dark-light/95 backdrop-blur-xl rounded-3xl border border-primary/30 w-full max-w-6xl max-h-[90vh] overflow-y-auto"
+        >
+          <div
+            class="sticky top-0 bg-dark-light/95 backdrop-blur-xl border-b border-primary/20 p-6 rounded-t-3xl"
+          >
+            <div class="flex justify-between items-center">
+              <h2 id="challengeTitle" class="text-2xl font-bold text-white">
+                Challenge
+              </h2>
+              <button
+                onclick="closeChallengeModal()"
+                class="text-gray-400 hover:text-white transition-colors duration-200"
+              >
+                <i class="fas fa-times text-2xl"></i>
+              </button>
             </div>
-            <div class="challenge-modal-body">
-                <div id="modalChallengeContent">
-                    <!-- Challenge content will be loaded here -->
-                </div>
-            </div>
+          </div>
+          <div id="challengeContent" class="p-6">
+            <!-- Challenge content will be loaded here -->
+          </div>
         </div>
+      </div>
     </div>
 
     <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h3>WebDev LMS</h3>
-                    <p>Master web development in 10 days with hands-on challenges and real-world projects.</p>
-                </div>
-                <div class="footer-section">
-                    <h4>Quick Links</h4>
-                    <ul>
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="index.html#curriculum">Curriculum</a></li>
-                        <li><a href="index.html#challenges">Challenges</a></li>
-                        <li><a href="index.html#resources">Resources</a></li>
-                    </ul>
-                </div>
+    <footer class="bg-dark border-t border-primary/20">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+          <div class="col-span-1 md:col-span-2">
+            <div class="flex items-center mb-4">
+              <i class="fas fa-code text-3xl text-primary mr-3"></i>
+              <span class="text-2xl font-bold text-white">WebDev LMS</span>
             </div>
-            <div class="footer-bottom">
-                <p>&copy; 2024 WebDev LMS. All rights reserved.</p>
+            <p class="text-gray-400 mb-6 max-w-md">
+              Master web development with our comprehensive learning platform.
+              From HTML basics to advanced JavaScript, we've got you covered.
+            </p>
+            <div class="flex space-x-4">
+              <a
+                href="#"
+                class="text-gray-400 hover:text-primary transition-colors duration-200"
+              >
+                <i class="fab fa-twitter text-xl"></i>
+              </a>
+              <a
+                href="#"
+                class="text-gray-400 hover:text-primary transition-colors duration-200"
+              >
+                <i class="fab fa-github text-xl"></i>
+              </a>
+              <a
+                href="#"
+                class="text-gray-400 hover:text-primary transition-colors duration-200"
+              >
+                <i class="fab fa-linkedin text-xl"></i>
+              </a>
             </div>
+          </div>
+
+          <div>
+            <h3 class="text-white font-semibold mb-4">Learning Paths</h3>
+            <ul class="space-y-2 text-gray-400">
+              <li>
+                <a
+                  href="#"
+                  class="hover:text-primary transition-colors duration-200"
+                  >HTML Fundamentals</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="hover:text-primary transition-colors duration-200"
+                  >CSS Styling</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="hover:text-primary transition-colors duration-200"
+                  >JavaScript Basics</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="hover:text-primary transition-colors duration-200"
+                  >Advanced Topics</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <h3 class="text-white font-semibold mb-4">Resources</h3>
+            <ul class="space-y-2 text-gray-400">
+              <li>
+                <a
+                  href="#"
+                  class="hover:text-primary transition-colors duration-200"
+                  >Documentation</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="hover:text-primary transition-colors duration-200"
+                  >Code Examples</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="hover:text-primary transition-colors duration-200"
+                  >Video Tutorials</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="hover:text-primary transition-colors duration-200"
+                  >Community</a
+                >
+              </li>
+            </ul>
+          </div>
         </div>
+
+        <div
+          class="border-t border-primary/20 mt-8 pt-8 text-center text-gray-400"
+        >
+          <p>&copy; 2024 WebDev LMS. All rights reserved.</p>
+        </div>
+      </div>
     </footer>
 
+    <!-- Monaco Editor CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.44.0/min/vs/loader.min.js"></script>
+
+    <!-- Custom Scripts -->
     <script src="script.js"></script>
+
     <script>
-        // Simple Monaco Editor initialization
-        require.config({ paths: { vs: 'https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.44.0/min/vs' } });
-        require(['vs/editor/editor.main'], function() {
-            console.log('Monaco Editor loaded successfully for Day 5');
+      // Initialize Monaco Editor for this page
+      require.config({
+        paths: {
+          vs: "https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.44.0/min/vs",
+        },
+      });
+
+      require(["vs/editor/editor.main"], function () {
+        // Monaco Editor is now loaded
+        console.log("Monaco Editor loaded successfully");
+      });
+
+      // Copy code function for this page
+      function copyCode(button) {
+        const codeBlock = button.previousElementSibling;
+        const code = codeBlock.textContent;
+
+        navigator.clipboard.writeText(code).then(() => {
+          const originalText = button.innerHTML;
+          button.innerHTML = '<i class="fas fa-check mr-2"></i>Copied!';
+          button.classList.add("bg-green-500");
+
+          setTimeout(() => {
+            button.innerHTML = originalText;
+            button.classList.remove("bg-green-500");
+          }, 2000);
         });
-        
-        // Simple challenge function - works immediately
-        function openChallenge(challengeNumber) {
-            openChallengeModal(challengeNumber);
-        }
+      }
     </script>
-    
-    <style>
-        /* Box Model Diagram Styles */
-        .box-model-diagram {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 30px 0;
-            position: relative;
-        }
-        
-        .box-layer {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-        }
-        
-        .box-layer.margin {
-            background: rgba(255, 107, 107, 0.3);
-            padding: 20px;
-            border: 2px dashed #ff6b6b;
-        }
-        
-        .box-layer.border {
-            background: rgba(255, 167, 38, 0.3);
-            padding: 15px;
-            border: 2px solid #ffa726;
-        }
-        
-        .box-layer.padding {
-            background: rgba(1, 210, 155, 0.3);
-            padding: 10px;
-            border: 2px dashed #01D29B;
-        }
-        
-        .box-layer.content {
-            background: rgba(52, 152, 219, 0.3);
-            padding: 15px;
-            border: 2px solid #3498db;
-            min-width: 120px;
-            text-align: center;
-            font-weight: bold;
-            color: #2c3e50;
-        }
-        
-        .box-labels {
-            position: absolute;
-            right: -200px;
-            top: 50%;
-            transform: translateY(-50%);
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-        }
-        
-        .label {
-            padding: 8px 12px;
-            border-radius: 6px;
-            font-size: 14px;
-            font-weight: 500;
-            color: white;
-        }
-        
-        .margin-label {
-            background: #ff6b6b;
-        }
-        
-        .border-label {
-            background: #ffa726;
-        }
-        
-        .padding-label {
-            background: #01D29B;
-        }
-        
-        .content-label {
-            background: #3498db;
-        }
-        
-        /* Responsive adjustments */
-        @media (max-width: 768px) {
-            .box-labels {
-                position: static;
-                transform: none;
-                flex-direction: row;
-                flex-wrap: wrap;
-                justify-content: center;
-                margin-top: 20px;
-                right: auto;
-            }
-            
-            .box-model-diagram {
-                flex-direction: column;
-            }
-        }
-    </style>
-</body>
-</html> 
+  </body>
+</html>
