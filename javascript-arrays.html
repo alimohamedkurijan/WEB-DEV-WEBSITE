@@ -1,165 +1,226 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Day 8: Arrays & Loops - WebDev LMS</title>
-    <link rel="stylesheet" href="styles.css">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.44.0/min/vs/loader.min.js"></script>
-</head>
-<body>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  </head>
+  <body>
     <!-- Navigation -->
     <nav class="navbar">
-        <div class="nav-container">
-            <div class="nav-logo" onclick="window.location.href='index.html'">
-                <i class="fas fa-code"></i>
-                <span>WebDev LMS</span>
-            </div>
-            <ul class="nav-menu">
-                <li><a href="index.html" class="nav-link" data-page="home">Home</a></li>
-                <li><a href="index.html#curriculum" class="nav-link" data-page="curriculum">Curriculum</a></li>
-                <li><a href="index.html#challenges" class="nav-link" data-page="challenges">Challenges</a></li>
-                <li><a href="index.html#resources" class="nav-link" data-page="resources">Resources</a></li>
-            </ul>
-            <div class="nav-actions">
-                <div class="page-indicator">
-                    <i class="fas fa-list"></i>
-                    <span>Day 8: Arrays & Loops</span>
-                </div>
-                <button class="nav-btn-secondary" onclick="window.location.href='final-project.html'">
-                    <i class="fas fa-arrow-right"></i>
-                    Next Day
-                </button>
-            </div>
-            <div class="hamburger">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
+      <div class="nav-container">
+        <div class="nav-logo" onclick="window.location.href='index.html'">
+          <i class="fas fa-code"></i>
+          <span>WebDev LMS</span>
         </div>
+        <ul class="nav-menu">
+          <li>
+            <a href="index.html" class="nav-link" data-page="home">Home</a>
+          </li>
+          <li>
+            <a
+              href="index.html#curriculum"
+              class="nav-link"
+              data-page="curriculum"
+              >Curriculum</a
+            >
+          </li>
+          <li>
+            <a
+              href="index.html#challenges"
+              class="nav-link"
+              data-page="challenges"
+              >Challenges</a
+            >
+          </li>
+          <li>
+            <a
+              href="index.html#resources"
+              class="nav-link"
+              data-page="resources"
+              >Resources</a
+            >
+          </li>
+        </ul>
+        <div class="nav-actions">
+          <div class="page-indicator">
+            <i class="fas fa-list"></i>
+            <span>Day 8: Arrays & Loops</span>
+          </div>
+          <button
+            class="nav-btn-secondary"
+            onclick="window.location.href='final-project.html'"
+          >
+            <i class="fas fa-arrow-right"></i>
+            Next Day
+          </button>
+        </div>
+        <div class="hamburger">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
     </nav>
 
     <!-- Day Header -->
     <section class="day-header">
-        <div class="container">
-            <div class="day-header-content">
-                <div class="day-badge">
-                    <span class="day-number">Day 8</span>
-                </div>
-                <h1>Arrays & Loops</h1>
-                <p>Master data collections and iteration to process multiple items efficiently</p>
-                <div class="day-meta">
-                    <span class="meta-item">
-                        <i class="fas fa-clock"></i>
-                        Duration: 2 hours
-                    </span>
-                    <span class="meta-item">
-                        <i class="fas fa-signal"></i>
-                        Level: Intermediate
-                    </span>
-                    <span class="meta-item">
-                        <i class="fas fa-tasks"></i>
-                        Challenges: 3
-                    </span>
-                </div>
-            </div>
+      <div class="container">
+        <div class="day-header-content">
+          <div class="day-badge">
+            <span class="day-number">Day 8</span>
+          </div>
+          <h1>Arrays & Loops</h1>
+          <p>
+            Master data collections and iteration to process multiple items
+            efficiently
+          </p>
+          <div class="day-meta">
+            <span class="meta-item">
+              <i class="fas fa-clock"></i>
+              Duration: 2 hours
+            </span>
+            <span class="meta-item">
+              <i class="fas fa-signal"></i>
+              Level: Intermediate
+            </span>
+            <span class="meta-item">
+              <i class="fas fa-tasks"></i>
+              Challenges: 3
+            </span>
+          </div>
         </div>
+      </div>
     </section>
 
     <!-- Challenges Section -->
     <section class="challenges-section">
-        <div class="container">
-            <h2>🎯 Practice Challenges</h2>
-            <p class="challenges-intro">Complete these hands-on challenges to master arrays and loops:</p>
-            
-            <div class="challenges-grid">
-                <!-- Challenge 1 -->
-                <div class="challenge-card">
-                    <div class="challenge-header">
-                        <div class="challenge-number">01</div>
-                        <div class="challenge-meta">
-                            <span class="difficulty beginner">Beginner</span>
-                            <span class="time">12 min</span>
-                        </div>
-                    </div>
-                    <h3>📦 Array Basics</h3>
-                    <p>Learn to create, access, and modify arrays with push() and pop() methods.</p>
-                    
-                    <button class="challenge-btn" onclick="openChallenge(1)">
-                        <i class="fas fa-play"></i>
-                        Start Challenge
-                    </button>
-                </div>
+      <div class="container">
+        <h2>🎯 Practice Challenges</h2>
+        <p class="challenges-intro">
+          Complete these hands-on challenges to master arrays and loops:
+        </p>
 
-                <!-- Challenge 2 -->
-                <div class="challenge-card">
-                    <div class="challenge-header">
-                        <div class="challenge-number">02</div>
-                        <div class="challenge-meta">
-                            <span class="difficulty beginner">Beginner</span>
-                            <span class="time">15 min</span>
-                        </div>
-                    </div>
-                    <h3>🔄 Loop Mastery</h3>
-                    <p>Master for loops and forEach method to iterate through arrays efficiently.</p>
-                    
-                    <button class="challenge-btn" onclick="openChallenge(2)">
-                        <i class="fas fa-play"></i>
-                        Start Challenge
-                    </button>
-                </div>
-
-                <!-- Challenge 3 -->
-                <div class="challenge-card">
-                    <div class="challenge-header">
-                        <div class="challenge-number">03</div>
-                        <div class="challenge-meta">
-                            <span class="difficulty intermediate">Intermediate</span>
-                            <span class="time">18 min</span>
-                        </div>
-                    </div>
-                    <h3>🛒 Shopping Cart App</h3>
-                    <p>Build a complete shopping cart simulation using arrays and loops.</p>
-                    
-                    <button class="challenge-btn" onclick="openChallenge(3)">
-                        <i class="fas fa-play"></i>
-                        Start Challenge
-                    </button>
-                </div>
+        <div class="challenges-grid">
+          <!-- Challenge 1 -->
+          <div class="challenge-card">
+            <div class="challenge-header">
+              <div class="challenge-number">01</div>
+              <div class="challenge-meta">
+                <span class="difficulty beginner">Beginner</span>
+                <span class="time">12 min</span>
+              </div>
             </div>
+            <h3>📦 Array Basics</h3>
+            <p>
+              Learn to create, access, and modify arrays with push() and pop()
+              methods.
+            </p>
+
+            <button class="challenge-btn" onclick="openChallenge(1)">
+              <i class="fas fa-play"></i>
+              Start Challenge
+            </button>
+          </div>
+
+          <!-- Challenge 2 -->
+          <div class="challenge-card">
+            <div class="challenge-header">
+              <div class="challenge-number">02</div>
+              <div class="challenge-meta">
+                <span class="difficulty beginner">Beginner</span>
+                <span class="time">15 min</span>
+              </div>
+            </div>
+            <h3>🔄 Loop Mastery</h3>
+            <p>
+              Master for loops and forEach method to iterate through arrays
+              efficiently.
+            </p>
+
+            <button class="challenge-btn" onclick="openChallenge(2)">
+              <i class="fas fa-play"></i>
+              Start Challenge
+            </button>
+          </div>
+
+          <!-- Challenge 3 -->
+          <div class="challenge-card">
+            <div class="challenge-header">
+              <div class="challenge-number">03</div>
+              <div class="challenge-meta">
+                <span class="difficulty intermediate">Intermediate</span>
+                <span class="time">18 min</span>
+              </div>
+            </div>
+            <h3>🛒 Shopping Cart App</h3>
+            <p>
+              Build a complete shopping cart simulation using arrays and loops.
+            </p>
+
+            <button class="challenge-btn" onclick="openChallenge(3)">
+              <i class="fas fa-play"></i>
+              Start Challenge
+            </button>
+          </div>
         </div>
+      </div>
     </section>
 
     <!-- Content Section -->
     <section class="day-content">
-        <div class="container">
-            <div class="content-grid">
-                <!-- Main Content -->
-                <div class="content-main">
-                    <div class="content-section">
-                        <h2>📦 What are Arrays?</h2>
-                        <p>Arrays are ordered collections that can store multiple values in a single variable. Think of them as <strong>shopping lists</strong> - you can have one list with many items, and each item has its own position!</p>
-                        
-                        <div class="concept-highlight">
-                            <h4>📚 Key Points:</h4>
-                            <ul>
-                                <li><strong>Ordered:</strong> Items have specific positions (indexes)</li>
-                                <li><strong>Flexible:</strong> Can store different types of data</li>
-                                <li><strong>Dynamic:</strong> Can add or remove items easily</li>
-                                <li><strong>Indexed:</strong> Access items using position numbers (starting from 0)</li>
-                            </ul>
-                        </div>
+      <div class="container">
+        <div class="content-grid">
+          <!-- Main Content -->
+          <div class="content-main">
+            <div class="content-section">
+              <h2>📦 What are Arrays?</h2>
+              <p>
+                Arrays are ordered collections that can store multiple values in
+                a single variable. Think of them as
+                <strong>shopping lists</strong> - you can have one list with
+                many items, and each item has its own position!
+              </p>
 
-                        <div class="code-example">
-                            <div class="code-header">
-                                <span>Array Creation and Access</span>
-                                <button class="copy-btn" onclick="copyCode(this)">
-                                    <i class="fas fa-copy"></i>
-                                </button>
-                            </div>
-                            <pre><code>// Creating arrays
+              <div class="concept-highlight">
+                <h4>📚 Key Points:</h4>
+                <ul>
+                  <li>
+                    <strong>Ordered:</strong> Items have specific positions
+                    (indexes)
+                  </li>
+                  <li>
+                    <strong>Flexible:</strong> Can store different types of data
+                  </li>
+                  <li>
+                    <strong>Dynamic:</strong> Can add or remove items easily
+                  </li>
+                  <li>
+                    <strong>Indexed:</strong> Access items using position
+                    numbers (starting from 0)
+                  </li>
+                </ul>
+              </div>
+
+              <div class="code-example">
+                <div class="code-header">
+                  <span>Array Creation and Access</span>
+                  <button class="copy-btn" onclick="copyCode(this)">
+                    <i class="fas fa-copy"></i>
+                  </button>
+                </div>
+                <pre><code>// Creating arrays
 let fruits = ["apple", "banana", "orange"];
 let numbers = [1, 2, 3, 4, 5];
 let mixed = ["text", 42, true, null];
@@ -174,41 +235,57 @@ console.log(fruits.length);    // 3
 
 // Accessing last element
 console.log(fruits[fruits.length - 1]); // "orange"</code></pre>
-                            <div class="code-output">
-                                <h4>What happens:</h4>
-                                <div class="browser-preview">
-                                    <p style="color: #666; margin: 10px 0;">1. Creates arrays with different data types</p>
-                                    <p style="color: #666; margin: 10px 0;">2. Accesses elements by index (0-based)</p>
-                                    <p style="color: #666; margin: 10px 0;">3. Gets array length with .length property</p>
-                                    <p style="color: #666; margin: 10px 0;">4. Accesses last element dynamically</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                <div class="code-output">
+                  <h4>What happens:</h4>
+                  <div class="browser-preview">
+                    <p style="color: #666; margin: 10px 0">
+                      1. Creates arrays with different data types
+                    </p>
+                    <p style="color: #666; margin: 10px 0">
+                      2. Accesses elements by index (0-based)
+                    </p>
+                    <p style="color: #666; margin: 10px 0">
+                      3. Gets array length with .length property
+                    </p>
+                    <p style="color: #666; margin: 10px 0">
+                      4. Accesses last element dynamically
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
 
-                    <div class="content-section">
-                        <h2>🔧 Modifying Arrays</h2>
-                        <p>Arrays are dynamic - you can add and remove items easily. The most common methods are <code>.push()</code> to add items and <code>.pop()</code> to remove them.</p>
-                        
-                        <div class="concept-highlight">
-                            <h4>🛠️ Common Array Methods:</h4>
-                            <ul>
-                                <li><strong>push():</strong> Add item to the end of array</li>
-                                <li><strong>pop():</strong> Remove and return last item</li>
-                                <li><strong>unshift():</strong> Add item to the beginning</li>
-                                <li><strong>shift():</strong> Remove and return first item</li>
-                                <li><strong>splice():</strong> Add/remove items at any position</li>
-                            </ul>
-                        </div>
+            <div class="content-section">
+              <h2>🔧 Modifying Arrays</h2>
+              <p>
+                Arrays are dynamic - you can add and remove items easily. The
+                most common methods are <code>.push()</code> to add items and
+                <code>.pop()</code> to remove them.
+              </p>
 
-                        <div class="code-example">
-                            <div class="code-header">
-                                <span>Array Modification Examples</span>
-                                <button class="copy-btn" onclick="copyCode(this)">
-                                    <i class="fas fa-copy"></i>
-                                </button>
-                            </div>
-                            <pre><code>let todoList = ["Learn JavaScript", "Build a project"];
+              <div class="concept-highlight">
+                <h4>🛠️ Common Array Methods:</h4>
+                <ul>
+                  <li><strong>push():</strong> Add item to the end of array</li>
+                  <li><strong>pop():</strong> Remove and return last item</li>
+                  <li><strong>unshift():</strong> Add item to the beginning</li>
+                  <li>
+                    <strong>shift():</strong> Remove and return first item
+                  </li>
+                  <li>
+                    <strong>splice():</strong> Add/remove items at any position
+                  </li>
+                </ul>
+              </div>
+
+              <div class="code-example">
+                <div class="code-header">
+                  <span>Array Modification Examples</span>
+                  <button class="copy-btn" onclick="copyCode(this)">
+                    <i class="fas fa-copy"></i>
+                  </button>
+                </div>
+                <pre><code>let todoList = ["Learn JavaScript", "Build a project"];
 
 // Adding items
 todoList.push("Practice arrays");
@@ -229,36 +306,51 @@ console.log(todoList); // ["Learn JavaScript", "Build a project"]
 // Modifying specific positions
 todoList.splice(1, 0, "Take a break"); // Insert at index 1
 console.log(todoList); // ["Learn JavaScript", "Take a break", "Build a project"]</code></pre>
-                        </div>
+              </div>
 
-                        <div class="tip-box">
-                            <h4>💡 Pro Tip:</h4>
-                            <p>Use <code>.push()</code> and <code>.pop()</code> for stack-like behavior (last in, first out). Use <code>.unshift()</code> and <code>.shift()</code> for queue-like behavior (first in, first out).</p>
-                        </div>
-                    </div>
+              <div class="tip-box">
+                <h4>💡 Pro Tip:</h4>
+                <p>
+                  Use <code>.push()</code> and <code>.pop()</code> for
+                  stack-like behavior (last in, first out). Use
+                  <code>.unshift()</code> and <code>.shift()</code> for
+                  queue-like behavior (first in, first out).
+                </p>
+              </div>
+            </div>
 
-                    <div class="content-section">
-                        <h2>🔄 Understanding Loops</h2>
-                        <p>Loops allow you to repeat code multiple times. When working with arrays, loops let you process every item without writing the same code over and over.</p>
-                        
-                        <div class="concept-highlight">
-                            <h4>🔄 Loop Types:</h4>
-                            <ul>
-                                <li><strong>for loop:</strong> Traditional loop with counter</li>
-                                <li><strong>forEach:</strong> Modern array method for iteration</li>
-                                <li><strong>for...of:</strong> ES6 loop for iterating values</li>
-                                <li><strong>while:</strong> Loop while condition is true</li>
-                            </ul>
-                        </div>
+            <div class="content-section">
+              <h2>🔄 Understanding Loops</h2>
+              <p>
+                Loops allow you to repeat code multiple times. When working with
+                arrays, loops let you process every item without writing the
+                same code over and over.
+              </p>
 
-                        <div class="code-example">
-                            <div class="code-header">
-                                <span>Loop Examples</span>
-                                <button class="copy-btn" onclick="copyCode(this)">
-                                    <i class="fas fa-copy"></i>
-                                </button>
-                            </div>
-                            <pre><code>let fruits = ["apple", "banana", "orange", "grape"];
+              <div class="concept-highlight">
+                <h4>🔄 Loop Types:</h4>
+                <ul>
+                  <li>
+                    <strong>for loop:</strong> Traditional loop with counter
+                  </li>
+                  <li>
+                    <strong>forEach:</strong> Modern array method for iteration
+                  </li>
+                  <li>
+                    <strong>for...of:</strong> ES6 loop for iterating values
+                  </li>
+                  <li><strong>while:</strong> Loop while condition is true</li>
+                </ul>
+              </div>
+
+              <div class="code-example">
+                <div class="code-header">
+                  <span>Loop Examples</span>
+                  <button class="copy-btn" onclick="copyCode(this)">
+                    <i class="fas fa-copy"></i>
+                  </button>
+                </div>
+                <pre><code>let fruits = ["apple", "banana", "orange", "grape"];
 
 // Traditional for loop
 console.log("For loop:");
@@ -290,31 +382,47 @@ for (let i = 0; i < numbers.length; i++) {
     sum += numbers[i];
 }
 console.log("Sum:", sum); // 15</code></pre>
-                        </div>
-                    </div>
+              </div>
+            </div>
 
-                    <div class="content-section">
-                        <h2>🎯 When to Use Each Loop</h2>
-                        <p>Different loops are better for different situations. Understanding when to use each type makes your code more readable and efficient.</p>
-                        
-                        <div class="concept-highlight">
-                            <h4>🎯 Loop Selection Guide:</h4>
-                            <ul>
-                                <li><strong>forEach:</strong> When you need to do something with each item</li>
-                                <li><strong>for loop:</strong> When you need the index or more control</li>
-                                <li><strong>for...of:</strong> When you only need the values (cleaner than forEach)</li>
-                                <li><strong>while:</strong> When you don't know how many iterations you need</li>
-                            </ul>
-                        </div>
+            <div class="content-section">
+              <h2>🎯 When to Use Each Loop</h2>
+              <p>
+                Different loops are better for different situations.
+                Understanding when to use each type makes your code more
+                readable and efficient.
+              </p>
 
-                        <div class="code-example">
-                            <div class="code-header">
-                                <span>Loop Use Cases</span>
-                                <button class="copy-btn" onclick="copyCode(this)">
-                                    <i class="fas fa-copy"></i>
-                                </button>
-                            </div>
-                            <pre><code>let students = ["Ali", "Sarah", "Ahmed", "Fatima"];
+              <div class="concept-highlight">
+                <h4>🎯 Loop Selection Guide:</h4>
+                <ul>
+                  <li>
+                    <strong>forEach:</strong> When you need to do something with
+                    each item
+                  </li>
+                  <li>
+                    <strong>for loop:</strong> When you need the index or more
+                    control
+                  </li>
+                  <li>
+                    <strong>for...of:</strong> When you only need the values
+                    (cleaner than forEach)
+                  </li>
+                  <li>
+                    <strong>while:</strong> When you don't know how many
+                    iterations you need
+                  </li>
+                </ul>
+              </div>
+
+              <div class="code-example">
+                <div class="code-header">
+                  <span>Loop Use Cases</span>
+                  <button class="copy-btn" onclick="copyCode(this)">
+                    <i class="fas fa-copy"></i>
+                  </button>
+                </div>
+                <pre><code>let students = ["Ali", "Sarah", "Ahmed", "Fatima"];
 
 // forEach: Simple iteration
 students.forEach(student => {
@@ -342,32 +450,50 @@ for (let i = 0; i < scores.length; i++) {
 
 let average = total / scores.length;
 console.log("Average score:", average);</code></pre>
-                        </div>
-                    </div>
+              </div>
+            </div>
 
-                    <div class="content-section">
-                        <h2>🛒 Building a Shopping Cart</h2>
-                        <p>Now let's combine everything we've learned to create a practical shopping cart application that demonstrates arrays and loops in action.</p>
-                        
-                        <div class="concept-highlight">
-                            <h4>🛠️ Cart Features:</h4>
-                            <ul>
-                                <li><strong>Add Items:</strong> Use <code>push()</code> to add products</li>
-                                <li><strong>Remove Items:</strong> Use <code>pop()</code> or <code>splice()</code></li>
-                                <li><strong>Display Cart:</strong> Use loops to show all items</li>
-                                <li><strong>Calculate Total:</strong> Loop through items to sum prices</li>
-                                <li><strong>Format Output:</strong> Create user-friendly messages</li>
-                            </ul>
-                        </div>
+            <div class="content-section">
+              <h2>🛒 Building a Shopping Cart</h2>
+              <p>
+                Now let's combine everything we've learned to create a practical
+                shopping cart application that demonstrates arrays and loops in
+                action.
+              </p>
 
-                        <div class="code-example">
-                            <div class="code-header">
-                                <span>Complete Shopping Cart</span>
-                                <button class="copy-btn" onclick="copyCode(this)">
-                                    <i class="fas fa-copy"></i>
-                                </button>
-                            </div>
-                            <pre><code>// Shopping cart simulation
+              <div class="concept-highlight">
+                <h4>🛠️ Cart Features:</h4>
+                <ul>
+                  <li>
+                    <strong>Add Items:</strong> Use <code>push()</code> to add
+                    products
+                  </li>
+                  <li>
+                    <strong>Remove Items:</strong> Use <code>pop()</code> or
+                    <code>splice()</code>
+                  </li>
+                  <li>
+                    <strong>Display Cart:</strong> Use loops to show all items
+                  </li>
+                  <li>
+                    <strong>Calculate Total:</strong> Loop through items to sum
+                    prices
+                  </li>
+                  <li>
+                    <strong>Format Output:</strong> Create user-friendly
+                    messages
+                  </li>
+                </ul>
+              </div>
+
+              <div class="code-example">
+                <div class="code-header">
+                  <span>Complete Shopping Cart</span>
+                  <button class="copy-btn" onclick="copyCode(this)">
+                    <i class="fas fa-copy"></i>
+                  </button>
+                </div>
+                <pre><code>// Shopping cart simulation
 let cart = [];
 let products = [
     { name: "Laptop", price: 999 },
@@ -423,136 +549,174 @@ addToCart(2); // Add keyboard
 displayCart();
 removeFromCart(); // Remove keyboard
 displayCart();</code></pre>
-                        </div>
+              </div>
 
-                        <div class="tip-box">
-                            <h4>💡 Pro Tip:</h4>
-                            <p>When working with arrays of objects, use <code>forEach</code> or <code>for...of</code> for cleaner code. Use traditional <code>for</code> loops when you need the index or more complex control flow.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Sidebar -->
-                <div class="content-sidebar">
-                    <div class="sidebar-section">
-                        <h3>Quick Navigation</h3>
-                        <ul class="sidebar-nav">
-                            <li><a href="#arrays">Arrays Basics</a></li>
-                            <li><a href="#modifying">Modifying Arrays</a></li>
-                            <li><a href="#loops">Understanding Loops</a></li>
-                            <li><a href="#selection">Loop Selection</a></li>
-                            <li><a href="#cart">Shopping Cart</a></li>
-                            <li><a href="#challenges">Challenges</a></li>
-                        </ul>
-                    </div>
-
-                    <div class="sidebar-section">
-                        <h3>Resources</h3>
-                        <ul class="resource-links">
-                            <li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array" target="_blank">
-                                <i class="fas fa-external-link-alt"></i>
-                                MDN Arrays
-                            </a></li>
-                            <li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Loops_and_iteration" target="_blank">
-                                <i class="fas fa-external-link-alt"></i>
-                                MDN Loops
-                            </a></li>
-                            <li><a href="https://www.w3schools.com/js/js_arrays.asp" target="_blank">
-                                <i class="fas fa-external-link-alt"></i>
-                                W3Schools Arrays
-                            </a></li>
-                        </ul>
-                    </div>
-
-                    <div class="sidebar-section">
-                        <h3>Common Mistakes</h3>
-                        <ul class="mistakes-list">
-                            <li>Forgetting that array indexing starts at 0</li>
-                            <li>Using <code>==</code> instead of <code>===</code> in loops</li>
-                            <li>Modifying array while looping through it</li>
-                            <li>Not checking array length before accessing</li>
-                        </ul>
-                    </div>
-                </div>
+              <div class="tip-box">
+                <h4>💡 Pro Tip:</h4>
+                <p>
+                  When working with arrays of objects, use
+                  <code>forEach</code> or <code>for...of</code> for cleaner
+                  code. Use traditional <code>for</code> loops when you need the
+                  index or more complex control flow.
+                </p>
+              </div>
             </div>
+          </div>
+
+          <!-- Sidebar -->
+          <div class="content-sidebar">
+            <div class="sidebar-section">
+              <h3>Quick Navigation</h3>
+              <ul class="sidebar-nav">
+                <li><a href="#arrays">Arrays Basics</a></li>
+                <li><a href="#modifying">Modifying Arrays</a></li>
+                <li><a href="#loops">Understanding Loops</a></li>
+                <li><a href="#selection">Loop Selection</a></li>
+                <li><a href="#cart">Shopping Cart</a></li>
+                <li><a href="#challenges">Challenges</a></li>
+              </ul>
+            </div>
+
+            <div class="sidebar-section">
+              <h3>Resources</h3>
+              <ul class="resource-links">
+                <li>
+                  <a
+                    href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array"
+                    target="_blank"
+                  >
+                    <i class="fas fa-external-link-alt"></i>
+                    MDN Arrays
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Loops_and_iteration"
+                    target="_blank"
+                  >
+                    <i class="fas fa-external-link-alt"></i>
+                    MDN Loops
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="https://www.w3schools.com/js/js_arrays.asp"
+                    target="_blank"
+                  >
+                    <i class="fas fa-external-link-alt"></i>
+                    W3Schools Arrays
+                  </a>
+                </li>
+              </ul>
+            </div>
+
+            <div class="sidebar-section">
+              <h3>Common Mistakes</h3>
+              <ul class="mistakes-list">
+                <li>Forgetting that array indexing starts at 0</li>
+                <li>
+                  Using <code>==</code> instead of <code>===</code> in loops
+                </li>
+                <li>Modifying array while looping through it</li>
+                <li>Not checking array length before accessing</li>
+              </ul>
+            </div>
+          </div>
         </div>
+      </div>
     </section>
 
     <!-- Navigation Footer -->
     <section class="day-navigation">
-        <div class="container">
-            <div class="nav-buttons">
-                <button class="nav-btn" onclick="window.location.href='javascript-conditions.html'">
-                    <i class="fas fa-arrow-left"></i>
-                    Previous: Day 7
-                </button>
-                <button class="nav-btn primary" onclick="window.location.href='final-project.html'">
-                    Next: Final Project
-                    <i class="fas fa-arrow-right"></i>
-                </button>
-            </div>
+      <div class="container">
+        <div class="nav-buttons">
+          <button
+            class="nav-btn"
+            onclick="window.location.href='javascript-conditions.html'"
+          >
+            <i class="fas fa-arrow-left"></i>
+            Previous: Day 7
+          </button>
+          <button
+            class="nav-btn primary"
+            onclick="window.location.href='final-project.html'"
+          >
+            Next: Final Project
+            <i class="fas fa-arrow-right"></i>
+          </button>
         </div>
+      </div>
     </section>
 
     <!-- Challenge Modal -->
     <div id="challengeModal" class="challenge-modal">
-        <div class="challenge-modal-content">
-            <div class="challenge-modal-header">
-                <h2 id="modalChallengeTitle">Challenge Title</h2>
-                <div class="challenge-modal-actions">
-                    <button class="complete-btn" onclick="completeChallenge()">
-                        <i class="fas fa-check"></i>
-                        Complete Challenge
-                    </button>
-                    <button class="close-challenge-modal" onclick="closeChallengeModal()">
-                        <i class="fas fa-times"></i>
-                    </button>
-                </div>
-            </div>
-            <div class="challenge-modal-body">
-                <div id="modalChallengeContent">
-                    <!-- Challenge content will be loaded here -->
-                </div>
-            </div>
+      <div class="challenge-modal-content">
+        <div class="challenge-modal-header">
+          <h2 id="modalChallengeTitle">Challenge Title</h2>
+          <div class="challenge-modal-actions">
+            <button class="complete-btn" onclick="completeChallenge()">
+              <i class="fas fa-check"></i>
+              Complete Challenge
+            </button>
+            <button
+              class="close-challenge-modal"
+              onclick="closeChallengeModal()"
+            >
+              <i class="fas fa-times"></i>
+            </button>
+          </div>
         </div>
+        <div class="challenge-modal-body">
+          <div id="modalChallengeContent">
+            <!-- Challenge content will be loaded here -->
+          </div>
+        </div>
+      </div>
     </div>
 
     <!-- Footer -->
     <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h3>WebDev LMS</h3>
-                    <p>Master web development in 10 days with hands-on challenges and real-world projects.</p>
-                </div>
-                <div class="footer-section">
-                    <h4>Quick Links</h4>
-                    <ul>
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="index.html#curriculum">Curriculum</a></li>
-                        <li><a href="index.html#challenges">Challenges</a></li>
-                        <li><a href="index.html#resources">Resources</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2024 WebDev LMS. All rights reserved.</p>
-            </div>
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-section">
+            <h3>WebDev LMS</h3>
+            <p>
+              Master web development in 10 days with hands-on challenges and
+              real-world projects.
+            </p>
+          </div>
+          <div class="footer-section">
+            <h4>Quick Links</h4>
+            <ul>
+              <li><a href="index.html">Home</a></li>
+              <li><a href="index.html#curriculum">Curriculum</a></li>
+              <li><a href="index.html#challenges">Challenges</a></li>
+              <li><a href="index.html#resources">Resources</a></li>
+            </ul>
+          </div>
         </div>
+        <div class="footer-bottom">
+          <p>&copy; 2024 WebDev LMS. All rights reserved.</p>
+        </div>
+      </div>
     </footer>
 
     <script src="script.js"></script>
     <script>
-        // Simple Monaco Editor initialization
-        require.config({ paths: { vs: 'https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.44.0/min/vs' } });
-        require(['vs/editor/editor.main'], function() {
-            console.log('Monaco Editor loaded successfully for Day 8');
-        });
-        
-        // Simple challenge function - works immediately
-        function openChallenge(challengeNumber) {
-            openChallengeModal(challengeNumber);
-        }
+      // Simple Monaco Editor initialization
+      require.config({
+        paths: {
+          vs: "https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.44.0/min/vs",
+        },
+      });
+      require(["vs/editor/editor.main"], function () {
+        console.log("Monaco Editor loaded successfully for Day 8");
+      });
+
+      // Simple challenge function - works immediately
+      function openChallenge(challengeNumber) {
+        openChallengeModal(challengeNumber);
+      }
     </script>
-</body>
-</html> 
+  </body>
+</html>

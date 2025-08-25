@@ -4,71 +4,118 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>WebDev LMS - 10-Day Learning Journey</title>
-    <link rel="stylesheet" href="styles.css?v=2">
+    <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.44.0/min/vs/loader.min.js"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#01d29b',
+                        secondary: '#121212',
+                        accent: '#00b894',
+                        dark: '#1e1e1e',
+                        'dark-light': '#2a2a2a'
+                    }
+                }
+            }
+        }
+    </script>
 </head>
 <body>
     <!-- Navigation -->
-    <nav class="navbar">
-        <div class="nav-container">
-            <div class="nav-logo" onclick="window.location.href='index.html'">
-                <i class="fas fa-code"></i>
-                <span>WebDev LMS</span>
+    <nav class="fixed top-0 left-0 w-full bg-black/90 backdrop-blur-xl border-b border-primary/20 z-50 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex items-center justify-between h-20">
+                <div class="flex items-center space-x-3 cursor-pointer group" onclick="window.location.href='index.html'">
+                    <div class="w-10 h-10 bg-gradient-to-br from-primary to-accent rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                        <i class="fas fa-code text-white text-xl"></i>
+                    </div>
+                    <span class="text-2xl font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">WebDev LMS</span>
+                </div>
+                
+                <ul class="hidden md:flex items-center space-x-8">
+                    <li><a href="#home" class="nav-link text-white hover:text-primary transition-colors duration-300 font-medium" data-page="home">Home</a></li>
+                    <li><a href="#curriculum" class="nav-link text-white hover:text-primary transition-colors duration-300 font-medium" data-page="curriculum">Curriculum</a></li>
+                    <li><a href="#gaming" class="nav-link text-white hover:text-primary transition-colors duration-300 font-medium" data-page="gaming">Games</a></li>
+                    <li><a href="#resources" class="nav-link text-white hover:text-primary transition-colors duration-300 font-medium" data-page="resources">Resources</a></li>
+                </ul>
+                
+                <div class="md:hidden cursor-pointer" id="mobile-menu-btn">
+                    <div class="w-6 h-0.5 bg-white mb-1.5 transition-all duration-300"></div>
+                    <div class="w-6 h-0.5 bg-white mb-1.5 transition-all duration-300"></div>
+                    <div class="w-6 h-0.5 bg-white transition-all duration-300"></div>
+                </div>
             </div>
-            
-            <ul class="nav-menu">
-                <li><a href="#home" class="nav-link active" data-page="home">Home</a></li>
-                <li><a href="#curriculum" class="nav-link" data-page="curriculum">Curriculum</a></li>
-                <li><a href="#gaming" class="nav-link" data-page="gaming">Games</a></li>
-                <li><a href="#resources" class="nav-link" data-page="resources">Resources</a></li>
-            </ul>
-            
-            <div class="hamburger">
-                <span></span>
-                <span></span>
-                <span></span>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div class="md:hidden hidden bg-black/95 backdrop-blur-xl border-t border-primary/20" id="mobile-menu">
+            <div class="px-6 py-4 space-y-4">
+                <a href="#home" class="block text-white hover:text-primary transition-colors duration-300 font-medium">Home</a>
+                <a href="#curriculum" class="block text-white hover:text-primary transition-colors duration-300 font-medium">Curriculum</a>
+                <a href="#gaming" class="block text-white hover:text-primary transition-colors duration-300 font-medium">Games</a>
+                <a href="#resources" class="block text-white hover:text-primary transition-colors duration-300 font-medium">Resources</a>
             </div>
         </div>
     </nav>
 
     <!-- Hero Section -->
-    <section id="home" class="hero">
-        <div class="hero-container">
-            <div class="hero-content">
-                <h1 class="hero-title">Master Web Development in 9 Days</h1>
-                <p class="hero-subtitle">Learn HTML, CSS, and JavaScript with hands-on challenges and real-world projects</p>
-                <div class="hero-stats">
-                    <div class="stat">
-                        <span class="stat-number">9</span>
-                        <span class="stat-label">Days</span>
+    <section id="home" class="pt-32 pb-20 bg-gradient-to-br from-secondary via-dark to-black relative overflow-hidden">
+        <!-- Background Pattern -->
+        <div class="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="none" fill-rule="evenodd"%3E%3Cg fill="%2301d29b" fill-opacity="0.03"%3E%3Ccircle cx="30" cy="30" r="2"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')] opacity-50"></div>
+        
+        <div class="max-w-7xl mx-auto px-6 relative z-10">
+            <div class="grid lg:grid-cols-2 gap-16 items-center">
+                <div class="space-y-8">
+                    <div class="space-y-6">
+                        <h1 class="text-5xl lg:text-7xl font-bold leading-tight">
+                            <span class="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
+                                Master Web Development
+                            </span>
+                            <br>
+                            <span class="text-white">in 9 Days</span>
+                        </h1>
+                        <p class="text-xl lg:text-2xl text-gray-300 leading-relaxed max-w-2xl">
+                            Learn HTML, CSS, and JavaScript with hands-on challenges and real-world projects
+                        </p>
                     </div>
-                    <div class="stat">
-                        <span class="stat-number">30+</span>
-                        <span class="stat-label">Challenges</span>
-                    </div>
-                    <div class="stat">
-                        <span class="stat-number">100%</span>
-                        <span class="stat-label">Hands-on</span>
-                    </div>
-                </div>
-                <button class="cta-button" onclick="scrollToSection('curriculum')">
-                    Start Learning <i class="fas fa-arrow-right"></i>
-                </button>
-            </div>
-            <div class="hero-visual">
-                <div class="code-window">
-                    <div class="window-header">
-                        <div class="window-dots">
-                            <span></span>
-                            <span></span>
-                            <span></span>
+                    
+                    <div class="grid grid-cols-3 gap-8">
+                        <div class="text-center">
+                            <div class="text-4xl font-bold text-primary mb-2">9</div>
+                            <div class="text-gray-400 font-medium">Days</div>
                         </div>
-                        <span class="window-title">index.html</span>
+                        <div class="text-center">
+                            <div class="text-4xl font-bold text-primary mb-2">30+</div>
+                            <div class="text-gray-400 font-medium">Challenges</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-4xl font-bold text-primary mb-2">100%</div>
+                            <div class="text-gray-400 font-medium">Hands-on</div>
+                        </div>
                     </div>
-                    <div class="code-content">
-                        <pre><code>&lt;!DOCTYPE html&gt;
+                    
+                    <button class="group bg-gradient-to-r from-primary to-accent text-white px-8 py-4 rounded-2xl font-semibold text-lg hover:shadow-2xl hover:shadow-primary/25 transition-all duration-300 transform hover:-translate-y-1" onclick="scrollToSection('curriculum')">
+                        Start Learning 
+                        <i class="fas fa-arrow-right ml-3 group-hover:translate-x-2 transition-transform duration-300"></i>
+                    </button>
+                </div>
+                
+                <div class="relative">
+                    <div class="bg-dark-light/50 backdrop-blur-xl rounded-3xl border border-primary/20 p-6 shadow-2xl shadow-primary/10">
+                        <div class="flex items-center space-x-3 mb-4">
+                            <div class="flex space-x-2">
+                                <div class="w-3 h-3 bg-red-500 rounded-full"></div>
+                                <div class="w-3 h-3 bg-yellow-500 rounded-full"></div>
+                                <div class="w-3 h-3 bg-green-500 rounded-full"></div>
+                            </div>
+                            <span class="text-gray-400 text-sm font-mono">index.html</span>
+                        </div>
+                        <div class="bg-black rounded-xl p-6">
+                            <pre class="text-green-400 font-mono text-sm leading-relaxed"><code>&lt;!DOCTYPE html&gt;
 &lt;html&gt;
 &lt;head&gt;
     &lt;title&gt;My Website&lt;/title&gt;
@@ -78,300 +125,309 @@
     &lt;p&gt;Welcome to web development&lt;/p&gt;
 &lt;/body&gt;
 &lt;/html&gt;</code></pre>
+                        </div>
                     </div>
+                    
+                    <!-- Floating Elements -->
+                    <div class="absolute -top-4 -right-4 w-20 h-20 bg-gradient-to-br from-primary/20 to-accent/20 rounded-full blur-xl"></div>
+                    <div class="absolute -bottom-4 -left-4 w-32 h-32 bg-gradient-to-br from-accent/20 to-primary/20 rounded-full blur-xl"></div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Curriculum Section -->
-    <section id="curriculum" class="curriculum">
-        <div class="container">
-            <h2 class="section-title">10-Day Learning Path</h2>
-            <div class="curriculum-grid">
-                <div class="day-card" data-day="1" onclick="window.location.href='html-fundamentals.html'">
-                    <div class="card-gradient"></div>
-                    <div class="card-content">
-                        <div class="card-header">
-                            <div class="day-badge">
-                                <span class="day-number">01</span>
+    <section id="curriculum" class="py-20 bg-dark relative overflow-hidden">
+        <!-- Background Pattern -->
+        <div class="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg width="40" height="40" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="%2301d29b" fill-opacity="0.02"%3E%3Cpath d="M20 20c0 11.046-8.954 20-20 20s-20-8.954-20-20 8.954-20 20-20 20 8.954 20 20z"/%3E%3C/g%3E%3C/svg%3E')] opacity-30"></div>
+        
+        <div class="max-w-7xl mx-auto px-6 relative z-10">
+            <div class="text-center mb-16">
+                <h2 class="text-5xl lg:text-6xl font-bold mb-6">
+                    <span class="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
+                        10-Day Learning Path
+                    </span>
+                </h2>
+                <p class="text-xl text-gray-300 max-w-3xl mx-auto">
+                    A structured journey from HTML basics to building complete web applications
+                </p>
+            </div>
+            
+            <div class="grid lg:grid-cols-2 xl:grid-cols-3 gap-8">
+                <div class="group cursor-pointer transform hover:-translate-y-2 transition-all duration-500" data-day="1" onclick="window.location.href='html-fundamentals.html'">
+                    <div class="bg-gradient-to-br from-dark-light/50 to-dark/50 backdrop-blur-xl rounded-3xl border border-primary/20 p-8 h-full hover:border-primary/40 hover:shadow-2xl hover:shadow-primary/20 transition-all duration-500">
+                        <div class="flex items-start justify-between mb-6">
+                            <div class="bg-gradient-to-br from-primary to-accent text-white px-4 py-2 rounded-2xl font-bold text-lg">
+                                01
                             </div>
-                            <div class="card-status">
-                                <i class="fas fa-lock"></i>
-                            </div>
-                        </div>
-                        <div class="card-body">
-                            <h3>HTML Fundamentals</h3>
-                            <p>Master the building blocks of web development with HTML structure, elements, and semantic markup</p>
-                            <div class="card-tags">
-                                <span class="tag">Structure</span>
-                                <span class="tag">Elements</span>
-                                <span class="tag">Semantic</span>
-                            </div>
-                        </div>
-                        <div class="card-footer">
-                            <div class="challenge-info">
-                                <i class="fas fa-code"></i>
-                                <span>3 Challenges</span>
-                            </div>
-                            <div class="card-arrow">
-                                <i class="fas fa-arrow-right"></i>
+                            <div class="w-10 h-10 bg-gray-700/50 rounded-xl flex items-center justify-center group-hover:bg-primary/20 transition-colors duration-300">
+                                <i class="fas fa-lock text-gray-400 group-hover:text-primary transition-colors duration-300"></i>
                             </div>
                         </div>
-                    </div>
-                </div>
-
-                <div class="day-card" data-day="2" onclick="window.location.href='html-forms.html'">
-                    <div class="card-gradient"></div>
-                    <div class="card-content">
-                        <div class="card-header">
-                            <div class="day-badge">
-                                <span class="day-number">02</span>
-                            </div>
-                            <div class="card-status">
-                                <i class="fas fa-lock"></i>
+                        <div class="space-y-4">
+                            <h3 class="text-2xl font-bold text-white group-hover:text-primary transition-colors duration-300">HTML Fundamentals</h3>
+                            <p class="text-gray-300 leading-relaxed">Master the building blocks of web development with HTML structure, elements, and semantic markup</p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm font-medium border border-primary/20">Structure</span>
+                                <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm font-medium border border-primary/20">Elements</span>
+                                <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm font-medium border border-primary/20">Semantic</span>
                             </div>
                         </div>
-                        <div class="card-body">
-                            <h3>HTML Forms & Media</h3>
-                            <p>Create interactive forms and integrate rich media content into your web pages</p>
-                            <div class="card-tags">
-                                <span class="tag">Forms</span>
-                                <span class="tag">Inputs</span>
-                                <span class="tag">Media</span>
+                        <div class="flex items-center justify-between mt-6 pt-6 border-t border-gray-700/50">
+                            <div class="flex items-center space-x-2 text-gray-400">
+                                <i class="fas fa-code text-primary"></i>
+                                <span class="text-sm font-medium">3 Challenges</span>
                             </div>
-                        </div>
-                        <div class="card-footer">
-                            <div class="challenge-info">
-                                <i class="fas fa-code"></i>
-                                <span>4 Challenges</span>
-                            </div>
-                            <div class="card-arrow">
-                                <i class="fas fa-arrow-right"></i>
+                            <div class="w-8 h-8 bg-gray-700/50 rounded-lg flex items-center justify-center group-hover:bg-primary/20 group-hover:scale-110 transition-all duration-300">
+                                <i class="fas fa-arrow-right text-gray-400 group-hover:text-primary transition-colors duration-300"></i>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <div class="day-card" data-day="3" onclick="window.location.href='css-basics.html'">
-                    <div class="card-gradient"></div>
-                    <div class="card-content">
-                        <div class="card-header">
-                            <div class="day-badge">
-                                <span class="day-number">03</span>
+                <div class="group cursor-pointer transform hover:-translate-y-2 transition-all duration-500" data-day="2" onclick="window.location.href='html-forms.html'">
+                    <div class="bg-gradient-to-br from-dark-light/50 to-dark/50 backdrop-blur-xl rounded-3xl border border-primary/20 p-8 h-full hover:border-primary/40 hover:shadow-2xl hover:shadow-primary/20 transition-all duration-500">
+                        <div class="flex items-start justify-between mb-6">
+                            <div class="bg-gradient-to-br from-primary to-accent text-white px-4 py-2 rounded-2xl font-bold text-lg">
+                                02
                             </div>
-                            <div class="card-status">
-                                <i class="fas fa-lock"></i>
-                            </div>
-                        </div>
-                        <div class="card-body">
-                            <h3>CSS Basics</h3>
-                            <p>Transform your HTML with beautiful styling using CSS selectors, properties, and values</p>
-                            <div class="card-tags">
-                                <span class="tag">Selectors</span>
-                                <span class="tag">Properties</span>
-                                <span class="tag">Typography</span>
+                            <div class="w-10 h-10 bg-gray-700/50 rounded-xl flex items-center justify-center group-hover:bg-primary/20 transition-colors duration-300">
+                                <i class="fas fa-lock text-gray-400 group-hover:text-primary transition-colors duration-300"></i>
                             </div>
                         </div>
-                        <div class="card-footer">
-                            <div class="challenge-info">
-                                <i class="fas fa-code"></i>
-                                <span>5 Challenges</span>
-                            </div>
-                            <div class="card-arrow">
-                                <i class="fas fa-arrow-right"></i>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="day-card" data-day="4" onclick="window.location.href='css-layout.html'">
-                    <div class="card-gradient"></div>
-                    <div class="card-content">
-                        <div class="card-header">
-                            <div class="day-badge">
-                                <span class="day-number">04</span>
-                            </div>
-                            <div class="card-status">
-                                <i class="fas fa-lock"></i>
+                        <div class="space-y-4">
+                            <h3 class="text-2xl font-bold text-white group-hover:text-primary transition-colors duration-300">HTML Forms & Media</h3>
+                            <p class="text-gray-300 leading-relaxed">Create interactive forms and integrate rich media content into your web pages</p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm font-medium border border-primary/20">Forms</span>
+                                <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm font-medium border border-primary/20">Inputs</span>
+                                <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm font-medium border border-primary/20">Media</span>
                             </div>
                         </div>
-                        <div class="card-body">
-                            <h3>CSS Layout</h3>
-                            <p>Master modern layout techniques with Flexbox and CSS Grid for responsive designs</p>
-                            <div class="card-tags">
-                                <span class="tag">Flexbox</span>
-                                <span class="tag">Grid</span>
-                                <span class="tag">Responsive</span>
+                        <div class="flex items-center justify-between mt-6 pt-6 border-t border-gray-700/50">
+                            <div class="flex items-center space-x-2 text-gray-400">
+                                <i class="fas fa-code text-primary"></i>
+                                <span class="text-sm font-medium">4 Challenges</span>
                             </div>
-                        </div>
-                        <div class="card-footer">
-                            <div class="challenge-info">
-                                <i class="fas fa-code"></i>
-                                <span>6 Challenges</span>
-                            </div>
-                            <div class="card-arrow">
-                                <i class="fas fa-arrow-right"></i>
+                            <div class="w-8 h-8 bg-gray-700/50 rounded-lg flex items-center justify-center group-hover:bg-primary/20 group-hover:scale-110 transition-all duration-300">
+                                <i class="fas fa-arrow-right text-gray-400 group-hover:text-primary transition-colors duration-300"></i>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <div class="day-card" data-day="5" onclick="window.location.href='css-advanced.html'">
-                    <div class="card-gradient"></div>
-                    <div class="card-content">
-                        <div class="card-header">
-                            <div class="day-badge">
-                                <span class="day-number">05</span>
+                <div class="group cursor-pointer transform hover:-translate-y-2 transition-all duration-500" data-day="3" onclick="window.location.href='css-basics.html'">
+                    <div class="bg-gradient-to-br from-dark-light/50 to-dark/50 backdrop-blur-xl rounded-3xl border border-primary/20 p-8 h-full hover:border-primary/40 hover:shadow-2xl hover:shadow-primary/20 transition-all duration-500">
+                        <div class="flex items-start justify-between mb-6">
+                            <div class="bg-gradient-to-br from-primary to-accent text-white px-4 py-2 rounded-2xl font-bold text-lg">
+                                03
                             </div>
-                            <div class="card-status">
-                                <i class="fas fa-lock"></i>
-                            </div>
-                        </div>
-                        <div class="card-body">
-                            <h3>Box Model & Styling</h3>
-                            <p>Master the CSS box model, background styling, hover effects, and responsive design fundamentals</p>
-                            <div class="card-tags">
-                                <span class="tag">Box Model</span>
-                                <span class="tag">Backgrounds</span>
-                                <span class="tag">Hover Effects</span>
+                            <div class="w-10 h-10 bg-gray-700/50 rounded-xl flex items-center justify-center group-hover:bg-primary/20 transition-colors duration-300">
+                                <i class="fas fa-lock text-gray-400 group-hover:text-primary transition-colors duration-300"></i>
                             </div>
                         </div>
-                        <div class="card-footer">
-                            <div class="challenge-info">
-                                <i class="fas fa-code"></i>
-                                <span>4 Challenges</span>
-                            </div>
-                            <div class="card-arrow">
-                                <i class="fas fa-arrow-right"></i>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="day-card" data-day="6" onclick="window.location.href='javascript-basics.html'">
-                    <div class="card-gradient"></div>
-                    <div class="card-content">
-                        <div class="card-header">
-                            <div class="day-badge">
-                                <span class="day-number">06</span>
-                            </div>
-                            <div class="card-status">
-                                <i class="fas fa-lock"></i>
+                        <div class="space-y-4">
+                            <h3 class="text-2xl font-bold text-white group-hover:text-primary transition-colors duration-300">CSS Basics</h3>
+                            <p class="text-gray-300 leading-relaxed">Transform your HTML with beautiful styling using CSS selectors, properties, and values</p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm font-medium border border-primary/20">Selectors</span>
+                                <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm font-medium border border-primary/20">Properties</span>
+                                <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm font-medium border border-primary/20">Typography</span>
                             </div>
                         </div>
-                        <div class="card-body">
-                            <h3>JavaScript Basics</h3>
-                            <p>Learn JavaScript fundamentals: variables, data types, math operations, and output methods</p>
-                            <div class="card-tags">
-                                <span class="tag">Variables</span>
-                                <span class="tag">Data Types</span>
-                                <span class="tag">Math</span>
+                        <div class="flex items-center justify-between mt-6 pt-6 border-t border-gray-700/50">
+                            <div class="flex items-center space-x-2 text-gray-400">
+                                <i class="fas fa-code text-primary"></i>
+                                <span class="text-sm font-medium">5 Challenges</span>
                             </div>
-                        </div>
-                        <div class="card-footer">
-                            <div class="challenge-info">
-                                <i class="fas fa-code"></i>
-                                <span>3 Challenges</span>
-                            </div>
-                            <div class="card-arrow">
-                                <i class="fas fa-arrow-right"></i>
+                            <div class="w-8 h-8 bg-gray-700/50 rounded-lg flex items-center justify-center group-hover:bg-primary/20 group-hover:scale-110 transition-all duration-300">
+                                <i class="fas fa-arrow-right text-gray-400 group-hover:text-primary transition-colors duration-300"></i>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <div class="day-card" data-day="7" onclick="window.location.href='javascript-conditions.html'">
-                    <div class="card-gradient"></div>
-                    <div class="card-content">
-                        <div class="card-header">
-                            <div class="day-badge">
-                                <span class="day-number">07</span>
+                <div class="group cursor-pointer transform hover:-translate-y-2 transition-all duration-500" data-day="4" onclick="window.location.href='css-layout.html'">
+                    <div class="bg-gradient-to-br from-dark-light/50 to-dark/50 backdrop-blur-xl rounded-3xl border border-primary/20 p-8 h-full hover:border-primary/40 hover:shadow-2xl hover:shadow-primary/20 transition-all duration-500">
+                        <div class="flex items-start justify-between mb-6">
+                            <div class="bg-gradient-to-br from-primary to-accent text-white px-4 py-2 rounded-2xl font-bold text-lg">
+                                04
                             </div>
-                            <div class="card-status">
-                                <i class="fas fa-lock"></i>
-                            </div>
-                        </div>
-                        <div class="card-body">
-                            <h3>Conditions, Logic & Functions</h3>
-                            <p>Master conditional statements, logical operators, and function creation for dynamic applications</p>
-                            <div class="card-tags">
-                                <span class="tag">Conditions</span>
-                                <span class="tag">Logic</span>
-                                <span class="tag">Functions</span>
+                            <div class="w-10 h-10 bg-gray-700/50 rounded-xl flex items-center justify-center group-hover:bg-primary/20 transition-colors duration-300">
+                                <i class="fas fa-lock text-gray-400 group-hover:text-primary transition-colors duration-300"></i>
                             </div>
                         </div>
-                        <div class="card-footer">
-                            <div class="challenge-info">
-                                <i class="fas fa-code"></i>
-                                <span>3 Challenges</span>
-                            </div>
-                            <div class="card-arrow">
-                                <i class="fas fa-arrow-right"></i>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="day-card" data-day="8" onclick="window.location.href='javascript-arrays.html'">
-                    <div class="card-gradient"></div>
-                    <div class="card-content">
-                        <div class="card-header">
-                            <div class="day-badge">
-                                <span class="day-number">08</span>
-                            </div>
-                            <div class="card-status">
-                                <i class="fas fa-lock"></i>
+                        <div class="space-y-4">
+                            <h3 class="text-2xl font-bold text-white group-hover:text-primary transition-colors duration-300">CSS Layout</h3>
+                            <p class="text-gray-300 leading-relaxed">Master modern layout techniques with Flexbox and CSS Grid for responsive designs</p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm font-medium border border-primary/20">Flexbox</span>
+                                <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm font-medium border border-primary/20">Grid</span>
+                                <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm font-medium border border-primary/20">Responsive</span>
                             </div>
                         </div>
-                        <div class="card-body">
-                            <h3>Arrays & Loops</h3>
-                            <p>Master data collections and iteration to process multiple items efficiently</p>
-                            <div class="card-tags">
-                                <span class="tag">Arrays</span>
-                                <span class="tag">Loops</span>
-                                <span class="tag">Iteration</span>
+                        <div class="flex items-center justify-between mt-6 pt-6 border-t border-gray-700/50">
+                            <div class="flex items-center space-x-2 text-gray-400">
+                                <i class="fas fa-code text-primary"></i>
+                                <span class="text-sm font-medium">6 Challenges</span>
                             </div>
-                        </div>
-                        <div class="card-footer">
-                            <div class="challenge-info">
-                                <i class="fas fa-code"></i>
-                                <span>3 Challenges</span>
-                            </div>
-                            <div class="card-arrow">
-                                <i class="fas fa-arrow-right"></i>
+                            <div class="w-8 h-8 bg-gray-700/50 rounded-lg flex items-center justify-center group-hover:bg-primary/20 group-hover:scale-110 transition-all duration-300">
+                                <i class="fas fa-arrow-right text-gray-400 group-hover:text-primary transition-colors duration-300"></i>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <div class="day-card" data-day="final" onclick="window.location.href='final-project.html'">
-                    <div class="card-gradient"></div>
-                    <div class="card-content">
-                        <div class="card-header">
-                            <div class="day-badge">
-                                <span class="day-number">Final</span>
+                <div class="group cursor-pointer transform hover:-translate-y-2 transition-all duration-500" data-day="5" onclick="window.location.href='css-advanced.html'">
+                    <div class="bg-gradient-to-br from-dark-light/50 to-dark/50 backdrop-blur-xl rounded-3xl border border-primary/20 p-8 h-full hover:border-primary/40 hover:shadow-2xl hover:shadow-primary/20 transition-all duration-500">
+                        <div class="flex items-start justify-between mb-6">
+                            <div class="bg-gradient-to-br from-primary to-accent text-white px-4 py-2 rounded-2xl font-bold text-lg">
+                                05
                             </div>
-                            <div class="card-status">
-                                <i class="fas fa-lock"></i>
-                            </div>
-                        </div>
-                        <div class="card-body">
-                            <h3>Final Project</h3>
-                            <p>Apply all your skills to build a complete, production-ready web application</p>
-                            <div class="card-tags">
-                                <span class="tag">Project</span>
-                                <span class="tag">Complete</span>
-                                <span class="tag">Deploy</span>
+                            <div class="w-10 h-10 bg-gray-700/50 rounded-xl flex items-center justify-center group-hover:bg-primary/20 transition-colors duration-300">
+                                <i class="fas fa-lock text-gray-400 group-hover:text-primary transition-colors duration-300"></i>
                             </div>
                         </div>
-                        <div class="card-footer">
-                            <div class="challenge-info">
-                                <i class="fas fa-rocket"></i>
-                                <span>1 Project</span>
+                        <div class="space-y-4">
+                            <h3 class="text-2xl font-bold text-white group-hover:text-primary transition-colors duration-300">Box Model & Styling</h3>
+                            <p class="text-gray-300 leading-relaxed">Master the CSS box model, background styling, hover effects, and responsive design fundamentals</p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm font-medium border border-primary/20">Box Model</span>
+                                <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm font-medium border border-primary/20">Backgrounds</span>
+                                <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm font-medium border border-primary/20">Hover Effects</span>
                             </div>
-                            <div class="card-arrow">
-                                <i class="fas fa-arrow-right"></i>
+                        </div>
+                        <div class="flex items-center justify-between mt-6 pt-6 border-t border-gray-700/50">
+                            <div class="flex items-center space-x-2 text-gray-400">
+                                <i class="fas fa-code text-primary"></i>
+                                <span class="text-sm font-medium">4 Challenges</span>
+                            </div>
+                            <div class="w-8 h-8 bg-gray-700/50 rounded-lg flex items-center justify-center group-hover:bg-primary/20 group-hover:scale-110 transition-all duration-300">
+                                <i class="fas fa-arrow-right text-gray-400 group-hover:text-primary transition-colors duration-300"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="group cursor-pointer transform hover:-translate-y-2 transition-all duration-500" data-day="6" onclick="window.location.href='javascript-basics.html'">
+                    <div class="bg-gradient-to-br from-dark-light/50 to-dark/50 backdrop-blur-xl rounded-3xl border border-primary/20 p-8 h-full hover:border-primary/40 hover:shadow-2xl hover:shadow-primary/20 transition-all duration-500">
+                        <div class="flex items-start justify-between mb-6">
+                            <div class="bg-gradient-to-br from-primary to-accent text-white px-4 py-2 rounded-2xl font-bold text-lg">
+                                06
+                            </div>
+                            <div class="w-10 h-10 bg-gray-700/50 rounded-xl flex items-center justify-center group-hover:bg-primary/20 transition-colors duration-300">
+                                <i class="fas fa-lock text-gray-400 group-hover:text-primary transition-colors duration-300"></i>
+                            </div>
+                        </div>
+                        <div class="space-y-4">
+                            <h3 class="text-2xl font-bold text-white group-hover:text-primary transition-colors duration-300">JavaScript Basics</h3>
+                            <p class="text-gray-300 leading-relaxed">Learn JavaScript fundamentals: variables, data types, math operations, and output methods</p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm font-medium border border-primary/20">Variables</span>
+                                <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm font-medium border border-primary/20">Data Types</span>
+                                <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm font-medium border border-primary/20">Math</span>
+                            </div>
+                        </div>
+                        <div class="flex items-center justify-between mt-6 pt-6 border-t border-gray-700/50">
+                            <div class="flex items-center space-x-2 text-gray-400">
+                                <i class="fas fa-code text-primary"></i>
+                                <span class="text-sm font-medium">3 Challenges</span>
+                            </div>
+                            <div class="w-8 h-8 bg-gray-700/50 rounded-lg flex items-center justify-center group-hover:bg-primary/20 group-hover:scale-110 transition-all duration-300">
+                                <i class="fas fa-arrow-right text-gray-400 group-hover:text-primary transition-colors duration-300"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="group cursor-pointer transform hover:-translate-y-2 transition-all duration-500" data-day="7" onclick="window.location.href='javascript-conditions.html'">
+                    <div class="bg-gradient-to-br from-dark-light/50 to-dark/50 backdrop-blur-xl rounded-3xl border border-primary/20 p-8 h-full hover:border-primary/40 hover:shadow-2xl hover:shadow-primary/20 transition-all duration-500">
+                        <div class="flex items-start justify-between mb-6">
+                            <div class="bg-gradient-to-br from-primary to-accent text-white px-4 py-2 rounded-2xl font-bold text-lg">
+                                07
+                            </div>
+                            <div class="w-10 h-10 bg-gray-700/50 rounded-xl flex items-center justify-center group-hover:bg-primary/20 transition-colors duration-300">
+                                <i class="fas fa-lock text-gray-400 group-hover:text-primary transition-colors duration-300"></i>
+                            </div>
+                        </div>
+                        <div class="space-y-4">
+                            <h3 class="text-2xl font-bold text-white group-hover:text-primary transition-colors duration-300">Conditions, Logic & Functions</h3>
+                            <p class="text-gray-300 leading-relaxed">Master conditional statements, logical operators, and function creation for dynamic applications</p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm font-medium border border-primary/20">Conditions</span>
+                                <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm font-medium border border-primary/20">Logic</span>
+                                <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm font-medium border border-primary/20">Functions</span>
+                            </div>
+                        </div>
+                        <div class="flex items-center justify-between mt-6 pt-6 border-t border-gray-700/50">
+                            <div class="flex items-center space-x-2 text-gray-400">
+                                <i class="fas fa-code text-primary"></i>
+                                <span class="text-sm font-medium">3 Challenges</span>
+                            </div>
+                            <div class="w-8 h-8 bg-gray-700/50 rounded-lg flex items-center justify-center group-hover:bg-primary/20 group-hover:scale-110 transition-all duration-300">
+                                <i class="fas fa-arrow-right text-gray-400 group-hover:text-primary transition-colors duration-300"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="group cursor-pointer transform hover:-translate-y-2 transition-all duration-500" data-day="8" onclick="window.location.href='javascript-arrays.html'">
+                    <div class="bg-gradient-to-br from-dark-light/50 to-dark/50 backdrop-blur-xl rounded-3xl border border-primary/20 p-8 h-full hover:border-primary/40 hover:shadow-2xl hover:shadow-primary/20 transition-all duration-500">
+                        <div class="flex items-start justify-between mb-6">
+                            <div class="bg-gradient-to-br from-primary to-accent text-white px-4 py-2 rounded-2xl font-bold text-lg">
+                                08
+                            </div>
+                            <div class="w-10 h-10 bg-gray-700/50 rounded-xl flex items-center justify-center group-hover:bg-primary/20 transition-colors duration-300">
+                                <i class="fas fa-lock text-gray-400 group-hover:text-primary transition-colors duration-300"></i>
+                            </div>
+                        </div>
+                        <div class="space-y-4">
+                            <h3 class="text-2xl font-bold text-white group-hover:text-primary transition-colors duration-300">Arrays & Loops</h3>
+                            <p class="text-gray-300 leading-relaxed">Master data collections and iteration to process multiple items efficiently</p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm font-medium border border-primary/20">Arrays</span>
+                                <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm font-medium border border-primary/20">Loops</span>
+                                <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm font-medium border border-primary/20">Iteration</span>
+                            </div>
+                        </div>
+                        <div class="flex items-center justify-between mt-6 pt-6 border-t border-gray-700/50">
+                            <div class="flex items-center space-x-2 text-gray-400">
+                                <i class="fas fa-code text-primary"></i>
+                                <span class="text-sm font-medium">3 Challenges</span>
+                            </div>
+                            <div class="w-8 h-8 bg-gray-700/50 rounded-lg flex items-center justify-center group-hover:bg-primary/20 group-hover:scale-110 transition-all duration-300">
+                                <i class="fas fa-arrow-right text-gray-400 group-hover:text-primary transition-colors duration-300"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="group cursor-pointer transform hover:-translate-y-2 transition-all duration-500" data-day="final" onclick="window.location.href='final-project.html'">
+                    <div class="bg-gradient-to-br from-dark-light/50 to-dark/50 backdrop-blur-xl rounded-3xl border border-primary/20 p-8 h-full hover:border-primary/40 hover:shadow-2xl hover:shadow-primary/20 transition-all duration-500">
+                        <div class="flex items-start justify-between mb-6">
+                            <div class="bg-gradient-to-br from-primary to-accent text-white px-4 py-2 rounded-2xl font-bold text-lg">
+                                Final
+                            </div>
+                            <div class="w-10 h-10 bg-gray-700/50 rounded-xl flex items-center justify-center group-hover:bg-primary/20 transition-colors duration-300">
+                                <i class="fas fa-lock text-gray-400 group-hover:text-primary transition-colors duration-300"></i>
+                            </div>
+                        </div>
+                        <div class="space-y-4">
+                            <h3 class="text-2xl font-bold text-white group-hover:text-primary transition-colors duration-300">Final Project</h3>
+                            <p class="text-gray-300 leading-relaxed">Apply all your skills to build a complete, production-ready web application</p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm font-medium border border-primary/20">Project</span>
+                                <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm font-medium border border-primary/20">Complete</span>
+                                <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm font-medium border border-primary/20">Deploy</span>
+                            </div>
+                        </div>
+                        <div class="flex items-center justify-between mt-6 pt-6 border-t border-gray-700/50">
+                            <div class="flex items-center space-x-2 text-gray-400">
+                                <i class="fas fa-rocket text-primary"></i>
+                                <span class="text-sm font-medium">1 Project</span>
+                            </div>
+                            <div class="w-8 h-8 bg-gray-700/50 rounded-lg flex items-center justify-center group-hover:bg-primary/20 group-hover:scale-110 transition-all duration-300">
+                                <i class="fas fa-arrow-right text-gray-400 group-hover:text-primary transition-colors duration-300"></i>
                             </div>
                         </div>
                     </div>
@@ -381,527 +437,351 @@
     </section>
 
     <!-- Resources Section -->
-    <section id="resources" class="resources">
-        <div class="container">
-            <h2 class="section-title">Learning Resources</h2>
-            <div class="resources-grid">
-                <div class="resource-card">
-                    <div class="resource-icon">
-                        <i class="fas fa-book"></i>
+    <section id="resources" class="py-20 bg-secondary relative overflow-hidden">
+        <!-- Background Pattern -->
+        <div class="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg width="50" height="50" viewBox="0 0 50 50" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="%2301d29b" fill-opacity="0.02"%3E%3Crect x="25" y="25" width="1" height="1"/%3E%3C/g%3E%3C/svg%3E')] opacity-30"></div>
+        
+        <div class="max-w-7xl mx-auto px-6 relative z-10">
+            <div class="text-center mb-16">
+                <h2 class="text-5xl lg:text-6xl font-bold mb-6">
+                    <span class="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
+                        Learning Resources
+                    </span>
+                </h2>
+                <p class="text-xl text-gray-300 max-w-3xl mx-auto">
+                    Essential tools, documentation, and platforms to accelerate your learning journey
+                </p>
+            </div>
+            
+            <div class="grid lg:grid-cols-2 xl:grid-cols-3 gap-8">
+                <div class="group transform hover:-translate-y-2 transition-all duration-500">
+                    <div class="bg-gradient-to-br from-dark-light/50 to-dark/50 backdrop-blur-xl rounded-3xl border border-primary/20 p-8 h-full hover:border-primary/40 hover:shadow-2xl hover:shadow-primary/20 transition-all duration-500">
+                        <div class="w-16 h-16 bg-gradient-to-br from-primary to-accent rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                            <i class="fas fa-book text-white text-2xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-white mb-4 group-hover:text-primary transition-colors duration-300">Documentation</h3>
+                        <ul class="space-y-3">
+                            <li><a href="https://developer.mozilla.org/en-US/docs/Web/HTML" target="_blank" class="text-gray-300 hover:text-primary transition-colors duration-300 flex items-center space-x-2"><i class="fas fa-external-link-alt text-primary text-sm"></i><span>MDN HTML Guide</span></a></li>
+                            <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS" target="_blank" class="text-gray-300 hover:text-primary transition-colors duration-300 flex items-center space-x-2"><i class="fas fa-external-link-alt text-primary text-sm"></i><span>MDN CSS Guide</span></a></li>
+                            <li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank" class="text-gray-300 hover:text-primary transition-colors duration-300 flex items-center space-x-2"><i class="fas fa-external-link-alt text-primary text-sm"></i><span>MDN JavaScript Guide</span></a></li>
+                            <li><a href="https://www.w3schools.com/" target="_blank" class="text-gray-300 hover:text-primary transition-colors duration-300 flex items-center space-x-2"><i class="fas fa-external-link-alt text-primary text-sm"></i><span>W3Schools</span></a></li>
+                        </ul>
                     </div>
-                    <h3>Documentation</h3>
-                    <ul>
-                        <li><a href="https://developer.mozilla.org/en-US/docs/Web/HTML" target="_blank">MDN HTML Guide</a></li>
-                        <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS" target="_blank">MDN CSS Guide</a></li>
-                        <li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank">MDN JavaScript Guide</a></li>
-                        <li><a href="https://www.w3schools.com/" target="_blank">W3Schools</a></li>
-                    </ul>
                 </div>
 
-                <div class="resource-card">
-                    <div class="resource-icon">
-                        <i class="fas fa-code"></i>
+                <div class="group transform hover:-translate-y-2 transition-all duration-500">
+                    <div class="bg-gradient-to-br from-dark-light/50 to-dark/50 backdrop-blur-xl rounded-3xl border border-primary/20 p-8 h-full hover:border-primary/40 hover:shadow-2xl hover:shadow-primary/20 transition-all duration-500">
+                        <div class="w-16 h-16 bg-gradient-to-br from-primary to-accent rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                            <i class="fas fa-code text-white text-2xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-white mb-4 group-hover:text-primary transition-colors duration-300">Code Editors</h3>
+                        <ul class="space-y-3">
+                            <li><a href="https://code.visualstudio.com/" target="_blank" class="text-gray-300 hover:text-primary transition-colors duration-300 flex items-center space-x-2"><i class="fas fa-external-link-alt text-primary text-sm"></i><span>Visual Studio Code</span></a></li>
+                            <li><a href="https://codepen.io/" target="_blank" class="text-gray-300 hover:text-primary transition-colors duration-300 flex items-center space-x-2"><i class="fas fa-external-link-alt text-primary text-sm"></i><span>CodePen</span></a></li>
+                            <li><a href="https://jsfiddle.net/" target="_blank" class="text-gray-300 hover:text-primary transition-colors duration-300 flex items-center space-x-2"><i class="fas fa-external-link-alt text-primary text-sm"></i><span>JSFiddle</span></a></li>
+                            <li><a href="https://replit.com/" target="_blank" class="text-gray-300 hover:text-primary transition-colors duration-300 flex items-center space-x-2"><i class="fas fa-external-link-alt text-primary text-sm"></i><span>Replit</span></a></li>
+                        </ul>
                     </div>
-                    <h3>Code Editors</h3>
-                    <ul>
-                        <li><a href="https://code.visualstudio.com/" target="_blank">Visual Studio Code</a></li>
-                        <li><a href="https://codepen.io/" target="_blank">CodePen</a></li>
-                        <li><a href="https://jsfiddle.net/" target="_blank">JSFiddle</a></li>
-                        <li><a href="https://replit.com/" target="_blank">Replit</a></li>
-                    </ul>
                 </div>
 
-                <div class="resource-card">
-                    <div class="resource-icon">
-                        <i class="fas fa-palette"></i>
+                <div class="group transform hover:-translate-y-2 transition-all duration-500">
+                    <div class="bg-gradient-to-br from-dark-light/50 to-dark/50 backdrop-blur-xl rounded-3xl border border-primary/20 p-8 h-full hover:border-primary/40 hover:shadow-2xl hover:shadow-primary/20 transition-all duration-500">
+                        <div class="w-16 h-16 bg-gradient-to-br from-primary to-accent rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                            <i class="fas fa-palette text-white text-2xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-white mb-4 group-hover:text-primary transition-colors duration-300">Design Tools</h3>
+                        <ul class="space-y-3">
+                            <li><a href="https://coolors.co/" target="_blank" class="text-gray-300 hover:text-primary transition-colors duration-300 flex items-center space-x-2"><i class="fas fa-external-link-alt text-primary text-sm"></i><span>Coolors Color Palette</span></a></li>
+                            <li><a href="https://fonts.google.com/" target="_blank" class="text-gray-300 hover:text-primary transition-colors duration-300 flex items-center space-x-2"><i class="fas fa-external-link-alt text-primary text-sm"></i><span>Google Fonts</span></a></li>
+                            <li><a href="https://fontawesome.com/" target="_blank" class="text-gray-300 hover:text-primary transition-colors duration-300 flex items-center space-x-2"><i class="fas fa-external-link-alt text-primary text-sm"></i><span>Font Awesome</span></a></li>
+                            <li><a href="https://unsplash.com/" target="_blank" class="text-gray-300 hover:text-primary transition-colors duration-300 flex items-center space-x-2"><i class="fas fa-external-link-alt text-primary text-sm"></i><span>Unsplash Images</span></a></li>
+                        </ul>
                     </div>
-                    <h3>Design Tools</h3>
-                    <ul>
-                        <li><a href="https://coolors.co/" target="_blank">Coolors Color Palette</a></li>
-                        <li><a href="https://fonts.google.com/" target="_blank">Google Fonts</a></li>
-                        <li><a href="https://fontawesome.com/" target="_blank">Font Awesome</a></li>
-                        <li><a href="https://unsplash.com/" target="_blank">Unsplash Images</a></li>
-                    </ul>
                 </div>
 
-                <div class="resource-card">
-                    <div class="resource-icon">
-                        <i class="fas fa-gamepad"></i>
+                <div class="group transform hover:-translate-y-2 transition-all duration-500">
+                    <div class="bg-gradient-to-br from-dark-light/50 to-dark/50 backdrop-blur-xl rounded-3xl border border-primary/20 p-8 h-full hover:border-primary/40 hover:shadow-2xl hover:shadow-primary/20 transition-all duration-500">
+                        <div class="w-16 h-16 bg-gradient-to-br from-primary to-accent rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                            <i class="fas fa-gamepad text-white text-2xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-white mb-4 group-hover:text-primary transition-colors duration-300">Practice Platforms</h3>
+                        <ul class="space-y-3">
+                            <li><a href="https://www.freecodecamp.org/" target="_blank" class="text-gray-300 hover:text-primary transition-colors duration-300 flex items-center space-x-2"><i class="fas fa-external-link-alt text-primary text-sm"></i><span>freeCodeCamp</span></a></li>
+                            <li><a href="https://www.codewars.com/" target="_blank" class="text-gray-300 hover:text-primary transition-colors duration-300 flex items-center space-x-2"><i class="fas fa-external-link-alt text-primary text-sm"></i><span>Codewars</span></a></li>
+                            <li><a href="https://www.frontendmentor.io/" target="_blank" class="text-gray-300 hover:text-primary transition-colors duration-300 flex items-center space-x-2"><i class="fas fa-external-link-alt text-primary text-sm"></i><span>Frontend Mentor</span></a></li>
+                            <li><a href="https://cssbattle.dev/" target="_blank" class="text-gray-300 hover:text-primary transition-colors duration-300 flex items-center space-x-2"><i class="fas fa-external-link-alt text-primary text-sm"></i><span>CSS Battle</span></a></li>
+                        </ul>
                     </div>
-                    <h3>Practice Platforms</h3>
-                    <ul>
-                        <li><a href="https://www.freecodecamp.org/" target="_blank">freeCodeCamp</a></li>
-                        <li><a href="https://www.codewars.com/" target="_blank">Codewars</a></li>
-                        <li><a href="https://www.frontendmentor.io/" target="_blank">Frontend Mentor</a></li>
-                        <li><a href="https://cssbattle.dev/" target="_blank">CSS Battle</a></li>
-                    </ul>
                 </div>
 
-                <div class="resource-card">
-                    <div class="resource-icon">
-                        <i class="fas fa-tools"></i>
+                <div class="group transform hover:-translate-y-2 transition-all duration-500">
+                    <div class="bg-gradient-to-br from-dark-light/50 to-dark/50 backdrop-blur-xl rounded-3xl border border-primary/20 p-8 h-full hover:border-primary/40 hover:shadow-2xl hover:shadow-primary/20 transition-all duration-500">
+                        <div class="w-16 h-16 bg-gradient-to-br from-primary to-accent rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                            <i class="fas fa-tools text-white text-2xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-white mb-4 group-hover:text-primary transition-colors duration-300">Development Tools</h3>
+                        <ul class="space-y-3">
+                            <li><a href="https://github.com/" target="_blank" class="text-gray-300 hover:text-primary transition-colors duration-300 flex items-center space-x-2"><i class="fas fa-external-link-alt text-primary text-sm"></i><span>GitHub</span></a></li>
+                            <li><a href="https://git-scm.com/" target="_blank" class="text-gray-300 hover:text-primary transition-colors duration-300 flex items-center space-x-2"><i class="fas fa-external-link-alt text-primary text-sm"></i><span>Git</span></a></li>
+                            <li><a href="https://www.netlify.com/" target="_blank" class="text-gray-300 hover:text-primary transition-colors duration-300 flex items-center space-x-2"><i class="fas fa-external-link-alt text-primary text-sm"></i><span>Netlify</span></a></li>
+                            <li><a href="https://vercel.com/" target="_blank" class="text-gray-300 hover:text-primary transition-colors duration-300 flex items-center space-x-2"><i class="fas fa-external-link-alt text-primary text-sm"></i><span>Vercel</span></a></li>
+                        </ul>
                     </div>
-                    <h3>Development Tools</h3>
-                    <ul>
-                        <li><a href="https://github.com/" target="_blank">GitHub</a></li>
-                        <li><a href="https://git-scm.com/" target="_blank">Git</a></li>
-                        <li><a href="https://www.netlify.com/" target="_blank">Netlify</a></li>
-                        <li><a href="https://vercel.com/" target="_blank">Vercel</a></li>
-                    </ul>
                 </div>
 
-                <div class="resource-card">
-                    <div class="resource-icon">
-                        <i class="fas fa-users"></i>
+                <div class="group transform hover:-translate-y-2 transition-all duration-500">
+                    <div class="bg-gradient-to-br from-dark-light/50 to-dark/50 backdrop-blur-xl rounded-3xl border border-primary/20 p-8 h-full hover:border-primary/40 hover:shadow-2xl hover:shadow-primary/20 transition-all duration-500">
+                        <div class="w-16 h-16 bg-gradient-to-br from-primary to-accent rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                            <i class="fas fa-users text-white text-2xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-white mb-4 group-hover:text-primary transition-colors duration-300">Community</h3>
+                        <ul class="space-y-3">
+                            <li><a href="https://stackoverflow.com/" target="_blank" class="text-gray-300 hover:text-primary transition-colors duration-300 flex items-center space-x-2"><i class="fas fa-external-link-alt text-primary text-sm"></i><span>Stack Overflow</span></a></li>
+                            <li><a href="https://dev.to/" target="_blank" class="text-gray-300 hover:text-primary transition-colors duration-300 flex items-center space-x-2"><i class="fas fa-external-link-alt text-primary text-sm"></i><span>Dev.to</span></a></li>
+                            <li><a href="https://www.reddit.com/r/webdev/" target="_blank" class="text-gray-300 hover:text-primary transition-colors duration-300 flex items-center space-x-2"><i class="fas fa-external-link-alt text-primary text-sm"></i><span>r/webdev</span></a></li>
+                            <li><a href="https://discord.gg/webdev" target="_blank" class="text-gray-300 hover:text-primary transition-colors duration-300 flex items-center space-x-2"><i class="fas fa-external-link-alt text-primary text-sm"></i><span>Web Dev Discord</span></a></li>
+                        </ul>
                     </div>
-                    <h3>Community</h3>
-                    <ul>
-                        <li><a href="https://stackoverflow.com/" target="_blank">Stack Overflow</a></li>
-                        <li><a href="https://dev.to/" target="_blank">Dev.to</a></li>
-                        <li><a href="https://www.reddit.com/r/webdev/" target="_blank">r/webdev</a></li>
-                        <li><a href="https://discord.gg/webdev" target="_blank">Web Dev Discord</a></li>
-                    </ul>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Gaming Section -->
-    <section id="gaming" class="gaming-section">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title"><i class="fas fa-gamepad"></i> Interactive Learning Games</h2>
-                <p class="section-subtitle">Learn web development through fun, interactive games and challenges</p>
+    <section id="gaming" class="py-20 bg-dark relative overflow-hidden">
+        <!-- Background Pattern -->
+        <div class="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg width="40" height="40" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="%2301d29b" fill-opacity="0.02"%3E%3Cpath d="M20 20c0 11.046-8.954 20-20 20s-20-8.954-20-20 8.954-20 20-20 20 8.954 20 20z"/%3E%3C/g%3E%3C/svg%3E')] opacity-30"></div>
+        
+        <div class="max-w-7xl mx-auto px-6 relative z-10">
+            <div class="text-center mb-16">
+                <h2 class="text-5xl lg:text-6xl font-bold mb-6">
+                    <span class="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
+                        <i class="fas fa-gamepad mr-4"></i>
+                        Interactive Learning Games
+                    </span>
+                </h2>
+                <p class="text-xl text-gray-300 max-w-3xl mx-auto">
+                    Learn web development through fun, interactive games and challenges
+                </p>
             </div>
             
-            <div class="games-grid">
-                <div class="game-card" onclick="window.location.href='html-games.html'">
-                    <div class="game-icon">
-                        <i class="fas fa-code"></i>
-                    </div>
-                    <div class="game-content">
-                        <h3>HTML Tag Master</h3>
-                        <p>Master HTML tags through interactive challenges and tag matching games</p>
-                        <div class="game-features">
-                            <span class="feature">Tag Matching</span>
-                            <span class="feature">Structure Building</span>
-                            <span class="feature">Code Puzzles</span>
+            <div class="grid lg:grid-cols-3 gap-8">
+                <div class="group transform hover:-translate-y-2 transition-all duration-500" onclick="window.location.href='html-games.html'">
+                    <div class="bg-gradient-to-br from-dark-light/50 to-dark/50 backdrop-blur-xl rounded-3xl border border-primary/20 p-8 h-full hover:border-primary/40 hover:shadow-2xl hover:shadow-primary/20 transition-all duration-500">
+                        <div class="w-16 h-16 bg-gradient-to-br from-primary to-accent rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                            <i class="fas fa-code text-white text-2xl"></i>
                         </div>
-                        <div class="game-stats">
-                            <div class="stat">
-                                <i class="fas fa-star"></i>
-                                <span>5 Levels</span>
-                            </div>
-                            <div class="stat">
-                                <i class="fas fa-clock"></i>
-                                <span>15 min</span>
+                        <div class="space-y-4">
+                            <h3 class="text-2xl font-bold text-white group-hover:text-primary transition-colors duration-300">HTML Tag Master</h3>
+                            <p class="text-gray-300 leading-relaxed">Master HTML tags through interactive challenges and tag matching games</p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm font-medium border border-primary/20">Tag Matching</span>
+                                <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm font-medium border border-primary/20">Structure Building</span>
+                                <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm font-medium border border-primary/20">Code Puzzles</span>
                             </div>
                         </div>
-                    </div>
-                    <div class="game-arrow">
-                        <i class="fas fa-play"></i>
+                        <div class="flex items-center justify-between mt-6 pt-6 border-t border-gray-700/50">
+                            <div class="flex items-center space-x-4">
+                                <div class="flex items-center space-x-2 text-gray-400">
+                                    <i class="fas fa-star text-primary"></i>
+                                    <span class="text-sm font-medium">5 Levels</span>
+                                </div>
+                                <div class="flex items-center space-x-2 text-gray-400">
+                                    <i class="fas fa-clock text-primary"></i>
+                                    <span class="text-sm font-medium">15 min</span>
+                                </div>
+                            </div>
+                            <div class="w-8 h-8 bg-gray-700/50 rounded-lg flex items-center justify-center group-hover:bg-primary/20 group-hover:scale-110 transition-all duration-300">
+                                <i class="fas fa-play text-gray-400 group-hover:text-primary transition-colors duration-300"></i>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
-                <div class="game-card" onclick="window.location.href='css-games.html'">
-                    <div class="game-icon">
-                        <i class="fas fa-palette"></i>
-                    </div>
-                    <div class="game-content">
-                        <h3>CSS Styling Quest</h3>
-                        <p>Learn CSS properties, selectors, and layouts through visual design challenges</p>
-                        <div class="game-features">
-                            <span class="feature">Style Matching</span>
-                            <span class="feature">Layout Puzzles</span>
-                            <span class="feature">Color Challenges</span>
+                <div class="group transform hover:-translate-y-2 transition-all duration-500" onclick="window.location.href='css-games.html'">
+                    <div class="bg-gradient-to-br from-dark-light/50 to-dark/50 backdrop-blur-xl rounded-3xl border border-primary/20 p-8 h-full hover:border-primary/40 hover:shadow-2xl hover:shadow-primary/20 transition-all duration-500">
+                        <div class="w-16 h-16 bg-gradient-to-br from-primary to-accent rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                            <i class="fas fa-palette text-white text-2xl"></i>
                         </div>
-                        <div class="game-stats">
-                            <div class="stat">
-                                <i class="fas fa-star"></i>
-                                <span>6 Levels</span>
-                            </div>
-                            <div class="stat">
-                                <i class="fas fa-clock"></i>
-                                <span>20 min</span>
+                        <div class="space-y-4">
+                            <h3 class="text-2xl font-bold text-white group-hover:text-primary transition-colors duration-300">CSS Styling Quest</h3>
+                            <p class="text-gray-300 leading-relaxed">Learn CSS properties, selectors, and layouts through visual design challenges</p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm font-medium border border-primary/20">Style Matching</span>
+                                <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm font-medium border border-primary/20">Layout Puzzles</span>
+                                <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm font-medium border border-primary/20">Color Challenges</span>
                             </div>
                         </div>
-                    </div>
-                    <div class="game-arrow">
-                        <i class="fas fa-play"></i>
+                        <div class="flex items-center justify-between mt-6 pt-6 border-t border-gray-700/50">
+                            <div class="flex items-center space-x-4">
+                                <div class="flex items-center space-x-2 text-gray-400">
+                                    <i class="fas fa-star text-primary"></i>
+                                    <span class="text-sm font-medium">6 Levels</span>
+                                </div>
+                                <div class="flex items-center space-x-2 text-gray-400">
+                                    <i class="fas fa-clock text-primary"></i>
+                                    <span class="text-sm font-medium">20 min</span>
+                                </div>
+                            </div>
+                            <div class="w-8 h-8 bg-gray-700/50 rounded-lg flex items-center justify-center group-hover:bg-primary/20 group-hover:scale-110 transition-all duration-300">
+                                <i class="fas fa-play text-gray-400 group-hover:text-primary transition-colors duration-300"></i>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
-                <div class="game-card" onclick="window.location.href='javascript-games.html'">
-                    <div class="game-icon">
-                        <i class="fas fa-gamepad"></i>
-                    </div>
-                    <div class="game-content">
-                        <h3>JavaScript Code Runner</h3>
-                        <p>Solve JavaScript puzzles, debug code, and build mini-games with real coding</p>
-                        <div class="game-features">
-                            <span class="feature">Code Debugging</span>
-                            <span class="feature">Logic Puzzles</span>
-                            <span class="feature">Mini Games</span>
+                <div class="group transform hover:-translate-y-2 transition-all duration-500" onclick="window.location.href='javascript-games.html'">
+                    <div class="bg-gradient-to-br from-dark-light/50 to-dark/50 backdrop-blur-xl rounded-3xl border border-primary/20 p-8 h-full hover:border-primary/40 hover:shadow-2xl hover:shadow-primary/20 transition-all duration-500">
+                        <div class="w-16 h-16 bg-gradient-to-br from-primary to-accent rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                            <i class="fas fa-gamepad text-white text-2xl"></i>
                         </div>
-                        <div class="game-stats">
-                            <div class="stat">
-                                <i class="fas fa-star"></i>
-                                <span>8 Levels</span>
-                            </div>
-                            <div class="stat">
-                                <i class="fas fa-clock"></i>
-                                <span>25 min</span>
+                        <div class="space-y-4">
+                            <h3 class="text-2xl font-bold text-white group-hover:text-primary transition-colors duration-300">JavaScript Code Runner</h3>
+                            <p class="text-gray-300 leading-relaxed">Solve JavaScript puzzles, debug code, and build mini-games with real coding</p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm font-medium border border-primary/20">Code Debugging</span>
+                                <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm font-medium border border-primary/20">Logic Puzzles</span>
+                                <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm font-medium border border-primary/20">Mini Games</span>
                             </div>
                         </div>
-                    </div>
-                    <div class="game-arrow">
-                        <i class="fas fa-play"></i>
+                        <div class="flex items-center justify-between mt-6 pt-6 border-t border-gray-700/50">
+                            <div class="flex items-center space-x-4">
+                                <div class="flex items-center space-x-2 text-gray-400">
+                                    <i class="fas fa-star text-primary"></i>
+                                    <span class="text-sm font-medium">8 Levels</span>
+                                </div>
+                                <div class="flex items-center space-x-2 text-sm font-medium">
+                                    <i class="fas fa-clock text-primary"></i>
+                                    <span class="text-sm font-medium">25 min</span>
+                                </div>
+                            </div>
+                            <div class="w-8 h-8 bg-gray-700/50 rounded-lg flex items-center justify-center group-hover:bg-primary/20 group-hover:scale-110 transition-all duration-300">
+                                <i class="fas fa-play text-gray-400 group-hover:text-primary transition-colors duration-300"></i>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Day Lesson Modal -->
-    <div id="lessonModal" class="lesson-modal">
-        <div class="lesson-modal-content">
-            <div class="lesson-modal-header">
-                <h2 id="lessonTitle">Day 1: HTML Fundamentals</h2>
-                <button class="close-modal" onclick="closeLessonModal()">
-                    <i class="fas fa-times"></i>
-                </button>
-            </div>
-            <div class="lesson-modal-body">
-                <div class="lesson-tabs">
-                    <button class="lesson-tab active" data-tab="documentation">Documentation</button>
-                    <button class="lesson-tab" data-tab="challenge">Challenge</button>
-                </div>
-                
-                <div class="lesson-content">
-                    <div id="documentation-content" class="lesson-panel active">
-                        <div class="lesson-documentation">
-                            <h3>Introduction to HTML</h3>
-                            <p>HTML (HyperText Markup Language) is the standard markup language for creating web pages. It describes the structure of a web page semantically and originally included cues for the appearance of the document.</p>
-                            
-                            <h4>Basic HTML Structure</h4>
-                            <div class="code-example">
-                                <div class="code-header">
-                                    <span>Basic HTML Template</span>
-                                    <button class="copy-btn" onclick="copyCode(this)">
-                                        <i class="fas fa-copy"></i>
-                                    </button>
-                                </div>
-                                <pre><code><!DOCTYPE html>
-<html>
+
+   
 <head>
-    <title>Page Title</title>
-</head>
-<body>
-    <h1>This is a heading</h1>
-    <p>This is a paragraph.</p>
-</body>
-</html></code></pre>
-                            </div>
-                            
-                            <h4>Key Concepts</h4>
-                            <ul>
-                                <li><strong>DOCTYPE Declaration:</strong> Tells the browser this is an HTML5 document</li>
-                                <li><strong><html>:</strong> The root element of an HTML page</li>
-                                <li><strong><head>:</strong> Contains meta information about the document</li>
-                                <li><strong><title>:</strong> Specifies a title for the document</li>
-                                <li><strong><body>:</strong> Contains the visible page content</li>
-                            </ul>
-                            
-                            <h4>Common HTML Elements</h4>
-                            <div class="elements-grid">
-                                <div class="element-card">
-                                    <h5>Headings</h5>
-                                    <p><h1> to <h6></p>
-                                    <small>Used for titles and subtitles</small>
-                                </div>
-                                <div class="element-card">
-                                    <h5>Paragraphs</h5>
-                                    <p><p></p>
-                                    <small>Used for text content</small>
-                                </div>
-                                <div class="element-card">
-                                    <h5>Links</h5>
-                                    <p><a></p>
-                                    <small>Creates hyperlinks</small>
-                                </div>
-                                <div class="element-card">
-                                    <h5>Images</h5>
-                                    <p><img></p>
-                                    <small>Displays images</small>
-                                </div>
-                            </div>
-                            
-                            <div class="lesson-navigation">
-                                <button class="nav-btn" onclick="previousLesson()">
-                                    <i class="fas fa-chevron-left"></i> Previous
-                                </button>
-                                <button class="nav-btn primary" onclick="startChallenge()">
-                                    Start Challenge <i class="fas fa-chevron-right"></i>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div id="challenge-content" class="lesson-panel">
-                        <div class="lesson-challenge">
-                            <div class="challenge-header">
-                                <h3 id="challenge-title">HTML Challenge 1: Basic Structure</h3>
-                                <div class="challenge-meta">
-                                    <span class="difficulty">Beginner</span>
-                                    <span class="time">5 min</span>
-                                </div>
-                            </div>
-                            <div class="challenge-description">
-                                <p id="challenge-description">Create a basic HTML structure with a title, heading, and paragraph.</p>
-                            </div>
-                            <div class="code-editor">
-                                <div class="editor-header">
-                                    <span>Code Editor</span>
-                                    <button class="run-button" onclick="runCode()">
-                                        <i class="fas fa-play"></i> Run Code
-                                    </button>
-                                </div>
-                                <div id="monaco-editor-lesson" class="monaco-editor-container"></div>
-                            </div>
-                            <div class="output-panel">
-                                <div class="output-header">
-                                    <span>Output</span>
-                                    <button class="reset-button" onclick="resetCode()">
-                                        <i class="fas fa-undo"></i> Reset
-                                    </button>
-                                </div>
-                                <div id="output-frame"></div>
-                            </div>
-                            <div class="challenge-navigation">
-                                <button class="nav-button" onclick="previousChallenge()">
-                                    <i class="fas fa-chevron-left"></i> Previous
-                                </button>
-                                <button class="nav-button" onclick="nextChallenge()">
-                                    Next <i class="fas fa-chevron-right"></i>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Gaming Section -->
-    <section id="gaming" class="gaming-section">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title"><i class="fas fa-gamepad"></i> Interactive Learning Games</h2>
-                <p class="section-subtitle">Learn web development through fun, interactive games and challenges</p>
-            </div>
-            
-            <div class="games-grid">
-                <div class="game-card" onclick="window.location.href='html-games.html'">
-                    <div class="game-icon">
-                        <i class="fas fa-code"></i>
-                    </div>
-                    <div class="game-content">
-                        <h3>HTML Tag Master</h3>
-                        <p>Master HTML tags through interactive challenges and tag matching games</p>
-                        <div class="game-features">
-                            <span class="feature">Tag Matching</span>
-                            <span class="feature">Structure Building</span>
-                            <span class="feature">Code Puzzles</span>
-                        </div>
-                        <div class="game-stats">
-                            <div class="stat">
-                                <i class="fas fa-star"></i>
-                                <span>5 Levels</span>
-                            </div>
-                            <div class="stat">
-                                <i class="fas fa-clock"></i>
-                                <span>15 min</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="game-arrow">
-                        <i class="fas fa-play"></i>
-                    </div>
-                </div>
-
-                <div class="game-card" onclick="window.location.href='css-games.html'">
-                    <div class="game-icon">
-                        <i class="fas fa-palette"></i>
-                    </div>
-                    <div class="game-content">
-                        <h3>CSS Styling Quest</h3>
-                        <p>Learn CSS properties, selectors, and layouts through visual design challenges</p>
-                        <div class="game-features">
-                            <span class="feature">Style Matching</span>
-                            <span class="feature">Layout Puzzles</span>
-                            <span class="feature">Color Challenges</span>
-                        </div>
-                        <div class="game-stats">
-                            <div class="stat">
-                                <i class="fas fa-star"></i>
-                                <span>6 Levels</span>
-                            </div>
-                            <div class="stat">
-                                <i class="fas fa-clock"></i>
-                                <span>20 min</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="game-arrow">
-                        <i class="fas fa-play"></i>
-                    </div>
-                </div>
-
-                <div class="game-card" onclick="window.location.href='javascript-games.html'">
-                    <div class="game-icon">
-                        <i class="fas fa-gamepad"></i>
-                    </div>
-                    <div class="game-content">
-                        <h3>JavaScript Code Runner</h3>
-                        <p>Solve JavaScript puzzles, debug code, and build mini-games with real coding</p>
-                        <div class="game-features">
-                            <span class="feature">Code Debugging</span>
-                            <span class="feature">Logic Puzzles</span>
-                            <span class="feature">Mini Games</span>
-                        </div>
-                        <div class="game-stats">
-                            <div class="stat">
-                                <i class="fas fa-star"></i>
-                                <span>8 Levels</span>
-                            </div>
-                            <div class="stat">
-                                <i class="fas fa-clock"></i>
-                                <span>25 min</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="game-arrow">
-                        <i class="fas fa-play"></i>
-                    </div>
-                </div>
-            </div>
-
-
-        </div>
-    </section>
-
     <!-- Footer Section -->
-    <footer>
-    <div style="background-color: #1e1e1e; color: white; padding: 50px 20px; margin-top: 60px; border-top: 3px solid #01d29b;">
-        <!-- Main Footer Content -->
-        <div style="max-width: 1200px; margin: 0 auto;">
-            <div style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 40px; margin-bottom: 40px;">
-                
+    <footer class="bg-black border-t border-primary/20 relative overflow-hidden">
+        <!-- Background Pattern -->
+        <div class="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="none" fill-rule="evenodd"%3E%3Cg fill="%2301d29b" fill-opacity="0.02"%3E%3Ccircle cx="30" cy="30" r="2"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')] opacity-30"></div>
+        
+        <div class="max-w-7xl mx-auto px-6 relative z-10">
+            <div class="py-16 grid lg:grid-cols-4 gap-12">
                 <!-- Brand Column -->
-                <div style="flex: 1; min-width: 250px;">
-                    <div style="display: flex; align-items: center; margin-bottom: 20px;">
-                        <i class="fas fa-code" style="font-size: 24px; color: #01d29b; margin-right: 12px;"></i>
-                        <h2 style="margin: 0; color: white; font-size: 24px; font-weight: bold;">WebDev LMS</h2>
+                <div class="space-y-6">
+                    <div class="flex items-center space-x-3">
+                        <div class="w-10 h-10 bg-gradient-to-br from-primary to-accent rounded-xl flex items-center justify-center">
+                            <i class="fas fa-code text-white text-xl"></i>
+                        </div>
+                        <span class="text-2xl font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">WebDev LMS</span>
                     </div>
-                    <p style="color: #cccccc; line-height: 1.6; margin-bottom: 20px; font-size: 16px;">
+                    <p class="text-gray-300 text-lg leading-relaxed max-w-md">
                         Master web development in 9 days with hands-on challenges and real-world projects. Join thousands learning to code!
                     </p>
-                    <div style="display: flex; gap: 15px;">
-                        <a href="#" style="color: #01d29b; font-size: 20px; transition: color 0.3s;"><i class="fab fa-github"></i></a>
-                        <a href="#" style="color: #01d29b; font-size: 20px; transition: color 0.3s;"><i class="fab fa-discord"></i></a>
-                        <a href="#" style="color: #01d29b; font-size: 20px; transition: color 0.3s;"><i class="fab fa-twitter"></i></a>
-                        <a href="#" style="color: #01d29b; font-size: 20px; transition: color 0.3s;"><i class="fab fa-youtube"></i></a>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-primary hover:text-accent transition-colors duration-300 text-xl"><i class="fab fa-github"></i></a>
+                        <a href="#" class="text-primary hover:text-accent transition-colors duration-300 text-xl"><i class="fab fa-discord"></i></a>
+                        <a href="#" class="text-primary hover:text-accent transition-colors duration-300 text-xl"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-primary hover:text-accent transition-colors duration-300 text-xl"><i class="fab fa-youtube"></i></a>
                     </div>
                 </div>
 
                 <!-- Quick Links Column -->
-                <div style="flex: 1; min-width: 200px;">
-                    <h3 style="color: #01d29b; margin-bottom: 20px; font-size: 18px; font-weight: 600;">Quick Links</h3>
-                    <ul style="list-style: none; padding: 0; margin: 0;">
-                        <li style="margin-bottom: 12px;">
-                            <a href="#home" style="color: #cccccc; text-decoration: none; font-size: 15px; transition: color 0.3s;" 
-                               onmouseover="this.style.color='#01d29b'" onmouseout="this.style.color='#cccccc'">
-                                <i class="fas fa-home" style="margin-right: 8px; width: 16px;"></i>Home
+                <div class="space-y-6">
+                    <h3 class="text-xl font-bold text-primary">Quick Links</h3>
+                    <ul class="space-y-3">
+                        <li>
+                            <a href="#home" class="text-gray-300 hover:text-primary transition-colors duration-300 flex items-center space-x-3 py-2 px-3 rounded-lg hover:bg-primary/10">
+                                <i class="fas fa-home text-primary w-4"></i>
+                                <span>Home</span>
                             </a>
                         </li>
-                        <li style="margin-bottom: 12px;">
-                            <a href="#curriculum" style="color: #cccccc; text-decoration: none; font-size: 15px; transition: color 0.3s;" 
-                               onmouseover="this.style.color='#01d29b'" onmouseout="this.style.color='#cccccc'">
-                                <i class="fas fa-book" style="margin-right: 8px; width: 16px;"></i>Curriculum
+                        <li>
+                            <a href="#curriculum" class="text-gray-300 hover:text-primary transition-colors duration-300 flex items-center space-x-3 py-2 px-3 rounded-lg hover:bg-primary/10">
+                                <i class="fas fa-book text-primary w-4"></i>
+                                <span>Curriculum</span>
                             </a>
                         </li>
-                        <li style="margin-bottom: 12px;">
-                            <a href="#gaming" style="color: #cccccc; text-decoration: none; font-size: 15px; transition: color 0.3s;" 
-                               onmouseover="this.style.color='#01d29b'" onmouseout="this.style.color='#cccccc'">
-                                <i class="fas fa-gamepad" style="margin-right: 8px; width: 16px;"></i>Games
+                        <li>
+                            <a href="#gaming" class="text-gray-300 hover:text-primary transition-colors duration-300 flex items-center space-x-3 py-2 px-3 rounded-lg hover:bg-primary/10">
+                                <i class="fas fa-gamepad text-primary w-4"></i>
+                                <span>Games</span>
                             </a>
                         </li>
-                        <li style="margin-bottom: 12px;">
-                            <a href="#resources" style="color: #cccccc; text-decoration: none; font-size: 15px; transition: color 0.3s;" 
-                               onmouseover="this.style.color='#01d29b'" onmouseout="this.style.color='#cccccc'">
-                                <i class="fas fa-tools" style="margin-right: 8px; width: 16px;"></i>Resources
+                        <li>
+                            <a href="#resources" class="text-gray-300 hover:text-primary transition-colors duration-300 flex items-center space-x-3 py-2 px-3 rounded-lg hover:bg-primary/10">
+                                <i class="fas fa-tools text-primary w-4"></i>
+                                <span>Resources</span>
                             </a>
                         </li>
                     </ul>
                 </div>
 
                 <!-- Learning Paths Column -->
-                <div style="flex: 1; min-width: 200px;">
-                    <h3 style="color: #01d29b; margin-bottom: 20px; font-size: 18px; font-weight: 600;">Learning Paths</h3>
-                    <ul style="list-style: none; padding: 0; margin: 0;">
-                        <li style="margin-bottom: 12px;">
-                            <a href="html-fundamentals.html" style="color: #cccccc; text-decoration: none; font-size: 15px; transition: color 0.3s;" 
-                               onmouseover="this.style.color='#01d29b'" onmouseout="this.style.color='#cccccc'">
-                                <i class="fab fa-html5" style="margin-right: 8px; width: 16px;"></i>HTML Fundamentals
+                <div class="space-y-6">
+                    <h3 class="text-xl font-bold text-primary">Learning Paths</h3>
+                    <ul class="space-y-3">
+                        <li>
+                            <a href="html-fundamentals.html" class="text-gray-300 hover:text-primary transition-colors duration-300 flex items-center space-x-3 py-2 px-3 rounded-lg hover:bg-primary/10">
+                                <i class="fab fa-html5 text-primary w-4"></i>
+                                <span>HTML Fundamentals</span>
                             </a>
                         </li>
-                        <li style="margin-bottom: 12px;">
-                            <a href="css-basics.html" style="color: #cccccc; text-decoration: none; font-size: 15px; transition: color 0.3s;" 
-                               onmouseover="this.style.color='#01d29b'" onmouseout="this.style.color='#cccccc'">
-                                <i class="fab fa-css3-alt" style="margin-right: 8px; width: 16px;"></i>CSS Styling
+                        <li>
+                            <a href="css-basics.html" class="text-gray-300 hover:text-primary transition-colors duration-300 flex items-center space-x-3 py-2 px-3 rounded-lg hover:bg-primary/10">
+                                <i class="fab fa-css3-alt text-primary w-4"></i>
+                                <span>CSS Styling</span>
                             </a>
                         </li>
-                        <li style="margin-bottom: 12px;">
-                            <a href="javascript-basics.html" style="color: #cccccc; text-decoration: none; font-size: 15px; transition: color 0.3s;" 
-                               onmouseover="this.style.color='#01d29b'" onmouseout="this.style.color='#cccccc'">
-                                <i class="fab fa-js-square" style="margin-right: 8px; width: 16px;"></i>JavaScript Basics
+                        <li>
+                            <a href="javascript-basics.html" class="text-gray-300 hover:text-primary transition-colors duration-300 flex items-center space-x-3 py-2 px-3 rounded-lg hover:bg-primary/10">
+                                <i class="fab fa-js-square text-primary w-4"></i>
+                                <span>JavaScript Basics</span>
                             </a>
                         </li>
-                        <li style="margin-bottom: 12px;">
-                            <a href="final-project.html" style="color: #cccccc; text-decoration: none; font-size: 15px; transition: color 0.3s;" 
-                               onmouseover="this.style.color='#01d29b'" onmouseout="this.style.color='#cccccc'">
-                                <i class="fas fa-rocket" style="margin-right: 8px; width: 16px;"></i>Final Project
+                        <li>
+                            <a href="final-project.html" class="text-gray-300 hover:text-primary transition-colors duration-300 flex items-center space-x-3 py-2 px-3 rounded-lg hover:bg-primary/10">
+                                <i class="fas fa-rocket text-primary w-4"></i>
+                                <span>Final Project</span>
                             </a>
                         </li>
                     </ul>
                 </div>
 
-                <!-- Contact Column -->
-                <div style="flex: 1; min-width: 200px;">
-                    <h3 style="color: #01d29b; margin-bottom: 20px; font-size: 18px; font-weight: 600;">Get Help</h3>
-                    <ul style="list-style: none; padding: 0; margin: 0;">
-                        <li style="margin-bottom: 12px;">
-                            <a href="mailto:help@webdevlms.com" style="color: #cccccc; text-decoration: none; font-size: 15px; transition: color 0.3s;" 
-                               onmouseover="this.style.color='#01d29b'" onmouseout="this.style.color='#cccccc'">
-                                <i class="fas fa-envelope" style="margin-right: 8px; width: 16px;"></i>Contact Support
+                <!-- Get Help Column -->
+                <div class="space-y-6">
+                    <h3 class="text-xl font-bold text-primary">Get Help</h3>
+                    <ul class="space-y-3">
+                        <li>
+                            <a href="mailto:help@webdevlms.com" class="text-gray-300 hover:text-primary transition-colors duration-300 flex items-center space-x-3 py-2 px-3 rounded-lg hover:bg-primary/10">
+                                <i class="fas fa-envelope text-primary w-4"></i>
+                                <span>Contact Support</span>
                             </a>
                         </li>
-                        <li style="margin-bottom: 12px;">
-                            <a href="#faq" style="color: #cccccc; text-decoration: none; font-size: 15px; transition: color 0.3s;" 
-                               onmouseover="this.style.color='#01d29b'" onmouseout="this.style.color='#cccccc'">
-                                <i class="fas fa-question-circle" style="margin-right: 8px; width: 16px;"></i>FAQ
+                        <li>
+                            <a href="#faq" class="text-gray-300 hover:text-primary transition-colors duration-300 flex items-center space-x-3 py-2 px-3 rounded-lg hover:bg-primary/10">
+                                <i class="fas fa-question-circle text-primary w-4"></i>
+                                <span>FAQ</span>
                             </a>
                         </li>
-                        <li style="margin-bottom: 12px;">
-                            <a href="#community" style="color: #cccccc; text-decoration: none; font-size: 15px; transition: color 0.3s;" 
-                               onmouseover="this.style.color='#01d29b'" onmouseout="this.style.color='#cccccc'">
-                                <i class="fas fa-users" style="margin-right: 8px; width: 16px;"></i>Community
+                        <li>
+                            <a href="#community" class="text-gray-300 hover:text-primary transition-colors duration-300 flex items-center space-x-3 py-2 px-3 rounded-lg hover:bg-primary/10">
+                                <i class="fas fa-users text-primary w-4"></i>
+                                <span>Community</span>
                             </a>
                         </li>
-                        <li style="margin-bottom: 12px;">
-                            <a href="#help" style="color: #cccccc; text-decoration: none; font-size: 15px; transition: color 0.3s;" 
-                               onmouseover="this.style.color='#01d29b'" onmouseout="this.style.color='#cccccc'">
-                                <i class="fas fa-life-ring" style="margin-right: 8px; width: 16px;"></i>Help Center
+                        <li>
+                            <a href="#help" class="text-gray-300 hover:text-primary transition-colors duration-300 flex items-center space-x-3 py-2 px-3 rounded-lg hover:bg-primary/10">
+                                <i class="fas fa-life-ring text-primary w-4"></i>
+                                <span>Help Center</span>
                             </a>
                         </li>
                     </ul>
@@ -909,25 +789,20 @@
             </div>
 
             <!-- Footer Bottom -->
-            <div style="border-top: 1px solid #333; padding-top: 25px; text-align: center;">
-                <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 20px;">
-                    <p style="margin: 0; color: #999; font-size: 14px;">
+            <div class="py-8 border-t border-primary/20">
+                <div class="flex flex-col sm:flex-row justify-between items-center gap-6">
+                    <p class="text-gray-400 text-center sm:text-left">
                         © 2024 WebDev LMS. All rights reserved. Made with ❤️ for developers
                     </p>
-                    <div style="display: flex; gap: 25px;">
-                        <a href="#privacy" style="color: #999; text-decoration: none; font-size: 14px; transition: color 0.3s;" 
-                           onmouseover="this.style.color='#01d29b'" onmouseout="this.style.color='#999'">Privacy Policy</a>
-                        <a href="#terms" style="color: #999; text-decoration: none; font-size: 14px; transition: color 0.3s;" 
-                           onmouseover="this.style.color='#01d29b'" onmouseout="this.style.color='#999'">Terms of Service</a>
-                        <a href="#cookies" style="color: #999; text-decoration: none; font-size: 14px; transition: color 0.3s;" 
-                           onmouseover="this.style.color='#01d29b'" onmouseout="this.style.color='#999'">Cookies</a>
+                    <div class="flex gap-6">
+                        <a href="#privacy" class="text-gray-400 hover:text-primary transition-colors duration-300">Privacy Policy</a>
+                        <a href="#terms" class="text-gray-400 hover:text-primary transition-colors duration-300">Terms of Service</a>
+                        <a href="#cookies" class="text-gray-400 hover:text-primary transition-colors duration-300">Cookies</a>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-</footer>
-<!-- FOOTER END -->
+    </footer>
 
     <script src="script.js"></script>
     <script>
@@ -940,6 +815,58 @@
             setTimeout(() => {
                 initializeMainMonacoEditor();
             }, 100);
+        });
+        
+        // Mobile menu functionality
+        document.getElementById('mobile-menu-btn').addEventListener('click', function() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            const isHidden = mobileMenu.classList.contains('hidden');
+            
+            if (isHidden) {
+                mobileMenu.classList.remove('hidden');
+                // Animate hamburger to X
+                this.children[0].classList.add('rotate-45', 'translate-y-2');
+                this.children[1].classList.add('opacity-0');
+                this.children[2].classList.remove('opacity-0');
+                this.children[2].classList.add('-rotate-45', '-translate-y-2');
+            } else {
+                mobileMenu.classList.add('hidden');
+                // Reset hamburger
+                this.children[0].classList.remove('rotate-45', 'translate-y-2');
+                this.children[1].classList.remove('opacity-0');
+                this.children[2].classList.remove('-rotate-45', '-translate-y-2');
+            }
+        });
+        
+        // Close mobile menu when clicking on links
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                document.getElementById('mobile-menu').classList.add('hidden');
+                // Reset hamburger
+                const btn = document.getElementById('mobile-menu-btn');
+                btn.children[0].classList.remove('rotate-45', 'translate-y-2');
+                btn.children[1].classList.remove('opacity-0');
+                btn.children[2].classList.remove('-rotate-45', '-translate-y-2');
+            });
+        });
+        
+        // Smooth scrolling for navigation links
+        function scrollToSection(sectionId) {
+            const section = document.getElementById(sectionId);
+            if (section) {
+                section.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+        
+        // Add smooth scrolling to all navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
         });
     </script>
 </body>

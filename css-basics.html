@@ -4,127 +4,184 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Day 3: CSS Basics - WebDev LMS</title>
-    <link rel="stylesheet" href="styles.css">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#01d29b',
+                        secondary: '#121212',
+                        accent: '#00b894',
+                        dark: '#1e1e1e',
+                        'dark-light': '#2a2a2a'
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.44.0/min/vs/loader.min.js"></script>
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+    </style>
 </head>
-<body>
+<body class="bg-secondary text-white min-h-screen">
     <!-- Navigation -->
-    <nav class="navbar">
-        <div class="nav-container">
-            <div class="nav-logo" onclick="window.location.href='index.html'">
-                <i class="fas fa-code"></i>
-                <span>WebDev LMS</span>
-            </div>
-            <ul class="nav-menu">
-                <li><a href="index.html" class="nav-link" data-page="home">Home</a></li>
-                <li><a href="index.html#curriculum" class="nav-link" data-page="curriculum">Curriculum</a></li>
-                <li><a href="index.html#challenges" class="nav-link" data-page="challenges">Challenges</a></li>
-                <li><a href="index.html#resources" class="nav-link" data-page="resources">Resources</a></li>
-            </ul>
-            <div class="nav-actions">
-                <div class="page-indicator">
-                    <i class="fas fa-palette"></i>
-                    <span>Day 3: CSS Basics</span>
+    <nav class="fixed top-0 left-0 right-0 z-50 bg-dark/80 backdrop-blur-xl border-b border-primary/20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center space-x-4">
+                    <a href="index.html" class="text-primary font-bold text-xl">
+                        <i class="fas fa-code mr-2"></i>WebDev LMS
+                    </a>
+                    <span class="bg-primary/20 text-primary px-3 py-1 rounded-full text-sm font-medium">
+                        Day 3: CSS Basics
+                    </span>
                 </div>
-                <button class="nav-btn-secondary" onclick="window.location.href='css-layout.html'">
-                    <i class="fas fa-arrow-right"></i>
-                    Next Day
-                </button>
-            </div>
-            <div class="hamburger">
-                <span></span>
-                <span></span>
-                <span></span>
+                <div class="flex items-center space-x-4">
+                    <a href="css-layout.html" class="bg-gradient-to-r from-primary to-accent text-white px-6 py-2 rounded-xl font-semibold hover:shadow-lg hover:shadow-primary/25 transition-all duration-300">
+                        Next Day <i class="fas fa-arrow-right ml-2"></i>
+                    </a>
+                </div>
             </div>
         </div>
     </nav>
 
     <!-- Day Header -->
-    <section class="day-header">
-        <div class="container">
-            <div class="day-header-content">
-                <div class="day-badge">
-                    <span class="day-number">Day 3</span>
+    <section class="pt-24 pb-16 bg-gradient-to-br from-dark-light/50 to-dark/50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <div class="inline-block bg-primary/20 text-primary px-4 py-2 rounded-full text-sm font-semibold mb-6">
+                Day 3
+            </div>
+            <h1 class="text-5xl md:text-6xl font-bold text-white mb-6">
+                CSS Basics
+            </h1>
+            <p class="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
+                Learn the fundamentals of Cascading Style Sheets and transform your HTML pages with beautiful styling
+            </p>
+            <div class="flex items-center justify-center space-x-6 mt-8 text-gray-400">
+                <div class="flex items-center">
+                    <i class="fas fa-clock mr-2"></i>
+                    <span>2 hours</span>
                 </div>
-                <h1>CSS Basics</h1>
-                <p>Style your HTML with CSS selectors, properties, and values</p>
-                <div class="day-meta">
-                    <span class="meta-item">
-                        <i class="fas fa-clock"></i>
-                        Duration: 2-3 hours
-                    </span>
-                    <span class="meta-item">
-                        <i class="fas fa-signal"></i>
-                        Level: Beginner
-                    </span>
-                    <span class="meta-item">
-                        <i class="fas fa-tasks"></i>
-                        Challenges: 3
-                    </span>
+                <div class="flex items-center">
+                    <i class="fas fa-tasks mr-2"></i>
+                    <span>5 lessons</span>
+                </div>
+                <div class="flex items-center">
+                    <i class="fas fa-star mr-2"></i>
+                    <span>Beginner</span>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Challenges Section -->
-    <section class="challenges-section">
-        <div class="container">
-            <h2>🎯 Practice Challenges</h2>
-            <p class="challenges-intro">Complete these hands-on challenges to master CSS basics:</p>
+    <section class="py-20 bg-gradient-to-br from-dark to-dark">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-white mb-4">Practice Challenges</h2>
+                <p class="text-xl text-gray-300">Apply what you learn with hands-on exercises</p>
+            </div>
             
-            <div class="challenges-grid">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
                 <!-- Challenge 1 -->
-                <div class="challenge-card">
-                    <div class="challenge-header">
-                        <div class="challenge-number">01</div>
-                        <div class="challenge-meta">
-                            <span class="difficulty beginner">Beginner</span>
-                            <span class="time">10 min</span>
+                <div class="bg-gradient-to-br from-dark-light/80 to-dark/80 backdrop-blur-xl rounded-3xl border border-primary/30 p-8 hover:border-primary/50 transition-all duration-300 hover:shadow-2xl hover:shadow-primary/20">
+                    <div class="flex justify-between items-start mb-6">
+                        <div class="w-12 h-12 bg-gradient-to-br from-primary to-accent rounded-2xl flex items-center justify-center text-white font-bold text-lg">
+                            01
+                        </div>
+                        <div class="text-right">
+                            <span class="inline-block bg-green-500/20 text-green-400 text-xs font-semibold px-3 py-1 rounded-full mb-2">Beginner</span>
+                            <div class="text-gray-400 text-sm">5 min</div>
                         </div>
                     </div>
-                    <h3>🎨 Basic Styling</h3>
-                    <p>Apply colors, fonts, and basic styling to HTML elements using CSS.</p>
+                    <h3 class="text-xl font-bold text-white mb-4 flex items-center">
+                        <i class="fas fa-palette text-primary mr-3"></i>
+                        CSS Introduction
+                    </h3>
+                    <p class="text-gray-300 mb-6 leading-relaxed">
+                        Learn the basics of CSS and understand how it works with HTML.
+                    </p>
                     
-                    <button class="challenge-btn" onclick="openChallenge(1)">
-                        <i class="fas fa-play"></i>
+                    <button class="w-full bg-gradient-to-r from-primary to-accent text-white py-3 rounded-2xl font-semibold hover:shadow-lg hover:shadow-primary/25 transition-all duration-300" onclick="openChallenge(9)">
+                        <i class="fas fa-play mr-2"></i>
                         Start Challenge
                     </button>
                 </div>
 
                 <!-- Challenge 2 -->
-                <div class="challenge-card">
-                    <div class="challenge-header">
-                        <div class="challenge-number">02</div>
-                        <div class="challenge-meta">
-                            <span class="difficulty beginner">Beginner</span>
-                            <span class="time">15 min</span>
+                <div class="bg-gradient-to-br from-dark-light/80 to-dark/80 backdrop-blur-xl rounded-3xl border border-primary/30 p-8 hover:border-primary/50 transition-all duration-300 hover:shadow-2xl hover:shadow-primary/20">
+                    <div class="flex justify-between items-start mb-6">
+                        <div class="w-12 h-12 bg-gradient-to-br from-primary to-accent rounded-2xl flex items-center justify-center text-white font-bold text-lg">
+                            02
+                        </div>
+                        <div class="text-right">
+                            <span class="inline-block bg-yellow-500/20 text-yellow-400 text-xs font-semibold px-3 py-1 rounded-full mb-2">Intermediate</span>
+                            <div class="text-gray-400 text-sm">8 min</div>
                         </div>
                     </div>
-                    <h3>🎯 Selectors Mastery</h3>
-                    <p>Practice using different CSS selectors (tag, class, ID) to target elements.</p>
+                    <h3 class="text-xl font-bold text-white mb-4 flex items-center">
+                        <i class="fas fa-code text-primary mr-3"></i>
+                        CSS Methods
+                    </h3>
+                    <p class="text-gray-300 mb-6 leading-relaxed">
+                        Practice inline, internal, and external CSS methods.
+                    </p>
                     
-                    <button class="challenge-btn" onclick="openChallenge(2)">
-                        <i class="fas fa-play"></i>
+                    <button class="w-full bg-gradient-to-r from-primary to-accent text-white py-3 rounded-2xl font-semibold hover:shadow-lg hover:shadow-primary/25 transition-all duration-300" onclick="openChallenge(10)">
+                        <i class="fas fa-play mr-2"></i>
                         Start Challenge
                     </button>
                 </div>
 
                 <!-- Challenge 3 -->
-                <div class="challenge-card">
-                    <div class="challenge-header">
-                        <div class="challenge-number">03</div>
-                        <div class="challenge-meta">
-                            <span class="difficulty intermediate">Intermediate</span>
-                            <span class="time">20 min</span>
+                <div class="bg-gradient-to-br from-dark-light/80 to-dark/80 backdrop-blur-xl rounded-3xl border border-primary/30 p-8 hover:border-primary/50 transition-all duration-300 hover:shadow-2xl hover:shadow-primary/20">
+                    <div class="flex justify-between items-start mb-6">
+                        <div class="w-12 h-12 bg-gradient-to-br from-primary to-accent rounded-2xl flex items-center justify-center text-white font-bold text-lg">
+                            03
+                        </div>
+                        <div class="text-right">
+                            <span class="inline-block bg-yellow-500/20 text-yellow-400 text-xs font-semibold px-3 py-1 rounded-full mb-2">Intermediate</span>
+                            <div class="text-gray-400 text-sm">10 min</div>
                         </div>
                     </div>
-                    <h3>🆚 Class vs ID Challenge</h3>
-                    <p>Create a styled form using both classes and IDs, understanding when to use each.</p>
+                    <h3 class="text-xl font-bold text-white mb-4 flex items-center">
+                        <i class="fas fa-bullseye text-primary mr-3"></i>
+                        Selectors & Properties
+                    </h3>
+                    <p class="text-gray-300 mb-6 leading-relaxed">
+                        Master CSS selectors, properties, and values.
+                    </p>
                     
-                    <button class="challenge-btn" onclick="openChallenge(3)">
-                        <i class="fas fa-play"></i>
+                    <button class="w-full bg-gradient-to-r from-primary to-accent text-white py-3 rounded-2xl font-semibold hover:shadow-lg hover:shadow-primary/25 transition-all duration-300" onclick="openChallenge(11)">
+                        <i class="fas fa-play mr-2"></i>
+                        Start Challenge
+                    </button>
+                </div>
+
+                <!-- Challenge 4 -->
+                <div class="bg-gradient-to-br from-dark-light/80 to-dark/80 backdrop-blur-xl rounded-3xl border border-primary/30 p-8 hover:border-primary/50 transition-all duration-300 hover:shadow-2xl hover:shadow-primary/20">
+                    <div class="flex justify-between items-start mb-6">
+                        <div class="w-12 h-12 bg-gradient-to-br from-primary to-accent rounded-2xl flex items-center justify-center text-white font-bold text-lg">
+                            04
+                        </div>
+                        <div class="text-right">
+                            <span class="inline-block bg-red-500/20 text-red-400 text-xs font-semibold px-3 py-1 rounded-full mb-2">Advanced</span>
+                            <div class="text-gray-400 text-sm">12 min</div>
+                        </div>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-4 flex items-center">
+                        <i class="fas fa-paint-brush text-primary mr-3"></i>
+                        Styling Essentials
+                    </h3>
+                    <p class="text-gray-300 mb-6 leading-relaxed">
+                        Apply colors, fonts, borders, and spacing to create beautiful designs.
+                    </p>
+                    
+                    <button class="w-full bg-gradient-to-r from-primary to-accent text-white py-3 rounded-2xl font-semibold hover:shadow-lg hover:shadow-primary/25 transition-all duration-300" onclick="openChallenge(12)">
+                        <i class="fas fa-play mr-2"></i>
                         Start Challenge
                     </button>
                 </div>
@@ -132,248 +189,235 @@
         </div>
     </section>
 
-    <!-- Content Section -->
-    <section class="day-content">
-        <div class="container">
-            <div class="content-grid">
+    <!-- Main Content -->
+    <section class="py-20 bg-dark-light/30">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-4 gap-12">
                 <!-- Main Content -->
-                <div class="content-main">
-                    <div class="content-section">
-                        <h2>🎯 What is CSS?</h2>
-                        <p><strong>CSS = Cascading Style Sheets</strong> - the language that controls the visual presentation of your HTML elements.</p>
-                        
-                        <div class="concept-highlight">
-                            <h4>HTML vs CSS Analogy:</h4>
-                            <ul>
-                                <li><strong>HTML:</strong> The building structure (walls, rooms, foundation)</li>
-                                <li><strong>CSS:</strong> The paint, decor, layout, and styling</li>
-                            </ul>
-                        </div>
-
-                        <div class="code-example">
-                            <div class="code-header">
-                                <span>Basic CSS Structure</span>
-                                <button class="copy-btn" onclick="copyCode(this)">
-                                    <i class="fas fa-copy"></i>
-                                </button>
+                <div class="lg:col-span-3 space-y-16">
+                    <!-- What is CSS -->
+                    <div class="bg-gradient-to-br from-dark-light/50 to-dark/50 backdrop-blur-xl rounded-3xl border border-primary/20 p-8">
+                        <div class="flex items-center mb-6">
+                            <div class="w-12 h-12 bg-gradient-to-br from-primary to-accent rounded-2xl flex items-center justify-center text-white font-bold text-lg mr-4">
+                                1
                             </div>
-                            <pre><code>/* CSS Rule Structure */
-selector {
-    property: value;
-    another-property: value;
-}
-
-/* Example */
-h1 {
-    color: blue;
-    font-size: 24px;
-}</code></pre>
+                            <h2 class="text-3xl font-bold text-white">🎯 What is CSS?</h2>
+                        </div>
+                        <div class="text-gray-300 space-y-4 leading-relaxed">
+                            <p><strong>CSS = Cascading Style Sheets</strong></p>
+                            <p>CSS explains how HTML elements are styled and presented. While HTML provides the structure, CSS provides the visual design.</p>
+                            <div class="bg-primary/10 border border-primary/20 rounded-2xl p-6 my-6">
+                                <h4 class="text-primary font-semibold mb-3">💡 Real-world Analogy</h4>
+                                <p class="text-gray-300">HTML is the building structure, CSS is the paint, decor, and layout that makes it beautiful and functional.</p>
+                            </div>
+                            <p>You'll see a quick demo comparing unstyled vs styled versions of a page to understand the power of CSS.</p>
                         </div>
                     </div>
 
-                    <div class="content-section">
-                        <h2>🧩 Inline vs Internal vs External CSS</h2>
-                        <p>There are three ways to apply CSS to your HTML elements, each with its own use case.</p>
-                        
-                        <div class="concept-highlight">
-                            <h4>Three CSS Methods:</h4>
-                            <ul>
-                                <li><strong>Inline:</strong> <code>style=""</code> inside HTML tags</li>
-                                <li><strong>Internal:</strong> <code><style></code> inside <code><head></code></li>
-                                <li><strong>External:</strong> <code>.css</code> file linked with <code><link></code></li>
-                            </ul>
-                        </div>
-
-                        <div class="code-example">
-                            <div class="code-header">
-                                <span>CSS Methods Examples</span>
-                                <button class="copy-btn" onclick="copyCode(this)">
-                                    <i class="fas fa-copy"></i>
-                                </button>
+                    <!-- CSS Methods -->
+                    <div class="bg-gradient-to-br from-dark-light/50 to-dark/50 backdrop-blur-xl rounded-3xl border border-primary/20 p-8">
+                        <div class="flex items-center mb-6">
+                            <div class="w-12 h-12 bg-gradient-to-br from-primary to-accent rounded-2xl flex items-center justify-center text-white font-bold text-lg mr-4">
+                                2
                             </div>
-                            <pre><code>/* 1. Inline CSS */
-<p style="color: red; font-size: 16px;">Red text</p>
-
-/* 2. Internal CSS */
-<head>
-    <style>
-        p {
-            color: blue;
-            font-size: 18px;
-        }
-    </style>
-</head>
-
-/* 3. External CSS */
-<head>
-    <link rel="stylesheet" href="styles.css">
-</head></code></pre>
+                            <h2 class="text-3xl font-bold text-white">🧩 Inline vs Internal vs External CSS</h2>
+                        </div>
+                        <div class="text-gray-300 space-y-4 leading-relaxed">
+                            <p>There are three main ways to apply CSS to your HTML:</p>
+                            
+                            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 my-6">
+                                <div class="bg-dark-light/50 rounded-2xl p-6 border border-primary/20">
+                                    <h4 class="text-primary font-semibold mb-3">Inline CSS</h4>
+                                    <p class="text-sm text-gray-400 mb-3">Style="" inside HTML tags</p>
+                                    <div class="bg-black rounded-xl p-4">
+                                        <code class="text-green-400 text-sm">&lt;p style="color: red;"&gt;Text&lt;/p&gt;</code>
+                                    </div>
+                                </div>
+                                
+                                <div class="bg-dark-light/50 rounded-2xl p-6 border border-primary/20">
+                                    <h4 class="text-primary font-semibold mb-3">Internal CSS</h4>
+                                    <p class="text-sm text-gray-400 mb-3">&lt;style&gt; inside &lt;head&gt;</p>
+                                    <div class="bg-black rounded-xl p-4">
+                                        <code class="text-green-400 text-sm">&lt;style&gt;<br>&nbsp;&nbsp;p { color: red; }<br>&lt;/style&gt;</code>
+                                    </div>
+                                </div>
+                                
+                                <div class="bg-dark-light/50 rounded-2xl p-6 border border-primary/20">
+                                    <h4 class="text-primary font-semibold mb-3">External CSS</h4>
+                                    <p class="text-sm text-gray-400 mb-3">.css file linked with &lt;link&gt;</p>
+                                    <div class="bg-black rounded-xl p-4">
+                                        <code class="text-green-400 text-sm">&lt;link rel="stylesheet" href="style.css"&gt;</code>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <p>We'll explore the pros and cons of each method and when to use which approach.</p>
                         </div>
                     </div>
 
-                    <div class="content-section">
-                        <h2>🎯 Selectors, Properties, Values</h2>
-                        <p>CSS selectors target HTML elements, and properties define how they should be styled.</p>
-                        
-                        <div class="concept-highlight">
-                            <h4>Selector Types:</h4>
-                            <ul>
-                                <li><strong>Tag selectors:</strong> <code>p {}</code>, <code>h1 {}</code>, <code>div {}</code></li>
-                                <li><strong>Class selectors:</strong> <code>.myClass {}</code> (reusable)</li>
-                                <li><strong>ID selectors:</strong> <code>#myId {}</code> (unique)</li>
-                            </ul>
-                        </div>
-
-                        <div class="code-example">
-                            <div class="code-header">
-                                <span>Selector Examples</span>
-                                <button class="copy-btn" onclick="copyCode(this)">
-                                    <i class="fas fa-copy"></i>
-                                </button>
+                    <!-- Selectors, Properties, Values -->
+                    <div class="bg-gradient-to-br from-dark-light/50 to-dark/50 backdrop-blur-xl rounded-3xl border border-primary/20 p-8">
+                        <div class="flex items-center mb-6">
+                            <div class="w-12 h-12 bg-gradient-to-br from-primary to-accent rounded-2xl flex items-center justify-center text-white font-bold text-lg mr-4">
+                                3
                             </div>
-                            <pre><code>/* Tag selector - targets all paragraphs */
-p {
-    color: #333;
-    line-height: 1.6;
-}
-
-/* Class selector - targets elements with class="highlight" */
-.highlight {
-    background-color: yellow;
-    font-weight: bold;
-}
-
-/* ID selector - targets element with id="header" */
-#header {
-    background-color: #2c3e50;
-    color: white;
-    padding: 20px;
-}</code></pre>
+                            <h2 class="text-3xl font-bold text-white">🎯 Selectors, Properties, Values</h2>
+                        </div>
+                        <div class="text-gray-300 space-y-4 leading-relaxed">
+                            <p>CSS follows a simple structure: <code class="bg-primary/20 text-primary px-2 py-1 rounded">selector { property: value; }</code></p>
+                            
+                            <div class="bg-dark-light/50 rounded-2xl p-6 my-6">
+                                <h4 class="text-primary font-semibold mb-3">🔍 Types of Selectors</h4>
+                                <ul class="space-y-2 text-gray-300">
+                                    <li><strong>Tag selectors:</strong> <code class="bg-black px-2 py-1 rounded text-green-400">p { }</code> - targets all &lt;p&gt; elements</li>
+                                    <li><strong>Class selectors:</strong> <code class="bg-black px-2 py-1 rounded text-green-400">.myClass { }</code> - targets elements with class="myClass"</li>
+                                    <li><strong>ID selectors:</strong> <code class="bg-black px-2 py-1 rounded text-green-400">#myId { }</code> - targets element with id="myId"</li>
+                                </ul>
+                            </div>
+                            
+                            <p>We'll explain <strong>cascading</strong> and the importance of specificity, then add examples to your "About Me" page.</p>
                         </div>
                     </div>
 
-                    <div class="content-section">
-                        <h2>🖌️ Styling Essentials</h2>
-                        <p>Master these fundamental CSS properties to create beautiful, well-styled web pages.</p>
-                        
-                        <div class="concept-highlight">
-                            <h4>Essential Properties:</h4>
-                            <ul>
-                                <li><strong>Colors:</strong> <code>color</code>, <code>background-color</code></li>
-                                <li><strong>Typography:</strong> <code>font-family</code>, <code>font-size</code>, <code>line-height</code></li>
-                                <li><strong>Borders:</strong> <code>border</code>, <code>border-radius</code></li>
-                                <li><strong>Spacing:</strong> <code>margin</code> (outside), <code>padding</code> (inside)</li>
-                            </ul>
-                        </div>
-
-                        <div class="code-example">
-                            <div class="code-header">
-                                <span>Styling Examples</span>
-                                <button class="copy-btn" onclick="copyCode(this)">
-                                    <i class="fas fa-copy"></i>
-                                </button>
+                    <!-- Styling Essentials -->
+                    <div class="bg-gradient-to-br from-dark-light/50 to-dark/50 backdrop-blur-xl rounded-3xl border border-primary/20 p-8">
+                        <div class="flex items-center mb-6">
+                            <div class="w-12 h-12 bg-gradient-to-br from-primary to-accent rounded-2xl flex items-center justify-center text-white font-bold text-lg mr-4">
+                                4
                             </div>
-                            <pre><code>/* Colors */
-.text-primary {
-    color: #3498db;
-    background-color: #ecf0f1;
-}
-
-/* Typography */
-.heading {
-    font-family: 'Arial', sans-serif;
-    font-size: 24px;
-    line-height: 1.4;
-}
-
-/* Borders */
-.card {
-    border: 2px solid #bdc3c7;
-    border-radius: 8px;
-}
-
-/* Spacing */
-.container {
-    margin: 20px;
-    padding: 15px;
-}</code></pre>
+                            <h2 class="text-3xl font-bold text-white">🖌️ Styling Essentials</h2>
+                        </div>
+                        <div class="text-gray-300 space-y-4 leading-relaxed">
+                            <p>Learn the fundamental CSS properties that will transform your pages:</p>
+                            
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 my-6">
+                                <div class="bg-dark-light/50 rounded-2xl p-6 border border-primary/20">
+                                    <h4 class="text-primary font-semibold mb-3">🎨 Colors & Backgrounds</h4>
+                                    <ul class="space-y-2 text-sm">
+                                        <li><code class="bg-black px-2 py-1 rounded text-green-400">color</code> - text color</li>
+                                        <li><code class="bg-black px-2 py-1 rounded text-green-400">background-color</code> - background color</li>
+                                        <li>HEX values (#ff0000) and named colors (red)</li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="bg-dark-light/50 rounded-2xl p-6 border border-primary/20">
+                                    <h4 class="text-primary font-semibold mb-3">📝 Typography</h4>
+                                    <ul class="space-y-2 text-sm">
+                                        <li><code class="bg-black px-2 py-1 rounded text-green-400">font-family</code> - font type</li>
+                                        <li><code class="bg-black px-2 py-1 rounded text-green-400">font-size</code> - text size</li>
+                                        <li><code class="bg-black px-2 py-1 rounded text-green-400">line-height</code> - spacing between lines</li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="bg-dark-light/50 rounded-2xl p-6 border border-primary/20">
+                                    <h4 class="text-primary font-semibold mb-3">🔲 Borders & Shapes</h4>
+                                    <ul class="space-y-2 text-sm">
+                                        <li><code class="bg-black px-2 py-1 rounded text-green-400">border</code> - border styling</li>
+                                        <li><code class="bg-black px-2 py-1 rounded text-green-400">border-radius</code> - rounded corners</li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="bg-dark-light/50 rounded-2xl p-6 border border-primary/20">
+                                    <h4 class="text-primary font-semibold mb-3">📏 Spacing</h4>
+                                    <ul class="space-y-2 text-sm">
+                                        <li><code class="bg-black px-2 py-1 rounded text-green-400">margin</code> - outer spacing</li>
+                                        <li><code class="bg-black px-2 py-1 rounded text-green-400">padding</code> - inner spacing</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            
+                            <p>We'll show side-by-side differences using browser live editing, and challenge you to apply at least 4 of these properties to your HTML content.</p>
                         </div>
                     </div>
 
-                    <div class="content-section">
-                        <h2>🆚 Class vs ID</h2>
-                        <p>Understanding when to use classes vs IDs is crucial for writing maintainable CSS.</p>
-                        
-                        <div class="concept-highlight">
-                            <h4>Key Differences:</h4>
-                            <ul>
-                                <li><strong>Classes (.class):</strong> Reusable, multiple elements can have same class</li>
-                                <li><strong>IDs (#id):</strong> Unique, only one element per page can have that ID</li>
-                                <li><strong>Specificity:</strong> IDs have higher specificity than classes</li>
-                            </ul>
-                        </div>
-
-                        <div class="code-example">
-                            <div class="code-header">
-                                <span>Class vs ID Usage</span>
-                                <button class="copy-btn" onclick="copyCode(this)">
-                                    <i class="fas fa-copy"></i>
-                                </button>
+                    <!-- Class vs ID -->
+                    <div class="bg-gradient-to-br from-dark-light/50 to-dark/50 backdrop-blur-xl rounded-3xl border border-primary/20 p-8">
+                        <div class="flex items-center mb-6">
+                            <div class="w-12 h-12 bg-gradient-to-br from-primary to-accent rounded-2xl flex items-center justify-center text-white font-bold text-lg mr-4">
+                                5
                             </div>
-                            <pre><code>/* HTML */
-<div id="header">Website Header</div>
-<div class="card">Card 1</div>
-<div class="card">Card 2</div>
-<div class="card">Card 3</div>
-
-/* CSS */
-#header {
-    background-color: #2c3e50;
-    color: white;
-    padding: 20px;
-}
-
-.card {
-    background-color: #fff;
-    border: 1px solid #ddd;
-    padding: 15px;
-    margin: 10px;
-    border-radius: 5px;
-}</code></pre>
+                            <h2 class="text-3xl font-bold text-white">🆚 Class vs ID</h2>
+                        </div>
+                        <div class="text-gray-300 space-y-4 leading-relaxed">
+                            <p>Understanding when to use classes vs IDs is crucial for effective CSS:</p>
+                            
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 my-6">
+                                <div class="bg-dark-light/50 rounded-2xl p-6 border border-primary/20">
+                                    <h4 class="text-primary font-semibold mb-3">📦 Classes</h4>
+                                    <p class="text-sm text-gray-400 mb-3">Reusable styling</p>
+                                    <ul class="space-y-2 text-sm">
+                                        <li>Multiple elements can have the same class</li>
+                                        <li>Use for common styling patterns</li>
+                                        <li>Example: <code class="bg-black px-2 py-1 rounded text-green-400">.box</code>, <code class="bg-black px-2 py-1 rounded text-green-400">.title</code></li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="bg-dark-light/50 rounded-2xl p-6 border border-primary/20">
+                                    <h4 class="text-primary font-semibold mb-3">🆔 IDs</h4>
+                                    <p class="text-sm text-gray-400 mb-3">Unique identifiers</p>
+                                    <ul class="space-y-2 text-sm">
+                                        <li>Only one element can have a specific ID</li>
+                                        <li>Use for unique styling or JavaScript targeting</li>
+                                        <li>Example: <code class="bg-black px-2 py-1 rounded text-green-400">#header</code>, <code class="bg-black px-2 py-1 rounded text-green-400">#main-content</code></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            
+                            <p>We'll provide code samples and highlight sections using both approaches to demonstrate the differences.</p>
                         </div>
                     </div>
                 </div>
 
                 <!-- Sidebar -->
-                <div class="content-sidebar">
-                    <div class="sidebar-section">
-                        <h3>Quick Navigation</h3>
-                        <ul class="sidebar-nav">
-                            <li><a href="#what-is-css">What is CSS?</a></li>
-                            <li><a href="#css-methods">CSS Methods</a></li>
-                            <li><a href="#selectors">Selectors & Properties</a></li>
-                            <li><a href="#styling">Styling Essentials</a></li>
-                            <li><a href="#class-vs-id">Class vs ID</a></li>
-                            <li><a href="#challenges">Challenges</a></li>
-                        </ul>
+                <div class="lg:col-span-1 space-y-8">
+                    <!-- Quick Navigation -->
+                    <div class="bg-gradient-to-br from-dark-light/50 to-dark/50 backdrop-blur-xl rounded-3xl border border-primary/20 p-6">
+                        <h3 class="text-xl font-bold text-white mb-4">📚 Quick Navigation</h3>
+                        <nav class="space-y-3">
+                            <a href="#what-is-css" class="block text-gray-300 hover:text-primary transition-colors duration-200">
+                                <i class="fas fa-chevron-right mr-2 text-primary"></i>
+                                What is CSS?
+                            </a>
+                            <a href="#css-methods" class="block text-gray-300 hover:text-primary transition-colors duration-200">
+                                <i class="fas fa-chevron-right mr-2 text-primary"></i>
+                                CSS Methods
+                            </a>
+                            <a href="#selectors" class="block text-gray-300 hover:text-primary transition-colors duration-200">
+                                <i class="fas fa-chevron-right mr-2 text-primary"></i>
+                                Selectors & Properties
+                            </a>
+                            <a href="#styling" class="block text-gray-300 hover:text-primary transition-colors duration-200">
+                                <i class="fas fa-chevron-right mr-2 text-primary"></i>
+                                Styling Essentials
+                            </a>
+                            <a href="#class-vs-id" class="block text-gray-300 hover:text-primary transition-colors duration-200">
+                                <i class="fas fa-chevron-right mr-2 text-primary"></i>
+                                Class vs ID
+                            </a>
+                        </nav>
                     </div>
 
-                    <div class="sidebar-section">
-                        <h3>Resources</h3>
-                        <ul class="resource-links">
-                            <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS" target="_blank">
-                                <i class="fas fa-external-link-alt"></i>
-                                MDN CSS Guide
-                            </a></li>
-                            <li><a href="https://www.w3schools.com/css/" target="_blank">
-                                <i class="fas fa-external-link-alt"></i>
-                                W3Schools CSS
-                            </a></li>
-                            <li><a href="https://css-tricks.com/" target="_blank">
-                                <i class="fas fa-external-link-alt"></i>
-                                CSS-Tricks
-                            </a></li>
-                        </ul>
+                    <!-- Resources -->
+                    <div class="bg-gradient-to-br from-dark-light/50 to-dark/50 backdrop-blur-xl rounded-3xl border border-primary/20 p-6">
+                        <h3 class="text-xl font-bold text-white mb-4">🔗 Resources</h3>
+                        <div class="space-y-3">
+                            <a href="#" class="block text-gray-300 hover:text-primary transition-colors duration-200">
+                                <i class="fas fa-external-link-alt mr-2 text-primary"></i>
+                                CSS Reference Guide
+                            </a>
+                            <a href="#" class="block text-gray-300 hover:text-primary transition-colors duration-200">
+                                <i class="fas fa-external-link-alt mr-2 text-primary"></i>
+                                Color Palette Tools
+                            </a>
+                            <a href="#" class="block text-gray-300 hover:text-primary transition-colors duration-200">
+                                <i class="fas fa-external-link-alt mr-2 text-primary"></i>
+                                Font Resources
+                            </a>
+                            <a href="#" class="block text-gray-300 hover:text-primary transition-colors duration-200">
+                                <i class="fas fa-external-link-alt mr-2 text-primary"></i>
+                                CSS Validator
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -381,38 +425,35 @@ p {
     </section>
 
     <!-- Navigation Footer -->
-    <section class="day-navigation">
-        <div class="container">
-            <div class="nav-buttons">
-                <button class="nav-btn" onclick="window.location.href='html-forms.html'">
-                    <i class="fas fa-arrow-left"></i>
+    <section class="py-16 bg-dark-light/20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col sm:flex-row justify-between items-center space-y-4 sm:space-y-0">
+                <a href="html-forms.html" class="bg-gradient-to-r from-gray-600 to-gray-700 text-white px-8 py-3 rounded-2xl font-semibold hover:shadow-lg transition-all duration-300">
+                    <i class="fas fa-arrow-left mr-2"></i>
                     Previous: Day 2
-                </button>
-                <button class="nav-btn primary" onclick="window.location.href='css-layout.html'">
+                </a>
+                <a href="css-layout.html" class="bg-gradient-to-r from-primary to-accent text-white px-8 py-3 rounded-2xl font-semibold hover:shadow-lg hover:shadow-primary/25 transition-all duration-300">
                     Next: Day 4
-                    <i class="fas fa-arrow-right"></i>
-                </button>
+                    <i class="fas fa-arrow-right ml-2"></i>
+                </a>
             </div>
         </div>
     </section>
 
     <!-- Challenge Modal -->
-    <div id="challengeModal" class="challenge-modal">
-        <div class="challenge-modal-content">
-            <div class="challenge-modal-header">
-                <h2 id="modalChallengeTitle">Challenge Title</h2>
-                <div class="challenge-modal-actions">
-                    <button class="complete-btn" onclick="completeChallenge()">
-                        <i class="fas fa-check"></i>
-                        Complete Challenge
-                    </button>
-                    <button class="close-challenge-modal" onclick="closeChallengeModal()">
-                        <i class="fas fa-times"></i>
-                    </button>
+    <div id="challengeModal" class="fixed inset-0 z-50 hidden">
+        <div class="absolute inset-0 bg-black/80 backdrop-blur-sm"></div>
+        <div class="relative min-h-screen flex items-center justify-center p-4">
+            <div class="bg-dark-light/95 backdrop-blur-xl rounded-3xl border border-primary/30 w-full max-w-6xl max-h-[90vh] overflow-y-auto">
+                <div class="sticky top-0 bg-dark-light/95 backdrop-blur-xl border-b border-primary/20 p-6 rounded-t-3xl">
+                    <div class="flex justify-between items-center">
+                        <h2 id="challengeTitle" class="text-2xl font-bold text-white">Challenge</h2>
+                        <button onclick="closeChallengeModal()" class="text-gray-400 hover:text-white transition-colors duration-200">
+                            <i class="fas fa-times text-2xl"></i>
+                        </button>
+                    </div>
                 </div>
-            </div>
-            <div class="challenge-modal-body">
-                <div id="modalChallengeContent">
+                <div id="challengeContent" class="p-6">
                     <!-- Challenge content will be loaded here -->
                 </div>
             </div>
@@ -420,40 +461,87 @@ p {
     </div>
 
     <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h3>WebDev LMS</h3>
-                    <p>Master web development in 10 days with hands-on challenges and real-world projects.</p>
+    <footer class="bg-dark border-t border-primary/20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div class="col-span-1 md:col-span-2">
+                    <div class="flex items-center mb-4">
+                        <i class="fas fa-code text-3xl text-primary mr-3"></i>
+                        <span class="text-2xl font-bold text-white">WebDev LMS</span>
+                    </div>
+                    <p class="text-gray-400 mb-6 max-w-md">
+                        Master web development with our comprehensive learning platform. From HTML basics to advanced JavaScript, we've got you covered.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-primary transition-colors duration-200">
+                            <i class="fab fa-twitter text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-primary transition-colors duration-200">
+                            <i class="fab fa-github text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-primary transition-colors duration-200">
+                            <i class="fab fa-linkedin text-xl"></i>
+                        </a>
+                    </div>
                 </div>
-                <div class="footer-section">
-                    <h4>Quick Links</h4>
-                    <ul>
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="index.html#curriculum">Curriculum</a></li>
-                        <li><a href="index.html#challenges">Challenges</a></li>
-                        <li><a href="index.html#resources">Resources</a></li>
+                
+                <div>
+                    <h3 class="text-white font-semibold mb-4">Learning Paths</h3>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#" class="hover:text-primary transition-colors duration-200">HTML Fundamentals</a></li>
+                        <li><a href="#" class="hover:text-primary transition-colors duration-200">CSS Styling</a></li>
+                        <li><a href="#" class="hover:text-primary transition-colors duration-200">JavaScript Basics</a></li>
+                        <li><a href="#" class="hover:text-primary transition-colors duration-200">Advanced Topics</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-white font-semibold mb-4">Resources</h3>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#" class="hover:text-primary transition-colors duration-200">Documentation</a></li>
+                        <li><a href="#" class="hover:text-primary transition-colors duration-200">Code Examples</a></li>
+                        <li><a href="#" class="hover:text-primary transition-colors duration-200">Video Tutorials</a></li>
+                        <li><a href="#" class="hover:text-primary transition-colors duration-200">Community</a></li>
                     </ul>
                 </div>
             </div>
-            <div class="footer-bottom">
+            
+            <div class="border-t border-primary/20 mt-8 pt-8 text-center text-gray-400">
                 <p>&copy; 2024 WebDev LMS. All rights reserved.</p>
             </div>
         </div>
     </footer>
 
+    <!-- Monaco Editor CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.44.0/min/vs/loader.min.js"></script>
+    
+    <!-- Custom Scripts -->
     <script src="script.js"></script>
+    
     <script>
-        // Simple Monaco Editor initialization
+        // Initialize Monaco Editor for this page
         require.config({ paths: { vs: 'https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.44.0/min/vs' } });
+        
         require(['vs/editor/editor.main'], function() {
-            console.log('Monaco Editor loaded successfully for Day 3');
+            // Monaco Editor is now loaded
+            console.log('Monaco Editor loaded successfully');
         });
         
-        // Simple challenge function - works immediately
-        function openChallenge(challengeNumber) {
-            openChallengeModal(challengeNumber);
+        // Copy code function for this page
+        function copyCode(button) {
+            const codeBlock = button.previousElementSibling;
+            const code = codeBlock.textContent;
+            
+            navigator.clipboard.writeText(code).then(() => {
+                const originalText = button.innerHTML;
+                button.innerHTML = '<i class="fas fa-check mr-2"></i>Copied!';
+                button.classList.add('bg-green-500');
+                
+                setTimeout(() => {
+                    button.innerHTML = originalText;
+                    button.classList.remove('bg-green-500');
+                }, 2000);
+            });
         }
     </script>
 </body>

@@ -4,65 +4,85 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Day 1: HTML Fundamentals - WebDev LMS</title>
-    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#01d29b',
+                        secondary: '#121212',
+                        accent: '#00b894',
+                        dark: '#1e1e1e',
+                        'dark-light': '#2a2a2a'
+                    }
+                }
+            }
+        }
+    </script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.44.0/min/vs/loader.min.js"></script>
 </head>
 <body>
     <!-- Navigation -->
-    <nav class="navbar">
-        <div class="nav-container">
-            <div class="nav-logo" onclick="window.location.href='index.html'">
-                <i class="fas fa-code"></i>
-                <span>WebDev LMS</span>
-            </div>
-            <ul class="nav-menu">
-                <li><a href="index.html" class="nav-link" data-page="home">Home</a></li>
-                <li><a href="index.html#curriculum" class="nav-link" data-page="curriculum">Curriculum</a></li>
-                <li><a href="index.html#challenges" class="nav-link" data-page="challenges">Challenges</a></li>
-                <li><a href="index.html#resources" class="nav-link" data-page="resources">Resources</a></li>
-            </ul>
-            <div class="nav-actions">
-                <div class="page-indicator">
-                    <i class="fas fa-book-open"></i>
-                    <span>Day 1: HTML Fundamentals</span>
+    <nav class="bg-gradient-to-r from-dark to-dark-light border-b border-primary/20 sticky top-0 z-50 backdrop-blur-xl">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center space-x-3 cursor-pointer" onclick="window.location.href='index.html'">
+                    <div class="w-10 h-10 bg-gradient-to-br from-primary to-accent rounded-xl flex items-center justify-center">
+                        <i class="fas fa-code text-white text-xl"></i>
+                    </div>
+                    <span class="text-2xl font-bold text-white">WebDev LMS</span>
                 </div>
-                <button class="nav-btn-secondary" onclick="window.location.href='html-forms.html'">
-                    <i class="fas fa-arrow-right"></i>
-                    Next Day
-                </button>
-            </div>
-            <div class="hamburger">
-                <span></span>
-                <span></span>
-                <span></span>
+                
+                <ul class="hidden md:flex space-x-8">
+                    <li><a href="index.html" class="text-gray-300 hover:text-primary transition-colors duration-300 font-medium">Home</a></li>
+                    <li><a href="index.html#curriculum" class="text-gray-300 hover:text-primary transition-colors duration-300 font-medium">Curriculum</a></li>
+                    <li><a href="index.html#challenges" class="text-gray-300 hover:text-primary transition-colors duration-300 font-medium">Challenges</a></li>
+                    <li><a href="index.html#resources" class="text-gray-300 hover:text-primary transition-colors duration-300 font-medium">Resources</a></li>
+                </ul>
+                
+                <div class="flex items-center space-x-4">
+                    <div class="hidden lg:flex items-center space-x-3 bg-dark-light/50 px-4 py-2 rounded-xl border border-primary/20">
+                        <i class="fas fa-book-open text-primary"></i>
+                        <span class="text-white font-medium">Day 1: HTML Fundamentals</span>
+                    </div>
+                    <button class="bg-gradient-to-r from-primary to-accent text-white px-6 py-2 rounded-xl font-semibold hover:shadow-lg hover:shadow-primary/25 transition-all duration-300" onclick="window.location.href='html-forms.html'">
+                        <i class="fas fa-arrow-right mr-2"></i>
+                        Next Day
+                    </button>
+                </div>
             </div>
         </div>
     </nav>
 
     <!-- Day Header -->
-    <section class="day-header">
-        <div class="container">
-            <div class="day-header-content">
-                <div class="day-badge">
-                    <span class="day-number">Day 1</span>
+    <section class="bg-gradient-to-br from-dark via-dark-light to-dark py-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <div class="space-y-8">
+                <div class="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-br from-primary to-accent rounded-3xl shadow-2xl shadow-primary/25">
+                    <span class="text-3xl font-bold text-white">1</span>
                 </div>
-                <h1>HTML Fundamentals</h1>
-                <p>Learn the building blocks of web development with HTML</p>
-                <div class="day-meta">
-                    <span class="meta-item">
-                        <i class="fas fa-clock"></i>
-                        Duration: 2-3 hours
-                    </span>
-                    <span class="meta-item">
-                        <i class="fas fa-signal"></i>
-                        Level: Beginner
-                    </span>
-                    <span class="meta-item">
-                        <i class="fas fa-tasks"></i>
-                        Challenges: 4
-                    </span>
+                <h1 class="text-5xl lg:text-6xl font-bold text-white leading-tight">
+                    HTML Fundamentals
+                </h1>
+                <p class="text-xl lg:text-2xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
+                    Learn the building blocks of web development with HTML
+                </p>
+                <div class="flex flex-wrap justify-center gap-6">
+                    <div class="flex items-center space-x-3 bg-dark-light/50 px-6 py-3 rounded-2xl border border-primary/20">
+                        <i class="fas fa-clock text-primary text-xl"></i>
+                        <span class="text-white font-medium">Duration: 2-3 hours</span>
+                    </div>
+                    <div class="flex items-center space-x-3 bg-dark-light/50 px-6 py-3 rounded-2xl border border-primary/20">
+                        <i class="fas fa-signal text-primary text-xl"></i>
+                        <span class="text-white font-medium">Level: Beginner</span>
+                    </div>
+                    <div class="flex items-center space-x-3 bg-dark-light/50 px-6 py-3 rounded-2xl border border-primary/20">
+                        <i class="fas fa-tasks text-primary text-xl"></i>
+                        <span class="text-white font-medium">Challenges: 4</span>
+                    </div>
                 </div>
             </div>
         </div>
@@ -71,80 +91,115 @@
     
 
     <!-- Challenges Section -->
-    <section class="challenges-section">
-        <div class="container">
-            <h2><i class="fas fa-bullseye"></i> Practice Challenges</h2>
-            <p class="challenges-intro">Complete these hands-on challenges to master HTML fundamentals:</p>
+    <section class="py-20 bg-gradient-to-br from-dark-light/30 to-dark/30">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl lg:text-5xl font-bold text-white mb-6 flex items-center justify-center">
+                    <i class="fas fa-bullseye text-primary mr-4"></i>
+                    Practice Challenges
+                </h2>
+                <p class="text-xl text-gray-300 max-w-3xl mx-auto">
+                    Complete these hands-on challenges to master HTML fundamentals
+                </p>
+            </div>
             
-            <div class="challenges-grid">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
                 <!-- Challenge 1 -->
-                <div class="challenge-card">
-                    <div class="challenge-header">
-                        <div class="challenge-number">01</div>
-                        <div class="challenge-meta">
-                            <span class="difficulty beginner">Beginner</span>
-                            <span class="time">8 min</span>
+                <div class="bg-gradient-to-br from-dark-light/50 to-dark/50 backdrop-blur-xl rounded-3xl border border-primary/20 p-8 hover:border-primary/40 transition-all duration-300 hover:shadow-2xl hover:shadow-primary/10">
+                    <div class="flex justify-between items-start mb-6">
+                        <div class="w-12 h-12 bg-gradient-to-br from-primary to-accent rounded-2xl flex items-center justify-center text-white font-bold text-lg">
+                            01
+                        </div>
+                        <div class="text-right">
+                            <span class="inline-block bg-green-500/20 text-green-400 text-xs font-semibold px-3 py-1 rounded-full mb-2">Beginner</span>
+                            <div class="text-gray-400 text-sm">8 min</div>
                         </div>
                     </div>
-                    <h3><i class="fas fa-edit"></i> Basic Structure</h3>
-                    <p>Create a simple HTML page with proper document structure.</p>
+                    <h3 class="text-xl font-bold text-white mb-4 flex items-center">
+                        <i class="fas fa-edit text-primary mr-3"></i>
+                        Basic Structure
+                    </h3>
+                    <p class="text-gray-300 mb-6 leading-relaxed">
+                        Create a simple HTML page with proper document structure.
+                    </p>
                     
-                    <button class="challenge-btn" onclick="openChallenge(1)">
-                        <i class="fas fa-play"></i>
+                    <button class="w-full bg-gradient-to-r from-primary to-accent text-white py-3 rounded-2xl font-semibold hover:shadow-lg hover:shadow-primary/25 transition-all duration-300" onclick="openChallenge(1)">
+                        <i class="fas fa-play mr-2"></i>
                         Start Challenge
                     </button>
                 </div>
 
                 <!-- Challenge 2 -->
-                <div class="challenge-card">
-                    <div class="challenge-header">
-                        <div class="challenge-number">02</div>
-                        <div class="challenge-meta">
-                            <span class="difficulty beginner">Beginner</span>
-                            <span class="time">10 min</span>
+                <div class="bg-gradient-to-br from-dark-light/50 to-dark/50 backdrop-blur-xl rounded-3xl border border-primary/20 p-8 hover:border-primary/40 transition-all duration-300 hover:shadow-2xl hover:shadow-primary/10">
+                    <div class="flex justify-between items-start mb-6">
+                        <div class="w-12 h-12 bg-gradient-to-br from-primary to-accent rounded-2xl flex items-center justify-center text-white font-bold text-lg">
+                            02
+                        </div>
+                        <div class="text-right">
+                            <span class="inline-block bg-green-500/20 text-green-400 text-xs font-semibold px-3 py-1 rounded-full mb-2">Beginner</span>
+                            <div class="text-gray-400 text-sm">10 min</div>
                         </div>
                     </div>
-                    <h3>📄 Content Elements</h3>
-                    <p>Use headings, paragraphs, and text formatting elements.</p>
+                    <h3 class="text-xl font-bold text-white mb-4 flex items-center">
+                        <span class="mr-3">📄</span>
+                        Content Elements
+                    </h3>
+                    <p class="text-gray-300 mb-6 leading-relaxed">
+                        Use headings, paragraphs, and text formatting elements.
+                    </p>
                     
-                    <button class="challenge-btn" onclick="openChallenge(2)">
-                        <i class="fas fa-play"></i>
+                    <button class="w-full bg-gradient-to-r from-primary to-accent text-white py-3 rounded-2xl font-semibold hover:shadow-lg hover:shadow-primary/25 transition-all duration-300" onclick="openChallenge(2)">
+                        <i class="fas fa-play mr-2"></i>
                         Start Challenge
                     </button>
                 </div>
 
                 <!-- Challenge 3 -->
-                <div class="challenge-card">
-                    <div class="challenge-header">
-                        <div class="challenge-number">03</div>
-                        <div class="challenge-meta">
-                            <span class="difficulty beginner">Beginner</span>
-                            <span class="time">12 min</span>
+                <div class="bg-gradient-to-br from-dark-light/50 to-dark/50 backdrop-blur-xl rounded-3xl border border-primary/20 p-8 hover:border-primary/40 transition-all duration-300 hover:shadow-2xl hover:shadow-primary/10">
+                    <div class="flex justify-between items-start mb-6">
+                        <div class="w-12 h-12 bg-gradient-to-br from-primary to-accent rounded-2xl flex items-center justify-center text-white font-bold text-lg">
+                            03
+                        </div>
+                        <div class="text-right">
+                            <span class="inline-block bg-green-500/20 text-green-400 text-xs font-semibold px-3 py-1 rounded-full mb-2">Beginner</span>
+                            <div class="text-gray-400 text-sm">12 min</div>
                         </div>
                     </div>
-                    <h3>🔗 Links & Lists</h3>
-                    <p>Create navigation links and organize content with lists.</p>
+                    <h3 class="text-xl font-bold text-white mb-4 flex items-center">
+                        <span class="mr-3">🔗</span>
+                        Links & Lists
+                    </h3>
+                    <p class="text-gray-300 mb-6 leading-relaxed">
+                        Create navigation links and organize content with lists.
+                    </p>
                     
-                    <button class="challenge-btn" onclick="openChallenge(3)">
-                        <i class="fas fa-play"></i>
+                    <button class="w-full bg-gradient-to-r from-primary to-accent text-white py-3 rounded-2xl font-semibold hover:shadow-lg hover:shadow-primary/25 transition-all duration-300" onclick="openChallenge(3)">
+                        <i class="fas fa-play mr-2"></i>
                         Start Challenge
                     </button>
                 </div>
 
                 <!-- Challenge 4 -->
-                <div class="challenge-card">
-                    <div class="challenge-header">
-                        <div class="challenge-number">04</div>
-                        <div class="challenge-meta">
-                            <span class="difficulty intermediate">Intermediate</span>
-                            <span class="time">15 min</span>
+                <div class="bg-gradient-to-br from-dark-light/50 to-dark/50 backdrop-blur-xl rounded-3xl border border-primary/20 p-8 hover:border-primary/40 transition-all duration-300 hover:shadow-2xl hover:shadow-primary/10">
+                    <div class="flex justify-between items-start mb-6">
+                        <div class="w-12 h-12 bg-gradient-to-br from-primary to-accent rounded-2xl flex items-center justify-center text-white font-bold text-lg">
+                            04
+                        </div>
+                        <div class="text-right">
+                            <span class="inline-block bg-yellow-500/20 text-yellow-400 text-xs font-semibold px-3 py-1 rounded-full mb-2">Intermediate</span>
+                            <div class="text-gray-400 text-sm">15 min</div>
                         </div>
                     </div>
-                    <h3><i class="fas fa-images"></i> Images & Media</h3>
-                    <p>Add images, videos, and other media elements to your page.</p>
+                    <h3 class="text-xl font-bold text-white mb-4 flex items-center">
+                        <i class="fas fa-images text-primary mr-3"></i>
+                        Images & Media
+                    </h3>
+                    <p class="text-gray-300 mb-6 leading-relaxed">
+                        Add images, videos, and other media elements to your page.
+                    </p>
                     
-                    <button class="challenge-btn" onclick="openChallenge(4)">
-                        <i class="fas fa-play"></i>
+                    <button class="w-full bg-gradient-to-r from-primary to-accent text-white py-3 rounded-2xl font-semibold hover:shadow-lg hover:shadow-primary/25 transition-all duration-300" onclick="openChallenge(4)">
+                        <i class="fas fa-play mr-2"></i>
                         Start Challenge
                     </button>
                 </div>
@@ -153,68 +208,111 @@
     </section>
 
     <!-- Content Section -->
-    <section class="day-content">
-        <div class="container">
-            <div class="content-grid">
+    <section class="py-20 bg-gradient-to-br from-dark to-dark-light">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-4 gap-12">
                 <!-- Main Content -->
-                <div class="content-main">
-                    <div class="content-section">
-                        <h2>💻 What is HTML?</h2>
-                        <p>HTML (HyperText Markup Language) is the foundation of all web pages. Think of it as the <strong>skeleton</strong> of a website - just like bones give structure to your body, HTML gives structure to web pages.</p>
+                <div class="lg:col-span-3 space-y-12">
+                    <div class="bg-gradient-to-br from-dark-light/50 to-dark/50 backdrop-blur-xl rounded-3xl border border-primary/20 p-8">
+                        <h2 class="text-3xl lg:text-4xl font-bold text-white mb-6 flex items-center">
+                            <span class="mr-4">💻</span>
+                            What is HTML?
+                        </h2>
+                        <p class="text-lg text-gray-300 leading-relaxed mb-6">
+                            HTML (HyperText Markup Language) is the foundation of all web pages. Think of it as the <strong class="text-primary">skeleton</strong> of a website - just like bones give structure to your body, HTML gives structure to web pages.
+                        </p>
                         
-                        <div class="concept-highlight">
-                            <h4>📚 Key Points:</h4>
-                            <ul>
-                                <li><strong>Structure:</strong> HTML defines the structure and content of web pages</li>
-                                <li><strong>Markup:</strong> Uses tags to "mark up" content with meaning</li>
-                                <li><strong>Universal:</strong> Every website you visit uses HTML</li>
-                                <li><strong>Browser Rendering:</strong> Browsers read HTML and display it as formatted pages</li>
+                        <div class="bg-primary/10 border border-primary/20 rounded-2xl p-6 mb-6">
+                            <h4 class="text-xl font-bold text-primary mb-4 flex items-center">
+                                <span class="mr-3">📚</span>
+                                Key Points:
+                            </h4>
+                            <ul class="space-y-3">
+                                <li class="flex items-start space-x-3">
+                                    <span class="text-primary font-bold">•</span>
+                                    <span class="text-gray-300"><strong>Structure:</strong> HTML defines the structure and content of web pages</span>
+                                </li>
+                                <li class="flex items-start space-x-3">
+                                    <span class="text-primary font-bold">•</span>
+                                    <span class="text-gray-300"><strong>Markup:</strong> Uses tags to "mark up" content with meaning</span>
+                                </li>
+                                <li class="flex items-start space-x-3">
+                                    <span class="text-primary font-bold">•</span>
+                                    <span class="text-gray-300"><strong>Universal:</strong> Every website you visit uses HTML</span>
+                                </li>
+                                <li class="flex items-start space-x-3">
+                                    <span class="text-primary font-bold">•</span>
+                                    <span class="text-gray-300"><strong>Browser Rendering:</strong> Browsers read HTML and display it as formatted pages</span>
+                                </li>
                             </ul>
                         </div>
 
-                        <div class="code-example">
-                            <div class="code-header">
-                                <span>Raw HTML vs Browser Display</span>
-                                <button class="copy-btn" onclick="copyCode(this)">
+                        <div class="bg-dark-light/50 backdrop-blur-xl rounded-2xl border border-primary/20 overflow-hidden mb-6">
+                            <div class="bg-dark-light border-b border-primary/20 px-6 py-4 flex items-center justify-between">
+                                <span class="text-white font-medium">Raw HTML vs Browser Display</span>
+                                <button class="text-gray-400 hover:text-primary transition-colors duration-300" onclick="copyCode(this)">
                                     <i class="fas fa-copy"></i>
                                 </button>
                             </div>
-                            <pre><code><h1>My First Website</h1>
-<p>This is a paragraph with <strong>bold text</strong>.</p>
-<a href="https://example.com">Click here</a></code></pre>
-                            <div class="code-output">
-                                <h4>Browser Display:</h4>
-                                <div class="browser-preview">
-                                    <h1 style="color: #333; margin: 0;">My First Website</h1>
-                                    <p style="color: #666; margin: 10px 0;">This is a paragraph with <strong>bold text</strong>.</p>
-                                    <a href="#" style="color: #01D29B; text-decoration: none;">Click here</a>
+                            <div class="bg-black p-6">
+                                <pre class="text-green-400 font-mono text-sm leading-relaxed"><code>&lt;h1&gt;My First Website&lt;/h1&gt;
+&lt;p&gt;This is a paragraph with &lt;strong&gt;bold text&lt;/strong&gt;.&lt;/p&gt;
+&lt;a href="https://example.com"&gt;Click here&lt;/a&gt;</code></pre>
+                            </div>
+                            <div class="bg-white p-6">
+                                <h4 class="text-lg font-bold text-gray-800 mb-4">Browser Display:</h4>
+                                <div class="space-y-3">
+                                    <h1 class="text-3xl font-bold text-gray-800">My First Website</h1>
+                                    <p class="text-gray-600">This is a paragraph with <strong>bold text</strong>.</p>
+                                    <a href="#" class="text-primary hover:text-accent transition-colors duration-300">Click here</a>
                                 </div>
                             </div>
                         </div>
                     </div>
 
-                    <div class="content-section">
-                        <h2>🧱 Basic HTML Structure</h2>
-                        <p>Every HTML document follows a standard structure with essential tags that tell the browser how to interpret the content.</p>
+                    <div class="bg-gradient-to-br from-dark-light/50 to-dark/50 backdrop-blur-xl rounded-3xl border border-primary/20 p-8">
+                        <h2 class="text-3xl lg:text-4xl font-bold text-white mb-6 flex items-center">
+                            <span class="mr-4">🧱</span>
+                            Basic HTML Structure
+                        </h2>
+                        <p class="text-lg text-gray-300 leading-relaxed mb-6">
+                            Every HTML document follows a standard structure with essential tags that tell the browser how to interpret the content.
+                        </p>
                         
-                        <div class="concept-highlight">
-                            <h4><i class="fas fa-hammer"></i> Essential Tags:</h4>
-                            <ul>
-                                <li><code><!DOCTYPE html></code> - Declares this is an HTML5 document</li>
-                                <li><code><html></code> - The root element containing everything</li>
-                                <li><code><head></code> - Contains metadata (title, styles, scripts)</li>
-                                <li><code><body></code> - Contains the visible page content</li>
+                        <div class="bg-primary/10 border border-primary/20 rounded-2xl p-6 mb-6">
+                            <h4 class="text-xl font-bold text-primary mb-4 flex items-center">
+                                <i class="fas fa-hammer mr-3"></i>
+                                Essential Tags:
+                            </h4>
+                            <ul class="space-y-3">
+                                <li class="flex items-start space-x-3">
+                                    <span class="text-primary font-bold">•</span>
+                                    <span class="text-gray-300"><code class="bg-dark-light px-2 py-1 rounded text-primary font-mono"><!DOCTYPE html></code> - Declares this is an HTML5 document</span>
+                                </li>
+                                <li class="flex items-start space-x-3">
+                                    <span class="text-primary font-bold">•</span>
+                                    <span class="text-gray-300"><code class="bg-dark-light px-2 py-1 rounded text-primary font-mono"><html></code> - The root element containing everything</span>
+                                </li>
+                                <li class="flex items-start space-x-3">
+                                    <span class="text-primary font-bold">•</span>
+                                    <span class="text-gray-300"><code class="bg-dark-light px-2 py-1 rounded text-primary font-mono"><head></code> - Contains metadata (title, styles, scripts)</span>
+                                </li>
+                                <li class="flex items-start space-x-3">
+                                    <span class="text-primary font-bold">•</span>
+                                    <span class="text-gray-300"><code class="bg-dark-light px-2 py-1 rounded text-primary font-mono"><body></code> - Contains the visible page content</span>
+                                </li>
                             </ul>
                         </div>
 
-                        <div class="code-example">
-                            <div class="code-header">
-                                <span>Complete HTML Structure</span>
-                                <button class="copy-btn" onclick="copyCode(this)">
+                        <div class="bg-dark-light/50 backdrop-blur-xl rounded-2xl border border-primary/20 overflow-hidden mb-6">
+                            <div class="bg-dark-light border-b border-primary/20 px-6 py-4 flex items-center justify-between">
+                                <span class="text-white font-medium">Complete HTML Structure</span>
+                                <button class="text-gray-400 hover:text-primary transition-colors duration-300" onclick="copyCode(this)">
                                     <i class="fas fa-copy"></i>
                                 </button>
                             </div>
-                            <pre><code><!DOCTYPE html>
+                            <div class="bg-black p-6">
+                                <pre class="text-green-400 font-mono text-sm leading-relaxed"><code><!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -226,214 +324,313 @@
     <p>This is the main content of my page.</p>
 </body>
 </html></code></pre>
+                            </div>
                         </div>
 
-                        <div class="tip-box">
-                            <h4><i class="fas fa-lightbulb"></i> Pro Tip:</h4>
-                            <p>Proper indentation makes your HTML code more readable. Each nested element should be indented with 2 or 4 spaces.</p>
+                        <div class="bg-accent/10 border border-accent/20 rounded-2xl p-6">
+                            <h4 class="text-xl font-bold text-accent mb-4 flex items-center">
+                                <i class="fas fa-lightbulb mr-3"></i>
+                                Pro Tip:
+                            </h4>
+                            <p class="text-gray-300">Proper indentation makes your HTML code more readable. Each nested element should be indented with 2 or 4 spaces.</p>
                         </div>
                     </div>
 
-                    <div class="content-section">
-                        <h2>✍️ Text Tags</h2>
-                        <p>HTML provides various tags to structure and format text content, making it readable and meaningful.</p>
+                    <div class="bg-gradient-to-br from-dark-light/50 to-dark/50 backdrop-blur-xl rounded-3xl border border-primary/20 p-8">
+                        <h2 class="text-3xl lg:text-4xl font-bold text-white mb-6 flex items-center">
+                            <span class="mr-4">✍️</span>
+                            Text Tags
+                        </h2>
+                        <p class="text-lg text-gray-300 leading-relaxed mb-6">
+                            HTML provides various tags to structure and format text content, making it readable and meaningful.
+                        </p>
                         
-                        <div class="concept-highlight">
-                            <h4><i class="fas fa-edit"></i> Text Elements:</h4>
-                            <ul>
-                                <li><strong>Headings:</strong> <code><h1></code> to <code><h6></code> for titles and subtitles</li>
-                                <li><strong>Paragraphs:</strong> <code><p></code> for text blocks</li>
-                                <li><strong>Bold:</strong> <code><strong></code> (semantic) or <code><b></code> (visual)</li>
-                                <li><strong>Italic:</strong> <code><em></code> (semantic) or <code><i></code> (visual)</li>
+                        <div class="bg-primary/10 border border-primary/20 rounded-2xl p-6 mb-6">
+                            <h4 class="text-xl font-bold text-primary mb-4 flex items-center">
+                                <i class="fas fa-edit mr-3"></i>
+                                Text Elements:
+                            </h4>
+                            <ul class="space-y-3">
+                                <li class="flex items-start space-x-3">
+                                    <span class="text-primary font-bold">•</span>
+                                    <span class="text-gray-300"><strong>Headings:</strong> <code class="bg-dark-light px-2 py-1 rounded text-primary font-mono"><h1></code> to <code class="bg-dark-light px-2 py-1 rounded text-primary font-mono"><h6></code> for titles and subtitles</span>
+                                </li>
+                                <li class="flex items-start space-x-3">
+                                    <span class="text-primary font-bold">•</span>
+                                    <span class="text-gray-300"><strong>Paragraphs:</strong> <code class="bg-dark-light px-2 py-1 rounded text-primary font-mono"><p></code> for text blocks</span>
+                                </li>
+                                <li class="flex items-start space-x-3">
+                                    <span class="text-primary font-bold">•</span>
+                                    <span class="text-gray-300"><strong>Bold:</strong> <code class="bg-dark-light px-2 py-1 rounded text-primary font-mono"><strong></code> (semantic) or <code class="bg-dark-light px-2 py-1 rounded text-primary font-mono"><b></code> (visual)</span>
+                                </li>
+                                <li class="flex items-start space-x-3">
+                                    <span class="text-primary font-bold">•</span>
+                                    <span class="text-gray-300"><strong>Italic:</strong> <code class="bg-dark-light px-2 py-1 rounded text-primary font-mono"><em></code> (semantic) or <code class="bg-dark-light px-2 py-1 rounded text-primary font-mono"><i></code> (visual)</span>
+                                </li>
                             </ul>
                         </div>
 
-                        <div class="code-example">
-                            <div class="code-header">
-                                <span>Text Formatting Example</span>
-                                <button class="copy-btn" onclick="copyCode(this)">
+                        <div class="bg-dark-light/50 backdrop-blur-xl rounded-2xl border border-primary/20 overflow-hidden mb-6">
+                            <div class="bg-dark-light border-b border-primary/20 px-6 py-4 flex items-center justify-between">
+                                <span class="text-white font-medium">Text Formatting Example</span>
+                                <button class="text-gray-400 hover:text-primary transition-colors duration-300" onclick="copyCode(this)">
                                     <i class="fas fa-copy"></i>
                                 </button>
                             </div>
-                            <pre><code><h1>Main Title</h1>
-<h2>Subtitle</h2>
-<p>This is a <strong>paragraph</strong> with <em>emphasized text</em>.</p>
-<p>You can also use <b>bold</b> and <i>italic</i> for visual styling.</p></code></pre>
+                            <div class="bg-black p-6">
+                                <pre class="text-green-400 font-mono text-sm leading-relaxed"><code>&lt;h1&gt;Main Title&lt;/h1&gt;
+&lt;h2&gt;Subtitle&lt;/h2&gt;
+&lt;p&gt;This is a &lt;strong&gt;paragraph&lt;/strong&gt; with &lt;em&gt;emphasized text&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;You can also use &lt;b&gt;bold&lt;/b&gt; and &lt;i&gt;italic&lt;/i&gt; for visual styling.&lt;/p&gt;</code></pre>
+                            </div>
                         </div>
 
-                        <div class="tip-box">
-                            <h4><i class="fas fa-bullseye"></i> Best Practice:</h4>
-                            <p>Use <code><strong></code> and <code><em></code> for semantic meaning (importance/emphasis), and <code><b></code> and <code><i></code> only for visual styling.</p>
+                        <div class="bg-accent/10 border border-accent/20 rounded-2xl p-6">
+                            <h4 class="text-xl font-bold text-accent mb-4 flex items-center">
+                                <i class="fas fa-bullseye mr-3"></i>
+                                Best Practice:
+                            </h4>
+                            <p class="text-gray-300">Use <code class="bg-dark-light px-2 py-1 rounded text-primary font-mono"><strong></code> and <code class="bg-dark-light px-2 py-1 rounded text-primary font-mono"><em></code> for semantic meaning (importance/emphasis), and <code class="bg-dark-light px-2 py-1 rounded text-primary font-mono"><b></code> and <code class="bg-dark-light px-2 py-1 rounded text-primary font-mono"><i></code> only for visual styling.</p>
                         </div>
                     </div>
 
-                    <div class="content-section">
-                        <h2>🔗 Links</h2>
-                        <p>Links (hyperlinks) connect web pages together and are fundamental to the web experience.</p>
+                    <div class="bg-gradient-to-br from-dark-light/50 to-dark/50 backdrop-blur-xl rounded-3xl border border-primary/20 p-8">
+                        <h2 class="text-3xl lg:text-4xl font-bold text-white mb-6 flex items-center">
+                            <span class="mr-4">🔗</span>
+                            Links
+                        </h2>
+                        <p class="text-lg text-gray-300 leading-relaxed mb-6">
+                            Links (hyperlinks) connect web pages together and are fundamental to the web experience.
+                        </p>
                         
-                        <div class="concept-highlight">
-                            <h4>🔗 Link Types:</h4>
-                            <ul>
-                                <li><strong>Absolute URLs:</strong> Complete web addresses (https://example.com)</li>
-                                <li><strong>Relative URLs:</strong> Paths relative to current page (./page.html)</li>
-                                <li><strong>Internal Links:</strong> Links to sections on the same page (#section)</li>
+                        <div class="bg-primary/10 border border-primary/20 rounded-2xl p-6 mb-6">
+                            <h4 class="text-xl font-bold text-primary mb-4 flex items-center">
+                                <span class="mr-3">🔗</span>
+                                Link Types:
+                            </h4>
+                            <ul class="space-y-3">
+                                <li class="flex items-start space-x-3">
+                                    <span class="text-primary font-bold">•</span>
+                                    <span class="text-gray-300"><strong>Absolute URLs:</strong> Complete web addresses (https://example.com)</span>
+                                </li>
+                                <li class="flex items-start space-x-3">
+                                    <span class="text-primary font-bold">•</span>
+                                    <span class="text-gray-300"><strong>Relative URLs:</strong> Paths relative to current page (./page.html)</span>
+                                </li>
+                                <li class="flex items-start space-x-3">
+                                    <span class="text-primary font-bold">•</span>
+                                    <span class="text-gray-300"><strong>Internal Links:</strong> Links to sections on the same page (#section)</span>
+                                </li>
                             </ul>
                         </div>
 
-                        <div class="code-example">
-                            <div class="code-header">
-                                <span>Link Examples</span>
-                                <button class="copy-btn" onclick="copyCode(this)">
+                        <div class="bg-dark-light/50 backdrop-blur-xl rounded-2xl border border-primary/20 overflow-hidden mb-6">
+                            <div class="bg-dark-light border-b border-primary/20 px-6 py-4 flex items-center justify-between">
+                                <span class="text-white font-medium">Link Examples</span>
+                                <button class="text-gray-400 hover:text-primary transition-colors duration-300" onclick="copyCode(this)">
                                     <i class="fas fa-copy"></i>
                                 </button>
                             </div>
-                            <pre><code><!-- External link -->
-<a href="https://www.google.com">Visit Google</a>
+                            <div class="bg-black p-6">
+                                <pre class="text-green-400 font-mono text-sm leading-relaxed"><code>&lt;!-- External link --&gt;
+&lt;a href="https://www.google.com"&gt;Visit Google&lt;/a&gt;
 
-<!-- Link opening in new tab -->
-<a href="https://www.google.com" target="_blank">Open in New Tab</a>
+&lt;!-- Link opening in new tab --&gt;
+&lt;a href="https://www.google.com" target="_blank"&gt;Open in New Tab&lt;/a&gt;
 
-<!-- Internal link -->
-<a href="#section1">Jump to Section 1</a>
+&lt;!-- Internal link --&gt;
+&lt;a href="#section1"&gt;Jump to Section 1&lt;/a&gt;
 
-<!-- Email link -->
-<a href="mailto:contact@example.com">Send Email</a></code></pre>
+&lt;!-- Email link --&gt;
+&lt;a href="mailto:contact@example.com"&gt;Send Email&lt;/a&gt;</code></pre>
+                            </div>
                         </div>
 
-                        <div class="practice-exercise">
-                            <h4><i class="fas fa-bullseye"></i> Practice Exercise:</h4>
-                            <p>Create a navigation menu with links to different sections of your page:</p>
-                            <div class="code-example">
-                                <pre><code><nav>
-    <a href="#home">Home</a>
-    <a href="#about">About</a>
-    <a href="#contact">Contact</a>
-</nav></code></pre>
+                        <div class="bg-accent/10 border border-accent/20 rounded-2xl p-6">
+                            <h4 class="text-xl font-bold text-accent mb-4 flex items-center">
+                                <i class="fas fa-bullseye mr-3"></i>
+                                Practice Exercise:
+                            </h4>
+                            <p class="text-gray-300 mb-4">Create a navigation menu with links to different sections of your page:</p>
+                            <div class="bg-dark-light rounded-xl p-4">
+                                <pre class="text-green-400 font-mono text-sm"><code>&lt;nav&gt;
+    &lt;a href="#home"&gt;Home&lt;/a&gt;
+    &lt;a href="#about"&gt;About&lt;/a&gt;
+    &lt;a href="#contact"&gt;Contact&lt;/a&gt;
+&lt;/nav&gt;</code></pre>
                             </div>
                         </div>
                     </div>
 
-                    <div class="content-section">
-                        <h2><i class="fas fa-list"></i> Lists</h2>
-                        <p>Lists help organize information in a structured way, making content easier to read and understand.</p>
+                    <div class="bg-gradient-to-br from-dark-light/50 to-dark/50 backdrop-blur-xl rounded-3xl border border-primary/20 p-8">
+                        <h2 class="text-3xl lg:text-4xl font-bold text-white mb-6 flex items-center">
+                            <i class="fas fa-list text-primary mr-4"></i>
+                            Lists
+                        </h2>
+                        <p class="text-lg text-gray-300 leading-relaxed mb-6">
+                            Lists help organize information in a structured way, making content easier to read and understand.
+                        </p>
                         
-                        <div class="concept-highlight">
-                            <h4><i class="fas fa-list"></i> List Types:</h4>
-                            <ul>
-                                <li><strong>Ordered Lists:</strong> <code><ol></code> for numbered items</li>
-                                <li><strong>Unordered Lists:</strong> <code><ul></code> for bullet points</li>
-                                <li><strong>List Items:</strong> <code><li></code> for individual items</li>
+                        <div class="bg-primary/10 border border-primary/20 rounded-2xl p-6 mb-6">
+                            <h4 class="text-xl font-bold text-primary mb-4 flex items-center">
+                                <i class="fas fa-list mr-3"></i>
+                                List Types:
+                            </h4>
+                            <ul class="space-y-3">
+                                <li class="flex items-start space-x-3">
+                                    <span class="text-primary font-bold">•</span>
+                                    <span class="text-gray-300"><strong>Ordered Lists:</strong> <code class="bg-dark-light px-2 py-1 rounded text-primary font-mono"><ol></code> for numbered items</span>
+                                </li>
+                                <li class="flex items-start space-x-3">
+                                    <span class="text-primary font-bold">•</span>
+                                    <span class="text-gray-300"><strong>Unordered Lists:</strong> <code class="bg-dark-light px-2 py-1 rounded text-primary font-mono"><ul></code> for bullet points</span>
+                                </li>
+                                <li class="flex items-start space-x-3">
+                                    <span class="text-primary font-bold">•</span>
+                                    <span class="text-gray-300"><strong>List Items:</strong> <code class="bg-dark-light px-2 py-1 rounded text-primary font-mono"><li></code> for individual items</span>
+                                </li>
                             </ul>
                         </div>
 
-                        <div class="code-example">
-                            <div class="code-header">
-                                <span>List Examples</span>
-                                <button class="copy-btn" onclick="copyCode(this)">
+                        <div class="bg-dark-light/50 backdrop-blur-xl rounded-2xl border border-primary/20 overflow-hidden mb-6">
+                            <div class="bg-dark-light border-b border-primary/20 px-6 py-4 flex items-center justify-between">
+                                <span class="text-white font-medium">List Examples</span>
+                                <button class="text-gray-400 hover:text-primary transition-colors duration-300" onclick="copyCode(this)">
                                     <i class="fas fa-copy"></i>
                                 </button>
                             </div>
-                            <pre><code><!-- Ordered List (numbered) -->
-<ol>
-    <li>First step</li>
-    <li>Second step</li>
-    <li>Third step</li>
-</ol>
+                            <div class="bg-black p-6">
+                                <pre class="text-green-400 font-mono text-sm leading-relaxed"><code>&lt;!-- Ordered List (numbered) --&gt;
+&lt;ol&gt;
+    &lt;li&gt;First step&lt;/li&gt;
+    &lt;li&gt;Second step&lt;/li&gt;
+    &lt;li&gt;Third step&lt;/li&gt;
+&lt;/ol&gt;
 
-<!-- Unordered List (bullets) -->
-<ul>
-    <li>Apple</li>
-    <li>Banana</li>
-    <li>Orange</li>
-</ul>
+&lt;!-- Unordered List (bullets) --&gt;
+&lt;ul&gt;
+    &lt;li&gt;Apple&lt;/li&gt;
+    &lt;li&gt;Banana&lt;/li&gt;
+    &lt;li&gt;Orange&lt;/li&gt;
+&lt;/ul&gt;
 
-<!-- Nested Lists -->
-<ul>
-    <li>Fruits
-        <ul>
-            <li>Apple</li>
-            <li>Banana</li>
-        </ul>
-    </li>
-    <li>Vegetables
-        <ul>
-            <li>Carrot</li>
-            <li>Broccoli</li>
-        </ul>
-    </li>
-</ul></code></pre>
+&lt;!-- Nested Lists --&gt;
+&lt;ul&gt;
+    &lt;li&gt;Fruits
+        &lt;ul&gt;
+            &lt;li&gt;Apple&lt;/li&gt;
+            &lt;li&gt;Banana&lt;/li&gt;
+        &lt;/ul&gt;
+    &lt;/li&gt;
+    &lt;li&gt;Vegetables
+        &lt;ul&gt;
+            &lt;li&gt;Carrot&lt;/li&gt;
+            &lt;li&gt;Broccoli&lt;/li&gt;
+        &lt;/ul&gt;
+    &lt;/li&gt;
+&lt;/ul&gt;</code></pre>
+                            </div>
                         </div>
 
-                        <div class="tip-box">
-                            <h4><i class="fas fa-lightbulb"></i> Real-World Uses:</h4>
-                            <ul>
-                                <li>Recipe ingredients and steps</li>
-                                <li>Navigation menus</li>
-                                <li>Feature lists</li>
-                                <li>Checklists and to-dos</li>
+                        <div class="bg-accent/10 border border-accent/20 rounded-2xl p-6">
+                            <h4 class="text-xl font-bold text-accent mb-4 flex items-center">
+                                <i class="fas fa-lightbulb mr-3"></i>
+                                Real-World Uses:
+                            </h4>
+                            <ul class="space-y-2">
+                                <li class="text-gray-300">• Recipe ingredients and steps</li>
+                                <li class="text-gray-300">• Navigation menus</li>
+                                <li class="text-gray-300">• Feature lists</li>
+                                <li class="text-gray-300">• Checklists and to-dos</li>
                             </ul>
                         </div>
                     </div>
 
-                    <div class="content-section">
-                        <h2><i class="fas fa-images"></i> Images</h2>
-                        <p>Images make websites visually appealing and help convey information more effectively.</p>
+                    <div class="bg-gradient-to-br from-dark-light/50 to-dark/50 backdrop-blur-xl rounded-3xl border border-primary/20 p-8">
+                        <h2 class="text-3xl lg:text-4xl font-bold text-white mb-6 flex items-center">
+                            <i class="fas fa-images text-primary mr-4"></i>
+                            Images
+                        </h2>
+                        <p class="text-lg text-gray-300 leading-relaxed mb-6">
+                            Images make websites visually appealing and help convey information more effectively.
+                        </p>
                         
-                        <div class="concept-highlight">
-                            <h4><i class="fas fa-images"></i> Image Attributes:</h4>
-                            <ul>
-                                <li><code>src</code> - Source URL of the image</li>
-                                <li><code>alt</code> - Alternative text for accessibility</li>
-                                <li><code>width</code> and <code>height</code> - Image dimensions</li>
-                                <li><code>title</code> - Tooltip text on hover</li>
+                        <div class="bg-primary/10 border border-primary/20 rounded-2xl p-6 mb-6">
+                            <h4 class="text-xl font-bold text-primary mb-4 flex items-center">
+                                <i class="fas fa-images mr-3"></i>
+                                Image Attributes:
+                            </h4>
+                            <ul class="space-y-3">
+                                <li class="flex items-start space-x-3">
+                                    <span class="text-primary font-bold">•</span>
+                                    <span class="text-gray-300"><code class="bg-dark-light px-2 py-1 rounded text-primary font-mono">src</code> - Source URL of the image</span>
+                                </li>
+                                <li class="flex items-start space-x-3">
+                                    <span class="text-primary font-bold">•</span>
+                                    <span class="text-gray-300"><code class="bg-dark-light px-2 py-1 rounded text-primary font-mono">alt</code> - Alternative text for accessibility</span>
+                                </li>
+                                <li class="flex items-start space-x-3">
+                                    <span class="text-primary font-bold">•</span>
+                                    <span class="text-gray-300"><code class="bg-dark-light px-2 py-1 rounded text-primary font-mono">width</code> and <code class="bg-dark-light px-2 py-1 rounded text-primary font-mono">height</code> - Image dimensions</span>
+                                </li>
+                                <li class="flex items-start space-x-3">
+                                    <span class="text-primary font-bold">•</span>
+                                    <span class="text-gray-300"><code class="bg-dark-light px-2 py-1 rounded text-primary font-mono">title</code> - Tooltip text on hover</span>
+                                </li>
                             </ul>
                         </div>
 
-                        <div class="code-example">
-                            <div class="code-header">
-                                <span>Image Examples</span>
-                                <button class="copy-btn" onclick="copyCode(this)">
+                        <div class="bg-dark-light/50 backdrop-blur-xl rounded-2xl border border-primary/20 overflow-hidden mb-6">
+                            <div class="bg-dark-light border-b border-primary/20 px-6 py-4 flex items-center justify-between">
+                                <span class="text-white font-medium">Image Examples</span>
+                                <button class="text-gray-400 hover:text-primary transition-colors duration-300" onclick="copyCode(this)">
                                     <i class="fas fa-copy"></i>
                                 </button>
                             </div>
-                            <pre><code><!-- Basic image -->
-<img src="photo.jpg" alt="A beautiful sunset">
+                            <div class="bg-black p-6">
+                                <pre class="text-green-400 font-mono text-sm leading-relaxed"><code>&lt;!-- Basic image --&gt;
+&lt;img src="photo.jpg" alt="A beautiful sunset"&gt;
 
-<!-- Image with dimensions -->
-<img src="photo.jpg" alt="A beautiful sunset" width="300" height="200">
+&lt;!-- Image with dimensions --&gt;
+&lt;img src="photo.jpg" alt="A beautiful sunset" width="300" height="200"&gt;
 
-<!-- Image with title -->
-<img src="photo.jpg" alt="A beautiful sunset" title="Sunset at the beach">
+&lt;!-- Image with title --&gt;
+&lt;img src="photo.jpg" alt="A beautiful sunset" title="Sunset at the beach"&gt;
 
-<!-- External image -->
-<img src="https://example.com/image.jpg" alt="External image"></code></pre>
+&lt;!-- External image --&gt;
+&lt;img src="https://example.com/image.jpg" alt="External image"&gt;</code></pre>
+                            </div>
                         </div>
 
-                        <div class="accessibility-note">
-                            <h4>♿ Accessibility Importance:</h4>
-                            <p>The <code>alt</code> attribute is crucial for:</p>
-                            <ul>
-                                <li>Screen readers for visually impaired users</li>
-                                <li>Displaying when images fail to load</li>
-                                <li>SEO (Search Engine Optimization)</li>
-                                <li>Better user experience</li>
+                        <div class="bg-yellow-500/10 border border-yellow-500/20 rounded-2xl p-6 mb-6">
+                            <h4 class="text-xl font-bold text-yellow-400 mb-4 flex items-center">
+                                <span class="mr-3">♿</span>
+                                Accessibility Importance:
+                            </h4>
+                            <p class="text-gray-300 mb-4">The <code class="bg-dark-light px-2 py-1 rounded text-primary font-mono">alt</code> attribute is crucial for:</p>
+                            <ul class="space-y-2">
+                                <li class="text-gray-300">• Screen readers for visually impaired users</li>
+                                <li class="text-gray-300">• Displaying when images fail to load</li>
+                                <li class="text-gray-300">• SEO (Search Engine Optimization)</li>
+                                <li class="text-gray-300">• Better user experience</li>
                             </ul>
                         </div>
 
-                        <div class="practice-exercise">
-                            <h4><i class="fas fa-bullseye"></i> Live Demo:</h4>
-                            <p>Try adding an image to your webpage:</p>
-                            <div class="code-example">
-                                <pre><code><div style="width: 300px; height: 200px; background: #01D29B; 
+                        <div class="bg-accent/10 border border-accent/20 rounded-2xl p-6">
+                            <h4 class="text-xl font-bold text-accent mb-4 flex items-center">
+                                <i class="fas fa-bullseye mr-3"></i>
+                                Live Demo:
+                            </h4>
+                            <p class="text-gray-300 mb-4">Try adding an image to your webpage:</p>
+                            <div class="bg-dark-light rounded-xl p-4 mb-4">
+                                <pre class="text-green-400 font-mono text-sm"><code>&lt;div style="width: 300px; height: 200px; background: #01D29B; 
      color: white; display: flex; align-items: center; 
-     justify-content: center; font-weight: bold; border-radius: 8px;">
+     justify-content: center; font-weight: bold; border-radius: 8px;"&gt;
     Sample Image
-</div></code></pre>
+&lt;/div&gt;</code></pre>
                             </div>
-                            <div class="demo-output">
-                                <div style="width: 300px; height: 200px; background: #01D29B; 
-                                     color: white; display: flex; align-items: center; 
-                                     justify-content: center; font-weight: bold; border-radius: 8px; margin-top: 10px;">
+                            <div class="flex justify-center">
+                                <div class="w-75 h-50 bg-primary text-white flex items-center justify-center font-bold rounded-2xl">
                                     Sample Image
                                 </div>
                             </div>
@@ -442,35 +639,82 @@
                 </div>
 
                 <!-- Sidebar -->
-                <div class="content-sidebar">
-                    <div class="sidebar-section">
-                        <h3>Quick Navigation</h3>
-                        <ul class="sidebar-nav">
-                            <li><a href="#challenges"><i class="fas fa-bullseye"></i> Challenges</a></li>
-                            <li><a href="#what-is-html">💻 What is HTML?</a></li>
-                            <li><a href="#basic-structure">🧱 Basic HTML Structure</a></li>
-                            <li><a href="#text-tags">✍️ Text Tags</a></li>
-                            <li><a href="#links">🔗 Links</a></li>
-                                                    <li><a href="#lists"><i class="fas fa-list"></i> Lists</a></li>
-                        <li><a href="#images"><i class="fas fa-images"></i> Images</a></li>
+                <div class="space-y-8">
+                    <div class="bg-gradient-to-br from-dark-light/50 to-dark/50 backdrop-blur-xl rounded-3xl border border-primary/20 p-6">
+                        <h3 class="text-xl font-bold text-white mb-4 flex items-center">
+                            <i class="fas fa-compass text-primary mr-3"></i>
+                            Quick Navigation
+                        </h3>
+                        <ul class="space-y-3">
+                            <li>
+                                <a href="#challenges" class="flex items-center space-x-3 text-gray-300 hover:text-primary transition-colors duration-300">
+                                    <i class="fas fa-bullseye text-primary"></i>
+                                    <span>Challenges</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#what-is-html" class="flex items-center space-x-3 text-gray-300 hover:text-primary transition-colors duration-300">
+                                    <span>💻</span>
+                                    <span>What is HTML?</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#basic-structure" class="flex items-center space-x-3 text-gray-300 hover:text-primary transition-colors duration-300">
+                                    <span>🧱</span>
+                                    <span>Basic HTML Structure</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#text-tags" class="flex items-center space-x-3 text-gray-300 hover:text-primary transition-colors duration-300">
+                                    <span>✍️</span>
+                                    <span>Text Tags</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#links" class="flex items-center space-x-3 text-gray-300 hover:text-primary transition-colors duration-300">
+                                    <span>🔗</span>
+                                    <span>Links</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#lists" class="flex items-center space-x-3 text-gray-300 hover:text-primary transition-colors duration-300">
+                                    <i class="fas fa-list text-primary"></i>
+                                    <span>Lists</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#images" class="flex items-center space-x-3 text-gray-300 hover:text-primary transition-colors duration-300">
+                                    <i class="fas fa-images text-primary"></i>
+                                    <span>Images</span>
+                                </a>
+                            </li>
                         </ul>
                     </div>
 
-                    <div class="sidebar-section">
-                        <h3>Resources</h3>
-                        <ul class="resource-links">
-                            <li><a href="https://developer.mozilla.org/en-US/docs/Web/HTML" target="_blank">
-                                <i class="fas fa-external-link-alt"></i>
-                                MDN HTML Guide
-                            </a></li>
-                            <li><a href="https://www.w3schools.com/html/" target="_blank">
-                                <i class="fas fa-external-link-alt"></i>
-                                W3Schools HTML
-                            </a></li>
-                            <li><a href="https://html.spec.whatwg.org/" target="_blank">
-                                <i class="fas fa-external-link-alt"></i>
-                                HTML Specification
-                            </a></li>
+                    <div class="bg-gradient-to-br from-dark-light/50 to-dark/50 backdrop-blur-xl rounded-3xl border border-primary/20 p-6">
+                        <h3 class="text-xl font-bold text-white mb-4 flex items-center">
+                            <i class="fas fa-book text-primary mr-3"></i>
+                            Resources
+                        </h3>
+                        <ul class="space-y-3">
+                            <li>
+                                <a href="https://developer.mozilla.org/en-US/docs/Web/HTML" target="_blank" class="flex items-center space-x-3 text-gray-300 hover:text-primary transition-colors duration-300">
+                                    <i class="fas fa-external-link-alt text-primary"></i>
+                                    <span>MDN HTML Guide</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://www.w3schools.com/html/" target="_blank" class="flex items-center space-x-3 text-gray-300 hover:text-primary transition-colors duration-300">
+                                    <i class="fas fa-external-link-alt text-primary"></i>
+                                    <span>W3Schools HTML</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://html.spec.whatwg.org/" target="_blank" class="flex items-center space-x-3 text-gray-300 hover:text-primary transition-colors duration-300">
+                                    <i class="fas fa-external-link-alt text-primary"></i>
+                                    <span>HTML Specification</span>
+                                </a>
+                            </li>
                         </ul>
                     </div>
                 </div>
@@ -479,99 +723,103 @@
     </section>
 
     <!-- Navigation Footer -->
-    <section class="day-navigation">
-        <div class="container">
-            <div class="nav-buttons">
-                <button class="nav-btn" onclick="window.location.href='index.html'">
-                    <i class="fas fa-home"></i>
+    <section class="py-16 bg-gradient-to-r from-dark to-dark-light">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col sm:flex-row justify-between items-center space-y-4 sm:space-y-0">
+                <button class="bg-dark-light/50 text-white px-8 py-3 rounded-2xl font-semibold hover:bg-dark-light transition-all duration-300 border border-primary/20 hover:border-primary/40" onclick="window.location.href='index.html'">
+                    <i class="fas fa-home mr-3"></i>
                     Back to Home
                 </button>
-                <button class="nav-btn primary" onclick="window.location.href='html-forms.html'">
+                <button class="bg-gradient-to-r from-primary to-accent text-white px-8 py-3 rounded-2xl font-semibold hover:shadow-lg hover:shadow-primary/25 transition-all duration-300" onclick="window.location.href='html-forms.html'">
                     Next: Day 2
-                    <i class="fas fa-arrow-right"></i>
+                    <i class="fas fa-arrow-right ml-3"></i>
                 </button>
             </div>
         </div>
     </section>
 
     <!-- Challenge Modal -->
-    <div id="challengeModal" class="challenge-modal">
-        <div class="challenge-modal-content">
-            <div class="challenge-modal-header">
-                <h2 id="modalChallengeTitle">Challenge Title</h2>
-                <div class="challenge-modal-actions">
-                    <button class="complete-btn" onclick="completeChallenge()">
-                        <i class="fas fa-check"></i>
-                        Complete Challenge
-                    </button>
-                    <button class="close-challenge-modal" onclick="closeChallengeModal()">
-                        <i class="fas fa-times"></i>
-                    </button>
+    <div id="challengeModal" class="fixed inset-0 bg-black/80 backdrop-blur-xl z-50 hidden">
+        <div class="flex items-center justify-center min-h-screen p-4">
+            <div class="bg-gradient-to-br from-dark-light to-dark rounded-3xl border border-primary/20 max-w-4xl w-full max-h-[90vh] overflow-y-auto">
+                <div class="sticky top-0 bg-dark-light/80 backdrop-blur-xl border-b border-primary/20 px-8 py-6 rounded-t-3xl">
+                    <div class="flex justify-between items-center">
+                        <h2 id="modalChallengeTitle" class="text-2xl font-bold text-white">Challenge Title</h2>
+                        <div class="flex items-center space-x-4">
+                            <button class="bg-gradient-to-r from-primary to-accent text-white px-6 py-2 rounded-xl font-semibold hover:shadow-lg hover:shadow-primary/25 transition-all duration-300" onclick="completeChallenge()">
+                                <i class="fas fa-check mr-2"></i>
+                                Complete Challenge
+                            </button>
+                            <button class="text-gray-400 hover:text-white transition-colors duration-300 text-2xl" onclick="closeChallengeModal()">
+                                <i class="fas fa-times"></i>
+                            </button>
+                        </div>
+                    </div>
                 </div>
-            </div>
-            <div class="challenge-modal-body">
-                <div id="modalChallengeContent">
-                    <!-- Challenge content will be loaded here -->
+                <div class="p-8">
+                    <div id="modalChallengeContent">
+                        <!-- Challenge content will be loaded here -->
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 
     <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h3>WebDev LMS</h3>
-                    <p>Master web development in 10 days with hands-on challenges and real-world projects.</p>
+    <footer class="bg-gradient-to-r from-dark to-dark-light border-t border-primary/20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+                <div>
+                    <h3 class="text-2xl font-bold text-white mb-4">WebDev LMS</h3>
+                    <p class="text-gray-300 leading-relaxed">
+                        Master web development in 10 days with hands-on challenges and real-world projects.
+                    </p>
                 </div>
-                <div class="footer-section">
-                    <h4>Quick Links</h4>
-                    <ul>
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="index.html#curriculum">Curriculum</a></li>
-                        <li><a href="index.html#challenges">Challenges</a></li>
-                        <li><a href="index.html#resources">Resources</a></li>
+                <div>
+                    <h4 class="text-xl font-semibold text-white mb-4">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="index.html" class="text-gray-300 hover:text-primary transition-colors duration-300">Home</a></li>
+                        <li><a href="index.html#curriculum" class="text-gray-300 hover:text-primary transition-colors duration-300">Curriculum</a></li>
+                        <li><a href="index.html#challenges" class="text-gray-300 hover:text-primary transition-colors duration-300">Challenges</a></li>
+                        <li><a href="index.html#resources" class="text-gray-300 hover:text-primary transition-colors duration-300">Resources</a></li>
                     </ul>
                 </div>
             </div>
-            <div class="footer-bottom">
-                <p>&copy; 2024 WebDev LMS. All rights reserved.</p>
+            <div class="border-t border-primary/20 pt-8 text-center">
+                <p class="text-gray-400">&copy; 2024 WebDev LMS. All rights reserved.</p>
             </div>
         </div>
     </footer>
 
     <script src="script.js"></script>
     <script>
-        // Simple Monaco Editor initialization
+        // Monaco Editor initialization
         require.config({ paths: { vs: 'https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.44.0/min/vs' } });
         require(['vs/editor/editor.main'], function() {
             console.log('Monaco Editor loaded successfully for Day 1');
         });
         
-        // Simple challenge function - works immediately
-        function openChallenge(challengeNumber) {
-            openChallengeModal(challengeNumber);
-        }
-        
+        // Copy code functionality for the new Tailwind structure
         function copyCode(button) {
-            const codeBlock = button.closest('.code-example').querySelector('code');
-            const textArea = document.createElement('textarea');
-            textArea.value = codeBlock.textContent;
-            document.body.appendChild(textArea);
-            textArea.select();
-            document.execCommand('copy');
-            document.body.removeChild(textArea);
-            
-            // Show feedback
-            const originalText = button.innerHTML;
-            button.innerHTML = '<i class="fas fa-check"></i>';
-            button.style.color = '#00D4AA';
-            
-            setTimeout(() => {
-                button.innerHTML = originalText;
-                button.style.color = '';
-            }, 2000);
+            const codeBlock = button.closest('.bg-dark-light\\/50').querySelector('code');
+            if (codeBlock) {
+                const textArea = document.createElement('textarea');
+                textArea.value = codeBlock.textContent;
+                document.body.appendChild(textArea);
+                textArea.select();
+                document.execCommand('copy');
+                document.body.removeChild(textArea);
+
+                // Show feedback
+                const originalText = button.innerHTML;
+                button.innerHTML = '<i class="fas fa-check"></i>';
+                button.classList.add('text-primary');
+
+                setTimeout(() => {
+                    button.innerHTML = originalText;
+                    button.classList.remove('text-primary');
+                }, 2000);
+            }
         }
     </script>
 </body>
