@@ -1,626 +1,468 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>CSS Interactive Games - WebDev LMS</title>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-</head>
-<body>
-    <nav class="main-nav">
-        <div class="nav-container">
-            <div class="nav-logo">
-                <i class="fas fa-code"></i>
-                <span>WebDev LMS</span>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              primary: "#01d29b",
+              secondary: "#121212",
+              accent: "#00b894",
+              dark: "#1e1e1e",
+              "dark-light": "#2a2a2a",
+            },
+          },
+        },
+      };
+    </script>
+  </head>
+  <body class="bg-dark text-white min-h-screen">
+    <nav class="bg-dark-light border-b border-primary/20 sticky top-0 z-50">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between items-center h-16">
+          <div class="flex items-center space-x-4">
+            <div class="bg-gradient-to-r from-primary to-accent p-2 rounded-xl">
+              <i class="fas fa-code text-white text-xl"></i>
             </div>
-            <div class="nav-links">
-                <a href="index.html" class="nav-btn">
-                    <i class="fas fa-home"></i> Home
-                </a>
-                <a href="css-basics.html" class="nav-btn">
-                    <i class="fas fa-arrow-left"></i> Back to Lessons
-                </a>
-            </div>
+            <span class="text-xl font-bold text-white">WebDev LMS</span>
+          </div>
+          <div class="flex items-center space-x-4">
+            <a
+              href="index.html"
+              class="bg-gradient-to-r from-primary to-accent text-white px-4 py-2 rounded-xl font-semibold hover:shadow-lg hover:shadow-primary/25 transition-all duration-300"
+            >
+              <i class="fas fa-home mr-2"></i>Home
+            </a>
+            <a
+              href="css-basics.html"
+              class="bg-dark-lighter text-white px-4 py-2 rounded-xl font-semibold hover:bg-dark-lighter/80 transition-all duration-300"
+            >
+              <i class="fas fa-arrow-left mr-2"></i>Back to Lessons
+            </a>
+          </div>
         </div>
+      </div>
     </nav>
 
-    <div class="lesson-container">
-        <header class="game-header">
-            <h1><i class="fas fa-palette"></i> CSS Interactive Games</h1>
-            <p>Master CSS through fun interactive games and styling challenges!</p>
-            <div class="player-stats">
-                <div class="stat" data-label="High Score">
-                    <i class="fas fa-star"></i>
-                    <span id="totalScore">0</span>
-                </div>
-                <div class="stat" data-label="Games Played">
-                    <i class="fas fa-gamepad"></i>
-                    <span id="gamesPlayed">0</span>/6
-                </div>
-            </div>
-        </header>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+      <header class="text-center mb-12">
+        <h1 class="text-5xl font-bold text-white mb-6">
+          <i class="fas fa-palette text-primary mr-4"></i>CSS Interactive Games
+        </h1>
+        <p class="text-xl text-gray-300 mb-8">
+          Master CSS through fun interactive games and styling challenges!
+        </p>
+        <div class="flex justify-center space-x-8">
+          <div
+            class="bg-dark-light/50 px-6 py-3 rounded-xl border border-primary/20"
+          >
+            <i class="fas fa-star text-primary mr-2"></i>
+            <span class="text-white font-semibold">High Score: </span>
+            <span id="totalScore" class="text-primary font-bold text-xl"
+              >0</span
+            >
+          </div>
+          <div
+            class="bg-dark-light/50 px-6 py-3 rounded-xl border border-primary/20"
+          >
+            <i class="fas fa-gamepad text-primary mr-2"></i>
+            <span class="text-white font-semibold">Games Played: </span>
+            <span id="gamesPlayed" class="text-primary font-bold text-xl"
+              >0</span
+            >
+            <span class="text-gray-400">/6</span>
+          </div>
+        </div>
+      </header>
 
-        <div class="games-grid">
-            <div class="game-card" onclick="startGame(1)">
-                <div class="game-icon">
-                    <i class="fas fa-paint-brush"></i>
-                </div>
-                <div class="game-info">
-                    <h3>Color Master</h3>
-                    <p>Match colors and learn color theory</p>
-                    <div class="game-stats">
-                        <span class="game-type fun">Color</span>
-                        <span class="best-score">Best: <span id="score-1">0</span></span>
-                    </div>
-                </div>
-                <div class="play-button">
-                    <i class="fas fa-play"></i>
-                </div>
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div
+          class="bg-gradient-to-br from-dark-light/80 to-dark/80 rounded-2xl border border-primary/20 p-8 hover:border-primary/40 transition-all duration-300 cursor-pointer"
+          onclick="startGame(1)"
+        >
+          <div class="text-center mb-6">
+            <div
+              class="bg-gradient-to-r from-primary to-accent w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4"
+            >
+              <i class="fas fa-paint-brush text-white text-3xl"></i>
             </div>
-
-            <div class="game-card" onclick="startGame(2)">
-                <div class="game-icon">
-                    <i class="fas fa-text-height"></i>
-                </div>
-                <div class="game-info">
-                    <h3>Font Selector</h3>
-                    <p>Choose the right fonts and typography</p>
-                    <div class="game-stats">
-                        <span class="game-type puzzle">Typography</span>
-                        <span class="best-score">Best: <span id="score-2">0</span></span>
-                    </div>
-                </div>
-                <div class="play-button">
-                    <i class="fas fa-play"></i>
-                </div>
+            <h3 class="text-2xl font-bold text-white mb-3">Color Master</h3>
+            <p class="text-gray-300 mb-4">
+              Match colors and learn color theory
+            </p>
+            <div class="flex justify-between items-center">
+              <span
+                class="bg-green-500/20 text-green-400 px-3 py-1 rounded-full text-sm font-medium"
+                >Color</span
+              >
+              <span class="text-gray-400"
+                >Best:
+                <span id="score-1" class="text-primary font-semibold"
+                  >0</span
+                ></span
+              >
             </div>
-
-            <div class="game-card" onclick="startGame(3)">
-                <div class="game-icon">
-                    <i class="fas fa-th-large"></i>
-                </div>
-                <div class="game-info">
-                    <h3>Flexbox Arena</h3>
-                    <p>Master CSS Flexbox layout challenges</p>
-                    <div class="game-stats">
-                        <span class="game-type challenge">Layout</span>
-                        <span class="best-score">Best: <span id="score-3">0</span></span>
-                    </div>
-                </div>
-                <div class="play-button">
-                    <i class="fas fa-play"></i>
-                </div>
+          </div>
+          <div class="text-center">
+            <div
+              class="bg-gradient-to-r from-primary to-accent text-white w-12 h-12 rounded-full flex items-center justify-center mx-auto hover:scale-110 transition-transform duration-200"
+            >
+              <i class="fas fa-play"></i>
             </div>
-
-            <div class="game-card" onclick="startGame(4)">
-                <div class="game-icon">
-                    <i class="fas fa-magic"></i>
-                </div>
-                <div class="game-info">
-                    <h3>Animation Studio</h3>
-                    <p>Create CSS animations and transitions</p>
-                    <div class="game-stats">
-                        <span class="game-type speed">Animation</span>
-                        <span class="best-score">Best: <span id="score-4">0</span></span>
-                    </div>
-                </div>
-                <div class="play-button">
-                    <i class="fas fa-play"></i>
-                </div>
-            </div>
-
-            <div class="game-card" onclick="startGame(5)">
-                <div class="game-icon">
-                    <i class="fas fa-mobile-alt"></i>
-                </div>
-                <div class="game-info">
-                    <h3>Responsive Designer</h3>
-                    <p>Build responsive layouts for all devices</p>
-                    <div class="game-stats">
-                        <span class="game-type memory">Responsive</span>
-                        <span class="best-score">Best: <span id="score-5">0</span></span>
-                    </div>
-                </div>
-                <div class="play-button">
-                    <i class="fas fa-play"></i>
-                </div>
-            </div>
-
-            <div class="game-card" onclick="startGame(6)">
-                <div class="game-icon">
-                    <i class="fas fa-trophy"></i>
-                </div>
-                <div class="game-info">
-                    <h3>CSS Quiz Master</h3>
-                    <p>Ultimate CSS knowledge test</p>
-                    <div class="game-stats">
-                        <span class="game-type quiz">Quiz</span>
-                        <span class="best-score">Best: <span id="score-6">0</span></span>
-                    </div>
-                </div>
-                <div class="play-button">
-                    <i class="fas fa-play"></i>
-                </div>
-            </div>
+          </div>
         </div>
 
-        <!-- Game Modal -->
-        <div id="gameModal" class="game-modal">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h2 id="gameTitle">Game Title</h2>
-                    <div class="modal-stats">
-                        <span class="score-display">Score: <span id="currentScore">0</span></span>
-                    </div>
-                    <button class="close-btn" onclick="closeGame()">&times;</button>
-                </div>
-                
-                <div id="gameContent" class="game-play-area">
-                    <!-- Game content will be dynamically loaded here -->
-                </div>
-                
-                <div class="game-footer">
-                    <button id="gameActionBtn" class="game-action-btn" onclick="performGameAction()">
-                        <i class="fas fa-play"></i> Start Game
-                    </button>
-                </div>
+        <div
+          class="bg-gradient-to-br from-dark-light/80 to-dark/80 rounded-2xl border border-primary/20 p-8 hover:border-primary/40 transition-all duration-300 cursor-pointer"
+          onclick="startGame(2)"
+        >
+          <div class="text-center mb-6">
+            <div
+              class="bg-gradient-to-r from-primary to-accent w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4"
+            >
+              <i class="fas fa-text-height text-white text-3xl"></i>
             </div>
+            <h3 class="text-2xl font-bold text-white mb-3">Font Selector</h3>
+            <p class="text-gray-300 mb-4">
+              Choose the right fonts and typography
+            </p>
+            <div class="flex justify-between items-center">
+              <span
+                class="bg-yellow-500/20 text-yellow-400 px-3 py-1 rounded-full text-sm font-medium"
+                >Typography</span
+              >
+              <span class="text-gray-400"
+                >Best:
+                <span id="score-2" class="text-primary font-semibold"
+                  >0</span
+                ></span
+              >
+            </div>
+          </div>
+          <div class="text-center">
+            <div
+              class="bg-gradient-to-r from-primary to-accent text-white w-12 h-12 rounded-full flex items-center justify-center mx-auto hover:scale-110 transition-transform duration-200"
+            >
+              <i class="fas fa-play"></i>
+            </div>
+          </div>
         </div>
+
+        <div
+          class="bg-gradient-to-br from-dark-light/80 to-dark/80 rounded-2xl border border-primary/20 p-8 hover:border-primary/40 transition-all duration-300 cursor-pointer"
+          onclick="startGame(3)"
+        >
+          <div class="text-center mb-6">
+            <div
+              class="bg-gradient-to-r from-primary to-accent w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4"
+            >
+              <i class="fas fa-th-large text-white text-3xl"></i>
+            </div>
+            <h3 class="text-2xl font-bold text-white mb-3">Flexbox Arena</h3>
+            <p class="text-gray-300 mb-4">
+              Master CSS Flexbox layout challenges
+            </p>
+            <div class="flex justify-between items-center">
+              <span
+                class="bg-red-500/20 text-red-400 px-3 py-1 rounded-full text-sm font-medium"
+                >Layout</span
+              >
+              <span class="text-gray-400"
+                >Best:
+                <span id="score-3" class="text-primary font-semibold"
+                  >0</span
+                ></span
+              >
+            </div>
+          </div>
+          <div class="text-center">
+            <div
+              class="bg-gradient-to-r from-primary to-accent text-white w-12 h-12 rounded-full flex items-center justify-center mx-auto hover:scale-110 transition-transform duration-200"
+            >
+              <i class="fas fa-play"></i>
+            </div>
+          </div>
+        </div>
+
+        <div
+          class="bg-gradient-to-br from-dark-light/80 to-dark/80 rounded-2xl border border-primary/20 p-8 hover:border-primary/40 transition-all duration-300 cursor-pointer"
+          onclick="startGame(4)"
+        >
+          <div class="text-center mb-6">
+            <div
+              class="bg-gradient-to-r from-primary to-accent w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4"
+            >
+              <i class="fas fa-magic text-white text-3xl"></i>
+            </div>
+            <h3 class="text-2xl font-bold text-white mb-3">Animation Studio</h3>
+            <p class="text-gray-300 mb-4">
+              Create smooth CSS animations and transitions
+            </p>
+            <div class="flex justify-between items-center">
+              <span
+                class="bg-purple-500/20 text-purple-400 px-3 py-1 rounded-full text-sm font-medium"
+                >Animation</span
+              >
+              <span class="text-gray-400"
+                >Best:
+                <span id="score-4" class="text-primary font-semibold"
+                  >0</span
+                ></span
+              >
+            </div>
+          </div>
+          <div class="text-center">
+            <div
+              class="bg-gradient-to-r from-primary to-accent text-white w-12 h-12 rounded-full flex items-center justify-center mx-auto hover:scale-110 transition-transform duration-200"
+            >
+              <i class="fas fa-play"></i>
+            </div>
+          </div>
+        </div>
+
+        <div
+          class="bg-gradient-to-br from-dark-light/80 to-dark/80 rounded-2xl border border-primary/20 p-8 hover:border-primary/40 transition-all duration-300 cursor-pointer"
+          onclick="startGame(5)"
+        >
+          <div class="text-center mb-6">
+            <div
+              class="bg-gradient-to-r from-primary to-accent w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4"
+            >
+              <i class="fas fa-mobile-alt text-white text-3xl"></i>
+            </div>
+            <h3 class="text-2xl font-bold text-white mb-3">
+              Responsive Designer
+            </h3>
+            <p class="text-gray-300 mb-4">
+              Build mobile-first responsive layouts
+            </p>
+            <div class="flex justify-between items-center">
+              <span
+                class="bg-blue-500/20 text-blue-400 px-3 py-1 rounded-full text-sm font-medium"
+                >Responsive</span
+              >
+              <span class="text-gray-400"
+                >Best:
+                <span id="score-5" class="text-primary font-semibold"
+                  >0</span
+                ></span
+              >
+            </div>
+          </div>
+          <div class="text-center">
+            <div
+              class="bg-gradient-to-r from-primary to-accent text-white w-12 h-12 rounded-full flex items-center justify-center mx-auto hover:scale-110 transition-transform duration-200"
+            >
+              <i class="fas fa-play"></i>
+            </div>
+          </div>
+        </div>
+
+        <div
+          class="bg-gradient-to-br from-dark-light/80 to-dark/80 rounded-2xl border border-primary/20 p-8 hover:border-primary/40 transition-all duration-300 cursor-pointer"
+          onclick="startGame(6)"
+        >
+          <div class="text-center mb-6">
+            <div
+              class="bg-gradient-to-r from-primary to-accent w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4"
+            >
+              <i class="fas fa-trophy text-white text-3xl"></i>
+            </div>
+            <h3 class="text-2xl font-bold text-white mb-3">CSS Champion</h3>
+            <p class="text-gray-300 mb-4">
+              Final challenge combining all CSS skills
+            </p>
+            <div class="flex justify-between items-center">
+              <span
+                class="bg-orange-500/20 text-orange-400 px-3 py-1 rounded-full text-sm font-medium"
+                >Final</span
+              >
+              <span class="text-gray-400"
+                >Best:
+                <span id="score-6" class="text-primary font-semibold"
+                  >0</span
+                ></span
+              >
+            </div>
+          </div>
+          <div class="text-center">
+            <div
+              class="bg-gradient-to-r from-primary to-accent text-white w-12 h-12 rounded-full flex items-center justify-center mx-auto hover:scale-110 transition-transform duration-200"
+            >
+              <i class="fas fa-play"></i>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
 
-    <script>
-        let currentGame = 1;
-        let playerData = JSON.parse(localStorage.getItem('cssGameData')) || {
-            totalScore: 0,
-            gamesPlayed: 0,
-            bestScores: [0, 0, 0, 0, 0, 0]
-        };
+    <!-- Game Modal -->
+    <div id="gameModal" class="fixed inset-0 bg-black/80 hidden z-50">
+      <div class="flex items-center justify-center min-h-screen p-4">
+        <div
+          class="bg-dark rounded-2xl border border-primary/20 w-full max-w-4xl max-h-[90vh] overflow-y-auto"
+        >
+          <div
+            class="sticky top-0 bg-dark border-b border-primary/20 p-6 rounded-t-2xl"
+          >
+            <div class="flex justify-between items-start">
+              <div>
+                <h2 id="gameTitle" class="text-2xl font-bold text-white mb-2">
+                  Game Title
+                </h2>
+                <p class="text-gray-300">
+                  Complete the challenge to earn points!
+                </p>
+              </div>
+              <button
+                onclick="closeGameModal()"
+                class="text-gray-400 hover:text-white text-2xl"
+              >
+                <i class="fas fa-times"></i>
+              </button>
+            </div>
+          </div>
 
-        const games = {
-            1: {
-                title: "Color Master",
-                description: "Match colors and learn color theory",
-                type: "color-matching"
-            },
-            2: {
-                title: "Font Selector",
-                description: "Choose the right fonts and typography",
-                type: "font-selection"
-            },
-            3: {
-                title: "Flexbox Arena",
-                description: "Master CSS Flexbox layout challenges",
-                type: "flexbox"
-            },
-            4: {
-                title: "Animation Studio",
-                description: "Create CSS animations and transitions",
-                type: "animation"
-            },
-            5: {
-                title: "Responsive Designer",
-                description: "Build responsive layouts for all devices",
-                type: "responsive"
-            },
-            6: {
-                title: "CSS Quiz Master",
-                description: "Ultimate CSS knowledge test",
-                type: "quiz"
-            }
-        };
+          <div class="p-6">
+            <div id="gameContent">
+              <!-- Game content will be loaded here -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
 
-        let gameState = {
-            currentScore: 0,
-            isGameActive: false
-        };
+    <!-- Main Footer -->
+    <footer class="bg-dark-light border-t border-primary/20 mt-20">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <div class="grid md:grid-cols-4 gap-8">
+          <div class="md:col-span-2">
+            <div class="flex items-center space-x-4 mb-6">
+              <div
+                class="bg-gradient-to-r from-primary to-accent p-3 rounded-xl"
+              >
+                <i class="fas fa-code text-white text-2xl"></i>
+              </div>
+              <div>
+                <h3 class="text-2xl font-bold text-white">WebDev LMS</h3>
+                <p class="text-gray-400">
+                  Master web development through interactive challenges
+                </p>
+              </div>
+            </div>
+            <p class="text-gray-300 mb-6">
+              Learn HTML, CSS, and JavaScript through hands-on practice.
+              Complete challenges, build projects, and become a confident web
+              developer.
+            </p>
+            <div class="flex space-x-4">
+              <a
+                href="#"
+                class="text-gray-400 hover:text-primary transition-colors duration-200"
+              >
+                <i class="fab fa-twitter text-xl"></i>
+              </a>
+              <a
+                href="#"
+                class="text-gray-400 hover:text-primary transition-colors duration-200"
+              >
+                <i class="fab fa-github text-xl"></i>
+              </a>
+              <a
+                href="#"
+                class="text-gray-400 hover:text-primary transition-colors duration-200"
+              >
+                <i class="fab fa-discord text-xl"></i>
+              </a>
+            </div>
+          </div>
 
-        function initializeGame() {
-            updatePlayerStats();
-            updateBestScores();
-        }
+          <div>
+            <h4 class="text-lg font-semibold text-white mb-4">Quick Links</h4>
+            <ul class="space-y-2">
+              <li>
+                <a
+                  href="index.html"
+                  class="text-gray-400 hover:text-white transition-colors duration-200"
+                  >Home</a
+                >
+              </li>
+              <li>
+                <a
+                  href="index.html#curriculum"
+                  class="text-gray-400 hover:text-white transition-colors duration-200"
+                  >Curriculum</a
+                >
+              </li>
+              <li>
+                <a
+                  href="index.html#challenges"
+                  class="text-gray-400 hover:text-white transition-colors duration-200"
+                  >Challenges</a
+                >
+              </li>
+              <li>
+                <a
+                  href="index.html#resources"
+                  class="text-gray-400 hover:text-white transition-colors duration-200"
+                  >Resources</a
+                >
+              </li>
+            </ul>
+          </div>
 
-        function updatePlayerStats() {
-            document.getElementById('totalScore').textContent = playerData.totalScore;
-            document.getElementById('gamesPlayed').textContent = playerData.gamesPlayed;
-        }
+          <div>
+            <h4 class="text-lg font-semibold text-white mb-4">Support</h4>
+            <ul class="space-y-2">
+              <li>
+                <a
+                  href="#"
+                  class="text-gray-400 hover:text-white transition-colors duration-200"
+                  >Help Center</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="text-gray-400 hover:text-white transition-colors duration-200"
+                  >Contact Us</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="text-gray-400 hover:text-white transition-colors duration-200"
+                  >FAQ</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="text-gray-400 hover:text-white transition-colors duration-200"
+                  >Community</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
 
-        function updateBestScores() {
-            for (let i = 1; i <= 6; i++) {
-                const scoreElement = document.getElementById(`score-${i}`);
-                if (scoreElement) {
-                    scoreElement.textContent = playerData.bestScores[i-1] || 0;
-                }
-            }
-        }
+        <div class="border-t border-primary/20 mt-8 pt-8 text-center">
+          <p class="text-gray-400">
+            &copy; 2024 WebDev LMS. All rights reserved.
+          </p>
+        </div>
+      </div>
+    </footer>
 
-        function startGame(gameId) {
-            currentGame = gameId;
-            const game = games[gameId];
-            
-            document.getElementById('gameTitle').textContent = game.title;
-            document.getElementById('gameModal').classList.add('active');
-            
-            // Reset game state
-            gameState.currentScore = 0;
-            gameState.isGameActive = false;
-            updateGameDisplay();
-            
-            // Load specific game
-            switch(gameId) {
-                case 1: loadColorMasterGame(); break;
-                case 2: loadFontSelectorGame(); break;
-                case 3: loadFlexboxArenaGame(); break;
-                case 4: loadAnimationStudioGame(); break;
-                case 5: loadResponsiveDesignerGame(); break;
-                case 6: loadCSSQuizMasterGame(); break;
-            }
-        }
-
-        function loadColorMasterGame() {
-            document.getElementById('gameContent').innerHTML = `
-                <div class="color-game">
-                    <h3>Match the color to its CSS value!</h3>
-                    <div class="color-challenge">
-                        <div class="color-display" id="colorDisplay"></div>
-                        <div class="color-options" id="colorOptions"></div>
-                        <div class="color-feedback" id="colorFeedback"></div>
-                    </div>
-                    <div class="color-score">Colors Matched: <span id="colorsMatched">0</span>/10</div>
-                </div>
-            `;
-            setupColorGame();
-        }
-
-        function setupColorGame() {
-            const colors = [
-                { color: '#FF6B6B', name: 'Coral Red', hex: '#FF6B6B' },
-                { color: '#4ECDC4', name: 'Turquoise', hex: '#4ECDC4' },
-                { color: '#45B7D1', name: 'Sky Blue', hex: '#45B7D1' },
-                { color: '#FFA726', name: 'Orange', hex: '#FFA726' },
-                { color: '#AB47BC', name: 'Purple', hex: '#AB47BC' },
-                { color: '#66BB6A', name: 'Green', hex: '#66BB6A' },
-                { color: '#EF5350', name: 'Red', hex: '#EF5350' },
-                { color: '#42A5F5', name: 'Blue', hex: '#42A5F5' },
-                { color: '#FFCA28', name: 'Yellow', hex: '#FFCA28' },
-                { color: '#26A69A', name: 'Teal', hex: '#26A69A' }
-            ];
-
-            let currentColorIndex = 0;
-            let correctMatches = 0;
-
-            function showNextColor() {
-                if (currentColorIndex >= colors.length) {
-                    endGame(gameState.currentScore);
-                    return;
-                }
-
-                const currentColor = colors[currentColorIndex];
-                const colorDisplay = document.getElementById('colorDisplay');
-                colorDisplay.style.backgroundColor = currentColor.color;
-                colorDisplay.textContent = '?';
-
-                // Create 4 options (1 correct, 3 random)
-                const options = [currentColor];
-                const otherColors = colors.filter((_, index) => index !== currentColorIndex);
-                
-                for (let i = 0; i < 3; i++) {
-                    const randomIndex = Math.floor(Math.random() * otherColors.length);
-                    options.push(otherColors.splice(randomIndex, 1)[0]);
-                }
-
-                // Shuffle options
-                options.sort(() => Math.random() - 0.5);
-
-                const optionsContainer = document.getElementById('colorOptions');
-                optionsContainer.innerHTML = '';
-
-                options.forEach(option => {
-                    const button = document.createElement('button');
-                    button.className = 'color-option';
-                    button.textContent = option.hex;
-                    button.onclick = () => checkColorAnswer(option.hex === currentColor.hex, button);
-                    optionsContainer.appendChild(button);
-                });
-            }
-
-            function checkColorAnswer(isCorrect, button) {
-                const feedback = document.getElementById('colorFeedback');
-                
-                if (isCorrect) {
-                    button.classList.add('correct');
-                    feedback.textContent = 'Correct! +10 points';
-                    feedback.className = 'color-feedback correct';
-                    gameState.currentScore += 10;
-                    correctMatches++;
-                    document.getElementById('colorsMatched').textContent = correctMatches;
-                } else {
-                    button.classList.add('wrong');
-                    feedback.textContent = 'Try again!';
-                    feedback.className = 'color-feedback wrong';
-                }
-
-                updateGameDisplay();
-
-                setTimeout(() => {
-                    if (isCorrect) {
-                        currentColorIndex++;
-                        showNextColor();
-                    } else {
-                        // Reset options for retry
-                        document.querySelectorAll('.color-option').forEach(btn => {
-                            btn.classList.remove('wrong');
-                        });
-                        feedback.textContent = '';
-                    }
-                }, 1000);
-            }
-
-            showNextColor();
-        }
-
-        function loadFontSelectorGame() {
-            document.getElementById('gameContent').innerHTML = `
-                <div class="font-game">
-                    <h3>Identify the font family!</h3>
-                    <div class="font-sample" id="fontSample">The quick brown fox jumps over the lazy dog</div>
-                    <div class="font-options" id="fontOptions"></div>
-                    <div class="font-score">Fonts Identified: <span id="fontsIdentified">0</span>/8</div>
-                </div>
-            `;
-            setupFontGame();
-        }
-
-        function setupFontGame() {
-            const fonts = [
-                'Arial', 'Georgia', 'Times New Roman', 'Helvetica', 
-                'Courier New', 'Verdana', 'Comic Sans MS', 'Impact'
-            ];
-
-            let currentFontIndex = 0;
-            let correctMatches = 0;
-
-            function showNextFont() {
-                if (currentFontIndex >= fonts.length) {
-                    endGame(gameState.currentScore);
-                    return;
-                }
-
-                const currentFont = fonts[currentFontIndex];
-                const fontSample = document.getElementById('fontSample');
-                fontSample.style.fontFamily = currentFont;
-
-                // Create 4 options
-                const options = [currentFont];
-                const otherFonts = fonts.filter((_, index) => index !== currentFontIndex);
-                
-                for (let i = 0; i < 3; i++) {
-                    const randomIndex = Math.floor(Math.random() * otherFonts.length);
-                    options.push(otherFonts.splice(randomIndex, 1)[0]);
-                }
-
-                options.sort(() => Math.random() - 0.5);
-
-                const optionsContainer = document.getElementById('fontOptions');
-                optionsContainer.innerHTML = '';
-
-                options.forEach(option => {
-                    const button = document.createElement('button');
-                    button.className = 'font-option';
-                    button.textContent = option;
-                    button.onclick = () => checkFontAnswer(option === currentFont, button);
-                    optionsContainer.appendChild(button);
-                });
-            }
-
-            function checkFontAnswer(isCorrect, button) {
-                if (isCorrect) {
-                    button.classList.add('correct');
-                    gameState.currentScore += 15;
-                    correctMatches++;
-                    document.getElementById('fontsIdentified').textContent = correctMatches;
-                    updateGameDisplay();
-                    
-                    setTimeout(() => {
-                        currentFontIndex++;
-                        showNextFont();
-                    }, 800);
-                } else {
-                    button.classList.add('wrong');
-                    setTimeout(() => button.classList.remove('wrong'), 500);
-                }
-            }
-
-            showNextFont();
-        }
-
-        function loadCSSQuizMasterGame() {
-            document.getElementById('gameContent').innerHTML = `
-                <div class="quiz-game">
-                    <div class="quiz-header">
-                        <h3 id="questionTitle">CSS Quiz Master</h3>
-                        <div class="quiz-progress">Question <span id="questionNum">1</span> of <span id="totalQuestions">8</span></div>
-                    </div>
-                    <div class="question-container">
-                        <div class="question" id="currentQuestion"></div>
-                        <div class="answers" id="answerOptions"></div>
-                    </div>
-                </div>
-            `;
-            
-            const questions = [
-                {
-                    question: "Which CSS property is used to change the text color?",
-                    options: ["font-color", "text-color", "color", "foreground-color"],
-                    correct: 2
-                },
-                {
-                    question: "What does CSS stand for?",
-                    options: ["Creative Style Sheets", "Cascading Style Sheets", "Computer Style Sheets", "Colorful Style Sheets"],
-                    correct: 1
-                },
-                {
-                    question: "Which property is used to change the font of an element?",
-                    options: ["font-family", "font-style", "font-weight", "text-font"],
-                    correct: 0
-                },
-                {
-                    question: "How do you center a block element horizontally?",
-                    options: ["text-align: center", "margin: 0 auto", "align: center", "center: true"],
-                    correct: 1
-                },
-                {
-                    question: "Which CSS property controls the space between elements?",
-                    options: ["padding", "spacing", "margin", "border"],
-                    correct: 2
-                },
-                {
-                    question: "What is the correct CSS syntax for making all <p> elements bold?",
-                    options: ["p {text-size: bold;}", "p {font-weight: bold;}", "p {text-weight: bold;}", "p {font-style: bold;}"],
-                    correct: 1
-                },
-                {
-                    question: "Which property is used to create rounded corners?",
-                    options: ["corner-radius", "border-radius", "round-corner", "border-round"],
-                    correct: 1
-                },
-                {
-                    question: "How do you select an element with id 'header'?",
-                    options: [".header", "#header", "*header", "header"],
-                    correct: 1
-                }
-            ];
-            
-            setupQuizGame(questions);
-        }
-
-        function setupQuizGame(questions) {
-            let currentQuestion = 0;
-            let correctAnswers = 0;
-            
-            function loadQuestion() {
-                if (currentQuestion >= questions.length) {
-                    const finalScore = (correctAnswers / questions.length) * 100;
-                    gameState.currentScore = finalScore;
-                    endGame(finalScore);
-                    return;
-                }
-                
-                const q = questions[currentQuestion];
-                document.getElementById('questionNum').textContent = currentQuestion + 1;
-                document.getElementById('totalQuestions').textContent = questions.length;
-                document.getElementById('currentQuestion').textContent = q.question;
-                
-                const answersContainer = document.getElementById('answerOptions');
-                answersContainer.innerHTML = '';
-                
-                q.options.forEach((option, index) => {
-                    const button = document.createElement('button');
-                    button.className = 'quiz-option';
-                    button.textContent = option;
-                    button.onclick = () => selectAnswer(index, q.correct);
-                    answersContainer.appendChild(button);
-                });
-            }
-            
-            function selectAnswer(selected, correct) {
-                const options = document.querySelectorAll('.quiz-option');
-                options.forEach((option, index) => {
-                    option.disabled = true;
-                    if (index === correct) {
-                        option.classList.add('correct');
-                    } else if (index === selected && selected !== correct) {
-                        option.classList.add('wrong');
-                    }
-                });
-                
-                if (selected === correct) {
-                    correctAnswers++;
-                    gameState.currentScore += 12.5;
-                    updateGameDisplay();
-                }
-                
-                setTimeout(() => {
-                    currentQuestion++;
-                    loadQuestion();
-                }, 1500);
-            }
-            
-            loadQuestion();
-        }
-
-        function performGameAction() {
-            if (!gameState.isGameActive) {
-    
-                gameState.isGameActive = true;
-                document.getElementById('gameActionBtn').innerHTML = '<i class="fas fa-redo"></i> Restart Game';
-            } else {
-                startGame(currentGame);
-            }
-        }
-
-        function updateGameDisplay() {
-            document.getElementById('currentScore').textContent = gameState.currentScore;
-        }
-
-        function endGame(finalScore) {
-            if (gameState.timerInterval) {
-                clearInterval(gameState.timerInterval);
-            }
-            
-            if (finalScore > playerData.bestScores[currentGame - 1]) {
-                playerData.bestScores[currentGame - 1] = finalScore;
-            }
-            
-            playerData.totalScore += finalScore;
-            playerData.gamesPlayed++;
-            
-            localStorage.setItem('cssGameData', JSON.stringify(playerData));
-            
-            updatePlayerStats();
-            updateBestScores();
-            
-            setTimeout(() => {
-                alert(`Game Complete!\nFinal Score: ${finalScore}\nTotal Score: ${playerData.totalScore}`);
-                closeGame();
-            }, 1000);
-        }
-
-        function closeGame() {
-            document.getElementById('gameModal').classList.remove('active');
-            gameState.isGameActive = false;
-        }
-
-        // Placeholder functions for remaining games
-        function loadFlexboxArenaGame() {
-            document.getElementById('gameContent').innerHTML = `
-                <div class="flexbox-game">
-                    <h3>Master CSS Flexbox layouts!</h3>
-                    <p>This advanced game is coming soon! For now, enjoy our other CSS games.</p>
-                </div>
-            `;
-        }
-
-        function loadAnimationStudioGame() {
-            document.getElementById('gameContent').innerHTML = `
-                <div class="animation-game">
-                    <h3>Create amazing CSS animations!</h3>
-                    <p>This creative game is coming soon! For now, enjoy our other CSS games.</p>
-                </div>
-            `;
-        }
-
-        function loadResponsiveDesignerGame() {
-            document.getElementById('gameContent').innerHTML = `
-                <div class="responsive-game">
-                    <h3>Build responsive layouts!</h3>
-                    <p>This challenging game is coming soon! For now, enjoy our other CSS games.</p>
-                </div>
-            `;
-        }
-
-        // Initialize when page loads
-        document.addEventListener('DOMContentLoaded', initializeGame);
-    </script>
-</body>
-</html> 
+    <script src="script.js"></script>
+  </body>
+</html>

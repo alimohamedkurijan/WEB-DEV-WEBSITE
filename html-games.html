@@ -4,1252 +4,460 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>HTML Coding Quest - WebDev LMS</title>
-    <link rel="stylesheet" href="styles.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
     />
     <script src="https://unpkg.com/monaco-editor@latest/min/vs/loader.js"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              primary: "#01d29b",
+              secondary: "#121212",
+              accent: "#00b894",
+              dark: "#1e1e1e",
+              "dark-light": "#2a2a2a",
+            },
+          },
+        },
+      };
+    </script>
   </head>
-  <body>
-    <nav class="main-nav">
-      <div class="nav-container">
-        <div class="nav-logo">
-          <i class="fas fa-code"></i>
-          <span>WebDev LMS</span>
-        </div>
-        <div class="nav-links">
-          <a href="index.html" class="nav-btn">
-            <i class="fas fa-home"></i> Home
-          </a>
-          <a href="html-fundamentals.html" class="nav-btn">
-            <i class="fas fa-arrow-left"></i> Back to Lessons
-          </a>
+  <body class="bg-dark text-white min-h-screen">
+    <nav class="bg-dark-light border-b border-primary/20 sticky top-0 z-50">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between items-center h-16">
+          <div class="flex items-center space-x-4">
+            <div class="bg-gradient-to-r from-primary to-accent p-2 rounded-xl">
+              <i class="fas fa-code text-white text-xl"></i>
+            </div>
+            <span class="text-xl font-bold text-white">WebDev LMS</span>
+          </div>
+          <div class="flex items-center space-x-4">
+            <a
+              href="index.html"
+              class="bg-gradient-to-r from-primary to-accent text-white px-4 py-2 rounded-xl font-semibold hover:shadow-lg hover:shadow-primary/25 transition-all duration-300"
+            >
+              <i class="fas fa-home mr-2"></i>Home
+            </a>
+            <a
+              href="html-fundamentals.html"
+              class="bg-dark-lighter text-white px-4 py-2 rounded-xl font-semibold hover:bg-dark-lighter/80 transition-all duration-300"
+            >
+              <i class="fas fa-arrow-left mr-2"></i>Back to Lessons
+            </a>
+          </div>
         </div>
       </div>
     </nav>
 
-    <div class="lesson-container">
-      <header class="game-header">
-        <h1><i class="fas fa-gamepad"></i> HTML Interactive Games</h1>
-        <p>Learn HTML through fun interactive games and activities!</p>
-        <div class="player-stats">
-          <div class="stat" data-label="High Score">
-            <i class="fas fa-star"></i>
-            <span id="totalScore">0</span>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+      <header class="text-center mb-12">
+        <h1 class="text-5xl font-bold text-white mb-6">
+          <i class="fas fa-gamepad text-primary mr-4"></i>HTML Interactive Games
+        </h1>
+        <p class="text-xl text-gray-300 mb-8">
+          Learn HTML through fun interactive games and activities!
+        </p>
+        <div class="flex justify-center space-x-8">
+          <div
+            class="bg-dark-light/50 px-6 py-3 rounded-xl border border-primary/20"
+          >
+            <i class="fas fa-star text-primary mr-2"></i>
+            <span class="text-white font-semibold">High Score: </span>
+            <span id="totalScore" class="text-primary font-bold text-xl"
+              >0</span
+            >
           </div>
-          <div class="stat" data-label="Games Played">
-            <i class="fas fa-gamepad"></i>
-            <span id="gamesPlayed">0</span>/6
+          <div
+            class="bg-dark-light/50 px-6 py-3 rounded-xl border border-primary/20"
+          >
+            <i class="fas fa-gamepad text-primary mr-2"></i>
+            <span class="text-white font-semibold">Games Played: </span>
+            <span id="gamesPlayed" class="text-primary font-bold text-xl"
+              >0</span
+            >
+            <span class="text-gray-400">/6</span>
           </div>
         </div>
       </header>
 
-      <div class="games-grid">
-        <div class="game-card" onclick="startGame(1)">
-          <div class="game-icon">
-            <i class="fas fa-puzzle-piece"></i>
-          </div>
-          <div class="game-info">
-            <h3>Tag Match Game</h3>
-            <p>Match HTML tags with their descriptions</p>
-            <div class="game-stats">
-              <span class="game-type fun">Fun</span>
-              <span class="best-score">Best: <span id="score-1">0</span></span>
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div
+          class="bg-gradient-to-br from-dark-light/80 to-dark/80 rounded-2xl border border-primary/20 p-8 hover:border-primary/40 transition-all duration-300 cursor-pointer"
+          onclick="startGame(1)"
+        >
+          <div class="text-center mb-6">
+            <div
+              class="bg-gradient-to-r from-primary to-accent w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4"
+            >
+              <i class="fas fa-puzzle-piece text-white text-3xl"></i>
             </div>
-          </div>
-          <div class="play-button">
-            <i class="fas fa-play"></i>
-          </div>
-        </div>
-
-        <div class="game-card" onclick="startGame(2)">
-          <div class="game-icon">
-            <i class="fas fa-sort"></i>
-          </div>
-          <div class="game-info">
-            <h3>Structure Builder</h3>
-            <p>Drag and drop HTML elements in correct order</p>
-            <div class="game-stats">
-              <span class="game-type puzzle">Puzzle</span>
-              <span class="best-score">Best: <span id="score-2">0</span></span>
-            </div>
-          </div>
-          <div class="play-button">
-            <i class="fas fa-play"></i>
-          </div>
-        </div>
-
-        <div class="game-card" onclick="startGame(3)">
-          <div class="game-icon">
-            <i class="fas fa-search"></i>
-          </div>
-          <div class="game-info">
-            <h3>Code Detective</h3>
-            <p>Find and fix HTML syntax errors</p>
-            <div class="game-stats">
-              <span class="game-type challenge">Challenge</span>
-              <span class="best-score">Best: <span id="score-3">0</span></span>
-            </div>
-          </div>
-          <div class="play-button">
-            <i class="fas fa-play"></i>
-          </div>
-        </div>
-
-        <div class="game-card" onclick="startGame(4)">
-          <div class="game-icon">
-            <i class="fas fa-lightning-bolt"></i>
-          </div>
-          <div class="game-info">
-            <h3>Speed Typing</h3>
-            <p>Type HTML code as fast as you can</p>
-            <div class="game-stats">
-              <span class="game-type speed">Speed</span>
-              <span class="best-score">Best: <span id="score-4">0</span></span>
-            </div>
-          </div>
-          <div class="play-button">
-            <i class="fas fa-play"></i>
-          </div>
-        </div>
-
-        <div class="game-card" onclick="startGame(5)">
-          <div class="game-icon">
-            <i class="fas fa-memory"></i>
-          </div>
-          <div class="game-info">
-            <h3>Memory Cards</h3>
-            <p>Match HTML elements and their attributes</p>
-            <div class="game-stats">
-              <span class="game-type memory">Memory</span>
-              <span class="best-score">Best: <span id="score-5">0</span></span>
-            </div>
-          </div>
-          <div class="play-button">
-            <i class="fas fa-play"></i>
-          </div>
-        </div>
-
-        <div class="game-card" onclick="startGame(6)">
-          <div class="game-icon">
-            <i class="fas fa-trophy"></i>
-          </div>
-          <div class="game-info">
-            <h3>HTML Quiz Master</h3>
-            <p>Ultimate HTML knowledge quiz</p>
-            <div class="game-stats">
-              <span class="game-type quiz">Quiz</span>
-              <span class="best-score">Best: <span id="score-6">0</span></span>
-            </div>
-          </div>
-          <div class="play-button">
-            <i class="fas fa-play"></i>
-          </div>
-        </div>
-      </div>
-
-      <!-- Game Modal -->
-      <div id="gameModal" class="game-modal">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h2 id="gameTitle">Game Title</h2>
-            <div class="modal-stats">
-              <span class="score-display"
-                >Score: <span id="currentScore">0</span></span
+            <h3 class="text-2xl font-bold text-white mb-3">Tag Match Game</h3>
+            <p class="text-gray-300 mb-4">
+              Match HTML tags with their descriptions
+            </p>
+            <div class="flex justify-between items-center">
+              <span
+                class="bg-green-500/20 text-green-400 px-3 py-1 rounded-full text-sm font-medium"
+                >Fun</span
+              >
+              <span class="text-gray-400"
+                >Best:
+                <span id="score-1" class="text-primary font-semibold"
+                  >0</span
+                ></span
               >
             </div>
-            <button class="close-btn" onclick="closeGame()">&times;</button>
           </div>
-
-          <div id="gameContent" class="game-play-area">
-            <!-- Game content will be dynamically loaded here -->
-          </div>
-
-          <div class="game-footer">
-            <button
-              id="gameActionBtn"
-              class="game-action-btn"
-              onclick="performGameAction()"
+          <div class="text-center">
+            <div
+              class="bg-gradient-to-r from-primary to-accent text-white w-12 h-12 rounded-full flex items-center justify-center mx-auto hover:scale-110 transition-transform duration-200"
             >
-              <i class="fas fa-play"></i> Start Game
-            </button>
+              <i class="fas fa-play"></i>
+            </div>
           </div>
         </div>
-      </div>
 
-      <!-- Success Modal -->
-      <div id="successModal" class="success-modal">
-        <div class="success-content">
-          <div class="success-icon">
-            <i class="fas fa-trophy"></i>
-          </div>
-          <h2>Challenge Complete!</h2>
-          <p id="successMessage">Great job! You've earned 100 points!</p>
-          <div class="success-stats">
-            <div class="stat">
-              <span class="label">Points Earned:</span>
-              <span class="value" id="earnedPoints">100</span>
+        <div
+          class="bg-gradient-to-br from-dark-light/80 to-dark/80 rounded-2xl border border-primary/20 p-8 hover:border-primary/40 transition-all duration-300 cursor-pointer"
+          onclick="startGame(2)"
+        >
+          <div class="text-center mb-6">
+            <div
+              class="bg-gradient-to-r from-primary to-accent w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4"
+            >
+              <i class="fas fa-sort text-white text-3xl"></i>
             </div>
-            <div class="stat">
-              <span class="label">Time Taken:</span>
-              <span class="value" id="timeTaken">02:34</span>
+            <h3 class="text-2xl font-bold text-white mb-3">
+              Structure Builder
+            </h3>
+            <p class="text-gray-300 mb-4">
+              Drag and drop HTML elements in correct order
+            </p>
+            <div class="flex justify-between items-center">
+              <span
+                class="bg-yellow-500/20 text-yellow-400 px-3 py-1 rounded-full text-sm font-medium"
+                >Puzzle</span
+              >
+              <span class="text-gray-400"
+                >Best:
+                <span id="score-2" class="text-primary font-semibold"
+                  >0</span
+                ></span
+              >
             </div>
           </div>
-          <div class="success-actions">
-            <button onclick="nextChallenge()" class="next-btn">
-              <i class="fas fa-arrow-right"></i> Next Challenge
-            </button>
-            <button onclick="closeSuccess()" class="continue-btn">
-              <i class="fas fa-list"></i> Back to Challenges
-            </button>
+          <div class="text-center">
+            <div
+              class="bg-gradient-to-r from-primary to-accent text-white w-12 h-12 rounded-full flex items-center justify-center mx-auto hover:scale-110 transition-transform duration-200"
+            >
+              <i class="fas fa-play"></i>
+            </div>
+          </div>
+        </div>
+
+        <div
+          class="bg-gradient-to-br from-dark-light/80 to-dark/80 rounded-2xl border border-primary/20 p-8 hover:border-primary/40 transition-all duration-300 cursor-pointer"
+          onclick="startGame(3)"
+        >
+          <div class="text-center mb-6">
+            <div
+              class="bg-gradient-to-r from-primary to-accent w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4"
+            >
+              <i class="fas fa-search text-white text-3xl"></i>
+            </div>
+            <h3 class="text-2xl font-bold text-white mb-3">Code Detective</h3>
+            <p class="text-gray-300 mb-4">Find and fix HTML syntax errors</p>
+            <div class="flex justify-between items-center">
+              <span
+                class="bg-red-500/20 text-red-400 px-3 py-1 rounded-full text-sm font-medium"
+                >Challenge</span
+              >
+              <span class="text-gray-400"
+                >Best:
+                <span id="score-3" class="text-primary font-semibold"
+                  >0</span
+                ></span
+              >
+            </div>
+          </div>
+          <div class="text-center">
+            <div
+              class="bg-gradient-to-r from-primary to-accent text-white w-12 h-12 rounded-full flex items-center justify-center mx-auto hover:scale-110 transition-transform duration-200"
+            >
+              <i class="fas fa-play"></i>
+            </div>
+          </div>
+        </div>
+
+        <div
+          class="bg-gradient-to-br from-dark-light/80 to-dark/80 rounded-2xl border border-primary/20 p-8 hover:border-primary/40 transition-all duration-300 cursor-pointer"
+          onclick="startGame(4)"
+        >
+          <div class="text-center mb-6">
+            <div
+              class="bg-gradient-to-r from-primary to-accent w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4"
+            >
+              <i class="fas fa-code text-white text-3xl"></i>
+            </div>
+            <h3 class="text-2xl font-bold text-white mb-3">Live Coder</h3>
+            <p class="text-gray-300 mb-4">Write HTML and see live preview</p>
+            <div class="flex justify-between items-center">
+              <span
+                class="bg-blue-500/20 text-blue-400 px-3 py-1 rounded-full text-sm font-medium"
+                >Interactive</span
+              >
+              <span class="text-gray-400"
+                >Best:
+                <span id="score-4" class="text-primary font-semibold"
+                  >0</span
+                ></span
+              >
+            </div>
+          </div>
+          <div class="text-center">
+            <div
+              class="bg-gradient-to-r from-primary to-accent text-white w-12 h-12 rounded-full flex items-center justify-center mx-auto hover:scale-110 transition-transform duration-200"
+            >
+              <i class="fas fa-play"></i>
+            </div>
+          </div>
+        </div>
+
+        <div
+          class="bg-gradient-to-br from-dark-light/80 to-dark/80 rounded-2xl border border-primary/20 p-8 hover:border-primary/40 transition-all duration-300 cursor-pointer"
+          onclick="startGame(5)"
+        >
+          <div class="text-center mb-6">
+            <div
+              class="bg-gradient-to-r from-primary to-accent w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4"
+            >
+              <i class="fas fa-list text-white text-3xl"></i>
+            </div>
+            <h3 class="text-2xl font-bold text-white mb-3">List Master</h3>
+            <p class="text-gray-300 mb-4">Create ordered and unordered lists</p>
+            <div class="flex justify-between items-center">
+              <span
+                class="bg-purple-500/20 text-purple-400 px-3 py-1 rounded-full text-sm font-medium"
+                >Lists</span
+              >
+              <span class="text-gray-400"
+                >Best:
+                <span id="score-5" class="text-primary font-semibold"
+                  >0</span
+                ></span
+              >
+            </div>
+          </div>
+          <div class="text-center">
+            <div
+              class="bg-gradient-to-r from-primary to-accent text-white w-12 h-12 rounded-full flex items-center justify-center mx-auto hover:scale-110 transition-transform duration-200"
+            >
+              <i class="fas fa-play"></i>
+            </div>
+          </div>
+        </div>
+
+        <div
+          class="bg-gradient-to-br from-dark-light/80 to-dark/80 rounded-2xl border border-primary/20 p-8 hover:border-primary/40 transition-all duration-300 cursor-pointer"
+          onclick="startGame(6)"
+        >
+          <div class="text-center mb-6">
+            <div
+              class="bg-gradient-to-r from-primary to-accent w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4"
+            >
+              <i class="fas fa-trophy text-white text-3xl"></i>
+            </div>
+            <h3 class="text-2xl font-bold text-white mb-3">HTML Champion</h3>
+            <p class="text-gray-300 mb-4">
+              Final challenge combining all HTML skills
+            </p>
+            <div class="flex justify-between items-center">
+              <span
+                class="bg-orange-500/20 text-orange-400 px-3 py-1 rounded-full text-sm font-medium"
+                >Final</span
+              >
+              <span class="text-gray-400"
+                >Best:
+                <span id="score-6" class="text-primary font-semibold"
+                  >0</span
+                ></span
+              >
+            </div>
+          </div>
+          <div class="text-center">
+            <div
+              class="bg-gradient-to-r from-primary to-accent text-white w-12 h-12 rounded-full flex items-center justify-center mx-auto hover:scale-110 transition-transform duration-200"
+            >
+              <i class="fas fa-play"></i>
+            </div>
           </div>
         </div>
       </div>
     </div>
 
-    <script>
-      let currentGame = 1;
-      let playerData = JSON.parse(localStorage.getItem("htmlGameData")) || {
-        totalScore: 0,
-        gamesPlayed: 0,
-        bestScores: [0, 0, 0, 0, 0, 0],
-      };
-
-      const games = {
-        1: {
-          title: "Tag Match Game",
-          description: "Match HTML tags with their descriptions",
-          type: "matching",
-        },
-        2: {
-          title: "Structure Builder",
-          description: "Drag and drop HTML elements in correct order",
-          type: "drag-drop",
-        },
-        3: {
-          title: "Code Detective",
-          description: "Find and fix HTML syntax errors",
-          type: "debugging",
-        },
-        4: {
-          title: "Speed Typing",
-          description: "Type HTML code as fast as you can",
-          type: "typing",
-        },
-        5: {
-          title: "Memory Cards",
-          description: "Match HTML elements and their attributes",
-          type: "memory",
-        },
-        6: {
-          title: "HTML Quiz Master",
-          description: "Ultimate HTML knowledge quiz",
-          type: "quiz",
-        },
-      };
-
-      let gameState = {
-        currentScore: 0,
-        isGameActive: false,
-      };
-
-      function initializeGame() {
-        updatePlayerStats();
-        updateBestScores();
-      }
-
-      function updatePlayerStats() {
-        document.getElementById("totalScore").textContent =
-          playerData.totalScore;
-        document.getElementById("gamesPlayed").textContent =
-          playerData.gamesPlayed;
-      }
-
-      function updateBestScores() {
-        for (let i = 1; i <= 6; i++) {
-          const scoreElement = document.getElementById(`score-${i}`);
-          if (scoreElement) {
-            scoreElement.textContent = playerData.bestScores[i - 1] || 0;
-          }
-        }
-      }
-
-      function startGame(gameId) {
-        currentGame = gameId;
-        const game = games[gameId];
-
-        document.getElementById("gameTitle").textContent = game.title;
-        document.getElementById("gameModal").classList.add("active");
-
-        // Reset game state
-        gameState.currentScore = 0;
-        gameState.isGameActive = false;
-        updateGameDisplay();
-
-        // Load specific game
-        switch (gameId) {
-          case 1:
-            loadTagMatchGame();
-            break;
-          case 2:
-            loadStructureBuilderGame();
-            break;
-          case 3:
-            loadCodeDetectiveGame();
-            break;
-          case 4:
-            loadSpeedTypingGame();
-            break;
-          case 5:
-            loadMemoryCardsGame();
-            break;
-          case 6:
-            loadQuizMasterGame();
-            break;
-        }
-      }
-
-      function loadTagMatchGame() {
-        document.getElementById("gameContent").innerHTML = `
-                <div class="match-game">
-                    <h3>Match HTML tags with their descriptions!</h3>
-                    <div class="match-container">
-                        <div class="tags-column">
-                            <h4>HTML Tags</h4>
-                            <div class="match-items" id="tagsContainer"></div>
-                        </div>
-                        <div class="descriptions-column">
-                            <h4>Descriptions</h4>
-                            <div class="match-items" id="descriptionsContainer"></div>
-                        </div>
-                    </div>
-                    <div class="matches-made" id="matchesMade">Matches: 0/6</div>
-                </div>
-            `;
-
-        const tagPairs = [
-          { tag: "<h1>", desc: "Main heading of the page" },
-          { tag: "<p>", desc: "Paragraph of text" },
-          { tag: "<img>", desc: "Display an image" },
-          { tag: "<a>", desc: "Create a hyperlink" },
-          { tag: "<div>", desc: "Generic container element" },
-          { tag: "<ul>", desc: "Unordered list" },
-        ];
-
-        setupMatchGame(tagPairs);
-      }
-
-      function setupMatchGame(pairs) {
-        const tagsContainer = document.getElementById("tagsContainer");
-        const descriptionsContainer = document.getElementById(
-          "descriptionsContainer"
-        );
-        let selectedTag = null;
-        let matchesMade = 0;
-
-        // Shuffle descriptions
-        const shuffledDescs = [...pairs].sort(() => Math.random() - 0.5);
-
-        pairs.forEach((pair, index) => {
-          const tagElement = document.createElement("div");
-          tagElement.className = "match-item tag-item";
-          tagElement.textContent = pair.tag;
-          tagElement.dataset.id = index;
-          tagElement.onclick = () => selectTag(tagElement, index);
-          tagsContainer.appendChild(tagElement);
-        });
-
-        shuffledDescs.forEach((pair, index) => {
-          const descElement = document.createElement("div");
-          descElement.className = "match-item desc-item";
-          descElement.textContent = pair.desc;
-          descElement.dataset.id = pairs.findIndex((p) => p.desc === pair.desc);
-          descElement.onclick = () => checkMatch(descElement);
-          descriptionsContainer.appendChild(descElement);
-        });
-
-        function selectTag(element, id) {
-          document
-            .querySelectorAll(".tag-item")
-            .forEach((item) => item.classList.remove("selected"));
-          element.classList.add("selected");
-          selectedTag = id;
-        }
-
-        function checkMatch(descElement) {
-          if (selectedTag === null) {
-            alert("Please select a tag first!");
-            return;
-          }
-
-          const descId = parseInt(descElement.dataset.id);
-          if (selectedTag === descId) {
-            // Correct match
-            document
-              .querySelector(`[data-id="${selectedTag}"].tag-item`)
-              .classList.add("matched");
-            descElement.classList.add("matched");
-            matchesMade++;
-            gameState.currentScore += 10;
-            selectedTag = null;
-
-            document.getElementById(
-              "matchesMade"
-            ).textContent = `Matches: ${matchesMade}/6`;
-            updateGameDisplay();
-
-            if (matchesMade === 6) {
-              endGame(gameState.currentScore);
-            }
-          } else {
-            // Wrong match
-            descElement.classList.add("wrong");
-            setTimeout(() => descElement.classList.remove("wrong"), 500);
-          }
-        }
-      }
-
-      function loadSpeedTypingGame() {
-        document.getElementById("gameContent").innerHTML = `
-                <div class="typing-game">
-                    <h3>Type the HTML code as fast as you can!</h3>
-                    <div class="typing-challenge" id="typingChallenge">
-                        <div class="target-code" id="targetCode"></div>
-                        <textarea id="typingInput" placeholder="Start typing here..."></textarea>
-                        <div class="typing-stats">
-                            <span>WPM: <span id="wpm">0</span></span>
-                            <span>Accuracy: <span id="accuracy">100%</span></span>
-                        </div>
-                    </div>
-                </div>
-            `;
-
-        const challenges = [
-          "<h1>Hello World</h1>",
-          "<p>This is a paragraph.</p>",
-          '<div class="container"></div>',
-          '<img src="image.jpg" alt="Description">',
-          '<a href="https://example.com">Link</a>',
-        ];
-
-        setupSpeedTyping(challenges);
-      }
-
-      function setupSpeedTyping(challenges) {
-        let currentChallenge = 0;
-        let startTime = null;
-        let errors = 0;
-
-        const targetCode = document.getElementById("targetCode");
-        const typingInput = document.getElementById("typingInput");
-        const wpmDisplay = document.getElementById("wpm");
-        const accuracyDisplay = document.getElementById("accuracy");
-
-        function loadChallenge() {
-          if (currentChallenge >= challenges.length) {
-            endGame(gameState.currentScore);
-            return;
-          }
-
-          targetCode.textContent = challenges[currentChallenge];
-          typingInput.value = "";
-          typingInput.focus();
-        }
-
-        typingInput.addEventListener("input", () => {
-          if (!startTime) startTime = Date.now();
-
-          const typed = typingInput.value;
-          const target = challenges[currentChallenge];
-
-          // Check for completion
-          if (typed === target.replace(/</g, "<").replace(/>/g, ">")) {
-            currentChallenge++;
-            gameState.currentScore += 20;
-            updateGameDisplay();
-            setTimeout(loadChallenge, 500);
-          }
-
-          // Calculate WPM and accuracy
-          const timeElapsed = (Date.now() - startTime) / 1000 / 60;
-          const wordsTyped = typed.length / 5;
-          const wpm = Math.round(wordsTyped / timeElapsed) || 0;
-          wpmDisplay.textContent = wpm;
-
-          // Calculate errors
-          let currentErrors = 0;
-          const targetText = target.replace(/</g, "<").replace(/>/g, ">");
-          for (let i = 0; i < typed.length; i++) {
-            if (typed[i] !== targetText[i]) currentErrors++;
-          }
-
-          const accuracy =
-            typed.length > 0
-              ? Math.round(
-                  ((typed.length - currentErrors) / typed.length) * 100
-                )
-              : 100;
-          accuracyDisplay.textContent = accuracy + "%";
-        });
-
-        loadChallenge();
-      }
-
-      function loadQuizMasterGame() {
-        document.getElementById("gameContent").innerHTML = `
-                <div class="quiz-game">
-                    <div class="quiz-header">
-                        <h3 id="questionTitle">HTML Quiz Master</h3>
-                        <div class="quiz-progress">Question <span id="questionNum">1</span> of <span id="totalQuestions">5</span></div>
-                    </div>
-                    <div class="question-container">
-                        <div class="question" id="currentQuestion"></div>
-                        <div class="answers" id="answerOptions"></div>
-                    </div>
-                </div>
-            `;
-
-        const questions = [
-          {
-            question: "What does HTML stand for?",
-            options: [
-              "Hyper Text Markup Language",
-              "Home Tool Markup Language",
-              "Hyperlinks and Text Markup Language",
-              "Hyper Text Making Language",
-            ],
-            correct: 0,
-          },
-          {
-            question: "Which HTML tag is used for the largest heading?",
-            options: ["<h6>", "<heading>", "<h1>", "<header>"],
-            correct: 2,
-          },
-          {
-            question:
-              "What is the correct HTML element for inserting a line break?",
-            options: ["<break>", "<br>", "<lb>", "<newline>"],
-            correct: 1,
-          },
-          {
-            question:
-              "Which attribute is used to provide alternative text for an image?",
-            options: ["title", "alt", "src", "longdesc"],
-            correct: 1,
-          },
-          {
-            question: "What is the correct HTML for creating a hyperlink?",
-            options: [
-              "<a url='http://example.com'>Link</a>",
-              "<a href='http://example.com'>Link</a>",
-              "<a>http://example.com</a>",
-              "<a name='http://example.com'>Link</a>",
-            ],
-            correct: 1,
-          },
-        ];
-
-        setupQuizGame(questions);
-      }
-
-      function setupQuizGame(questions) {
-        let currentQuestion = 0;
-        let correctAnswers = 0;
-
-        function loadQuestion() {
-          if (currentQuestion >= questions.length) {
-            const finalScore = (correctAnswers / questions.length) * 100;
-            gameState.currentScore = finalScore;
-            endGame(finalScore);
-            return;
-          }
-
-          const q = questions[currentQuestion];
-          document.getElementById("questionNum").textContent =
-            currentQuestion + 1;
-          document.getElementById("totalQuestions").textContent =
-            questions.length;
-          document.getElementById("currentQuestion").textContent = q.question;
-
-          const answersContainer = document.getElementById("answerOptions");
-          answersContainer.innerHTML = "";
-
-          q.options.forEach((option, index) => {
-            const button = document.createElement("button");
-            button.className = "quiz-option";
-            button.innerHTML = option;
-            button.onclick = () => selectAnswer(index, q.correct);
-            answersContainer.appendChild(button);
-          });
-        }
-
-        function selectAnswer(selected, correct) {
-          const options = document.querySelectorAll(".quiz-option");
-          options.forEach((option, index) => {
-            option.disabled = true;
-            if (index === correct) {
-              option.classList.add("correct");
-            } else if (index === selected && selected !== correct) {
-              option.classList.add("wrong");
-            }
-          });
-
-          if (selected === correct) {
-            correctAnswers++;
-            gameState.currentScore += 20;
-            updateGameDisplay();
-          }
-
-          setTimeout(() => {
-            currentQuestion++;
-            loadQuestion();
-          }, 1500);
-        }
-
-        loadQuestion();
-      }
-
-      function performGameAction() {
-        if (!gameState.isGameActive) {
-          startGameTimer();
-          gameState.isGameActive = true;
-          document.getElementById("gameActionBtn").innerHTML =
-            '<i class="fas fa-redo"></i> Restart Game';
-
-          // Enable game interactions
-          const typingInput = document.getElementById("typingInput");
-          if (typingInput) typingInput.disabled = false;
-        } else {
-          // Restart current game
-          startGame(currentGame);
-        }
-      }
-
-      function startGameTimer() {
-        gameState.timerInterval = setInterval(() => {
-          gameState.gameTimer++;
-          updateGameDisplay();
-        }, 1000);
-      }
-
-      function updateGameDisplay() {
-        document.getElementById("currentScore").textContent =
-          gameState.currentScore;
-        const minutes = Math.floor(gameState.gameTimer / 60);
-        const seconds = gameState.gameTimer % 60;
-        document.getElementById("gameTimer").textContent = `${minutes
-          .toString()
-          .padStart(2, "0")}:${seconds.toString().padStart(2, "0")}`;
-      }
-
-      function endGame(finalScore) {
-        if (gameState.timerInterval) {
-          clearInterval(gameState.timerInterval);
-        }
-
-        // Update best score if this is better
-        if (finalScore > playerData.bestScores[currentGame - 1]) {
-          playerData.bestScores[currentGame - 1] = finalScore;
-        }
-
-        // Update total score and games played
-        playerData.totalScore += finalScore;
-        playerData.gamesPlayed++;
-
-        // Save to localStorage
-        localStorage.setItem("htmlGameData", JSON.stringify(playerData));
-
-        // Update display
-        updatePlayerStats();
-        updateBestScores();
-
-        // Show completion message
-        setTimeout(() => {
-          alert(
-            `Game Complete!\nFinal Score: ${finalScore}\nTime: ${Math.floor(
-              gameState.gameTimer / 60
-            )}:${(gameState.gameTimer % 60)
-              .toString()
-              .padStart(2, "0")}\nTotal Score: ${playerData.totalScore}`
-          );
-          closeGame();
-        }, 1000);
-      }
-
-      function closeGame() {
-        document.getElementById("gameModal").classList.remove("active");
-        if (gameState.timerInterval) {
-          clearInterval(gameState.timerInterval);
-        }
-        gameState.isGameActive = false;
-      }
-
-      // Placeholder functions for other games
-      function loadStructureBuilderGame() {
-        document.getElementById("gameContent").innerHTML = `
-                <div class="structure-builder-game">
-                    <div class="builder-header">
-                        <h3>Build the HTML Structure!</h3>
-                        <p>Drag elements in the correct order to create a webpage structure</p>
-                    </div>
-                    <div class="builder-container">
-                        <div class="elements-pool">
-                            <h4>Available Elements</h4>
-                            <div id="elementsPool" class="elements-list"></div>
-                        </div>
-                        <div class="structure-area">
-                            <h4>Build Structure Here</h4>
-                            <div id="structureArea" class="drop-zone">
-                                <div class="drop-placeholder">Drop HTML elements here...</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="target-structure">
-                        <h4>Target Structure:</h4>
-                        <div class="target-preview" id="targetPreview"></div>
-                    </div>
-                </div>
-            `;
-
-        const challenges = [
-          {
-            target: [
-              "<html>",
-              "<head>",
-              "<title>",
-              "</title>",
-              "</head>",
-              "<body>",
-              "<h1>",
-              "</h1>",
-              "</body>",
-              "</html>",
-            ],
-            description: "Basic HTML document structure",
-          },
-          {
-            target: [
-              "<div>",
-              "<h2>",
-              "</h2>",
-              "<p>",
-              "</p>",
-              "<ul>",
-              "<li>",
-              "</li>",
-              "</ul>",
-              "</div>",
-            ],
-            description: "Content section with list",
-          },
-        ];
-
-        setupStructureBuilder(challenges[0]);
-      }
-
-      function setupStructureBuilder(challenge) {
-        const elementsPool = document.getElementById("elementsPool");
-        const structureArea = document.getElementById("structureArea");
-        const targetPreview = document.getElementById("targetPreview");
-
-        // Show target structure
-        targetPreview.innerHTML = challenge.target
-          .map((tag) => `<code class="target-tag">${tag}</code>`)
-          .join(" ");
-
-        // Create draggable elements (shuffled)
-        const shuffledElements = [...challenge.target].sort(
-          () => Math.random() - 0.5
-        );
-        elementsPool.innerHTML = "";
-
-        shuffledElements.forEach((element, index) => {
-          const elementDiv = document.createElement("div");
-          elementDiv.className = "draggable-element";
-          elementDiv.textContent = element;
-          elementDiv.draggable = true;
-          elementDiv.dataset.tag = element;
-
-          elementDiv.addEventListener("dragstart", (e) => {
-            e.dataTransfer.setData("text/plain", element);
-            e.target.classList.add("dragging");
-          });
-
-          elementDiv.addEventListener("dragend", (e) => {
-            e.target.classList.remove("dragging");
-          });
-
-          elementsPool.appendChild(elementDiv);
-        });
-
-        // Setup drop zone
-        structureArea.innerHTML =
-          '<div class="drop-placeholder">Drop HTML elements here...</div>';
-        const userStructure = [];
-
-        structureArea.addEventListener("dragover", (e) => {
-          e.preventDefault();
-          structureArea.classList.add("drag-over");
-        });
-
-        structureArea.addEventListener("dragleave", () => {
-          structureArea.classList.remove("drag-over");
-        });
-
-        structureArea.addEventListener("drop", (e) => {
-          e.preventDefault();
-          structureArea.classList.remove("drag-over");
-
-          const draggedElement = e.dataTransfer.getData("text/plain");
-          userStructure.push(draggedElement);
-
-          // Remove from pool
-          const elementInPool = elementsPool.querySelector(
-            `[data-tag="${draggedElement}"]`
-          );
-          if (elementInPool) elementInPool.remove();
-
-          // Add to structure
-          if (structureArea.querySelector(".drop-placeholder")) {
-            structureArea.innerHTML = "";
-          }
-
-          const structureElement = document.createElement("div");
-          structureElement.className = "structure-element";
-          structureElement.innerHTML = `
-                    <code>${draggedElement}</code>
-                    <button onclick="removeFromStructure(this, '${draggedElement}')" class="remove-btn">×</button>
-                `;
-          structureArea.appendChild(structureElement);
-
-          // Check completion
-          if (userStructure.length === challenge.target.length) {
-            checkStructureCompletion(userStructure, challenge.target);
-          }
-        });
-
-        // Make remove function global
-        window.removeFromStructure = function (button, element) {
-          button.parentElement.remove();
-          const index = userStructure.indexOf(element);
-          if (index > -1) userStructure.splice(index, 1);
-
-          // Add back to pool
-          const elementDiv = document.createElement("div");
-          elementDiv.className = "draggable-element";
-          elementDiv.textContent = element;
-          elementDiv.draggable = true;
-          elementDiv.dataset.tag = element;
-
-          elementDiv.addEventListener("dragstart", (e) => {
-            e.dataTransfer.setData("text/plain", element);
-            e.target.classList.add("dragging");
-          });
-
-          elementDiv.addEventListener("dragend", (e) => {
-            e.target.classList.remove("dragging");
-          });
-
-          elementsPool.appendChild(elementDiv);
-
-          if (structureArea.children.length === 0) {
-            structureArea.innerHTML =
-              '<div class="drop-placeholder">Drop HTML elements here...</div>';
-          }
-        };
-
-        function checkStructureCompletion(userOrder, correctOrder) {
-          const isCorrect =
-            JSON.stringify(userOrder) === JSON.stringify(correctOrder);
-
-          if (isCorrect) {
-            gameState.currentScore += 50;
-            updateGameDisplay();
-            showSuccess(
-              "Perfect structure! You've mastered HTML organization!"
-            );
-          } else {
-            showError("Structure doesn't match. Try reordering the elements!");
-          }
-        }
-      }
-
-      function loadCodeDetectiveGame() {
-        document.getElementById("gameContent").innerHTML = `
-                <div class="code-detective-game">
-                    <div class="detective-header">
-                        <h3>Code Detective - Find the Bugs! 🔍</h3>
-                        <p>Click on HTML errors to fix them. Find all bugs to win!</p>
-                    </div>
-                    <div class="detective-container">
-                        <div class="code-panel">
-                            <h4>Buggy HTML Code:</h4>
-                            <div id="buggyCode" class="code-display"></div>
-                        </div>
-                        <div class="detective-stats">
-                            <div class="stat-item">
-                                <span class="label">Bugs Found:</span>
-                                <span id="bugsFound" class="value">0</span>/<span id="totalBugs" class="value">0</span>
-                            </div>
-                            <div class="stat-item">
-                                <span class="label">Lives:</span>
-                                <span id="livesLeft" class="value">❤️❤️❤️</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div id="feedback" class="feedback-area"></div>
-                </div>
-            `;
-
-        const buggyCodeChallenges = [
-          {
-            code: `<html
-<head>
-    <title>My Page</title>
-</head>
-<body>
-    <h1>Welcome</h1
-    <p>This is a paragraph.</p>
-    <img src="image.jpg">
-</body>
-</html>`,
-            errors: [
-              {
-                line: 0,
-                text: "<html",
-                fix: "<html>",
-                reason: "Missing closing bracket",
-              },
-              {
-                line: 5,
-                text: "<h1>Welcome</h1",
-                fix: "<h1>Welcome</h1>",
-                reason: "Missing closing bracket",
-              },
-              {
-                line: 7,
-                text: '<img src="image.jpg">',
-                fix: '<img src="image.jpg" alt="description">',
-                reason: "Missing alt attribute",
-              },
-            ],
-          },
-        ];
-
-        setupCodeDetective(buggyCodeChallenges[0]);
-      }
-
-      function setupCodeDetective(challenge) {
-        const buggyCodeDiv = document.getElementById("buggyCode");
-        const totalBugsSpan = document.getElementById("totalBugs");
-        const bugsFoundSpan = document.getElementById("bugsFound");
-        const livesLeftSpan = document.getElementById("livesLeft");
-        const feedbackDiv = document.getElementById("feedback");
-
-        let bugsFound = 0;
-        let lives = 3;
-        const foundErrors = new Set();
-
-        totalBugsSpan.textContent = challenge.errors.length;
-
-        // Display code with clickable error elements
-        const codeLines = challenge.code.split("\n");
-        buggyCodeDiv.innerHTML = "";
-
-        codeLines.forEach((line, lineIndex) => {
-          const lineDiv = document.createElement("div");
-          lineDiv.className = "code-line";
-
-          const lineNumberSpan = document.createElement("span");
-          lineNumberSpan.className = "line-number";
-          lineNumberSpan.textContent = (lineIndex + 1)
-            .toString()
-            .padStart(2, "0");
-          lineDiv.appendChild(lineNumberSpan);
-
-          const lineContentSpan = document.createElement("span");
-          lineContentSpan.className = "line-content";
-
-          // Check if this line has errors
-          const lineErrors = challenge.errors.filter(
-            (error) => error.line === lineIndex
-          );
-
-          if (lineErrors.length > 0) {
-            let processedLine = line;
-            lineErrors.forEach((error, errorIndex) => {
-              const errorId = `error-${lineIndex}-${errorIndex}`;
-              processedLine = processedLine.replace(
-                error.text,
-                `<span class="error-highlight" data-error-id="${errorId}" onclick="checkError('${errorId}', ${lineIndex}, ${errorIndex})">${error.text}</span>`
-              );
-            });
-            lineContentSpan.innerHTML = processedLine;
-          } else {
-            lineContentSpan.textContent = line;
-          }
-
-          lineDiv.appendChild(lineContentSpan);
-          buggyCodeDiv.appendChild(lineDiv);
-        });
-
-        // Make checkError function global
-        window.checkError = function (errorId, lineIndex, errorIndex) {
-          if (foundErrors.has(errorId)) return;
-
-          const error = challenge.errors.find((e) => e.line === lineIndex);
-          if (error) {
-            foundErrors.add(errorId);
-            bugsFound++;
-            gameState.currentScore += 25;
-
-            // Mark as found
-            const errorElement = document.querySelector(
-              `[data-error-id="${errorId}"]`
-            );
-            errorElement.classList.add("error-found");
-            errorElement.onclick = null;
-
-            bugsFoundSpan.textContent = bugsFound;
-            updateGameDisplay();
-
-            feedbackDiv.innerHTML = `
-                        <div class="success-feedback">
-                            ✅ Great find! ${error.reason}<br>
-                            <strong>Fixed:</strong> <code>${error.fix}</code>
-                        </div>
-                    `;
-
-            // Check completion
-            if (bugsFound === challenge.errors.length) {
-              setTimeout(() => {
-                showSuccess(
-                  "All bugs squashed! You're a true Code Detective! 🕵️‍♂️"
-                );
-              }, 1000);
-            }
-          } else {
-            lives--;
-            const heartsArray = ["❤️❤️❤️", "💔❤️❤️", "💔💔❤️", "💔💔💔"];
-            livesLeftSpan.textContent = heartsArray[3 - lives];
-
-            feedbackDiv.innerHTML = `
-                        <div class="error-feedback">
-                            ❌ That's not a bug! Lives left: ${lives}
-                        </div>
-                    `;
-
-            if (lives <= 0) {
-              setTimeout(() => {
-                showError("Game Over! The bugs got away this time. Try again!");
-              }, 1000);
-            }
-          }
-
-          setTimeout(() => {
-            feedbackDiv.innerHTML = "";
-          }, 3000);
-        };
-      }
-
-      function loadMemoryCardsGame() {
-        document.getElementById("gameContent").innerHTML = `
-                <div class="memory-cards-game">
-                    <div class="memory-header">
-                        <h3>Memory Cards - Match HTML Pairs! 🧠</h3>
-                        <p>Flip cards to find matching HTML elements and their descriptions</p>
-                    </div>
-                    <div class="memory-stats">
-                        <div class="stat">Pairs Found: <span id="pairsFound">0</span>/6</div>
-                        <div class="stat">Moves: <span id="moveCount">0</span></div>
-                    </div>
-                    <div id="memoryBoard" class="memory-board"></div>
-                </div>
-            `;
-
-        const cardPairs = [
-          { element: "<h1>", description: "Main Heading" },
-          { element: "<p>", description: "Paragraph" },
-          { element: "<img>", description: "Image" },
-          { element: "<a>", description: "Link" },
-          { element: "<div>", description: "Container" },
-          { element: "<ul>", description: "Unordered List" },
-        ];
-
-        setupMemoryGame(cardPairs);
-      }
-
-      function setupMemoryGame(pairs) {
-        const memoryBoard = document.getElementById("memoryBoard");
-        const pairsFoundSpan = document.getElementById("pairsFound");
-        const moveCountSpan = document.getElementById("moveCount");
-
-        let flippedCards = [];
-        let matchedPairs = 0;
-        let moves = 0;
-
-        // Create all cards (elements + descriptions)
-        const allCards = [];
-        pairs.forEach((pair, index) => {
-          allCards.push({
-            type: "element",
-            content: pair.element,
-            pairId: index,
-          });
-          allCards.push({
-            type: "description",
-            content: pair.description,
-            pairId: index,
-          });
-        });
-
-        // Shuffle cards
-        const shuffledCards = allCards.sort(() => Math.random() - 0.5);
-
-        // Create card elements
-        memoryBoard.innerHTML = "";
-        shuffledCards.forEach((card, index) => {
-          const cardElement = document.createElement("div");
-          cardElement.className = "memory-card";
-          cardElement.dataset.cardIndex = index;
-          cardElement.dataset.pairId = card.pairId;
-          cardElement.dataset.type = card.type;
-
-          cardElement.innerHTML = `
-                    <div class="card-front">
-                        <i class="fas fa-question"></i>
-                    </div>
-                    <div class="card-back">
-                        <div class="card-content ${card.type}">
-                            ${card.content}
-                        </div>
-                    </div>
-                `;
-
-          cardElement.addEventListener("click", () => flipCard(cardElement));
-          memoryBoard.appendChild(cardElement);
-        });
-
-        function flipCard(cardElement) {
-          if (
-            cardElement.classList.contains("flipped") ||
-            cardElement.classList.contains("matched") ||
-            flippedCards.length >= 2
-          ) {
-            return;
-          }
-
-          cardElement.classList.add("flipped");
-          flippedCards.push(cardElement);
-
-          if (flippedCards.length === 2) {
-            moves++;
-            moveCountSpan.textContent = moves;
-
-            setTimeout(checkMatch, 1000);
-          }
-        }
-
-        function checkMatch() {
-          const [card1, card2] = flippedCards;
-          const pairId1 = card1.dataset.pairId;
-          const pairId2 = card2.dataset.pairId;
-          const type1 = card1.dataset.type;
-          const type2 = card2.dataset.type;
-
-          if (pairId1 === pairId2 && type1 !== type2) {
-            // Match found!
-            card1.classList.add("matched");
-            card2.classList.add("matched");
-            matchedPairs++;
-
-            pairsFoundSpan.textContent = matchedPairs;
-            gameState.currentScore += 30;
-            updateGameDisplay();
-
-            // Check completion
-            if (matchedPairs === pairs.length) {
-              setTimeout(() => {
-                showSuccess(
-                  `Memory Master! You matched all pairs with ${moves} moves!`
-                );
-              }, 500);
-            }
-          } else {
-            // No match
-            card1.classList.remove("flipped");
-            card2.classList.remove("flipped");
-          }
-
-          flippedCards = [];
-        }
-      }
-
-      // Helper functions for feedback
-      function showSuccess(message) {
-        const modal = document.getElementById("successModal");
-        document.getElementById("successMessage").textContent = message;
-        document.getElementById("earnedPoints").textContent =
-          gameState.currentScore;
-        modal.style.display = "flex";
-      }
-
-      function showError(message) {
-        alert(message); // Simple alert for errors, can be enhanced with custom modal
-      }
-
-      function closeSuccess() {
-        document.getElementById("successModal").style.display = "none";
-      }
-
-      function nextChallenge() {
-        closeSuccess();
-        // Could implement multiple challenge levels here
-      }
-
-      function closeGame() {
-        document.getElementById("gameModal").classList.remove("active");
-        // Save progress
-        saveGameProgress();
-      }
-
-      function saveGameProgress() {
-        if (gameState.currentScore > playerData.bestScores[currentGame - 1]) {
-          playerData.bestScores[currentGame - 1] = gameState.currentScore;
-          playerData.totalScore += gameState.currentScore;
-        }
-        localStorage.setItem("htmlGameData", JSON.stringify(playerData));
-        updatePlayerStats();
-        updateBestScores();
-      }
-
-      function updateGameDisplay() {
-        document.getElementById("currentScore").textContent =
-          gameState.currentScore;
-      }
-
-      function endGame(score) {
-        setTimeout(() => {
-          showSuccess(`Game completed! Final score: ${score}`);
-        }, 1000);
-      }
-
-      function performGameAction() {
-        if (!gameState.isGameActive) {
-          gameState.isGameActive = true;
-          document.getElementById("gameActionBtn").innerHTML =
-            '<i class="fas fa-pause"></i> Pause Game';
-          // Start game timer if needed
-        } else {
-          gameState.isGameActive = false;
-          document.getElementById("gameActionBtn").innerHTML =
-            '<i class="fas fa-play"></i> Resume Game';
-        }
-      }
-
-      // Initialize when page loads
-      document.addEventListener("DOMContentLoaded", initializeGame);
-    </script>
+    <!-- Game Modal -->
+    <div id="gameModal" class="fixed inset-0 bg-black/80 hidden z-50">
+      <div class="flex items-center justify-center min-h-screen p-4">
+        <div
+          class="bg-dark rounded-2xl border border-primary/20 w-full max-w-4xl max-h-[90vh] overflow-y-auto"
+        >
+          <div
+            class="sticky top-0 bg-dark border-b border-primary/20 p-6 rounded-t-2xl"
+          >
+            <div class="flex justify-between items-start">
+              <div>
+                <h2 id="gameTitle" class="text-2xl font-bold text-white mb-2">
+                  Game Title
+                </h2>
+                <p class="text-gray-300">
+                  Complete the challenge to earn points!
+                </p>
+              </div>
+              <button
+                onclick="closeGameModal()"
+                class="text-gray-400 hover:text-white text-2xl"
+              >
+                <i class="fas fa-times"></i>
+              </button>
+            </div>
+          </div>
+
+          <div class="p-6">
+            <div id="gameContent">
+              <!-- Game content will be loaded here -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Main Footer -->
+    <footer class="bg-dark-light border-t border-primary/20 mt-20">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <div class="grid md:grid-cols-4 gap-8">
+          <div class="md:col-span-2">
+            <div class="flex items-center space-x-4 mb-6">
+              <div
+                class="bg-gradient-to-r from-primary to-accent p-3 rounded-xl"
+              >
+                <i class="fas fa-code text-white text-2xl"></i>
+              </div>
+              <div>
+                <h3 class="text-2xl font-bold text-white">WebDev LMS</h3>
+                <p class="text-gray-400">
+                  Master web development through interactive challenges
+                </p>
+              </div>
+            </div>
+            <p class="text-gray-300 mb-6">
+              Learn HTML, CSS, and JavaScript through hands-on practice.
+              Complete challenges, build projects, and become a confident web
+              developer.
+            </p>
+            <div class="flex space-x-4">
+              <a
+                href="#"
+                class="text-gray-400 hover:text-primary transition-colors duration-200"
+              >
+                <i class="fab fa-twitter text-xl"></i>
+              </a>
+              <a
+                href="#"
+                class="text-gray-400 hover:text-primary transition-colors duration-200"
+              >
+                <i class="fab fa-github text-xl"></i>
+              </a>
+              <a
+                href="#"
+                class="text-gray-400 hover:text-primary transition-colors duration-200"
+              >
+                <i class="fab fa-discord text-xl"></i>
+              </a>
+            </div>
+          </div>
+
+          <div>
+            <h4 class="text-lg font-semibold text-white mb-4">Quick Links</h4>
+            <ul class="space-y-2">
+              <li>
+                <a
+                  href="index.html"
+                  class="text-gray-400 hover:text-white transition-colors duration-200"
+                  >Home</a
+                >
+              </li>
+              <li>
+                <a
+                  href="index.html#curriculum"
+                  class="text-gray-400 hover:text-white transition-colors duration-200"
+                  >Curriculum</a
+                >
+              </li>
+              <li>
+                <a
+                  href="index.html#challenges"
+                  class="text-gray-400 hover:text-white transition-colors duration-200"
+                  >Challenges</a
+                >
+              </li>
+              <li>
+                <a
+                  href="index.html#resources"
+                  class="text-gray-400 hover:text-white transition-colors duration-200"
+                  >Resources</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <h4 class="text-lg font-semibold text-white mb-4">Support</h4>
+            <ul class="space-y-2">
+              <li>
+                <a
+                  href="#"
+                  class="text-gray-400 hover:text-white transition-colors duration-200"
+                  >Help Center</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="text-gray-400 hover:text-white transition-colors duration-200"
+                  >Contact Us</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="text-gray-400 hover:text-white transition-colors duration-200"
+                  >FAQ</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="text-gray-400 hover:text-white transition-colors duration-200"
+                  >Community</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="border-t border-primary/20 mt-8 pt-8 text-center">
+          <p class="text-gray-400">
+            &copy; 2024 WebDev LMS. All rights reserved.
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
   </body>
 </html>

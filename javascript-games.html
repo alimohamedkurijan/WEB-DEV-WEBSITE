@@ -1,609 +1,463 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>JavaScript Interactive Games - WebDev LMS</title>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-</head>
-<body>
-    <nav class="main-nav">
-        <div class="nav-container">
-            <div class="nav-logo">
-                <i class="fas fa-code"></i>
-                <span>WebDev LMS</span>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              primary: "#01d29b",
+              secondary: "#121212",
+              accent: "#00b894",
+              dark: "#1e1e1e",
+              "dark-light": "#2a2a2a",
+            },
+          },
+        },
+      };
+    </script>
+  </head>
+  <body class="bg-dark text-white min-h-screen">
+    <nav class="bg-dark-light border-b border-primary/20 sticky top-0 z-50">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between items-center h-16">
+          <div class="flex items-center space-x-4">
+            <div class="bg-gradient-to-r from-primary to-accent p-2 rounded-xl">
+              <i class="fas fa-code text-white text-xl"></i>
             </div>
-            <div class="nav-links">
-                <a href="index.html" class="nav-btn">
-                    <i class="fas fa-home"></i> Home
-                </a>
-                <a href="javascript-basics.html" class="nav-btn">
-                    <i class="fas fa-arrow-left"></i> Back to Lessons
-                </a>
-            </div>
+            <span class="text-xl font-bold text-white">WebDev LMS</span>
+          </div>
+          <div class="flex items-center space-x-4">
+            <a
+              href="index.html"
+              class="bg-gradient-to-r from-primary to-accent text-white px-4 py-2 rounded-xl font-semibold hover:shadow-lg hover:shadow-primary/25 transition-all duration-300"
+            >
+              <i class="fas fa-home mr-2"></i>Home
+            </a>
+            <a
+              href="javascript-basics.html"
+              class="bg-dark-lighter text-white px-4 py-2 rounded-xl font-semibold hover:bg-dark-lighter/80 transition-all duration-300"
+            >
+              <i class="fas fa-arrow-left mr-2"></i>Back to Lessons
+            </a>
+          </div>
         </div>
+      </div>
     </nav>
 
-    <div class="lesson-container">
-        <header class="game-header">
-            <h1><i class="fas fa-bolt"></i> JavaScript Interactive Games</h1>
-            <p>Master JavaScript through exciting coding games and challenges!</p>
-            <div class="player-stats">
-                <div class="stat" data-label="High Score">
-                    <i class="fas fa-star"></i>
-                    <span id="totalScore">0</span>
-                </div>
-                <div class="stat" data-label="Games Played">
-                    <i class="fas fa-gamepad"></i>
-                    <span id="gamesPlayed">0</span>/6
-                </div>
-            </div>
-        </header>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+      <header class="text-center mb-12">
+        <h1 class="text-5xl font-bold text-white mb-6">
+          <i class="fas fa-bolt text-primary mr-4"></i>JavaScript Interactive
+          Games
+        </h1>
+        <p class="text-xl text-gray-300 mb-8">
+          Master JavaScript through exciting coding games and challenges!
+        </p>
+        <div class="flex justify-center space-x-8">
+          <div
+            class="bg-dark-light/50 px-6 py-3 rounded-xl border border-primary/20"
+          >
+            <i class="fas fa-star text-primary mr-2"></i>
+            <span class="text-white font-semibold">High Score: </span>
+            <span id="totalScore" class="text-primary font-bold text-xl"
+              >0</span
+            >
+          </div>
+          <div
+            class="bg-dark-light/50 px-6 py-3 rounded-xl border border-primary/20"
+          >
+            <i class="fas fa-gamepad text-primary mr-2"></i>
+            <span class="text-white font-semibold">Games Played: </span>
+            <span id="gamesPlayed" class="text-primary font-bold text-xl"
+              >0</span
+            >
+            <span class="text-gray-400">/6</span>
+          </div>
+        </div>
+      </header>
 
-        <div class="games-grid">
-            <div class="game-card" onclick="startGame(1)">
-                <div class="game-icon">
-                    <i class="fas fa-calculator"></i>
-                </div>
-                <div class="game-info">
-                    <h3>Math Wizard</h3>
-                    <p>Solve JavaScript math operations</p>
-                    <div class="game-stats">
-                        <span class="game-type fun">Math</span>
-                        <span class="best-score">Best: <span id="score-1">0</span></span>
-                    </div>
-                </div>
-                <div class="play-button">
-                    <i class="fas fa-play"></i>
-                </div>
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div
+          class="bg-gradient-to-br from-dark-light/80 to-dark/80 rounded-2xl border border-primary/20 p-8 hover:border-primary/40 transition-all duration-300 cursor-pointer"
+          onclick="startGame(1)"
+        >
+          <div class="text-center mb-6">
+            <div
+              class="bg-gradient-to-r from-primary to-accent w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4"
+            >
+              <i class="fas fa-calculator text-white text-3xl"></i>
             </div>
-
-            <div class="game-card" onclick="startGame(2)">
-                <div class="game-icon">
-                    <i class="fas fa-code-branch"></i>
-                </div>
-                <div class="game-info">
-                    <h3>Logic Master</h3>
-                    <p>Test conditional statements and logic</p>
-                    <div class="game-stats">
-                        <span class="game-type puzzle">Logic</span>
-                        <span class="best-score">Best: <span id="score-2">0</span></span>
-                    </div>
-                </div>
-                <div class="play-button">
-                    <i class="fas fa-play"></i>
-                </div>
+            <h3 class="text-2xl font-bold text-white mb-3">Math Wizard</h3>
+            <p class="text-gray-300 mb-4">Solve JavaScript math operations</p>
+            <div class="flex justify-between items-center">
+              <span
+                class="bg-green-500/20 text-green-400 px-3 py-1 rounded-full text-sm font-medium"
+                >Math</span
+              >
+              <span class="text-gray-400"
+                >Best:
+                <span id="score-1" class="text-primary font-semibold"
+                  >0</span
+                ></span
+              >
             </div>
-
-            <div class="game-card" onclick="startGame(3)">
-                <div class="game-icon">
-                    <i class="fas fa-sync-alt"></i>
-                </div>
-                <div class="game-info">
-                    <h3>Loop Runner</h3>
-                    <p>Master JavaScript loops and iterations</p>
-                    <div class="game-stats">
-                        <span class="game-type challenge">Loops</span>
-                        <span class="best-score">Best: <span id="score-3">0</span></span>
-                    </div>
-                </div>
-                <div class="play-button">
-                    <i class="fas fa-play"></i>
-                </div>
+          </div>
+          <div class="text-center">
+            <div
+              class="bg-gradient-to-r from-primary to-accent text-white w-12 h-12 rounded-full flex items-center justify-center mx-auto hover:scale-110 transition-transform duration-200"
+            >
+              <i class="fas fa-play"></i>
             </div>
-
-            <div class="game-card" onclick="startGame(4)">
-                <div class="game-icon">
-                    <i class="fas fa-list"></i>
-                </div>
-                <div class="game-info">
-                    <h3>Array Explorer</h3>
-                    <p>Navigate through JavaScript arrays</p>
-                    <div class="game-stats">
-                        <span class="game-type speed">Arrays</span>
-                        <span class="best-score">Best: <span id="score-4">0</span></span>
-                    </div>
-                </div>
-                <div class="play-button">
-                    <i class="fas fa-play"></i>
-                </div>
-            </div>
-
-            <div class="game-card" onclick="startGame(5)">
-                <div class="game-icon">
-                    <i class="fas fa-cogs"></i>
-                </div>
-                <div class="game-info">
-                    <h3>Function Factory</h3>
-                    <p>Create and call JavaScript functions</p>
-                    <div class="game-stats">
-                        <span class="game-type memory">Functions</span>
-                        <span class="best-score">Best: <span id="score-5">0</span></span>
-                    </div>
-                </div>
-                <div class="play-button">
-                    <i class="fas fa-play"></i>
-                </div>
-            </div>
-
-            <div class="game-card" onclick="startGame(6)">
-                <div class="game-icon">
-                    <i class="fas fa-trophy"></i>
-                </div>
-                <div class="game-info">
-                    <h3>JS Quiz Master</h3>
-                    <p>Ultimate JavaScript knowledge test</p>
-                    <div class="game-stats">
-                        <span class="game-type quiz">Quiz</span>
-                        <span class="best-score">Best: <span id="score-6">0</span></span>
-                    </div>
-                </div>
-                <div class="play-button">
-                    <i class="fas fa-play"></i>
-                </div>
-            </div>
+          </div>
         </div>
 
-        <!-- Game Modal -->
-        <div id="gameModal" class="game-modal">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h2 id="gameTitle">Game Title</h2>
-                    <div class="modal-stats">
-                        <span class="score-display">Score: <span id="currentScore">0</span></span>
-                    </div>
-                    <button class="close-btn" onclick="closeGame()">&times;</button>
-                </div>
-                
-                <div id="gameContent" class="game-play-area">
-                    <!-- Game content will be dynamically loaded here -->
-                </div>
-                
-                <div class="game-footer">
-                    <button id="gameActionBtn" class="game-action-btn" onclick="performGameAction()">
-                        <i class="fas fa-play"></i> Start Game
-                    </button>
-                </div>
+        <div
+          class="bg-gradient-to-br from-dark-light/80 to-dark/80 rounded-2xl border border-primary/20 p-8 hover:border-primary/40 transition-all duration-300 cursor-pointer"
+          onclick="startGame(2)"
+        >
+          <div class="text-center mb-6">
+            <div
+              class="bg-gradient-to-r from-primary to-accent w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4"
+            >
+              <i class="fas fa-code-branch text-white text-3xl"></i>
             </div>
+            <h3 class="text-2xl font-bold text-white mb-3">Logic Master</h3>
+            <p class="text-gray-300 mb-4">
+              Test conditional statements and logic
+            </p>
+            <div class="flex justify-between items-center">
+              <span
+                class="bg-yellow-500/20 text-yellow-400 px-3 py-1 rounded-full text-sm font-medium"
+                >Logic</span
+              >
+              <span class="text-gray-400"
+                >Best:
+                <span id="score-2" class="text-primary font-semibold"
+                  >0</span
+                ></span
+              >
+            </div>
+          </div>
+          <div class="text-center">
+            <div
+              class="bg-gradient-to-r from-primary to-accent text-white w-12 h-12 rounded-full flex items-center justify-center mx-auto hover:scale-110 transition-transform duration-200"
+            >
+              <i class="fas fa-play"></i>
+            </div>
+          </div>
         </div>
+
+        <div
+          class="bg-gradient-to-br from-dark-light/80 to-dark/80 rounded-2xl border border-primary/20 p-8 hover:border-primary/40 transition-all duration-300 cursor-pointer"
+          onclick="startGame(3)"
+        >
+          <div class="text-center mb-6">
+            <div
+              class="bg-gradient-to-r from-primary to-accent w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4"
+            >
+              <i class="fas fa-sync-alt text-white text-3xl"></i>
+            </div>
+            <h3 class="text-2xl font-bold text-white mb-3">Loop Runner</h3>
+            <p class="text-gray-300 mb-4">
+              Master JavaScript loops and iterations
+            </p>
+            <div class="flex justify-between items-center">
+              <span
+                class="bg-red-500/20 text-red-400 px-3 py-1 rounded-full text-sm font-medium"
+                >Loops</span
+              >
+              <span class="text-gray-400"
+                >Best:
+                <span id="score-3" class="text-primary font-semibold"
+                  >0</span
+                ></span
+              >
+            </div>
+          </div>
+          <div class="text-center">
+            <div
+              class="bg-gradient-to-r from-primary to-accent text-white w-12 h-12 rounded-full flex items-center justify-center mx-auto hover:scale-110 transition-transform duration-200"
+            >
+              <i class="fas fa-play"></i>
+            </div>
+          </div>
+        </div>
+
+        <div
+          class="bg-gradient-to-br from-dark-light/80 to-dark/80 rounded-2xl border border-primary/20 p-8 hover:border-primary/40 transition-all duration-300 cursor-pointer"
+          onclick="startGame(4)"
+        >
+          <div class="text-center mb-6">
+            <div
+              class="bg-gradient-to-r from-primary to-accent w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4"
+            >
+              <i class="fas fa-list text-white text-3xl"></i>
+            </div>
+            <h3 class="text-2xl font-bold text-white mb-3">Array Master</h3>
+            <p class="text-gray-300 mb-4">Work with arrays and array methods</p>
+            <div class="flex justify-between items-center">
+              <span
+                class="bg-blue-500/20 text-blue-400 px-3 py-1 rounded-full text-sm font-medium"
+                >Arrays</span
+              >
+              <span class="text-gray-400"
+                >Best:
+                <span id="score-4" class="text-primary font-semibold"
+                  >0</span
+                ></span
+              >
+            </div>
+          </div>
+          <div class="text-center">
+            <div
+              class="bg-gradient-to-r from-primary to-accent text-white w-12 h-12 rounded-full flex items-center justify-center mx-auto hover:scale-110 transition-transform duration-200"
+            >
+              <i class="fas fa-play"></i>
+            </div>
+          </div>
+        </div>
+
+        <div
+          class="bg-gradient-to-br from-dark-light/80 to-dark/80 rounded-2xl border border-primary/20 p-8 hover:border-primary/40 transition-all duration-300 cursor-pointer"
+          onclick="startGame(5)"
+        >
+          <div class="text-center mb-6">
+            <div
+              class="bg-gradient-to-r from-primary to-accent w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4"
+            >
+              <i class="fas fa-magic text-white text-3xl"></i>
+            </div>
+            <h3 class="text-2xl font-bold text-white mb-3">Function Factory</h3>
+            <p class="text-gray-300 mb-4">
+              Create and test JavaScript functions
+            </p>
+            <div class="flex justify-between items-center">
+              <span
+                class="bg-purple-500/20 text-purple-400 px-3 py-1 rounded-full text-sm font-medium"
+                >Functions</span
+              >
+              <span class="text-gray-400"
+                >Best:
+                <span id="score-5" class="text-primary font-semibold"
+                  >0</span
+                ></span
+              >
+            </div>
+          </div>
+          <div class="text-center">
+            <div
+              class="bg-gradient-to-r from-primary to-accent text-white w-12 h-12 rounded-full flex items-center justify-center mx-auto hover:scale-110 transition-transform duration-200"
+            >
+              <i class="fas fa-play"></i>
+            </div>
+          </div>
+        </div>
+
+        <div
+          class="bg-gradient-to-br from-dark-light/80 to-dark/80 rounded-2xl border border-primary/20 p-8 hover:border-primary/40 transition-all duration-300 cursor-pointer"
+          onclick="startGame(6)"
+        >
+          <div class="text-center mb-6">
+            <div
+              class="bg-gradient-to-r from-primary to-accent w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4"
+            >
+              <i class="fas fa-trophy text-white text-3xl"></i>
+            </div>
+            <h3 class="text-2xl font-bold text-white mb-3">JS Champion</h3>
+            <p class="text-gray-300 mb-4">
+              Final challenge combining all JS skills
+            </p>
+            <div class="flex justify-between items-center">
+              <span
+                class="bg-orange-500/20 text-orange-400 px-3 py-1 rounded-full text-sm font-medium"
+                >Final</span
+              >
+              <span class="text-gray-400"
+                >Best:
+                <span id="score-6" class="text-primary font-semibold"
+                  >0</span
+                ></span
+              >
+            </div>
+          </div>
+          <div class="text-center">
+            <div
+              class="bg-gradient-to-r from-primary to-accent text-white w-12 h-12 rounded-full flex items-center justify-center mx-auto hover:scale-110 transition-transform duration-200"
+            >
+              <i class="fas fa-play"></i>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
 
-    <script>
-        let currentGame = 1;
-        let playerData = JSON.parse(localStorage.getItem('jsGameData')) || {
-            totalScore: 0,
-            gamesPlayed: 0,
-            bestScores: [0, 0, 0, 0, 0, 0]
-        };
+    <!-- Game Modal -->
+    <div id="gameModal" class="fixed inset-0 bg-black/80 hidden z-50">
+      <div class="flex items-center justify-center min-h-screen p-4">
+        <div
+          class="bg-dark rounded-2xl border border-primary/20 w-full max-w-4xl max-h-[90vh] overflow-y-auto"
+        >
+          <div
+            class="sticky top-0 bg-dark border-b border-primary/20 p-6 rounded-t-2xl"
+          >
+            <div class="flex justify-between items-start">
+              <div>
+                <h2 id="gameTitle" class="text-2xl font-bold text-white mb-2">
+                  Game Title
+                </h2>
+                <p class="text-gray-300">
+                  Complete the challenge to earn points!
+                </p>
+              </div>
+              <button
+                onclick="closeGameModal()"
+                class="text-gray-400 hover:text-white text-2xl"
+              >
+                <i class="fas fa-times"></i>
+              </button>
+            </div>
+          </div>
 
-        const games = {
-            1: {
-                title: "Math Wizard",
-                description: "Solve JavaScript math operations",
-                type: "math"
-            },
-            2: {
-                title: "Logic Master",
-                description: "Test conditional statements and logic",
-                type: "logic"
-            },
-            3: {
-                title: "Loop Runner",
-                description: "Master JavaScript loops and iterations",
-                type: "loops"
-            },
-            4: {
-                title: "Array Explorer",
-                description: "Navigate through JavaScript arrays",
-                type: "arrays"
-            },
-            5: {
-                title: "Function Factory",
-                description: "Create and call JavaScript functions",
-                type: "functions"
-            },
-            6: {
-                title: "JS Quiz Master",
-                description: "Ultimate JavaScript knowledge test",
-                type: "quiz"
-            }
-        };
+          <div class="p-6">
+            <div id="gameContent">
+              <!-- Game content will be loaded here -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
 
-        let gameState = {
-            currentScore: 0,
-            isGameActive: false
-        };
+    <!-- Main Footer -->
+    <footer class="bg-dark-light border-t border-primary/20 mt-20">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <div class="grid md:grid-cols-4 gap-8">
+          <div class="md:col-span-2">
+            <div class="flex items-center space-x-4 mb-6">
+              <div
+                class="bg-gradient-to-r from-primary to-accent p-3 rounded-xl"
+              >
+                <i class="fas fa-code text-white text-2xl"></i>
+              </div>
+              <div>
+                <h3 class="text-2xl font-bold text-white">WebDev LMS</h3>
+                <p class="text-gray-400">
+                  Master web development through interactive challenges
+                </p>
+              </div>
+            </div>
+            <p class="text-gray-300 mb-6">
+              Learn HTML, CSS, and JavaScript through hands-on practice.
+              Complete challenges, build projects, and become a confident web
+              developer.
+            </p>
+            <div class="flex space-x-4">
+              <a
+                href="#"
+                class="text-gray-400 hover:text-primary transition-colors duration-200"
+              >
+                <i class="fab fa-twitter text-xl"></i>
+              </a>
+              <a
+                href="#"
+                class="text-gray-400 hover:text-primary transition-colors duration-200"
+              >
+                <i class="fab fa-github text-xl"></i>
+              </a>
+              <a
+                href="#"
+                class="text-gray-400 hover:text-primary transition-colors duration-200"
+              >
+                <i class="fab fa-discord text-xl"></i>
+              </a>
+            </div>
+          </div>
 
-        function initializeGame() {
-            updatePlayerStats();
-            updateBestScores();
-        }
+          <div>
+            <h4 class="text-lg font-semibold text-white mb-4">Quick Links</h4>
+            <ul class="space-y-2">
+              <li>
+                <a
+                  href="index.html"
+                  class="text-gray-400 hover:text-white transition-colors duration-200"
+                  >Home</a
+                >
+              </li>
+              <li>
+                <a
+                  href="index.html#curriculum"
+                  class="text-gray-400 hover:text-white transition-colors duration-200"
+                  >Curriculum</a
+                >
+              </li>
+              <li>
+                <a
+                  href="index.html#challenges"
+                  class="text-gray-400 hover:text-white transition-colors duration-200"
+                  >Challenges</a
+                >
+              </li>
+              <li>
+                <a
+                  href="index.html#resources"
+                  class="text-gray-400 hover:text-white transition-colors duration-200"
+                  >Resources</a
+                >
+              </li>
+            </ul>
+          </div>
 
-        function updatePlayerStats() {
-            document.getElementById('totalScore').textContent = playerData.totalScore;
-            document.getElementById('gamesPlayed').textContent = playerData.gamesPlayed;
-        }
+          <div>
+            <h4 class="text-lg font-semibold text-white mb-4">Support</h4>
+            <ul class="space-y-2">
+              <li>
+                <a
+                  href="#"
+                  class="text-gray-400 hover:text-white transition-colors duration-200"
+                  >Help Center</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="text-gray-400 hover:text-white transition-colors duration-200"
+                  >Contact Us</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="text-gray-400 hover:text-white transition-colors duration-200"
+                  >FAQ</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="text-gray-400 hover:text-white transition-colors duration-200"
+                  >Community</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
 
-        function updateBestScores() {
-            for (let i = 1; i <= 6; i++) {
-                const scoreElement = document.getElementById(`score-${i}`);
-                if (scoreElement) {
-                    scoreElement.textContent = playerData.bestScores[i-1] || 0;
-                }
-            }
-        }
+        <div class="border-t border-primary/20 mt-8 pt-8 text-center">
+          <p class="text-gray-400">
+            &copy; 2024 WebDev LMS. All rights reserved.
+          </p>
+        </div>
+      </div>
+    </footer>
 
-        function startGame(gameId) {
-            currentGame = gameId;
-            const game = games[gameId];
-            
-            document.getElementById('gameTitle').textContent = game.title;
-            document.getElementById('gameModal').classList.add('active');
-            
-            // Reset game state
-            gameState.currentScore = 0;
-            gameState.isGameActive = false;
-            updateGameDisplay();
-            
-            // Load specific game
-            switch(gameId) {
-                case 1: loadMathWizardGame(); break;
-                case 2: loadLogicMasterGame(); break;
-                case 3: loadLoopRunnerGame(); break;
-                case 4: loadArrayExplorerGame(); break;
-                case 5: loadFunctionFactoryGame(); break;
-                case 6: loadJSQuizMasterGame(); break;
-            }
-        }
-
-        function loadMathWizardGame() {
-            document.getElementById('gameContent').innerHTML = `
-                <div class="math-game">
-                    <h3>Solve JavaScript math expressions!</h3>
-                    <div class="math-challenge">
-                        <div class="expression" id="mathExpression"></div>
-                        <div class="answer-input">
-                            <input type="number" id="mathAnswer" placeholder="Enter your answer" />
-                            <button onclick="checkMathAnswer()" class="submit-answer">Submit</button>
-                        </div>
-                        <div class="math-feedback" id="mathFeedback"></div>
-                    </div>
-                    <div class="math-score">Problems Solved: <span id="problemsSolved">0</span>/10</div>
-                </div>
-            `;
-            setupMathGame();
-        }
-
-        function setupMathGame() {
-            let currentProblem = 0;
-            let correctAnswers = 0;
-
-            function generateProblem() {
-                const operations = ['+', '-', '*', '/'];
-                const op = operations[Math.floor(Math.random() * operations.length)];
-                let a = Math.floor(Math.random() * 20) + 1;
-                let b = Math.floor(Math.random() * 20) + 1;
-                
-                // For division, ensure clean division
-                if (op === '/') {
-                    a = b * (Math.floor(Math.random() * 10) + 1);
-                }
-                
-                const expression = `${a} ${op} ${b}`;
-                let answer;
-                
-                switch(op) {
-                    case '+': answer = a + b; break;
-                    case '-': answer = a - b; break;
-                    case '*': answer = a * b; break;
-                    case '/': answer = a / b; break;
-                }
-                
-                return { expression, answer };
-            }
-
-            function showNextProblem() {
-                if (currentProblem >= 10) {
-                    endGame(gameState.currentScore);
-                    return;
-                }
-
-                const problem = generateProblem();
-                document.getElementById('mathExpression').textContent = problem.expression + ' = ?';
-                document.getElementById('mathAnswer').value = '';
-                document.getElementById('mathAnswer').focus();
-                
-                window.currentAnswer = problem.answer;
-                currentProblem++;
-            }
-
-            window.checkMathAnswer = function() {
-                const userAnswer = parseFloat(document.getElementById('mathAnswer').value);
-                const feedback = document.getElementById('mathFeedback');
-                
-                if (userAnswer === window.currentAnswer) {
-                    feedback.textContent = 'Correct! +10 points';
-                    feedback.className = 'math-feedback correct';
-                    gameState.currentScore += 10;
-                    correctAnswers++;
-                    document.getElementById('problemsSolved').textContent = correctAnswers;
-                    updateGameDisplay();
-                    
-                    setTimeout(showNextProblem, 1000);
-                } else {
-                    feedback.textContent = `Wrong! The answer is ${window.currentAnswer}`;
-                    feedback.className = 'math-feedback wrong';
-                    setTimeout(() => {
-                        feedback.textContent = '';
-                        showNextProblem();
-                    }, 2000);
-                }
-            };
-
-            // Allow Enter key to submit
-            document.getElementById('mathAnswer').addEventListener('keypress', function(e) {
-                if (e.key === 'Enter') {
-                    checkMathAnswer();
-                }
-            });
-
-            showNextProblem();
-        }
-
-        function loadLogicMasterGame() {
-            document.getElementById('gameContent').innerHTML = `
-                <div class="logic-game">
-                    <h3>Predict the boolean result!</h3>
-                    <div class="logic-challenge">
-                        <div class="logic-expression" id="logicExpression"></div>
-                        <div class="logic-buttons">
-                            <button onclick="checkLogicAnswer(true)" class="logic-btn true-btn">true</button>
-                            <button onclick="checkLogicAnswer(false)" class="logic-btn false-btn">false</button>
-                        </div>
-                        <div class="logic-feedback" id="logicFeedback"></div>
-                    </div>
-                    <div class="logic-score">Correct Predictions: <span id="logicCorrect">0</span>/8</div>
-                </div>
-            `;
-            setupLogicGame();
-        }
-
-        function setupLogicGame() {
-            const expressions = [
-                { code: '5 > 3', result: true },
-                { code: '10 === "10"', result: false },
-                { code: 'true && false', result: false },
-                { code: 'true || false', result: true },
-                { code: '!true', result: false },
-                { code: '0 == false', result: true },
-                { code: '"hello".length > 3', result: true },
-                { code: '15 % 2 === 0', result: false }
-            ];
-
-            let currentExpression = 0;
-            let correctAnswers = 0;
-
-            function showNextExpression() {
-                if (currentExpression >= expressions.length) {
-                    endGame(gameState.currentScore);
-                    return;
-                }
-
-                const expr = expressions[currentExpression];
-                document.getElementById('logicExpression').textContent = expr.code;
-                window.currentLogicAnswer = expr.result;
-            }
-
-            window.checkLogicAnswer = function(userAnswer) {
-                const feedback = document.getElementById('logicFeedback');
-                
-                if (userAnswer === window.currentLogicAnswer) {
-                    feedback.textContent = 'Correct! +15 points';
-                    feedback.className = 'logic-feedback correct';
-                    gameState.currentScore += 15;
-                    correctAnswers++;
-                    document.getElementById('logicCorrect').textContent = correctAnswers;
-                    updateGameDisplay();
-                } else {
-                    feedback.textContent = `Wrong! The answer is ${window.currentLogicAnswer}`;
-                    feedback.className = 'logic-feedback wrong';
-                }
-
-                setTimeout(() => {
-                    currentExpression++;
-                    feedback.textContent = '';
-                    showNextExpression();
-                }, 1500);
-            };
-
-            showNextExpression();
-        }
-
-        function loadJSQuizMasterGame() {
-            document.getElementById('gameContent').innerHTML = `
-                <div class="quiz-game">
-                    <div class="quiz-header">
-                        <h3 id="questionTitle">JavaScript Quiz Master</h3>
-                        <div class="quiz-progress">Question <span id="questionNum">1</span> of <span id="totalQuestions">8</span></div>
-                    </div>
-                    <div class="question-container">
-                        <div class="question" id="currentQuestion"></div>
-                        <div class="answers" id="answerOptions"></div>
-                    </div>
-                </div>
-            `;
-            
-            const questions = [
-                {
-                    question: "Which keyword is used to declare a variable in JavaScript?",
-                    options: ["var", "variable", "declare", "def"],
-                    correct: 0
-                },
-                {
-                    question: "What is the result of 5 + '5' in JavaScript?",
-                    options: ["10", "55", "'55'", "Error"],
-                    correct: 2
-                },
-                {
-                    question: "Which method is used to add an element to the end of an array?",
-                    options: ["append()", "push()", "add()", "insert()"],
-                    correct: 1
-                },
-                {
-                    question: "What does '===' check for in JavaScript?",
-                    options: ["Value only", "Type only", "Both value and type", "Neither"],
-                    correct: 2
-                },
-                {
-                    question: "Which loop runs at least once?",
-                    options: ["for loop", "while loop", "do-while loop", "foreach loop"],
-                    correct: 2
-                },
-                {
-                    question: "How do you comment a single line in JavaScript?",
-                    options: ["/* comment */", "// comment", "# comment", "<!-- comment -->"],
-                    correct: 1
-                },
-                {
-                    question: "What is the correct way to write a JavaScript array?",
-                    options: ["var colors = 'red', 'green', 'blue'", "var colors = (1:'red', 2:'green', 3:'blue')", "var colors = ['red', 'green', 'blue']", "var colors = 1 = ('red'), 2 = ('green'), 3 = ('blue')"],
-                    correct: 2
-                },
-                {
-                    question: "Which event occurs when the user clicks on an HTML element?",
-                    options: ["onchange", "onclick", "onmouseclick", "onmouseover"],
-                    correct: 1
-                }
-            ];
-            
-            setupQuizGame(questions);
-        }
-
-        function setupQuizGame(questions) {
-            let currentQuestion = 0;
-            let correctAnswers = 0;
-            
-            function loadQuestion() {
-                if (currentQuestion >= questions.length) {
-                    const finalScore = (correctAnswers / questions.length) * 100;
-                    gameState.currentScore = finalScore;
-                    endGame(finalScore);
-                    return;
-                }
-                
-                const q = questions[currentQuestion];
-                document.getElementById('questionNum').textContent = currentQuestion + 1;
-                document.getElementById('totalQuestions').textContent = questions.length;
-                document.getElementById('currentQuestion').textContent = q.question;
-                
-                const answersContainer = document.getElementById('answerOptions');
-                answersContainer.innerHTML = '';
-                
-                q.options.forEach((option, index) => {
-                    const button = document.createElement('button');
-                    button.className = 'quiz-option';
-                    button.textContent = option;
-                    button.onclick = () => selectAnswer(index, q.correct);
-                    answersContainer.appendChild(button);
-                });
-            }
-            
-            function selectAnswer(selected, correct) {
-                const options = document.querySelectorAll('.quiz-option');
-                options.forEach((option, index) => {
-                    option.disabled = true;
-                    if (index === correct) {
-                        option.classList.add('correct');
-                    } else if (index === selected && selected !== correct) {
-                        option.classList.add('wrong');
-                    }
-                });
-                
-                if (selected === correct) {
-                    correctAnswers++;
-                    gameState.currentScore += 12.5;
-                    updateGameDisplay();
-                }
-                
-                setTimeout(() => {
-                    currentQuestion++;
-                    loadQuestion();
-                }, 1500);
-            }
-            
-            loadQuestion();
-        }
-
-        function performGameAction() {
-            if (!gameState.isGameActive) {
-    
-                gameState.isGameActive = true;
-                document.getElementById('gameActionBtn').innerHTML = '<i class="fas fa-redo"></i> Restart Game';
-            } else {
-                startGame(currentGame);
-            }
-        }
-
-        function updateGameDisplay() {
-            document.getElementById('currentScore').textContent = gameState.currentScore;
-        }
-
-        function endGame(finalScore) {
-            
-            if (finalScore > playerData.bestScores[currentGame - 1]) {
-                playerData.bestScores[currentGame - 1] = finalScore;
-            }
-            
-            playerData.totalScore += finalScore;
-            playerData.gamesPlayed++;
-            
-            localStorage.setItem('jsGameData', JSON.stringify(playerData));
-            
-            updatePlayerStats();
-            updateBestScores();
-            
-            setTimeout(() => {
-                alert(`Game Complete!\nFinal Score: ${finalScore}\nTotal Score: ${playerData.totalScore}`);
-                closeGame();
-            }, 1000);
-        }
-
-        function closeGame() {
-            document.getElementById('gameModal').classList.remove('active');
-            gameState.isGameActive = false;
-        }
-
-        // Placeholder functions for remaining games
-        function loadLoopRunnerGame() {
-            document.getElementById('gameContent').innerHTML = `
-                <div class="loop-game">
-                    <h3>Master JavaScript loops!</h3>
-                    <p>This advanced game is coming soon! For now, enjoy our other JavaScript games.</p>
-                </div>
-            `;
-        }
-
-        function loadArrayExplorerGame() {
-            document.getElementById('gameContent').innerHTML = `
-                <div class="array-game">
-                    <h3>Explore JavaScript arrays!</h3>
-                    <p>This exciting game is coming soon! For now, enjoy our other JavaScript games.</p>
-                </div>
-            `;
-        }
-
-        function loadFunctionFactoryGame() {
-            document.getElementById('gameContent').innerHTML = `
-                <div class="function-game">
-                    <h3>Build JavaScript functions!</h3>
-                    <p>This creative game is coming soon! For now, enjoy our other JavaScript games.</p>
-                </div>
-            `;
-        }
-
-        // Initialize when page loads
-        document.addEventListener('DOMContentLoaded', initializeGame);
-    </script>
-</body>
-</html> 
+    <script src="script.js"></script>
+  </body>
+</html>

@@ -443,517 +443,213 @@ function openChallenge(challengeNumber) {
     // Day 3 Challenges (CSS Basics)
     const challengesDay3 = {
         9: {
-            title: "CSS Introduction",
+            title: 'Challenge 1: CSS Introduction',
             requirements: [
-                { id: 'css', text: 'Use CSS styling (inline, internal, or external)' },
-                { id: 'color', text: 'Apply colors to text or background' },
-                { id: 'font', text: 'Change font size or font family' },
-                { id: 'basic', text: 'Create a basic styled page' }
+                { id: 'css', text: 'Add CSS styling to HTML elements', completed: false },
+                { id: 'color', text: 'Apply at least one color property', completed: false },
+                { id: 'font', text: 'Modify font properties', completed: false },
+                { id: 'basic', text: 'Use basic CSS syntax', completed: false }
             ],
             content: `
                 <div class="space-y-6">
                     <div class="bg-primary/10 border border-primary/20 rounded-2xl p-6">
-                        <h3 class="text-xl font-bold text-primary mb-4">🎯 Challenge: CSS Introduction</h3>
-                        <p class="text-gray-300 mb-4">Create a simple HTML page and style it with CSS to make it look attractive.</p>
-                        
-                        <div class="bg-dark-light/50 rounded-xl p-4 mb-4">
-                            <h4 class="text-primary font-semibold mb-3">📋 Requirements:</h4>
-                            <ul id="requirements-list-9" class="space-y-2 text-gray-300">
-                                <li data-requirement="css"><span class="text-gray-400">⭕</span> Use CSS styling (inline, internal, or external)</li>
-                                <li data-requirement="color"><span class="text-gray-400">⭕</span> Apply colors to text or background</li>
-                                <li data-requirement="font"><span class="text-gray-400">⭕</span> Change font size or font family</li>
-                                <li data-requirement="basic"><span class="text-gray-400">⭕</span> Create a basic styled page</li>
+                        <h3 class="text-xl font-bold text-white mb-4">📝 Task</h3>
+                        <p class="text-gray-300 mb-4">Learn the basics of CSS and understand how it works with HTML.</p>
+                        <div class="bg-dark-light rounded-xl p-4">
+                            <h4 class="text-primary font-semibold mb-2">Requirements:</h4>
+                            <ul id="requirements-list-9" class="text-gray-300 space-y-2 text-sm">
+                                <!-- Requirements will be populated here -->
                             </ul>
                         </div>
                     </div>
-                    
-                    <div class="bg-dark-light/50 rounded-2xl p-6 border border-primary/20">
-                        <h4 class="text-primary font-semibold mb-3">💡 Tips:</h4>
-                        <ul class="text-gray-300 space-y-2 text-sm">
-                            <li>• Use <code class="bg-black px-2 py-1 rounded text-green-400">style="color: blue;"</code> for inline CSS</li>
-                            <li>• Use <code class="bg-black px-2 py-1 rounded text-green-400">&lt;style&gt;</code> tags for internal CSS</li>
-                            <li>• Use <code class="bg-black px-2 py-1 rounded text-green-400">&lt;link&gt;</code> for external CSS</li>
-                            <li>• Try different colors like red, blue, green, purple</li>
-                            <li>• Experiment with font sizes like 16px, 24px, 32px</li>
-                        </ul>
-                    </div>
-                    
-                    <div class="bg-black rounded-xl p-4">
-                        <h4 class="text-primary font-semibold mb-3">📝 Starter Code:</h4>
-                        <div class="flex justify-between items-center mb-3">
-                            <span class="text-white font-medium">HTML with CSS</span>
-                            <button class="bg-primary text-white px-4 py-2 rounded-lg hover:bg-accent transition-colors duration-200" onclick="resetChallenge(9)">
+
+                    <div class="bg-dark-light/50 rounded-2xl border border-primary/20 p-6">
+                        <h3 class="text-xl font-bold text-white mb-4">💻 Code Editor</h3>
+                        <div id="monaco-editor-challenge-9" class="w-full h-64 bg-black rounded-xl border border-primary/20"></div>
+                        <div class="flex space-x-4 mt-4">
+                            <button class="bg-gradient-to-r from-primary to-accent text-white px-6 py-2 rounded-xl font-semibold hover:shadow-lg hover:shadow-primary/25 transition-all duration-300" onclick="runChallenge(9)">
+                                <i class="fas fa-play mr-2"></i>Run Code
+                            </button>
+                            <button class="bg-gray-600 text-white px-6 py-2 rounded-xl font-semibold hover:bg-gray-700 transition-all duration-300" onclick="resetChallenge(9)">
                                 <i class="fas fa-undo mr-2"></i>Reset
                             </button>
                         </div>
-                        <div id="editor-9" class="h-64"></div>
                     </div>
-                    
-                    <div class="bg-dark-light/50 rounded-2xl p-6 border border-primary/20">
-                        <h4 class="text-primary font-semibold mb-3">🎨 Example Result:</h4>
-                        <div class="bg-white rounded-xl p-6 text-gray-800">
-                            <h1 style="color: #01d29b; font-size: 32px; font-family: Arial, sans-serif;">Welcome to My Website</h1>
-                            <p style="color: #333; font-size: 18px; background-color: #f0f0f0; padding: 15px; border-radius: 8px;">This is a styled paragraph with custom colors and fonts!</p>
+
+                    <div class="bg-primary/10 border border-primary/20 rounded-2xl p-6">
+                        <h3 class="text-xl font-bold text-white mb-4">🎯 Expected Output</h3>
+                        <div class="bg-white rounded-xl p-4">
+                            <h1 style="color: blue; font-size: 24px;">Hello World</h1>
+                            <p style="color: red; font-family: Arial;">This is styled text</p>
+                        </div>
+                    </div>
+
+                    <div id="output-window-9" class="bg-dark-light/50 rounded-2xl border border-primary/20 p-6 hidden">
+                        <h3 class="text-xl font-bold text-white mb-4">📱 Live Output</h3>
+                        <div id="output-content-9" class="bg-white rounded-xl p-4 min-h-32">
+                            <!-- Output will be displayed here -->
                         </div>
                     </div>
                 </div>
             `
         },
         10: {
-            title: "CSS Methods",
+            title: 'Challenge 2: CSS Methods',
             requirements: [
-                { id: 'inline', text: 'Use inline CSS with style attribute' },
-                { id: 'internal', text: 'Use internal CSS with style tags' },
-                { id: 'external', text: 'Use external CSS with link tag' },
-                { id: 'methods', text: 'Combine at least two CSS methods' }
+                { id: 'inline', text: 'Use inline CSS with style attribute', completed: false },
+                { id: 'internal', text: 'Add internal CSS with style tag', completed: false },
+                { id: 'external', text: 'Link to external CSS file', completed: false },
+                { id: 'methods', text: 'Demonstrate all three CSS methods', completed: false }
             ],
             content: `
                 <div class="space-y-6">
                     <div class="bg-primary/10 border border-primary/20 rounded-2xl p-6">
-                        <h3 class="text-xl font-bold text-primary mb-4">🎯 Challenge: CSS Methods</h3>
-                        <p class="text-gray-300 mb-4">Practice all three methods of applying CSS: inline, internal, and external.</p>
-                        
-                        <div class="bg-dark-light/50 rounded-xl p-4 mb-4">
-                            <h4 class="text-primary font-semibold mb-3">📋 Requirements:</h4>
-                            <ul id="requirements-list-10" class="space-y-2 text-gray-300">
-                                <li data-requirement="inline"><span class="text-gray-400">⭕</span> Use inline CSS with style attribute</li>
-                                <li data-requirement="internal"><span class="text-gray-400">⭕</span> Use internal CSS with style tags</li>
-                                <li data-requirement="external"><span class="text-gray-400">⭕</span> Use external CSS with link tag</li>
-                                <li data-requirement="methods"><span class="text-gray-400">⭕</span> Combine at least two CSS methods</li>
+                        <h3 class="text-xl font-bold text-white mb-4">📝 Task</h3>
+                        <p class="text-gray-300 mb-4">Practice inline, internal, and external CSS methods.</p>
+                        <div class="bg-dark-light rounded-xl p-4">
+                            <h4 class="text-primary font-semibold mb-2">Requirements:</h4>
+                            <ul id="requirements-list-10" class="text-gray-300 space-y-2 text-sm">
+                                <!-- Requirements will be populated here -->
                             </ul>
                         </div>
                     </div>
-                    
-                    <div class="bg-dark-light/50 rounded-2xl p-6 border border-primary/20">
-                        <h4 class="text-primary font-semibold mb-3">🔄 Flex Direction Values:</h4>
-                        <ul class="text-gray-300 space-y-2 text-sm">
-                            <li>• <code class="bg-black px-2 py-1 rounded text-green-400">flex-direction: row</code> - Items flow left to right</li>
-                            <li>• <code class="bg-black px-2 py-1 rounded text-green-400">flex-direction: column</code> - Items flow top to bottom</li>
-                            <li>• <code class="bg-black px-2 py-1 rounded text-green-400">flex-direction: row-reverse</code> - Items flow right to left</li>
-                            <li>• <code class="bg-black px-2 py-1 rounded text-green-400">flex-direction: column-reverse</code> - Items flow bottom to top</li>
-                        </ul>
-                    </div>
-                    
-                    <div class="bg-black rounded-xl p-4">
-                        <h4 class="text-primary font-semibold mb-3">📝 Starter Code:</h4>
-                        <div class="flex justify-between items-center mb-3">
-                            <span class="text-white font-medium">HTML with Multiple CSS Methods</span>
-                            <button class="bg-primary text-white px-4 py-2 rounded-lg hover:bg-accent transition-colors duration-200" onclick="resetChallenge(10)">
+
+                    <div class="bg-dark-light/50 rounded-2xl border border-primary/20 p-6">
+                        <h3 class="text-xl font-bold text-white mb-4">💻 Code Editor</h3>
+                        <div id="monaco-editor-challenge-10" class="w-full h-64 bg-black rounded-xl border border-primary/20"></div>
+                        <div class="flex space-x-4 mt-4">
+                            <button class="bg-gradient-to-r from-primary to-accent text-white px-6 py-2 rounded-xl font-semibold hover:shadow-lg hover:shadow-primary/25 transition-all duration-300" onclick="runChallenge(10)">
+                                <i class="fas fa-play mr-2"></i>Run Code
+                            </button>
+                            <button class="bg-gray-600 text-white px-6 py-2 rounded-xl font-semibold hover:bg-gray-700 transition-all duration-300" onclick="resetChallenge(10)">
                                 <i class="fas fa-undo mr-2"></i>Reset
                             </button>
                         </div>
-                        <div id="editor-10" class="h-64"></div>
                     </div>
-                    
-                    <div class="bg-dark-light/50 rounded-2xl p-6 border border-primary/20">
-                        <h4 class="text-primary font-semibold mb-3">🎨 Example Layouts:</h4>
-                        <div class="space-y-4">
-                            <div class="bg-white rounded-xl p-4 text-gray-800">
-                                <h5 class="font-semibold mb-2">Row Layout:</h5>
-                                <div style="display: flex; flex-direction: row; gap: 15px; background-color: #f0f0f0; padding: 15px; border-radius: 6px;">
-                                    <div style="background-color: #01d29b; color: white; padding: 10px; border-radius: 4px;">1</div>
-                                    <div style="background-color: #00b894; color: white; padding: 10px; border-radius: 4px;">2</div>
-                                    <div style="background-color: #01d29b; color: white; padding: 10px; border-radius: 4px;">3</div>
-                                </div>
-                            </div>
-                            <div class="bg-white rounded-xl p-4 text-gray-800">
-                                <h5 class="font-semibold mb-2">Column Layout:</h5>
-                                <div style="display: flex; flex-direction: column; gap: 10px; background-color: #f0f0f0; padding: 15px; border-radius: 6px;">
-                                    <div style="background-color: #01d29b; color: white; padding: 10px; border-radius: 4px;">1</div>
-                                    <div style="background-color: #00b894; color: white; padding: 10px; border-radius: 4px;">2</div>
-                                    <div style="background-color: #01d29b; color: white; padding: 10px; border-radius: 4px;">3</div>
-                                </div>
-                            </div>
+
+                    <div class="bg-primary/10 border border-primary/20 rounded-2xl p-6">
+                        <h3 class="text-xl font-bold text-white mb-4">🎯 Expected Output</h3>
+                        <div class="bg-white rounded-xl p-4">
+                            <h1 style="color: blue;">Inline Styled Heading</h1>
+                            <p class="internal-style">Internal CSS Styled Text</p>
+                            <div class="external-style">External CSS Styled Div</div>
+                        </div>
+                    </div>
+
+                    <div id="output-window-10" class="bg-dark-light/50 rounded-2xl border border-primary/20 p-6 hidden">
+                        <h3 class="text-xl font-bold text-white mb-4">📱 Live Output</h3>
+                        <div id="output-content-10" class="bg-white rounded-xl p-4 min-h-32">
+                            <!-- Output will be displayed here -->
                         </div>
                     </div>
                 </div>
             `
         },
         11: {
-            title: "Selectors & Properties",
+            title: 'Challenge 3: Selectors & Properties',
             requirements: [
-                { id: 'tag', text: 'Use tag selectors (h1, p, div)' },
-                { id: 'class', text: 'Use class selectors with dot notation' },
-                { id: 'id', text: 'Use ID selectors with hash notation' },
-                { id: 'properties', text: 'Apply at least 2 CSS properties' }
+                { id: 'tag', text: 'Use tag selectors (e.g., p, h1)', completed: false },
+                { id: 'class', text: 'Apply class selectors', completed: false },
+                { id: 'id', text: 'Use ID selectors', completed: false },
+                { id: 'properties', text: 'Apply multiple CSS properties', completed: false }
             ],
             content: `
                 <div class="space-y-6">
                     <div class="bg-primary/10 border border-primary/20 rounded-2xl p-6">
-                        <h3 class="text-xl font-bold text-primary mb-4">🎯 Challenge: Selectors & Properties</h3>
-                        <p class="text-gray-300 mb-4">Master CSS selectors and apply various properties to style your elements.</p>
-                        
-                        <div class="bg-dark-light/50 rounded-xl p-4 mb-4">
-                            <h4 class="text-primary font-semibold mb-3">📋 Requirements:</h4>
-                            <ul id="requirements-list-11" class="space-y-2 text-gray-300">
-                                <li data-requirement="tag"><span class="text-gray-400">⭕</span> Use tag selectors (h1, p, div)</li>
-                                <li data-requirement="class"><span class="text-gray-400">⭕</span> Use class selectors with dot notation</li>
-                                <li data-requirement="id"><span class="text-gray-400">⭕</span> Use ID selectors with hash notation</li>
-                                <li data-requirement="properties"><span class="text-gray-400">⭕</span> Apply at least 2 CSS properties</li>
+                        <h3 class="text-xl font-bold text-white mb-4">📝 Task</h3>
+                        <p class="text-gray-300 mb-4">Master CSS selectors, properties, and values.</p>
+                        <div class="bg-dark-light rounded-xl p-4">
+                            <h4 class="text-primary font-semibold mb-2">Requirements:</h4>
+                            <ul id="requirements-list-11" class="text-gray-300 space-y-2 text-sm">
+                                <!-- Requirements will be populated here -->
                             </ul>
                         </div>
                     </div>
-                    
-                    <div class="bg-dark-light/50 rounded-2xl p-6 border border-primary/20">
-                        <h4 class="text-primary font-semibold mb-3">🎯 Selector Types:</h4>
-                        <ul class="text-gray-300 space-y-2 text-sm">
-                            <li>• <strong>Tag:</strong> <code class="bg-black px-2 py-1 rounded text-green-400">h1 { color: red; }</code></li>
-                            <li>• <strong>Class:</strong> <code class="bg-black px-2 py-1 rounded text-green-400">.highlight { background: yellow; }</code></li>
-                            <li>• <strong>ID:</strong> <code class="bg-black px-2 py-1 rounded text-green-400">#unique { border: 2px solid blue; }</code></li>
-                            <li>• <strong>Properties:</strong> color, background-color, font-size, margin, padding, border</li>
-                        </ul>
-                    </div>
-                    
-                    <div class="bg-black rounded-xl p-4">
-                        <h4 class="text-primary font-semibold mb-3">📝 Starter Code:</h4>
-                        <div class="flex justify-between items-center mb-3">
-                            <span class="text-white font-medium">HTML with CSS Selectors</span>
-                            <button class="bg-primary text-white px-4 py-2 rounded-lg hover:bg-accent transition-colors duration-200" onclick="resetChallenge(11)">
+
+                    <div class="bg-dark-light/50 rounded-2xl border border-primary/20 p-6">
+                        <h3 class="text-xl font-bold text-white mb-4">💻 Code Editor</h3>
+                        <div id="monaco-editor-challenge-11" class="w-full h-64 bg-black rounded-xl border border-primary/20"></div>
+                        <div class="flex space-x-4 mt-4">
+                            <button class="bg-gradient-to-r from-primary to-accent text-white px-6 py-2 rounded-xl font-semibold hover:shadow-lg hover:shadow-primary/25 transition-all duration-300" onclick="runChallenge(11)">
+                                <i class="fas fa-play mr-2"></i>Run Code
+                            </button>
+                            <button class="bg-gray-600 text-white px-6 py-2 rounded-xl font-semibold hover:bg-gray-700 transition-all duration-300" onclick="resetChallenge(11)">
                                 <i class="fas fa-undo mr-2"></i>Reset
                             </button>
                         </div>
-                        <div id="editor-11" class="h-64"></div>
                     </div>
-                    
-                    <div class="bg-dark-light/50 rounded-2xl p-6 border border-primary/20">
-                        <h4 class="text-primary font-semibold mb-3">💡 Example Structure:</h4>
-                        <div class="bg-black rounded-xl p-4">
-                            <code class="text-green-400 text-sm">
-&lt;h1&gt;Tag Selector Styled&lt;/h1&gt;<br>
-&lt;p class="highlight"&gt;Class Selector Styled&lt;/p&gt;<br>
-&lt;div id="unique"&gt;ID Selector Styled&lt;/div&gt;<br>
-<br>
-&lt;style&gt;<br>
-h1 { color: red; }<br>
-.highlight { background: yellow; }<br>
-#unique { border: 2px solid blue; }<br>
-&lt;/style&gt;
-                            </code>
+
+                    <div class="bg-primary/10 border border-primary/20 rounded-2xl p-6">
+                        <h3 class="text-xl font-bold text-white mb-4">🎯 Expected Output</h3>
+                        <div class="bg-white rounded-xl p-4">
+                            <h1>Tag Selector Styled</h1>
+                            <p class="highlight">Class Selector Styled</p>
+                            <div id="unique">ID Selector Styled</div>
+                        </div>
+                    </div>
+
+                    <div id="output-window-11" class="bg-dark-light/50 rounded-2xl border border-primary/20 p-6 hidden">
+                        <h3 class="text-xl font-bold text-white mb-4">📱 Live Output</h3>
+                        <div id="output-content-11" class="bg-white rounded-xl p-4 min-h-32">
+                            <!-- Output will be displayed here -->
                         </div>
                     </div>
                 </div>
             `
         },
         12: {
-            title: "Styling Essentials",
+            title: 'Challenge 4: Styling Essentials',
             requirements: [
-                { id: 'colors', text: 'Apply colors to text or background' },
-                { id: 'fonts', text: 'Change font properties' },
-                { id: 'borders', text: 'Add borders or border-radius' },
-                { id: 'spacing', text: 'Use margin or padding for spacing' }
+                { id: 'colors', text: 'Apply color and background-color', completed: false },
+                { id: 'fonts', text: 'Use font-family and font-size', completed: false },
+                { id: 'borders', text: 'Add border and border-radius', completed: false },
+                { id: 'spacing', text: 'Apply margin and padding', completed: false }
             ],
             content: `
                 <div class="space-y-6">
                     <div class="bg-primary/10 border border-primary/20 rounded-2xl p-6">
-                        <h3 class="text-xl font-bold text-primary mb-4">🎯 Challenge: Styling Essentials</h3>
-                        <p class="text-gray-300 mb-4">Apply fundamental CSS properties to create a beautifully styled page.</p>
-                        
-                        <div class="bg-dark-light/50 rounded-xl p-4 mb-4">
-                            <h4 class="text-primary font-semibold mb-3">📋 Requirements:</h4>
-                            <ul id="requirements-list-12" class="space-y-2 text-gray-300">
-                                <li data-requirement="colors"><span class="text-gray-400">⭕</span> Apply colors to text or background</li>
-                                <li data-requirement="fonts"><span class="text-gray-400">⭕</span> Change font properties</li>
-                                <li data-requirement="borders"><span class="text-gray-400">⭕</span> Add borders or border-radius</li>
-                                <li data-requirement="spacing"><span class="text-gray-400">⭕</span> Use margin or padding for spacing</li>
+                        <h3 class="text-xl font-bold text-white mb-4">📝 Task</h3>
+                        <p class="text-gray-300 mb-4">Apply colors, fonts, borders, and spacing to create beautiful designs.</p>
+                        <div class="bg-dark-light rounded-xl p-4">
+                            <h4 class="text-primary font-semibold mb-2">Requirements:</h4>
+                            <ul id="requirements-list-12" class="text-gray-300 space-y-2 text-sm">
+                                <!-- Requirements will be populated here -->
                             </ul>
                         </div>
                     </div>
-                    
-                    <div class="bg-dark-light/50 rounded-2xl p-6 border border-primary/20">
-                        <h4 class="text-primary font-semibold mb-3">🎨 Essential Properties:</h4>
-                        <ul class="text-gray-300 space-y-2 text-sm">
-                            <li>• <strong>Colors:</strong> <code class="bg-black px-2 py-1 rounded text-green-400">color: #333;</code>, <code class="bg-black px-2 py-1 rounded text-green-400">background-color: #f0f0f0;</code></li>
-                            <li>• <strong>Fonts:</strong> <code class="bg-black px-2 py-1 rounded text-green-400">font-family: Arial;</code>, <code class="bg-black px-2 py-1 rounded text-green-400">font-size: 18px;</code></li>
-                            <li>• <strong>Borders:</strong> <code class="bg-black px-2 py-1 rounded text-green-400">border: 2px solid blue;</code>, <code class="bg-black px-2 py-1 rounded text-green-400">border-radius: 8px;</code></li>
-                            <li>• <strong>Spacing:</strong> <code class="bg-black px-2 py-1 rounded text-green-400">margin: 20px;</code>, <code class="bg-black px-2 py-1 rounded text-green-400">padding: 15px;</code></li>
-                        </ul>
-                    </div>
-                    
-                    <div class="bg-black rounded-xl p-4">
-                        <h4 class="text-primary font-semibold mb-3">📝 Starter Code:</h4>
-                        <div class="flex justify-between items-center mb-3">
-                            <span class="text-white font-medium">HTML with CSS Styling</span>
-                            <button class="bg-primary text-white px-4 py-2 rounded-lg hover:bg-accent transition-colors duration-200" onclick="resetChallenge(12)">
+
+                    <div class="bg-dark-light/50 rounded-2xl border border-primary/20 p-6">
+                        <h3 class="text-xl font-bold text-white mb-4">💻 Code Editor</h3>
+                        <div id="monaco-editor-challenge-12" class="w-full h-64 bg-black rounded-xl border border-primary/20"></div>
+                        <div class="flex space-x-4 mt-4">
+                            <button class="bg-gradient-to-r from-primary to-accent text-white px-6 py-2 rounded-xl font-semibold hover:shadow-lg hover:shadow-primary/25 transition-all duration-300" onclick="runChallenge(12)">
+                                <i class="fas fa-play mr-2"></i>Run Code
+                            </button>
+                            <button class="bg-gray-600 text-white px-6 py-2 rounded-xl font-semibold hover:bg-gray-700 transition-all duration-300" onclick="resetChallenge(12)">
                                 <i class="fas fa-undo mr-2"></i>Reset
                             </button>
                         </div>
-                        <div id="editor-12" class="h-64"></div>
                     </div>
-                    
-                    <div class="bg-dark-light/50 rounded-2xl p-6 border border-primary/20">
-                        <h4 class="text-primary font-semibold mb-3">🎨 Example Result:</h4>
-                        <div class="bg-white rounded-xl p-6 text-gray-800">
-                            <h1 style="color: #01d29b; font-family: 'Arial', sans-serif; font-size: 28px; margin-bottom: 20px;">Beautiful Heading</h1>
-                            <div style="background-color: #f8f9fa; border: 2px solid #01d29b; border-radius: 12px; padding: 20px; margin: 15px 0;">
-                                <p style="color: #333; font-size: 16px; line-height: 1.6;">This is a styled box with borders, background, and proper spacing!</p>
-                            </div>
+
+                    <div class="bg-primary/10 border border-primary/20 rounded-2xl p-6">
+                        <h3 class="text-xl font-bold text-white mb-4">🎯 Expected Output</h3>
+                        <div class="bg-white rounded-xl p-4">
+                            <div class="styled-box">Beautiful Styled Box</div>
+                        </div>
+                    </div>
+
+                    <div id="output-window-12" class="bg-dark-light/50 rounded-2xl border border-primary/20 p-6 hidden">
+                        <h3 class="text-xl font-bold text-white mb-4">📱 Live Output</h3>
+                        <div id="output-content-12" class="bg-white rounded-xl p-4 min-h-32">
+                            <!-- Output will be displayed here -->
                         </div>
                     </div>
                 </div>
             `
         }
     };
-
-    // Day 4 Challenges (CSS Layout & Flexbox)
-    const challengesDay4 = {
-        13: {
-            title: "Basic Flexbox",
-            requirements: [
-                { id: 'display', text: 'Use display: flex on container' },
-                { id: 'justify', text: 'Use justify-content property' },
-                { id: 'align', text: 'Use align-items property' },
-                { id: 'items', text: 'Have at least 3 flex items' }
-            ],
-            content: `
-                <div class="space-y-6">
-                    <div class="bg-primary/10 border border-primary/20 rounded-2xl p-6">
-                        <h3 class="text-xl font-bold text-primary mb-4">🎯 Challenge: Basic Flexbox</h3>
-                        <p class="text-gray-300 mb-4">Create a simple flexbox layout with basic alignment properties.</p>
-                        
-                        <div class="bg-dark-light/50 rounded-xl p-4 mb-4">
-                            <h4 class="text-primary font-semibold mb-3">📋 Requirements:</h4>
-                            <ul id="requirements-list-13" class="space-y-2 text-gray-300">
-                                <li data-requirement="display"><span class="text-gray-400">⭕</span> Use display: flex on container</li>
-                                <li data-requirement="justify"><span class="text-gray-400">⭕</span> Use justify-content property</li>
-                                <li data-requirement="align"><span class="text-gray-400">⭕</span> Use align-items property</li>
-                                <li data-requirement="items"><span class="text-gray-400">⭕</span> Have at least 3 flex items</li>
-                            </ul>
-                        </div>
-                    </div>
-                    
-                    <div class="bg-dark-light/50 rounded-2xl p-6 border border-primary/20">
-                        <h4 class="text-primary font-semibold mb-3">💡 Flexbox Basics:</h4>
-                        <ul class="text-gray-300 space-y-2 text-sm">
-                            <li>• <code class="bg-black px-2 py-1 rounded text-green-400">display: flex</code> - Creates flex container</li>
-                            <li>• <code class="bg-black px-2 py-1 rounded text-green-400">justify-content: center</code> - Centers items horizontally</li>
-                            <li>• <code class="bg-black px-2 py-1 rounded text-green-400">align-items: center</code> - Centers items vertically</li>
-                            <li>• <code class="bg-black px-2 py-1 rounded text-green-400">gap: 20px</code> - Adds space between items</li>
-                        </ul>
-                    </div>
-                    
-                    <div class="bg-black rounded-xl p-4">
-                        <h4 class="text-primary font-semibold mb-3">📝 Starter Code:</h4>
-                        <div class="flex justify-between items-center mb-3">
-                            <span class="text-white font-medium">HTML with Flexbox</span>
-                            <button class="bg-primary text-white px-4 py-2 rounded-lg hover:bg-accent transition-colors duration-200" onclick="resetChallenge(13)">
-                                <i class="fas fa-undo mr-2"></i>Reset
-                            </button>
-                        </div>
-                        <div id="editor-13" class="h-64"></div>
-                    </div>
-                    
-                    <div class="bg-dark-light/50 rounded-2xl p-6 border border-primary/20">
-                        <h4 class="text-primary font-semibold mb-3">🎨 Example Result:</h4>
-                        <div class="bg-white rounded-xl p-6 text-gray-800">
-                            <div style="display: flex; justify-content: center; align-items: center; gap: 20px; background-color: #f0f0f0; padding: 20px; border-radius: 8px;">
-                                <div style="background-color: #01d29b; color: white; padding: 15px; border-radius: 6px;">Item 1</div>
-                                <div style="background-color: #00b894; color: white; padding: 15px; border-radius: 6px;">Item 2</div>
-                                <div style="background-color: #01d29b; color: white; padding: 15px; border-radius: 6px;">Item 3</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            `
-        },
-        14: {
-            title: "Flex Direction",
-            requirements: [
-                { id: 'row', text: 'Create a row layout (horizontal)' },
-                { id: 'column', text: 'Create a column layout (vertical)' },
-                { id: 'direction', text: 'Use flex-direction property' },
-                { id: 'responsive', text: 'Make layout responsive' }
-            ],
-            content: `
-                <div class="space-y-6">
-                    <div class="bg-primary/10 border border-primary/20 rounded-2xl p-6">
-                        <h3 class="text-xl font-bold text-primary mb-4">🎯 Challenge: Flex Direction</h3>
-                        <p class="text-gray-300 mb-4">Master flex-direction and create both row and column layouts.</p>
-                        
-                        <div class="bg-dark-light/50 rounded-xl p-4 mb-4">
-                            <h4 class="text-primary font-semibold mb-3">📋 Requirements:</h4>
-                            <ul id="requirements-list-14" class="space-y-2 text-gray-300">
-                                <li data-requirement="row"><span class="text-gray-400">⭕</span> Create a row layout (horizontal)</li>
-                                <li data-requirement="column"><span class="text-gray-400">⭕</span> Create a column layout (vertical)</li>
-                                <li data-requirement="direction"><span class="text-gray-400">⭕</span> Use flex-direction property</li>
-                                <li data-requirement="responsive"><span class="text-gray-400">⭕</span> Make layout responsive</li>
-                            </ul>
-                        </div>
-                    </div>
-                    
-                    <div class="bg-dark-light/50 rounded-2xl p-6 border border-primary/20">
-                        <h4 class="text-primary font-semibold mb-3">🔄 Flex Direction Values:</h4>
-                        <ul class="text-gray-300 space-y-2 text-sm">
-                            <li>• <code class="bg-black px-2 py-1 rounded text-green-400">flex-direction: row</code> - Items flow left to right</li>
-                            <li>• <code class="bg-black px-2 py-1 rounded text-green-400">flex-direction: column</code> - Items flow top to bottom</li>
-                            <li>• <code class="bg-black px-2 py-1 rounded text-green-400">flex-direction: row-reverse</code> - Items flow right to left</li>
-                            <li>• <code class="bg-black px-2 py-1 rounded text-green-400">flex-direction: column-reverse</code> - Items flow bottom to top</li>
-                        </ul>
-                    </div>
-                    
-                    <div class="bg-black rounded-xl p-4">
-                        <h4 class="text-primary font-semibold mb-3">📝 Starter Code:</h4>
-                        <div class="flex justify-between items-center mb-3">
-                            <span class="text-white font-medium">HTML with Flex Direction</span>
-                            <button class="bg-primary text-white px-4 py-2 rounded-lg hover:bg-accent transition-colors duration-200" onclick="resetChallenge(14)">
-                                <i class="fas fa-undo mr-2"></i>Reset
-                            </button>
-                        </div>
-                        <div id="editor-14" class="h-64"></div>
-                    </div>
-                    
-                    <div class="bg-dark-light/50 rounded-2xl p-6 border border-primary/20">
-                        <h4 class="text-primary font-semibold mb-3">🎨 Example Layouts:</h4>
-                        <div class="space-y-4">
-                            <div class="bg-white rounded-xl p-4 text-gray-800">
-                                <h5 class="font-semibold mb-2">Row Layout:</h5>
-                                <div style="display: flex; flex-direction: row; gap: 15px; background-color: #f0f0f0; padding: 15px; border-radius: 6px;">
-                                    <div style="background-color: #01d29b; color: white; padding: 10px; border-radius: 4px;">1</div>
-                                    <div style="background-color: #00b894; color: white; padding: 10px; border-radius: 4px;">2</div>
-                                    <div style="background-color: #01d29b; color: white; padding: 10px; border-radius: 4px;">3</div>
-                                </div>
-                            </div>
-                            <div class="bg-white rounded-xl p-4 text-gray-800">
-                                <h5 class="font-semibold mb-2">Column Layout:</h5>
-                                <div style="display: flex; flex-direction: column; gap: 10px; background-color: #f0f0f0; padding: 15px; border-radius: 6px;">
-                                    <div style="background-color: #01d29b; color: white; padding: 10px; border-radius: 4px;">1</div>
-                                    <div style="background-color: #00b894; color: white; padding: 10px; border-radius: 4px;">2</div>
-                                    <div style="background-color: #01d29b; color: white; padding: 10px; border-radius: 4px;">3</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            `
-        },
-        15: {
-            title: "Flex Properties",
-            requirements: [
-                { id: 'grow', text: 'Use flex-grow property' },
-                { id: 'shrink', text: 'Use flex-shrink property' },
-                { id: 'basis', text: 'Use flex-basis property' },
-                { id: 'shorthand', text: 'Use flex shorthand property' }
-            ],
-            content: `
-                <div class="space-y-6">
-                    <div class="bg-primary/10 border border-primary/20 rounded-2xl p-6">
-                        <h3 class="text-xl font-bold text-primary mb-4">🎯 Challenge: Flex Properties</h3>
-                        <p class="text-gray-300 mb-4">Use flex-grow, flex-shrink, and flex-basis for dynamic sizing.</p>
-                        
-                        <div class="bg-dark-light/50 rounded-xl p-4 mb-4">
-                            <h4 class="text-primary font-semibold mb-3">📋 Requirements:</h4>
-                            <ul id="requirements-list-15" class="space-y-2 text-gray-300">
-                                <li data-requirement="grow"><span class="text-gray-400">⭕</span> Use flex-grow property</li>
-                                <li data-requirement="shrink"><span class="text-gray-400">⭕</span> Use flex-shrink property</li>
-                                <li data-requirement="basis"><span class="text-gray-400">⭕</span> Use flex-basis property</li>
-                                <li data-requirement="shorthand"><span class="text-gray-400">⭕</span> Use flex shorthand property</li>
-                            </ul>
-                        </div>
-                    </div>
-                    
-                    <div class="bg-dark-light/50 rounded-2xl p-6 border border-primary/20">
-                        <h4 class="text-primary font-semibold mb-3">🔧 Flex Properties:</h4>
-                        <ul class="text-gray-300 space-y-2 text-sm">
-                            <li>• <code class="bg-black px-2 py-1 rounded text-green-400">flex-grow: 1</code> - Item grows to fill space</li>
-                            <li>• <code class="bg-black px-2 py-1 rounded text-green-400">flex-shrink: 0</code> - Item doesn't shrink</li>
-                            <li>• <code class="bg-black px-2 py-1 rounded text-green-400">flex-basis: 200px</code> - Initial size of item</li>
-                            <li>• <code class="bg-black px-2 py-1 rounded text-green-400">flex: 1 0 auto</code> - Shorthand for grow:1, shrink:0, basis:auto</li>
-                        </ul>
-                    </div>
-                    
-                    <div class="bg-black rounded-xl p-4">
-                        <h4 class="text-primary font-semibold mb-3">📝 Starter Code:</h4>
-                        <div class="flex justify-between items-center mb-3">
-                            <span class="text-white font-medium">HTML with Flex Properties</span>
-                            <button class="bg-primary text-white px-4 py-2 rounded-lg hover:bg-accent transition-colors duration-200" onclick="resetChallenge(15)">
-                                <i class="fas fa-undo mr-2"></i>Reset
-                            </button>
-                        </div>
-                        <div id="editor-15" class="h-64"></div>
-                    </div>
-                    
-                    <div class="bg-dark-light/50 rounded-2xl p-6 border border-primary/20">
-                        <h4 class="text-primary font-semibold mb-3">🎨 Example with Flex Properties:</h4>
-                        <div class="bg-white rounded-xl p-4 text-gray-800">
-                            <div style="display: flex; gap: 10px; background-color: #f0f0f0; padding: 15px; border-radius: 6px;">
-                                <div style="flex: 1; background-color: #01d29b; color: white; padding: 15px; border-radius: 4px; text-align: center;">Flex: 1 (Grows)</div>
-                                <div style="flex: 2; background-color: #00b894; color: white; padding: 15px; border-radius: 4px; text-align: center;">Flex: 2 (Grows 2x)</div>
-                                <div style="flex: 0 0 100px; background-color: #01d29b; color: white; padding: 15px; border-radius: 4px; text-align: center;">Fixed: 100px</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            `
-        },
-        16: {
-            title: "Complex Layouts",
-            requirements: [
-                { id: 'navigation', text: 'Create a navigation bar' },
-                { id: 'grid', text: 'Create a card grid layout' },
-                { id: 'responsive', text: 'Make layout responsive' },
-                { id: 'advanced', text: 'Use advanced flexbox properties' }
-            ],
-            content: `
-                <div class="space-y-6">
-                    <div class="bg-primary/10 border border-primary/20 rounded-2xl p-6">
-                        <h3 class="text-xl font-bold text-primary mb-4">🎯 Challenge: Complex Layouts</h3>
-                        <p class="text-gray-300 mb-4">Build a responsive navigation and card grid using flexbox.</p>
-                        
-                        <div class="bg-dark-light/50 rounded-xl p-4 mb-4">
-                            <h4 class="text-primary font-semibold mb-3">📋 Requirements:</h4>
-                            <ul id="requirements-list-16" class="space-y-2 text-gray-300">
-                                <li data-requirement="navigation"><span class="text-gray-400">⭕</span> Create a navigation bar</li>
-                                <li data-requirement="grid"><span class="text-gray-400">⭕</span> Create a card grid layout</li>
-                                <li data-requirement="responsive"><span class="text-gray-400">⭕</span> Make layout responsive</li>
-                                <li data-requirement="advanced"><span class="text-gray-400">⭕</span> Use advanced flexbox properties</li>
-                            </ul>
-                        </div>
-                    </div>
-                    
-                    <div class="bg-dark-light/50 rounded-2xl p-6 border border-primary/20">
-                        <h4 class="text-primary font-semibold mb-3">🏗️ Layout Components:</h4>
-                        <ul class="text-gray-300 space-y-2 text-sm">
-                            <li>• <strong>Navigation:</strong> Use <code class="bg-black px-2 py-1 rounded text-green-400">justify-content: space-between</code></li>
-                            <li>• <strong>Card Grid:</strong> Use <code class="bg-black px-2 py-1 rounded text-green-400">flex-wrap: wrap</code> and <code class="bg-black px-2 py-1 rounded text-green-400">gap</code></li>
-                            <li>• <strong>Responsive:</strong> Use <code class="bg-black px-2 py-1 rounded text-green-400">flex-direction: column</code> on mobile</li>
-                            <li>• <strong>Advanced:</strong> Use <code class="bg-black px-2 py-1 rounded text-green-400">flex: 1</code> for equal widths</li>
-                        </ul>
-                    </div>
-                    
-                    <div class="bg-black rounded-xl p-4">
-                        <h4 class="text-primary font-semibold mb-3">📝 Starter Code:</h4>
-                        <div class="flex justify-between items-center mb-3">
-                            <span class="text-white font-medium">HTML with Complex Flexbox Layout</span>
-                            <button class="bg-primary text-white px-4 py-2 rounded-lg hover:bg-accent transition-colors duration-200" onclick="resetChallenge(16)">
-                                <i class="fas fa-undo mr-2"></i>Reset
-                            </button>
-                        </div>
-                        <div id="editor-16" class="h-64"></div>
-                    </div>
-                    
-                    <div class="bg-dark-light/50 rounded-2xl p-6 border border-primary/20">
-                        <h4 class="text-primary font-semibold mb-3">🎨 Example Complex Layout:</h4>
-                        <div class="bg-white rounded-xl p-4 text-gray-800 space-y-4">
-                            <nav style="display: flex; justify-content: space-between; align-items: center; background-color: #333; color: white; padding: 15px; border-radius: 6px;">
-                                <div style="font-weight: bold; font-size: 18px;">Logo</div>
-                                <div style="display: flex; gap: 20px;">
-                                    <a href="#" style="color: white; text-decoration: none;">Home</a>
-                                    <a href="#" style="color: white; text-decoration: none;">About</a>
-                                    <a href="#" style="color: white; text-decoration: none;">Contact</a>
-                                </div>
-                            </nav>
-                            <div style="display: flex; flex-wrap: wrap; gap: 15px; justify-content: center;">
-                                <div style="flex: 1; min-width: 200px; background-color: #f0f0f0; padding: 20px; border-radius: 6px; text-align: center;">Card 1</div>
-                                <div style="flex: 1; min-width: 200px; background-color: #f0f0f0; padding: 20px; border-radius: 6px; text-align: center;">Card 2</div>
-                                <div style="flex: 1; min-width: 200px; background-color: #f0f0f0; padding: 20px; border-radius: 6px; text-align: center;">Card 3</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            `
-        }
-    };
-
-    // Check if it's a Day 1, Day 2, Day 3, or Day 4 challenge
+    
+    // Check if it's a Day 1, Day 2, or Day 3 challenge
     if (challenges[challengeNumber]) {
         // Day 1 challenge
         title.textContent = challenges[challengeNumber].title;
@@ -969,14 +665,9 @@ h1 { color: red; }<br>
         title.textContent = challengesDay3[challengeNumber].title;
         content.innerHTML = challengesDay3[challengeNumber].content;
         challengeRequirements = challengesDay3[challengeNumber].requirements;
-    } else if (challengesDay4[challengeNumber]) {
-        // Day 4 challenge
-        title.textContent = challengesDay4[challengeNumber].title;
-        content.innerHTML = challengesDay4[challengeNumber].content;
-        challengeRequirements = challengesDay4[challengeNumber].requirements;
     }
 
-    if (challenges[challengeNumber] || challengesDay2[challengeNumber] || challengesDay3[challengeNumber] || challengesDay4[challengeNumber]) {
+    if (challenges[challengeNumber] || challengesDay2[challengeNumber] || challengesDay3[challengeNumber]) {
         modal.classList.remove('hidden');
 
         // Populate requirements list
@@ -1179,13 +870,13 @@ function checkRequirements(challengeNumber, code) {
             case 5: // Basic Form
                 switch (req.id) {
                     case 'form':
-                        completed = code.includes('<form>') && code.includes('</form>');
+                        completed = code.includes('<form') && code.includes('</form>');
                         break;
                     case 'input':
                         completed = code.includes('<input');
                         break;
                     case 'label':
-                        completed = code.includes('<label>') && code.includes('</label>');
+                        completed = code.includes('<label') && code.includes('</label>');
                         break;
                     case 'submit':
                         completed = code.includes('type="submit"') || code.includes('<button');
@@ -1213,10 +904,10 @@ function checkRequirements(challengeNumber, code) {
             case 7: // Form Elements
                 switch (req.id) {
                     case 'select':
-                        completed = code.includes('<select>') && code.includes('</select>');
+                        completed = code.includes('<select') && code.includes('</select>');
                         break;
                     case 'textarea':
-                        completed = code.includes('<textarea>') && code.includes('</textarea>');
+                        completed = code.includes('<textarea') && code.includes('</textarea>');
                         break;
                     case 'checkbox':
                         completed = code.includes('type="checkbox"');
@@ -1239,7 +930,7 @@ function checkRequirements(challengeNumber, code) {
                         completed = code.includes('placeholder=');
                         break;
                     case 'validation':
-                        completed = code.includes('required') || code.includes('pattern=');
+                        completed = (code.includes('required') || code.includes('pattern=')) && code.includes('placeholder=');
                         break;
                 }
                 break;
@@ -1251,13 +942,13 @@ function checkRequirements(challengeNumber, code) {
                         completed = code.includes('style=') || code.includes('<style>') || code.includes('.css');
                         break;
                     case 'color':
-                        completed = code.includes('color:') || code.includes('background-color:');
+                        completed = code.includes('color:') || code.includes('color=');
                         break;
                     case 'font':
-                        completed = code.includes('font-size:') || code.includes('font-family:');
+                        completed = code.includes('font-size:') || code.includes('font-family:') || code.includes('font=');
                         break;
                     case 'basic':
-                        completed = code.includes('style=') || code.includes('<style>');
+                        completed = code.includes('style=') || code.includes('<style>') || code.includes('.css');
                         break;
                 }
                 break;
@@ -1274,8 +965,7 @@ function checkRequirements(challengeNumber, code) {
                         completed = code.includes('<link') && code.includes('.css');
                         break;
                     case 'methods':
-                        completed = (code.includes('style=') || code.includes('<style>')) && 
-                                  (code.includes('<link') || code.includes('style='));
+                        completed = code.includes('style=') && code.includes('<style>') && code.includes('<link');
                         break;
                 }
                 break;
@@ -1286,14 +976,14 @@ function checkRequirements(challengeNumber, code) {
                         completed = code.includes('h1 {') || code.includes('p {') || code.includes('div {');
                         break;
                     case 'class':
-                        completed = code.includes('.') && code.includes('{');
+                        completed = code.includes('.highlight') || code.includes('class=');
                         break;
                     case 'id':
-                        completed = code.includes('#') && code.includes('{');
+                        completed = code.includes('#unique') || code.includes('id=');
                         break;
                     case 'properties':
-                        const propertyCount = (code.match(/:/g) || []).length;
-                        completed = propertyCount >= 2;
+                        completed = (code.includes('color:') || code.includes('background:') || code.includes('font:')) && 
+                                  (code.includes('margin:') || code.includes('padding:') || code.includes('border:'));
                         break;
                 }
                 break;
@@ -1301,86 +991,16 @@ function checkRequirements(challengeNumber, code) {
             case 12: // Styling Essentials
                 switch (req.id) {
                     case 'colors':
-                        completed = code.includes('color:') || code.includes('background-color:');
+                        completed = code.includes('color:') && code.includes('background-color:');
                         break;
                     case 'fonts':
-                        completed = code.includes('font-family:') || code.includes('font-size:');
+                        completed = code.includes('font-family:') && code.includes('font-size:');
                         break;
                     case 'borders':
-                        completed = code.includes('border:') || code.includes('border-radius:');
+                        completed = code.includes('border:') && code.includes('border-radius:');
                         break;
                     case 'spacing':
-                        completed = code.includes('margin:') || code.includes('padding:');
-                        break;
-                }
-                break;
-
-            // Day 4 Challenges (CSS Layout & Flexbox)
-            case 13: // Basic Flexbox
-                switch (req.id) {
-                    case 'display':
-                        completed = code.includes('display: flex;');
-                        break;
-                    case 'justify':
-                        completed = code.includes('justify-content:');
-                        break;
-                    case 'align':
-                        completed = code.includes('align-items:');
-                        break;
-                    case 'items':
-                        const itemCount = (code.match(/<div/g) || []).length;
-                        completed = itemCount >= 3;
-                        break;
-                }
-                break;
-
-            case 14: // Flex Direction
-                switch (req.id) {
-                    case 'row':
-                        completed = code.includes('flex-direction: row;');
-                        break;
-                    case 'column':
-                        completed = code.includes('flex-direction: column;');
-                        break;
-                    case 'direction':
-                        completed = code.includes('flex-direction:');
-                        break;
-                    case 'responsive':
-                        completed = code.includes('@media (max-width: 768px) {');
-                        break;
-                }
-                break;
-
-            case 15: // Flex Properties
-                switch (req.id) {
-                    case 'grow':
-                        completed = code.includes('flex-grow:');
-                        break;
-                    case 'shrink':
-                        completed = code.includes('flex-shrink:');
-                        break;
-                    case 'basis':
-                        completed = code.includes('flex-basis:');
-                        break;
-                    case 'shorthand':
-                        completed = code.includes('flex:');
-                        break;
-                }
-                break;
-
-            case 16: // Complex Layouts
-                switch (req.id) {
-                    case 'navigation':
-                        completed = code.includes('<nav style="display: flex; justify-content: space-between; align-items: center; background-color: #333; color: white; padding: 15px; border-radius: 6px;">');
-                        break;
-                    case 'grid':
-                        completed = code.includes('<div style="display: flex; flex-wrap: wrap; gap: 15px; justify-content: center;">');
-                        break;
-                    case 'responsive':
-                        completed = code.includes('@media (max-width: 768px) {');
-                        break;
-                    case 'advanced':
-                        completed = code.includes('flex: 1;');
+                        completed = code.includes('margin:') && code.includes('padding:');
                         break;
                 }
                 break;
@@ -1561,8 +1181,11 @@ function getStarterCode(challengeNumber) {
     <!-- Add images, videos, and audio here -->
     
 </body>
-</html>`,
-        // Day 2 Starter Codes (HTML Forms)
+</html>`
+    };
+
+    // Day 2 Challenges (HTML Forms)
+    const starterCodesDay2 = {
         5: `<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -1595,7 +1218,7 @@ function getStarterCode(challengeNumber) {
     <title>Form Elements</title>
 </head>
 <body>
-    <!-- Use advanced form elements like dropdowns, textareas, and buttons -->
+    <!-- Use advanced form elements like dropdowns and textareas -->
     
 </body>
 </html>`,
@@ -1610,8 +1233,11 @@ function getStarterCode(challengeNumber) {
     <!-- Create a form with validation attributes -->
     
 </body>
-</html>`,
-        // Day 3 Starter Codes (CSS Basics)
+</html>`
+    };
+
+    // Day 3 Challenges (CSS Basics)
+    const starterCodesDay3 = {
         9: `<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -1620,7 +1246,10 @@ function getStarterCode(challengeNumber) {
     <title>CSS Introduction</title>
 </head>
 <body>
-    <!-- Add CSS styling to HTML elements -->
+    <h1>Hello World</h1>
+    <p>This is a paragraph</p>
+    
+    <!-- Add CSS styling to make this look better -->
     
 </body>
 </html>`,
@@ -1632,7 +1261,11 @@ function getStarterCode(challengeNumber) {
     <title>CSS Methods</title>
 </head>
 <body>
-    <!-- Practice inline, internal, and external CSS methods -->
+    <h1>Inline Styled Heading</h1>
+    <p>Internal CSS Styled Text</p>
+    <div>External CSS Styled Div</div>
+    
+    <!-- Use all three CSS methods: inline, internal, and external -->
     
 </body>
 </html>`,
@@ -1644,7 +1277,11 @@ function getStarterCode(challengeNumber) {
     <title>Selectors & Properties</title>
 </head>
 <body>
-    <!-- Master CSS selectors, properties, and values -->
+    <h1>Tag Selector Styled</h1>
+    <p class="highlight">Class Selector Styled</p>
+    <div id="unique">ID Selector Styled</div>
+    
+    <!-- Use tag, class, and ID selectors with CSS properties -->
     
 </body>
 </html>`,
@@ -1656,178 +1293,24 @@ function getStarterCode(challengeNumber) {
     <title>Styling Essentials</title>
 </head>
 <body>
+    <div class="styled-box">Beautiful Styled Box</div>
+    
     <!-- Apply colors, fonts, borders, and spacing -->
     
-</body>
-</html>`,
-        // Day 4 Starter Codes (CSS Layout & Flexbox)
-        13: `<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Basic Flexbox</title>
-</head>
-<body>
-    <div class="flex-container">
-        <div class="flex-item">Item 1</div>
-        <div class="flex-item">Item 2</div>
-        <div class="flex-item">Item 3</div>
-    </div>
-    
-    <style>
-        .flex-container {
-            /* Add flexbox properties here */
-        }
-        
-        .flex-item {
-            background-color: #01d29b;
-            color: white;
-            padding: 15px;
-            margin: 5px;
-            border-radius: 6px;
-        }
-    </style>
-</body>
-</html>`,
-        14: `<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Flex Direction</title>
-</head>
-<body>
-    <div class="row-layout">
-        <div class="item">1</div>
-        <div class="item">2</div>
-        <div class="item">3</div>
-    </div>
-    
-    <div class="column-layout">
-        <div class="item">1</div>
-        <div class="item">2</div>
-        <div class="item">3</div>
-    </div>
-    
-    <style>
-        .row-layout {
-            /* Add row flexbox properties */
-        }
-        
-        .column-layout {
-            /* Add column flexbox properties */
-        }
-        
-        .item {
-            background-color: #01d29b;
-            color: white;
-            padding: 10px;
-            margin: 5px;
-            border-radius: 4px;
-        }
-    </style>
-</body>
-</html>`,
-        15: `<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Flex Properties</title>
-</head>
-<body>
-    <div class="flex-container">
-        <div class="growing-item">Grows to fill space</div>
-        <div class="fixed-item">Fixed size item</div>
-        <div class="flexible-item">Flexible item</div>
-    </div>
-    
-    <style>
-        .flex-container {
-            display: flex;
-            gap: 10px;
-            background-color: #f0f0f0;
-            padding: 15px;
-            border-radius: 6px;
-        }
-        
-        .growing-item {
-            /* Add flex-grow property */
-            background-color: #01d29b;
-            color: white;
-            padding: 15px;
-            border-radius: 4px;
-        }
-        
-        .fixed-item {
-            /* Add flex-basis property */
-            background-color: #00b894;
-            color: white;
-            padding: 15px;
-            border-radius: 4px;
-        }
-        
-        .flexible-item {
-            /* Add flex shorthand property */
-            background-color: #01d29b;
-            color: white;
-            padding: 15px;
-            border-radius: 4px;
-        }
-    </style>
-</body>
-</html>`,
-        16: `<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Complex Layouts</title>
-</head>
-<body>
-    <nav class="navbar">
-        <div class="logo">Logo</div>
-        <div class="nav-links">
-            <a href="#">Home</a>
-            <a href="#">About</a>
-            <a href="#">Contact</a>
-        </div>
-    </nav>
-    
-    <div class="card-grid">
-        <div class="card">Card 1</div>
-        <div class="card">Card 2</div>
-        <div class="card">Card 3</div>
-    </div>
-    
-    <style>
-        .navbar {
-            /* Add navigation flexbox properties */
-        }
-        
-        .nav-links {
-            /* Add navigation links flexbox properties */
-        }
-        
-        .card-grid {
-            /* Add card grid flexbox properties */
-        }
-        
-        .card {
-            background-color: #f0f0f0;
-            padding: 20px;
-            border-radius: 6px;
-            text-align: center;
-        }
-        
-        /* Add responsive design here */
-    </style>
 </body>
 </html>`
     };
     
-    return starterCodes[challengeNumber] || '';
+    // Return Day 1, Day 2, or Day 3 starter code based on challenge number
+    if (starterCodes[challengeNumber]) {
+        return starterCodes[challengeNumber];
+    } else if (starterCodesDay2[challengeNumber]) {
+        return starterCodesDay2[challengeNumber];
+    } else if (starterCodesDay3[challengeNumber]) {
+        return starterCodesDay3[challengeNumber];
+    }
+
+    return '';
 }
 
 // Copy code functionality
@@ -1867,3 +1350,574 @@ if (document.readyState === 'loading') {
 } else {
     initializePage();
 }
+
+// Make function globally available
+window.openChallenge = openChallenge;
+console.log('openChallenge function available globally:', typeof window.openChallenge);
+
+// ===== HTML GAMES FUNCTIONALITY =====
+
+// Game state variables
+let currentGame = 0;
+let gameScore = 0;
+let totalScore = 0;
+let gamesPlayed = 0;
+
+// Game data
+const htmlGames = {
+    1: {
+        title: 'Tag Match Game',
+        description: 'Match HTML tags with their descriptions',
+        type: 'matching',
+        questions: [
+            { tag: '<h1>', description: 'Main heading', correct: true },
+            { tag: '<p>', description: 'Paragraph text', correct: true },
+            { tag: '<div>', description: 'Container element', correct: true },
+            { tag: '<span>', description: 'Inline text element', correct: true },
+            { tag: '<img>', description: 'Image element', correct: true },
+            { tag: '<a>', description: 'Hyperlink element', correct: true }
+        ]
+    },
+    2: {
+        title: 'Structure Builder',
+        description: 'Drag and drop HTML elements in correct order',
+        type: 'ordering',
+        elements: [
+            '<!DOCTYPE html>',
+            '<html>',
+            '<head>',
+            '<title>',
+            '</title>',
+            '</head>',
+            '<body>',
+            '</body>',
+            '</html>'
+        ]
+    },
+    3: {
+        title: 'Code Detective',
+        description: 'Find and fix HTML syntax errors',
+        type: 'debugging',
+        code: `<!DOCTYPE html>
+<html>
+<head>
+    <title>My Page</title>
+</head>
+<body>
+    <h1>Welcome</h1>
+    <p>This is a paragraph
+    <img src="image.jpg" alt="Image">
+    <a href="https://example.com">Link</a>
+</body>
+</html>`,
+        errors: [
+            { line: 8, issue: 'Missing closing </p> tag', fix: '</p>' },
+            { line: 9, issue: 'Missing closing quote in alt attribute', fix: 'alt="Image"' }
+        ]
+    },
+    4: {
+        title: 'Live Coder',
+        description: 'Write HTML and see live preview',
+        type: 'coding',
+        starterCode: `<!DOCTYPE html>
+<html>
+<head>
+    <title>My Page</title>
+</head>
+<body>
+    <h1>Hello World!</h1>
+    <p>Start coding here...</p>
+</body>
+</html>`
+    },
+    5: {
+        title: 'List Master',
+        description: 'Create ordered and unordered lists',
+        type: 'lists',
+        requirements: [
+            'Create an unordered list with 3 items',
+            'Create an ordered list with 3 items',
+            'Use proper list tags (<ul>, <ol>, <li>)'
+        ]
+    },
+    6: {
+        title: 'HTML Champion',
+        description: 'Final challenge combining all HTML skills',
+        type: 'comprehensive',
+        requirements: [
+            'Create a complete HTML page structure',
+            'Include headings, paragraphs, and images',
+            'Add proper navigation with links',
+            'Use semantic HTML elements',
+            'Include a form with various input types'
+        ]
+    }
+};
+
+// Start game function
+function startGame(gameNumber) {
+    currentGame = gameNumber;
+    gameScore = 0;
+    
+    const game = htmlGames[gameNumber];
+    if (!game) return;
+    
+    // Update modal
+    document.getElementById('gameTitle').textContent = game.title;
+    document.getElementById('gameContent').innerHTML = generateGameContent(game);
+    
+    // Show modal
+    document.getElementById('gameModal').classList.remove('hidden');
+    
+    // Initialize game-specific functionality
+    initializeGame(game);
+}
+
+// Generate game content based on type
+function generateGameContent(game) {
+    switch (game.type) {
+        case 'matching':
+            return generateMatchingGame(game);
+        case 'ordering':
+            return generateOrderingGame(game);
+        case 'debugging':
+            return generateDebuggingGame(game);
+        case 'coding':
+            return generateCodingGame(game);
+        case 'lists':
+            return generateListsGame(game);
+        case 'comprehensive':
+            return generateComprehensiveGame(game);
+        default:
+            return '<p>Game type not supported</p>';
+    }
+}
+
+// Generate matching game
+function generateMatchingGame(game) {
+    const shuffledQuestions = [...game.questions].sort(() => Math.random() - 0.5);
+    
+    return `
+        <div class="space-y-6">
+            <div class="bg-primary/10 border border-primary/20 rounded-2xl p-6">
+                <h3 class="text-xl font-bold text-white mb-4">🎯 Task</h3>
+                <p class="text-gray-300 mb-4">Match each HTML tag with its correct description. Click on the matching pairs!</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="space-y-4">
+                    <h4 class="text-lg font-semibold text-primary">HTML Tags</h4>
+                    ${shuffledQuestions.map((q, index) => `
+                        <div class="bg-dark-light p-4 rounded-xl border border-primary/20 cursor-pointer hover:border-primary/40 transition-all duration-200" 
+                             onclick="selectTag(${index})" data-tag="${index}">
+                            <code class="text-primary font-mono text-lg">${q.tag}</code>
+                        </div>
+                    `).join('')}
+                </div>
+                
+                <div class="space-y-4">
+                    <h4 class="text-lg font-semibold text-primary">Descriptions</h4>
+                    ${shuffledQuestions.map((q, index) => `
+                        <div class="bg-dark-light p-4 rounded-xl border border-primary/20 cursor-pointer hover:border-primary/40 transition-all duration-200" 
+                             onclick="selectDescription(${index})" data-desc="${index}">
+                            <span class="text-gray-300">${q.description}</span>
+                        </div>
+                    `).join('')}
+                </div>
+            </div>
+            
+            <div class="text-center">
+                <div class="bg-primary/10 border border-primary/20 rounded-2xl p-6">
+                    <h4 class="text-lg font-semibold text-white mb-2">Score: <span id="currentScore" class="text-primary">0</span></h4>
+                    <button onclick="checkMatchingGame()" class="bg-gradient-to-r from-primary to-accent text-white px-8 py-3 rounded-xl font-semibold hover:shadow-lg hover:shadow-primary/25 transition-all duration-300">
+                        <i class="fas fa-check mr-2"></i>Check Answers
+                    </button>
+                </div>
+            </div>
+        </div>
+    `;
+}
+
+// Generate ordering game
+function generateOrderingGame(game) {
+    const shuffledElements = [...game.elements].sort(() => Math.random() - 0.5);
+    
+    return `
+        <div class="space-y-6">
+            <div class="bg-primary/10 border border-primary/20 rounded-2xl p-6">
+                <h3 class="text-xl font-bold text-white mb-4">🎯 Task</h3>
+                <p class="text-gray-300 mb-4">Drag and drop HTML elements in the correct order to build a proper HTML structure.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                    <h4 class="text-lg font-semibold text-primary mb-4">Available Elements</h4>
+                    <div id="sourceElements" class="space-y-2">
+                        ${shuffledElements.map((element, index) => `
+                            <div class="bg-dark-light p-3 rounded-xl border border-primary/20 cursor-move" 
+                                 draggable="true" data-element="${element}" data-index="${index}">
+                                <code class="text-primary font-mono">${element}</code>
+                            </div>
+                        `).join('')}
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-semibold text-primary mb-4">Your Structure</h4>
+                    <div id="targetStructure" class="min-h-64 bg-dark-light/30 rounded-xl border-2 border-dashed border-primary/20 p-4">
+                        <p class="text-gray-500 text-center">Drag elements here to build your HTML structure</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center">
+                <button onclick="checkOrderingGame()" class="bg-gradient-to-r from-primary to-accent text-white px-8 py-3 rounded-xl font-semibold hover:shadow-lg hover:shadow-primary/25 transition-all duration-300">
+                    <i class="fas fa-check mr-2"></i>Check Structure
+                </button>
+            </div>
+        </div>
+    `;
+}
+
+// Generate debugging game
+function generateDebuggingGame(game) {
+    return `
+        <div class="space-y-6">
+            <div class="bg-primary/10 border border-primary/20 rounded-2xl p-6">
+                <h3 class="text-xl font-bold text-white mb-4">🎯 Task</h3>
+                <p class="text-gray-300 mb-4">Find and fix the HTML syntax errors in the code below. Click on errors to fix them!</p>
+            </div>
+            
+            <div class="bg-dark-light rounded-2xl p-6">
+                <h4 class="text-lg font-semibold text-primary mb-4">HTML Code with Errors</h4>
+                <pre class="bg-black text-green-400 p-4 rounded-xl overflow-x-auto text-sm" id="debugCode">${game.code}</pre>
+            </div>
+            
+            <div class="bg-red-500/10 border border-red-500/20 rounded-2xl p-6">
+                <h4 class="text-lg font-semibold text-red-400 mb-4">Found Errors</h4>
+                <div id="errorList" class="space-y-2">
+                    ${game.errors.map((error, index) => `
+                        <div class="bg-red-500/20 p-3 rounded-xl border border-red-500/30">
+                            <span class="text-red-400 font-semibold">Line ${error.line}:</span>
+                            <span class="text-red-300 ml-2">${error.issue}</span>
+                            <button onclick="fixError(${index})" class="ml-4 bg-red-500 text-white px-3 py-1 rounded-lg text-sm hover:bg-red-600 transition-colors">
+                                Fix
+                            </button>
+                        </div>
+                    `).join('')}
+                </div>
+            </div>
+            
+            <div class="text-center">
+                <button onclick="checkDebuggingGame()" class="bg-gradient-to-r from-primary to-accent text-white px-8 py-3 rounded-xl font-semibold hover:shadow-lg hover:shadow-primary/25 transition-all duration-300">
+                    <i class="fas fa-check mr-2"></i>Check Fixes
+                </button>
+            </div>
+        </div>
+    `;
+}
+
+// Generate coding game
+function generateCodingGame(game) {
+    return `
+        <div class="space-y-6">
+            <div class="bg-primary/10 border border-primary/20 rounded-2xl p-6">
+                <h3 class="text-xl font-bold text-white mb-4">🎯 Task</h3>
+                <p class="text-gray-300 mb-4">Write HTML code and see the live preview. Experiment with different elements!</p>
+            </div>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                <div>
+                    <h4 class="text-lg font-semibold text-primary mb-4">HTML Code</h4>
+                    <textarea id="htmlCode" class="w-full h-64 bg-black text-white p-4 rounded-xl border border-primary/20 font-mono text-sm resize-none" 
+                              placeholder="Write your HTML code here...">${game.starterCode}</textarea>
+                    <button onclick="updatePreview()" class="mt-4 bg-gradient-to-r from-primary to-accent text-white px-6 py-2 rounded-xl font-semibold hover:shadow-lg hover:shadow-primary/25 transition-all duration-300">
+                        <i class="fas fa-eye mr-2"></i>Update Preview
+                    </button>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-semibold text-primary mb-4">Live Preview</h4>
+                    <div id="livePreview" class="w-full h-64 bg-white text-black p-4 rounded-xl border border-primary/20 overflow-auto">
+                        <!-- Preview will be loaded here -->
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center">
+                <button onclick="completeCodingGame()" class="bg-gradient-to-r from-primary to-accent text-white px-8 py-3 rounded-xl font-semibold hover:shadow-lg hover:shadow-primary/25 transition-all duration-300">
+                    <i class="fas fa-check mr-2"></i>Complete Challenge
+                </button>
+            </div>
+        </div>
+    `;
+}
+
+// Generate lists game
+function generateListsGame(game) {
+    return `
+        <div class="space-y-6">
+            <div class="bg-primary/10 border border-primary/20 rounded-2xl p-6">
+                <h3 class="text-xl font-bold text-white mb-4">🎯 Task</h3>
+                <p class="text-gray-300 mb-4">Create ordered and unordered lists using proper HTML tags. Check the requirements below!</p>
+            </div>
+            
+            <div class="bg-dark-light rounded-2xl p-6">
+                <h4 class="text-lg font-semibold text-primary mb-4">Requirements</h4>
+                <ul class="space-y-2 text-gray-300">
+                    ${game.requirements.map(req => `<li>• ${req}</li>`).join('')}
+                </ul>
+            </div>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                <div>
+                    <h4 class="text-lg font-semibold text-primary mb-4">Your HTML Code</h4>
+                    <textarea id="listsCode" class="w-full h-64 bg-black text-white p-4 rounded-xl border border-primary/20 font-mono text-sm resize-none" 
+                              placeholder="Create your lists here..."></textarea>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-semibold text-primary mb-4">Preview</h4>
+                    <div id="listsPreview" class="w-full h-64 bg-white text-black p-4 rounded-xl border border-primary/20 overflow-auto">
+                        <!-- Lists preview will appear here -->
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center">
+                <button onclick="checkListsGame()" class="bg-gradient-to-r from-primary to-accent text-white px-8 py-3 rounded-xl font-semibold hover:shadow-lg hover:shadow-primary/25 transition-all duration-300">
+                    <i class="fas fa-check mr-2"></i>Check Lists
+                </button>
+            </div>
+        </div>
+    `;
+}
+
+// Generate comprehensive game
+function generateComprehensiveGame(game) {
+    return `
+        <div class="space-y-6">
+            <div class="bg-primary/10 border border-primary/20 rounded-2xl p-6">
+                <h3 class="text-xl font-bold text-white mb-4">🎯 Task</h3>
+                <p class="text-gray-300 mb-4">Create a complete HTML page that combines all the skills you've learned. This is your final challenge!</p>
+            </div>
+            
+            <div class="bg-dark-light rounded-2xl p-6">
+                <h4 class="text-lg font-semibold text-primary mb-4">Requirements</h4>
+                <ul class="space-y-2 text-gray-300">
+                    ${game.requirements.map(req => `<li>• ${req}</li>`).join('')}
+                </ul>
+            </div>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                <div>
+                    <h4 class="text-lg font-semibold text-primary mb-4">Your HTML Code</h4>
+                    <textarea id="comprehensiveCode" class="w-full h-64 bg-black text-white p-4 rounded-xl border border-primary/20 font-mono text-sm resize-none" 
+                              placeholder="Create your complete HTML page here..."></textarea>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-semibold text-primary mb-4">Live Preview</h4>
+                    <div id="comprehensivePreview" class="w-full h-64 bg-white text-black p-4 rounded-xl border border-primary/20 overflow-auto">
+                        <!-- Comprehensive preview will appear here -->
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center">
+                <button onclick="checkComprehensiveGame()" class="bg-gradient-to-r from-primary to-accent text-white px-8 py-3 rounded-xl font-semibold hover:shadow-lg hover:shadow-primary/25 transition-all duration-300">
+                    <i class="fas fa-check mr-2"></i>Submit Final Challenge
+                </button>
+            </div>
+        </div>
+    `;
+}
+
+// Initialize game-specific functionality
+function initializeGame(game) {
+    switch (game.type) {
+        case 'ordering':
+            initializeDragAndDrop();
+            break;
+        case 'coding':
+        case 'lists':
+        case 'comprehensive':
+            updatePreview();
+            break;
+    }
+}
+
+// Drag and drop functionality for ordering game
+function initializeDragAndDrop() {
+    const sourceElements = document.querySelectorAll('#sourceElements [draggable]');
+    const targetStructure = document.getElementById('targetStructure');
+    
+    sourceElements.forEach(element => {
+        element.addEventListener('dragstart', handleDragStart);
+        element.addEventListener('dragend', handleDragEnd);
+    });
+    
+    targetStructure.addEventListener('dragover', handleDragOver);
+    targetStructure.addEventListener('drop', handleDrop);
+}
+
+function handleDragStart(e) {
+    e.dataTransfer.setData('text/plain', e.target.dataset.element);
+    e.target.style.opacity = '0.5';
+}
+
+function handleDragEnd(e) {
+    e.target.style.opacity = '1';
+}
+
+function handleDragOver(e) {
+    e.preventDefault();
+}
+
+function handleDrop(e) {
+    e.preventDefault();
+    const element = e.dataTransfer.getData('text/plain');
+    const targetStructure = document.getElementById('targetStructure');
+    
+    if (targetStructure.querySelector('.text-gray-500')) {
+        targetStructure.innerHTML = '';
+    }
+    
+    const newElement = document.createElement('div');
+    newElement.className = 'bg-dark-light p-3 rounded-xl border border-primary/20 mb-2';
+    newElement.innerHTML = `<code class="text-primary font-mono">${element}</code>`;
+    targetStructure.appendChild(newElement);
+}
+
+// Game completion functions
+function checkMatchingGame() {
+    // Simple scoring for matching game
+    gameScore = Math.floor(Math.random() * 60) + 40; // Random score 40-100
+    completeGame(gameScore);
+}
+
+function checkOrderingGame() {
+    // Check if elements are in correct order
+    const targetStructure = document.getElementById('targetStructure');
+    const elements = targetStructure.querySelectorAll('code');
+    let correctOrder = 0;
+    
+    if (elements.length === htmlGames[2].elements.length) {
+        correctOrder = Math.floor(Math.random() * 40) + 60; // Base score 60-100
+    }
+    
+    gameScore = correctOrder;
+    completeGame(gameScore);
+}
+
+function checkDebuggingGame() {
+    // Simple scoring for debugging game
+    gameScore = Math.floor(Math.random() * 60) + 40; // Random score 40-100
+    completeGame(gameScore);
+}
+
+function completeCodingGame() {
+    // Score based on code completion
+    gameScore = Math.floor(Math.random() * 60) + 40; // Random score 40-100
+    completeGame(gameScore);
+}
+
+function checkListsGame() {
+    // Check if lists are properly created
+    const code = document.getElementById('listsCode').value;
+    let score = 0;
+    
+    if (code.includes('<ul>') && code.includes('</ul>')) score += 30;
+    if (code.includes('<ol>') && code.includes('</ol>')) score += 30;
+    if (code.includes('<li>') && code.includes('</li>')) score += 40;
+    
+    gameScore = score;
+    completeGame(gameScore);
+}
+
+function checkComprehensiveGame() {
+    // Score based on comprehensive requirements
+    const code = document.getElementById('comprehensiveCode').value;
+    let score = 0;
+    
+    if (code.includes('<!DOCTYPE html>')) score += 20;
+    if (code.includes('<html>')) score += 20;
+    if (code.includes('<head>') && code.includes('<title>')) score += 20;
+    if (code.includes('<body>')) score += 20;
+    if (code.includes('<h1>') || code.includes('<h2>')) score += 10;
+    if (code.includes('<p>')) score += 10;
+    
+    gameScore = score;
+    completeGame(score);
+}
+
+// Complete game and update scores
+function completeGame(score) {
+    gameScore = score;
+    totalScore += score;
+    gamesPlayed++;
+    
+    // Update display
+    document.getElementById('totalScore').textContent = totalScore;
+    document.getElementById('gamesPlayed').textContent = gamesPlayed;
+    document.getElementById(`score-${currentGame}`).textContent = Math.max(parseInt(document.getElementById(`score-${currentGame}`).textContent), score);
+    
+    // Show completion message
+    const gameContent = document.getElementById('gameContent');
+    gameContent.innerHTML = `
+        <div class="text-center space-y-6">
+            <div class="bg-green-500/20 border border-green-500/20 rounded-2xl p-8">
+                <i class="fas fa-trophy text-green-400 text-6xl mb-4"></i>
+                <h3 class="text-2xl font-bold text-white mb-2">Game Complete!</h3>
+                <p class="text-gray-300 mb-4">Congratulations! You've completed ${htmlGames[currentGame].title}</p>
+                <div class="text-3xl font-bold text-green-400">Score: ${score}/100</div>
+            </div>
+            
+            <div class="flex justify-center space-x-4">
+                <button onclick="startGame(${currentGame})" class="bg-primary text-white px-6 py-2 rounded-xl font-semibold hover:bg-primary/80 transition-colors">
+                    <i class="fas fa-redo mr-2"></i>Play Again
+                </button>
+                <button onclick="closeGameModal()" class="bg-gray-600 text-white px-6 py-2 rounded-xl font-semibold hover:bg-gray-700 transition-colors">
+                    <i class="fas fa-times mr-2"></i>Close
+                </button>
+            </div>
+        </div>
+    `;
+}
+
+// Update preview for coding games
+function updatePreview() {
+    const codeInputs = ['htmlCode', 'listsCode', 'comprehensiveCode'];
+    const previews = ['livePreview', 'listsPreview', 'comprehensivePreview'];
+    
+    codeInputs.forEach((inputId, index) => {
+        const input = document.getElementById(inputId);
+        const preview = document.getElementById(previews[index]);
+        
+        if (input && preview) {
+            const code = input.value;
+            preview.innerHTML = code;
+        }
+    });
+}
+
+// Close game modal
+function closeGameModal() {
+    document.getElementById('gameModal').classList.add('hidden');
+    currentGame = 0;
+    gameScore = 0;
+}
+
+// Make game functions globally available
+window.startGame = startGame;
+window.closeGameModal = closeGameModal;
+window.checkMatchingGame = checkMatchingGame;
+window.checkOrderingGame = checkOrderingGame;
+window.checkDebuggingGame = checkDebuggingGame;
+window.completeCodingGame = completeCodingGame;
+window.checkListsGame = checkListsGame;
+window.checkComprehensiveGame = checkComprehensiveGame;
+window.updatePreview = updatePreview;
+window.selectTag = () => {}; // Placeholder for tag selection
+window.selectDescription = () => {}; // Placeholder for description selection
+window.fixError = () => {}; // Placeholder for error fixing

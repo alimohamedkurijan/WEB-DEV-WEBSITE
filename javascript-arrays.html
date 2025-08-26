@@ -1,348 +1,613 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Day 8: Arrays & Loops - WebDev LMS</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.44.0/min/vs/loader.min.js"></script>
     <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        primary: '#6366f1',
-                        accent: '#8b5cf6',
-                        dark: '#0f172a',
-                        'dark-light': '#1e293b',
-                        'dark-lighter': '#334155'
-                    }
-                }
-            }
-        }
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              primary: "#01d29b",
+              secondary: "#121212",
+              accent: "#00b894",
+              dark: "#1e1e1e",
+              "dark-light": "#2a2a2a",
+            },
+          },
+        },
+      };
     </script>
-</head>
-<body class="bg-dark text-white min-h-screen">
+  </head>
+  <body class="bg-secondary text-white min-h-screen">
     <!-- Navigation -->
     <nav class="bg-dark-light border-b border-primary/20 sticky top-0 z-50">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center h-16">
-                <div class="flex items-center space-x-4 cursor-pointer" onclick="window.location.href='index.html'">
-                    <div class="bg-gradient-to-r from-primary to-accent p-2 rounded-xl">
-                        <i class="fas fa-code text-white text-xl"></i>
-                    </div>
-                    <span class="text-xl font-bold text-white">WebDev LMS</span>
-                </div>
-                
-                <ul class="hidden md:flex items-center space-x-8">
-                    <li><a href="index.html" class="text-gray-300 hover:text-white transition-colors duration-200">Home</a></li>
-                    <li><a href="index.html#curriculum" class="text-gray-300 hover:text-white transition-colors duration-200">Curriculum</a></li>
-                    <li><a href="index.html#challenges" class="text-gray-300 hover:text-white transition-colors duration-200">Challenges</a></li>
-                    <li><a href="index.html#resources" class="text-gray-300 hover:text-white transition-colors duration-200">Resources</a></li>
-                </ul>
-                
-                <div class="flex items-center space-x-4">
-                    <div class="hidden lg:flex items-center space-x-2 bg-dark-lighter px-4 py-2 rounded-xl">
-                        <i class="fas fa-list text-primary"></i>
-                        <span class="text-sm text-gray-300">Day 8: Arrays & Loops</span>
-                    </div>
-                    <button class="bg-gradient-to-r from-primary to-accent text-white px-4 py-2 rounded-xl font-semibold hover:shadow-lg hover:shadow-primary/25 transition-all duration-300" onclick="window.location.href='final-project.html'">
-                        <i class="fas fa-arrow-right mr-2"></i>Next Day
-                    </button>
-                </div>
-                
-                <div class="md:hidden">
-                    <button class="text-gray-300 hover:text-white">
-                        <i class="fas fa-bars text-xl"></i>
-                    </button>
-                </div>
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between items-center h-16">
+          <div
+            class="flex items-center space-x-4 cursor-pointer"
+            onclick="window.location.href='index.html'"
+          >
+            <div class="bg-gradient-to-r from-primary to-accent p-2 rounded-xl">
+              <i class="fas fa-code text-white text-xl"></i>
             </div>
+            <span class="text-xl font-bold text-white">WebDev LMS</span>
+          </div>
+
+          <ul class="hidden md:flex items-center space-x-8">
+            <li>
+              <a
+                href="index.html"
+                class="text-gray-300 hover:text-white transition-colors duration-200"
+                >Home</a
+              >
+            </li>
+            <li>
+              <a
+                href="index.html#curriculum"
+                class="text-gray-300 hover:text-white transition-colors duration-200"
+                >Curriculum</a
+              >
+            </li>
+            <li>
+              <a
+                href="index.html#challenges"
+                class="text-gray-300 hover:text-white transition-colors duration-200"
+                >Challenges</a
+              >
+            </li>
+            <li>
+              <a
+                href="index.html#resources"
+                class="text-gray-300 hover:text-white transition-colors duration-200"
+                >Resources</a
+              >
+            </li>
+          </ul>
+
+          <div class="flex items-center space-x-4">
+            <a
+              href="javascript-dom.html"
+              class="bg-dark-lighter text-white px-4 py-2 rounded-xl font-semibold hover:bg-dark-lighter/80 transition-all duration-300"
+            >
+              <i class="fas fa-arrow-left mr-2"></i>Previous Day
+            </a>
+            <div
+              class="hidden lg:flex items-center space-x-2 bg-dark-lighter px-4 py-2 rounded-xl"
+            >
+              <i class="fas fa-list text-primary"></i>
+              <span class="text-sm text-gray-300">Day 8: Arrays & Loops</span>
+            </div>
+            <a
+              href="final-project.html"
+              class="bg-gradient-to-r from-primary to-accent text-white px-4 py-2 rounded-xl font-semibold hover:shadow-lg hover:shadow-primary/25 transition-all duration-300"
+            >
+              <i class="fas fa-arrow-right mr-2"></i>Next Day
+            </a>
+          </div>
+
+          <div class="md:hidden">
+            <button class="text-gray-300 hover:text-white">
+              <i class="fas fa-bars text-xl"></i>
+            </button>
+          </div>
         </div>
+      </div>
     </nav>
 
     <!-- Day Header -->
     <section class="bg-gradient-to-br from-dark to-dark-light py-20">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <div class="max-w-4xl mx-auto">
-                <div class="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-r from-primary to-accent rounded-full mb-8">
-                    <span class="text-2xl font-bold text-white">8</span>
-                </div>
-                <h1 class="text-5xl font-bold text-white mb-6">Arrays & Loops</h1>
-                <p class="text-xl text-gray-300 mb-8">Master data collections and iteration to process multiple items efficiently</p>
-                <div class="flex flex-wrap justify-center gap-6">
-                    <span class="flex items-center space-x-2 bg-dark-light/50 px-4 py-2 rounded-xl">
-                        <i class="fas fa-clock text-primary"></i>
-                        <span class="text-gray-300">Duration: 2 hours</span>
-                    </span>
-                    <span class="flex items-center space-x-2 bg-dark-light/50 px-4 py-2 rounded-xl">
-                        <i class="fas fa-signal text-primary"></i>
-                        <span class="text-gray-300">Level: Intermediate</span>
-                    </span>
-                    <span class="flex items-center space-x-2 bg-dark-light/50 px-4 py-2 rounded-xl">
-                        <i class="fas fa-tasks text-primary"></i>
-                        <span class="text-gray-300">Challenges: 3</span>
-                    </span>
-                </div>
-            </div>
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <div class="max-w-4xl mx-auto">
+          <div
+            class="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-r from-primary to-accent rounded-full mb-8"
+          >
+            <span class="text-2xl font-bold text-white">8</span>
+          </div>
+          <h1 class="text-5xl font-bold text-white mb-6">Arrays & Loops</h1>
+          <p class="text-xl text-gray-300 mb-8">
+            Master data collections and iteration to process multiple items
+            efficiently
+          </p>
+          <div class="flex flex-wrap justify-center gap-6">
+            <span
+              class="flex items-center space-x-2 bg-dark-light/50 px-4 py-2 rounded-xl"
+            >
+              <i class="fas fa-clock text-primary"></i>
+              <span class="text-gray-300">Duration: 2 hours</span>
+            </span>
+            <span
+              class="flex items-center space-x-2 bg-dark-light/50 px-4 py-2 rounded-xl"
+            >
+              <i class="fas fa-signal text-primary"></i>
+              <span class="text-gray-300">Level: Intermediate</span>
+            </span>
+            <span
+              class="flex items-center space-x-2 bg-dark-light/50 px-4 py-2 rounded-xl"
+            >
+              <i class="fas fa-tasks text-primary"></i>
+              <span class="text-gray-300">Challenges: 3</span>
+            </span>
+          </div>
         </div>
+      </div>
     </section>
 
     <!-- Challenges Section -->
     <section class="py-20 bg-dark">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <h2 class="text-4xl font-bold text-white mb-4"><i class="fas fa-bullseye text-primary mr-3"></i>Practice Challenges</h2>
-                <p class="text-xl text-gray-300">Complete these hands-on challenges to master arrays and loops:</p>
-            </div>
-            
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Challenge 1 -->
-                <div class="bg-gradient-to-br from-dark-light/80 to-dark/80 rounded-2xl border border-primary/20 p-8 hover:border-primary/40 transition-all duration-300">
-                    <div class="flex justify-between items-start mb-6">
-                        <div class="bg-gradient-to-r from-primary to-accent text-white text-2xl font-bold w-16 h-16 rounded-xl flex items-center justify-center">01</div>
-                        <div class="text-right">
-                            <span class="bg-green-500/20 text-green-400 px-3 py-1 rounded-full text-sm font-medium">Beginner</span>
-                            <div class="text-gray-400 text-sm mt-1">15 min</div>
-                        </div>
-                    </div>
-                    <h3 class="text-xl font-bold text-white mb-4"><i class="fas fa-list text-primary mr-2"></i>Array Basics</h3>
-                    <p class="text-gray-300 mb-6">Learn to create, access, and manipulate arrays with various methods.</p>
-                    
-                    <button class="w-full bg-gradient-to-r from-primary to-accent text-white py-3 rounded-xl font-semibold hover:shadow-lg hover:shadow-primary/25 transition-all duration-300" onclick="openChallenge(1)">
-                        <i class="fas fa-play mr-2"></i>Start Challenge
-                    </button>
-                </div>
-
-                <!-- Challenge 2 -->
-                <div class="bg-gradient-to-br from-dark-light/80 to-dark/80 rounded-2xl border border-primary/20 p-8 hover:border-primary/40 transition-all duration-300">
-                    <div class="flex justify-between items-start mb-6">
-                        <div class="bg-gradient-to-r from-primary to-accent text-white text-2xl font-bold w-16 h-16 rounded-xl flex items-center justify-center">02</div>
-                        <div class="text-right">
-                            <span class="bg-yellow-500/20 text-yellow-400 px-3 py-1 rounded-full text-sm font-medium">Intermediate</span>
-                            <div class="text-gray-400 text-sm mt-1">20 min</div>
-                        </div>
-                    </div>
-                    <h3 class="text-xl font-bold text-white mb-4"><i class="fas fa-redo text-primary mr-2"></i>Loop Mastery</h3>
-                    <p class="text-gray-300 mb-6">Master for loops, while loops, and forEach methods for array iteration.</p>
-                    
-                    <button class="w-full bg-gradient-to-r from-primary to-accent text-white py-3 rounded-xl font-semibold hover:shadow-lg hover:shadow-primary/25 transition-all duration-300" onclick="openChallenge(2)">
-                        <i class="fas fa-play mr-2"></i>Start Challenge
-                    </button>
-                </div>
-
-                <!-- Challenge 3 -->
-                <div class="bg-gradient-to-br from-dark-light/80 to-dark/80 rounded-2xl border border-primary/20 p-8 hover:border-primary/40 transition-all duration-300">
-                    <div class="flex justify-between items-start mb-6">
-                        <div class="bg-gradient-to-r from-primary to-accent text-white text-2xl font-bold w-16 h-16 rounded-xl flex items-center justify-center">03</div>
-                        <div class="text-right">
-                            <span class="bg-red-500/20 text-red-400 px-3 py-1 rounded-full text-sm font-medium">Advanced</span>
-                            <div class="text-gray-400 text-sm mt-1">25 min</div>
-                        </div>
-                    </div>
-                    <h3 class="text-xl font-bold text-white mb-4"><i class="fas fa-magic text-primary mr-2"></i>Array Methods</h3>
-                    <p class="text-gray-300 mb-6">Use map, filter, reduce, and other powerful array methods.</p>
-                    
-                    <button class="w-full bg-gradient-to-r from-primary to-accent text-white py-3 rounded-xl font-semibold hover:shadow-lg hover:shadow-primary/25 transition-all duration-300" onclick="openChallenge(3)">
-                        <i class="fas fa-play mr-2"></i>Start Challenge
-                    </button>
-                </div>
-            </div>
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+          <h2 class="text-4xl font-bold text-white mb-4">
+            <i class="fas fa-bullseye text-primary mr-3"></i>Practice Challenges
+          </h2>
+          <p class="text-xl text-gray-300">
+            Complete these hands-on challenges to master arrays and loops:
+          </p>
         </div>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <!-- Challenge 1 -->
+          <div
+            class="bg-gradient-to-br from-dark-light/80 to-dark/80 rounded-2xl border border-primary/20 p-8 hover:border-primary/40 transition-all duration-300"
+          >
+            <div class="flex justify-between items-start mb-6">
+              <div
+                class="bg-gradient-to-r from-primary to-accent text-white text-2xl font-bold w-16 h-16 rounded-xl flex items-center justify-center"
+              >
+                01
+              </div>
+              <div class="text-right">
+                <span
+                  class="bg-green-500/20 text-green-400 px-3 py-1 rounded-full text-sm font-medium"
+                  >Beginner</span
+                >
+                <div class="text-gray-400 text-sm mt-1">15 min</div>
+              </div>
+            </div>
+            <h3 class="text-xl font-bold text-white mb-4">
+              <i class="fas fa-list text-primary mr-2"></i>Array Basics
+            </h3>
+            <p class="text-gray-300 mb-6">
+              Learn to create, access, and manipulate arrays with various
+              methods.
+            </p>
+
+            <button
+              class="w-full bg-gradient-to-r from-primary to-accent text-white py-3 rounded-xl font-semibold hover:shadow-lg hover:shadow-primary/25 transition-all duration-300"
+              onclick="openChallenge(29)"
+            >
+              <i class="fas fa-play mr-2"></i>Start Challenge
+            </button>
+          </div>
+
+          <!-- Challenge 2 -->
+          <div
+            class="bg-gradient-to-br from-dark-light/80 to-dark/80 rounded-2xl border border-primary/20 p-8 hover:border-primary/40 transition-all duration-300"
+          >
+            <div class="flex justify-between items-start mb-6">
+              <div
+                class="bg-gradient-to-r from-primary to-accent text-white text-2xl font-bold w-16 h-16 rounded-xl flex items-center justify-center"
+              >
+                02
+              </div>
+              <div class="text-right">
+                <span
+                  class="bg-yellow-500/20 text-yellow-400 px-3 py-1 rounded-full text-sm font-medium"
+                  >Intermediate</span
+                >
+                <div class="text-gray-400 text-sm mt-1">20 min</div>
+              </div>
+            </div>
+            <h3 class="text-xl font-bold text-white mb-4">
+              <i class="fas fa-redo text-primary mr-2"></i>Loop Mastery
+            </h3>
+            <p class="text-gray-300 mb-6">
+              Master for loops, while loops, and forEach methods for array
+              iteration.
+            </p>
+
+            <button
+              class="w-full bg-gradient-to-r from-primary to-accent text-white py-3 rounded-xl font-semibold hover:shadow-lg hover:shadow-primary/25 transition-all duration-300"
+              onclick="openChallenge(30)"
+            >
+              <i class="fas fa-play mr-2"></i>Start Challenge
+            </button>
+          </div>
+
+          <!-- Challenge 3 -->
+          <div
+            class="bg-gradient-to-br from-dark-light/80 to-dark/80 rounded-2xl border border-primary/20 p-8 hover:border-primary/40 transition-all duration-300"
+          >
+            <div class="flex justify-between items-start mb-6">
+              <div
+                class="bg-gradient-to-r from-primary to-accent text-white text-2xl font-bold w-16 h-16 rounded-xl flex items-center justify-center"
+              >
+                03
+              </div>
+              <div class="text-right">
+                <span
+                  class="bg-red-500/20 text-red-400 px-3 py-1 rounded-full text-sm font-medium"
+                  >Advanced</span
+                >
+                <div class="text-gray-400 text-sm mt-1">25 min</div>
+              </div>
+            </div>
+            <h3 class="text-xl font-bold text-white mb-4">
+              <i class="fas fa-magic text-primary mr-2"></i>Array Methods
+            </h3>
+            <p class="text-gray-300 mb-6">
+              Use map, filter, reduce, and other powerful array methods.
+            </p>
+
+            <button
+              class="w-full bg-gradient-to-r from-primary to-accent text-white py-3 rounded-xl font-semibold hover:shadow-lg hover:shadow-primary/25 transition-all duration-300"
+              onclick="openChallenge(31)"
+            >
+              <i class="fas fa-play mr-2"></i>Start Challenge
+            </button>
+          </div>
+        </div>
+      </div>
     </section>
 
     <!-- Content Area -->
     <section class="py-20 bg-dark-light">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid lg:grid-cols-3 gap-12">
-                <!-- Main Content -->
-                <div class="lg:col-span-2">
-                    <div class="bg-dark rounded-2xl border border-primary/20 p-8">
-                        <h2 class="text-3xl font-bold text-white mb-6">Lesson Content</h2>
-                        <div class="prose prose-invert max-w-none">
-                            <p class="text-gray-300 mb-6">
-                                Welcome to Day 8! Today we'll explore arrays and loops - the foundation of data 
-                                processing in JavaScript. Arrays allow you to store collections of data, while loops 
-                                let you process that data efficiently.
-                            </p>
-                            
-                            <h3 class="text-2xl font-bold text-white mb-4">What You'll Learn</h3>
-                            <ul class="text-gray-300 space-y-3 mb-8">
-                                <li class="flex items-start space-x-3">
-                                    <i class="fas fa-check-circle text-primary mt-1"></i>
-                                    <span>Creating and manipulating arrays with various methods</span>
-                                </li>
-                                <li class="flex items-start space-x-3">
-                                    <i class="fas fa-check-circle text-primary mt-1"></i>
-                                    <span>Using for loops, while loops, and forEach for iteration</span>
-                                </li>
-                                <li class="flex items-start space-x-3">
-                                    <i class="fas fa-check-circle text-primary mt-1"></i>
-                                    <span>Understanding array methods like map, filter, and reduce</span>
-                                </li>
-                                <li class="flex items-start space-x-3">
-                                    <i class="fas fa-check-circle text-primary mt-1"></i>
-                                    <span>Building practical applications with arrays and loops</span>
-                                </li>
-                                <li class="flex items-start space-x-3">
-                                    <i class="fas fa-check-circle text-primary mt-1"></i>
-                                    <span>Optimizing performance with efficient loop strategies</span>
-                                </li>
-                            </ul>
-                            
-                            <div class="bg-primary/10 border border-primary/20 rounded-xl p-6 mb-8">
-                                <h4 class="text-primary font-semibold mb-3">💡 Pro Tip</h4>
-                                <p class="text-gray-300">
-                                    Arrays are like containers that can hold multiple items of any type. Loops are like 
-                                    assembly lines that process each item in the container. Together, they're incredibly 
-                                    powerful for building dynamic applications!
-                                </p>
-                            </div>
-                        </div>
-                    </div>
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid lg:grid-cols-3 gap-12">
+          <!-- Main Content -->
+          <div class="lg:col-span-2">
+            <div class="bg-dark rounded-2xl border border-primary/20 p-8">
+              <h2 class="text-3xl font-bold text-white mb-6">Lesson Content</h2>
+              <div class="prose prose-invert max-w-none">
+                <p class="text-gray-300 mb-6">
+                  Welcome to Day 8! Today we'll explore arrays and loops - the
+                  foundation of data processing in JavaScript. Arrays allow you
+                  to store collections of data, while loops let you process that
+                  data efficiently.
+                </p>
+
+                <h3 class="text-2xl font-bold text-white mb-4">
+                  What You'll Learn
+                </h3>
+                <ul class="text-gray-300 space-y-3 mb-8">
+                  <li class="flex items-start space-x-3">
+                    <i class="fas fa-check-circle text-primary mt-1"></i>
+                    <span
+                      >Creating and manipulating arrays with various
+                      methods</span
+                    >
+                  </li>
+                  <li class="flex items-start space-x-3">
+                    <i class="fas fa-check-circle text-primary mt-1"></i>
+                    <span
+                      >Using for loops, while loops, and forEach for
+                      iteration</span
+                    >
+                  </li>
+                  <li class="flex items-start space-x-3">
+                    <i class="fas fa-check-circle text-primary mt-1"></i>
+                    <span
+                      >Understanding array methods like map, filter, and
+                      reduce</span
+                    >
+                  </li>
+                  <li class="flex items-start space-x-3">
+                    <i class="fas fa-check-circle text-primary mt-1"></i>
+                    <span
+                      >Building practical applications with arrays and
+                      loops</span
+                    >
+                  </li>
+                  <li class="flex items-start space-x-3">
+                    <i class="fas fa-check-circle text-primary mt-1"></i>
+                    <span
+                      >Optimizing performance with efficient loop
+                      strategies</span
+                    >
+                  </li>
+                </ul>
+
+                <div
+                  class="bg-primary/10 border border-primary/20 rounded-xl p-6 mb-8"
+                >
+                  <h4 class="text-primary font-semibold mb-3">💡 Pro Tip</h4>
+                  <p class="text-gray-300">
+                    Arrays are like containers that can hold multiple items of
+                    any type. Loops are like assembly lines that process each
+                    item in the container. Together, they're incredibly powerful
+                    for building dynamic applications!
+                  </p>
                 </div>
-                
-                <!-- Sidebar -->
-                <div class="lg:col-span-1">
-                    <div class="bg-dark rounded-2xl border border-primary/20 p-6 sticky top-24">
-                        <h3 class="text-xl font-bold text-white mb-6">Quick Navigation</h3>
-                        <div class="space-y-4">
-                            <a href="#challenges" class="flex items-center space-x-3 text-gray-300 hover:text-white transition-colors duration-200">
-                                <i class="fas fa-bullseye text-primary"></i>
-                                <span>Practice Challenges</span>
-                            </a>
-                            <a href="#lesson" class="flex items-center space-x-3 text-gray-300 hover:text-white transition-colors duration-200">
-                                <i class="fas fa-book text-primary"></i>
-                                <span>Lesson Content</span>
-                            </a>
-                            <a href="#resources" class="flex items-center space-x-3 text-gray-300 hover:text-white transition-colors duration-200">
-                                <i class="fas fa-link text-primary"></i>
-                                <span>Additional Resources</span>
-                            </a>
-                        </div>
-                        
-                        <div class="border-t border-primary/20 mt-6 pt-6">
-                            <h4 class="text-lg font-semibold text-white mb-4">Progress Tracker</h4>
-                            <div class="space-y-3">
-                                <div class="flex justify-between items-center">
-                                    <span class="text-gray-300">Challenges Completed</span>
-                                    <span class="text-primary font-semibold">0/3</span>
-                                </div>
-                                <div class="w-full bg-dark-lighter rounded-full h-2">
-                                    <div class="bg-gradient-to-r from-primary to-accent h-2 rounded-full" style="width: 0%"></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+              </div>
             </div>
+          </div>
+
+          <!-- Sidebar -->
+          <div class="lg:col-span-1">
+            <div
+              class="bg-dark rounded-2xl border border-primary/20 p-6 sticky top-24"
+            >
+              <h3 class="text-xl font-bold text-white mb-6">
+                Quick Navigation
+              </h3>
+              <div class="space-y-4">
+                <a
+                  href="#challenges"
+                  class="flex items-center space-x-3 text-gray-300 hover:text-white transition-colors duration-200"
+                >
+                  <i class="fas fa-bullseye text-primary"></i>
+                  <span>Practice Challenges</span>
+                </a>
+                <a
+                  href="#lesson"
+                  class="flex items-center space-x-3 text-gray-300 hover:text-white transition-colors duration-200"
+                >
+                  <i class="fas fa-book text-primary"></i>
+                  <span>Lesson Content</span>
+                </a>
+                <a
+                  href="#resources"
+                  class="flex items-center space-x-3 text-gray-300 hover:text-white transition-colors duration-200"
+                >
+                  <i class="fas fa-link text-primary"></i>
+                  <span>Additional Resources</span>
+                </a>
+              </div>
+
+              <div class="border-t border-primary/20 mt-6 pt-6">
+                <h4 class="text-lg font-semibold text-white mb-4">
+                  Progress Tracker
+                </h4>
+                <div class="space-y-3">
+                  <div class="flex justify-between items-center">
+                    <span class="text-gray-300">Challenges Completed</span>
+                    <span class="text-primary font-semibold">0/3</span>
+                  </div>
+                  <div class="w-full bg-dark-lighter rounded-full h-2">
+                    <div
+                      class="bg-gradient-to-r from-primary to-accent h-2 rounded-full"
+                      style="width: 0%"
+                    ></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
+      </div>
     </section>
 
     <!-- Navigation Footer -->
     <section class="py-16 bg-dark border-t border-primary/20">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex flex-col sm:flex-row justify-between items-center space-y-4 sm:space-y-0">
-                <div class="flex items-center space-x-4">
-                    <a href="javascript-conditions.html" class="flex items-center space-x-2 text-gray-300 hover:text-white transition-colors duration-200">
-                        <i class="fas fa-arrow-left"></i>
-                        <span>Previous: Conditions, Logic & Functions</span>
-                    </a>
-                </div>
-                <div class="flex items-center space-x-4">
-                    <a href="final-project.html" class="flex items-center space-x-2 bg-gradient-to-r from-primary to-accent text-white px-6 py-3 rounded-xl font-semibold hover:shadow-lg hover:shadow-primary/25 transition-all duration-300">
-                        <span>Next: Final Project</span>
-                        <i class="fas fa-arrow-right"></i>
-                    </a>
-                </div>
-            </div>
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div
+          class="flex flex-col sm:flex-row justify-between items-center space-y-4 sm:space-y-0"
+        >
+          <div class="flex items-center space-x-4">
+            <a
+              href="javascript-dom.html"
+              class="flex items-center space-x-2 text-gray-300 hover:text-white transition-colors duration-200"
+            >
+              <i class="fas fa-arrow-left"></i>
+              <span>Previous: JavaScript DOM</span>
+            </a>
+          </div>
+          <div class="flex items-center space-x-4">
+            <a
+              href="final-project.html"
+              class="flex items-center space-x-2 bg-gradient-to-r from-primary to-accent text-white px-6 py-3 rounded-xl font-semibold hover:shadow-lg hover:shadow-primary/25 transition-all duration-300"
+            >
+              <span>Next: Final Project</span>
+              <i class="fas fa-arrow-right"></i>
+            </a>
+          </div>
         </div>
+      </div>
     </section>
 
     <!-- Challenge Modal -->
     <div id="challengeModal" class="fixed inset-0 bg-black/80 hidden z-50">
-        <div class="flex items-center justify-center min-h-screen p-4">
-            <div class="bg-dark rounded-2xl border border-primary/20 w-full max-w-6xl max-h-[90vh] overflow-y-auto">
-                <div class="sticky top-0 bg-dark border-b border-primary/20 p-6 rounded-t-2xl">
-                    <div class="flex justify-between items-start">
-                        <div>
-                            <h2 id="challengeTitle" class="text-2xl font-bold text-white mb-2">Challenge Title</h2>
-                            <p class="text-gray-300">Complete the challenge below to test your skills</p>
-                        </div>
-                        <button onclick="closeChallengeModal()" class="text-gray-400 hover:text-white text-2xl">
-                            <i class="fas fa-times"></i>
-                        </button>
-                    </div>
-                </div>
-                
-                <div class="p-6">
-                    <div id="challengeContent">
-                        <!-- Challenge content will be loaded here -->
-                    </div>
-                </div>
+      <div class="flex items-center justify-center min-h-screen p-4">
+        <div
+          class="bg-dark rounded-2xl border border-primary/20 w-full max-w-6xl max-h-[90vh] overflow-y-auto"
+        >
+          <div
+            class="sticky top-0 bg-dark border-b border-primary/20 p-6 rounded-t-2xl"
+          >
+            <div class="flex justify-between items-start">
+              <div>
+                <h2
+                  id="challengeTitle"
+                  class="text-2xl font-bold text-white mb-2"
+                >
+                  Challenge Title
+                </h2>
+                <p class="text-gray-300">
+                  Complete the challenge below to test your skills
+                </p>
+              </div>
+              <button
+                onclick="closeChallengeModal()"
+                class="text-gray-400 hover:text-white text-2xl"
+              >
+                <i class="fas fa-times"></i>
+              </button>
             </div>
+          </div>
+
+          <div class="p-6">
+            <div id="challengeContent">
+              <!-- Challenge content will be loaded here -->
+            </div>
+          </div>
         </div>
+      </div>
     </div>
 
     <!-- Main Footer -->
     <footer class="bg-dark-light border-t border-primary/20">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-            <div class="grid md:grid-cols-4 gap-8">
-                <div class="md:col-span-2">
-                    <div class="flex items-center space-x-4 mb-6">
-                        <div class="bg-gradient-to-r from-primary to-accent p-3 rounded-xl">
-                            <i class="fas fa-code text-white text-2xl"></i>
-                        </div>
-                        <div>
-                            <h3 class="text-2xl font-bold text-white">WebDev LMS</h3>
-                            <p class="text-gray-400">Master web development through interactive challenges</p>
-                        </div>
-                    </div>
-                    <p class="text-gray-300 mb-6">
-                        Learn HTML, CSS, and JavaScript through hands-on practice. Complete challenges, 
-                        build projects, and become a confident web developer.
-                    </p>
-                    <div class="flex space-x-4">
-                        <a href="#" class="text-gray-400 hover:text-primary transition-colors duration-200">
-                            <i class="fab fa-twitter text-xl"></i>
-                        </a>
-                        <a href="#" class="text-gray-400 hover:text-primary transition-colors duration-200">
-                            <i class="fab fa-github text-xl"></i>
-                        </a>
-                        <a href="#" class="text-gray-400 hover:text-primary transition-colors duration-200">
-                            <i class="fab fa-discord text-xl"></i>
-                        </a>
-                    </div>
-                </div>
-                
-                <div>
-                    <h4 class="text-lg font-semibold text-white mb-4">Quick Links</h4>
-                    <ul class="space-y-2">
-                        <li><a href="index.html" class="text-gray-400 hover:text-white transition-colors duration-200">Home</a></li>
-                        <li><a href="index.html#curriculum" class="text-gray-400 hover:text-white transition-colors duration-200">Curriculum</a></li>
-                        <li><a href="index.html#challenges" class="text-gray-400 hover:text-white transition-colors duration-200">Challenges</a></li>
-                        <li><a href="index.html#resources" class="text-gray-400 hover:text-white transition-colors duration-200">Resources</a></li>
-                    </ul>
-                </div>
-                
-                <div>
-                    <h4 class="text-lg font-semibold text-white mb-4">Support</h4>
-                    <ul class="space-y-2">
-                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors duration-200">Help Center</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors duration-200">Contact Us</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors duration-200">FAQ</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors duration-200">Community</a></li>
-                    </ul>
-                </div>
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <div class="grid md:grid-cols-4 gap-8">
+          <div class="md:col-span-2">
+            <div class="flex items-center space-x-4 mb-6">
+              <div
+                class="bg-gradient-to-r from-primary to-accent p-3 rounded-xl"
+              >
+                <i class="fas fa-code text-white text-2xl"></i>
+              </div>
+              <div>
+                <h3 class="text-2xl font-bold text-white">WebDev LMS</h3>
+                <p class="text-gray-400">
+                  Master web development through interactive challenges
+                </p>
+              </div>
             </div>
-            
-            <div class="border-t border-primary/20 mt-8 pt-8 text-center">
-                <p class="text-gray-400">&copy; 2024 WebDev LMS. All rights reserved.</p>
+            <p class="text-gray-300 mb-6">
+              Learn HTML, CSS, and JavaScript through hands-on practice.
+              Complete challenges, build projects, and become a confident web
+              developer.
+            </p>
+            <div class="flex space-x-4">
+              <a
+                href="#"
+                class="text-gray-400 hover:text-primary transition-colors duration-200"
+              >
+                <i class="fab fa-twitter text-xl"></i>
+              </a>
+              <a
+                href="#"
+                class="text-gray-400 hover:text-primary transition-colors duration-200"
+              >
+                <i class="fab fa-github text-xl"></i>
+              </a>
+              <a
+                href="#"
+                class="text-gray-400 hover:text-primary transition-colors duration-200"
+              >
+                <i class="fab fa-discord text-xl"></i>
+              </a>
             </div>
+          </div>
+
+          <div>
+            <h4 class="text-lg font-semibold text-white mb-4">Quick Links</h4>
+            <ul class="space-y-2">
+              <li>
+                <a
+                  href="index.html"
+                  class="text-gray-400 hover:text-white transition-colors duration-200"
+                  >Home</a
+                >
+              </li>
+              <li>
+                <a
+                  href="index.html#curriculum"
+                  class="text-gray-400 hover:text-white transition-colors duration-200"
+                  >Curriculum</a
+                >
+              </li>
+              <li>
+                <a
+                  href="index.html#challenges"
+                  class="text-gray-400 hover:text-white transition-colors duration-200"
+                  >Challenges</a
+                >
+              </li>
+              <li>
+                <a
+                  href="index.html#resources"
+                  class="text-gray-400 hover:text-white transition-colors duration-200"
+                  >Resources</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <h4 class="text-lg font-semibold text-white mb-4">Support</h4>
+            <ul class="space-y-2">
+              <li>
+                <a
+                  href="#"
+                  class="text-gray-400 hover:text-white transition-colors duration-200"
+                  >Help Center</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="text-gray-400 hover:text-white transition-colors duration-200"
+                  >Contact Us</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="text-gray-400 hover:text-white transition-colors duration-200"
+                  >FAQ</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="text-gray-400 hover:text-white transition-colors duration-200"
+                  >Community</a
+                >
+              </li>
+            </ul>
+          </div>
         </div>
+
+        <div class="border-t border-primary/20 mt-8 pt-8 text-center">
+          <p class="text-gray-400">
+            &copy; 2024 WebDev LMS. All rights reserved.
+          </p>
+        </div>
+      </div>
     </footer>
 
     <script src="script.js"></script>
-</body>
+
+    <script>
+      // Initialize Monaco Editor for this page
+      require.config({
+        paths: {
+          vs: "https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.44.0/min/vs",
+        },
+      });
+
+      require(["vs/editor/editor.main"], function () {
+        // Monaco Editor is now loaded
+        console.log("Monaco Editor loaded successfully");
+      });
+
+      // Copy code function for this page
+      function copyCode(button) {
+        const codeBlock = button.previousElementSibling;
+        const code = codeBlock.textContent;
+
+        navigator.clipboard.writeText(code).then(() => {
+          const originalText = button.innerHTML;
+          button.innerHTML = '<i class="fas fa-check mr-2"></i>Copied!';
+          button.classList.add("bg-green-500");
+
+          setTimeout(() => {
+            button.innerHTML = originalText;
+            button.classList.remove("bg-green-500");
+          }, 2000);
+        });
+      }
+    </script>
+  </body>
 </html>

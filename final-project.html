@@ -1,1030 +1,548 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Final Day: Project Creation & Submission - WebDev LMS</title>
-    <link rel="stylesheet" href="styles.css">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.44.0/min/vs/loader.min.js"></script>
-    <style>
-        .idea-generator {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            border-radius: 20px;
-            padding: 40px;
-            margin: 30px 0;
-            color: white;
-            text-align: center;
-        }
-        
-        .generator-title {
-            font-size: 2.5rem;
-            margin-bottom: 20px;
-            font-weight: 700;
-        }
-        
-        .generator-subtitle {
-            font-size: 1.2rem;
-            margin-bottom: 40px;
-            opacity: 0.9;
-        }
-        
-        .generator-controls {
-            display: flex;
-            gap: 20px;
-            justify-content: center;
-            margin-bottom: 40px;
-            flex-wrap: wrap;
-        }
-        
-        .generator-btn {
-            background: rgba(255, 255, 255, 0.2);
-            border: 2px solid rgba(255, 255, 255, 0.3);
-            color: white;
-            padding: 15px 30px;
-            border-radius: 50px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            font-weight: 600;
-            backdrop-filter: blur(10px);
-        }
-        
-        .generator-btn:hover {
-            background: rgba(255, 255, 255, 0.3);
-            transform: translateY(-2px);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
-        }
-        
-        .generator-btn.active {
-            background: rgba(255, 255, 255, 0.4);
-            border-color: rgba(255, 255, 255, 0.8);
-        }
-        
-        .idea-display {
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 15px;
-            padding: 30px;
-            margin: 20px 0;
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-        }
-        
-        .idea-text {
-            font-size: 1.5rem;
-            font-weight: 600;
-            margin-bottom: 20px;
-            line-height: 1.4;
-        }
-        
-        .idea-details {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px;
-            margin-top: 20px;
-        }
-        
-        .idea-detail {
-            background: rgba(255, 255, 255, 0.1);
-            padding: 15px;
-            border-radius: 10px;
-            text-align: center;
-        }
-        
-        .idea-detail h4 {
-            margin-bottom: 10px;
-            font-size: 1rem;
-            opacity: 0.8;
-        }
-        
-        .idea-detail p {
-            font-weight: 600;
-            font-size: 1.1rem;
-        }
-        
-        .project-submission {
-            background: #f8f9fa;
-            border-radius: 20px;
-            padding: 40px;
-            margin: 40px 0;
-            border: 2px solid #e9ecef;
-        }
-        
-        .submission-form {
-            display: grid;
-            gap: 25px;
-        }
-        
-        .form-group {
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-        }
-        
-        .form-group label {
-            font-weight: 600;
-            color: #495057;
-            font-size: 1rem;
-        }
-        
-        .form-group input,
-        .form-group textarea,
-        .form-group select {
-            padding: 15px;
-            border: 2px solid #e9ecef;
-            border-radius: 10px;
-            font-size: 1rem;
-            transition: border-color 0.3s ease;
-        }
-        
-        .form-group input:focus,
-        .form-group textarea:focus,
-        .form-group select:focus {
-            outline: none;
-            border-color: #667eea;
-            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
-        }
-        
-        .form-group textarea {
-            min-height: 120px;
-            resize: vertical;
-        }
-        
-        .submit-btn {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            border: none;
-            padding: 18px 40px;
-            border-radius: 50px;
-            font-size: 1.1rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            margin-top: 20px;
-        }
-        
-        .submit-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.3);
-        }
-        
-        .project-examples {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 25px;
-            margin: 40px 0;
-        }
-        
-        .example-card {
-            background: white;
-            border-radius: 15px;
-            padding: 25px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            border: 1px solid #e9ecef;
-            transition: transform 0.3s ease;
-        }
-        
-        .example-card:hover {
-            transform: translateY(-5px);
-        }
-        
-        .example-card h3 {
-            color: #667eea;
-            margin-bottom: 15px;
-            font-size: 1.3rem;
-        }
-        
-        .example-card p {
-            color: #6c757d;
-            line-height: 1.6;
-            margin-bottom: 15px;
-        }
-        
-        .example-features {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-        }
-        
-        .feature-tag {
-            background: #e9ecef;
-            color: #495057;
-            padding: 5px 12px;
-            border-radius: 20px;
-            font-size: 0.85rem;
-            font-weight: 500;
-        }
-        
-        .success-message {
-            background: #d4edda;
-            color: #155724;
-            border: 1px solid #c3e6cb;
-            border-radius: 10px;
-            padding: 20px;
-            margin: 20px 0;
-            text-align: center;
-            display: none;
-        }
-        
-        .loading {
-            display: none;
-            text-align: center;
-            padding: 20px;
-        }
-        
-        .spinner {
-            border: 3px solid rgba(255, 255, 255, 0.3);
-            border-top: 3px solid white;
-            border-radius: 50%;
-            width: 30px;
-            height: 30px;
-            animation: spin 1s linear infinite;
-            margin: 0 auto 15px;
-        }
-        
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-    </style>
-</head>
-<body>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              primary: "#01d29b",
+              secondary: "#121212",
+              accent: "#00b894",
+              dark: "#1e1e1e",
+              "dark-light": "#2a2a2a",
+            },
+          },
+        },
+      };
+    </script>
+  </head>
+  <body class="bg-dark text-white min-h-screen">
     <!-- Navigation -->
-    <nav class="navbar">
-        <div class="nav-container">
-            <div class="nav-logo" onclick="window.location.href='index.html'">
-                <i class="fas fa-code"></i>
-                <span>WebDev LMS</span>
+    <nav class="bg-dark-light border-b border-primary/20 sticky top-0 z-50">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between items-center h-16">
+          <div
+            class="flex items-center space-x-4 cursor-pointer"
+            onclick="window.location.href='index.html'"
+          >
+            <div class="bg-gradient-to-r from-primary to-accent p-2 rounded-xl">
+              <i class="fas fa-code text-white text-xl"></i>
             </div>
-            <ul class="nav-menu">
-                <li><a href="index.html" class="nav-link" data-page="home">Home</a></li>
-                <li><a href="index.html#curriculum" class="nav-link" data-page="curriculum">Curriculum</a></li>
-                <li><a href="index.html#challenges" class="nav-link" data-page="challenges">Challenges</a></li>
-                <li><a href="index.html#resources" class="nav-link" data-page="resources">Resources</a></li>
-            </ul>
-            <div class="nav-actions">
-                <div class="page-indicator">
-                    <i class="fas fa-rocket"></i>
-                    <span>Final: Project Day</span>
-                </div>
-                <button class="nav-btn-secondary" onclick="window.location.href='index.html'">
-                    <i class="fas fa-home"></i>
-                    Back to Home
-                </button>
+            <span class="text-xl font-bold text-white">WebDev LMS</span>
+          </div>
+
+          <ul class="hidden md:flex items-center space-x-8">
+            <li>
+              <a
+                href="index.html"
+                class="text-gray-300 hover:text-white transition-colors duration-200"
+                >Home</a
+              >
+            </li>
+            <li>
+              <a
+                href="index.html#curriculum"
+                class="text-gray-300 hover:text-white transition-colors duration-200"
+                >Curriculum</a
+              >
+            </li>
+            <li>
+              <a
+                href="index.html#challenges"
+                class="text-gray-300 hover:text-white transition-colors duration-200"
+                >Challenges</a
+              >
+            </li>
+            <li>
+              <a
+                href="index.html#resources"
+                class="text-gray-300 hover:text-white transition-colors duration-200"
+                >Resources</a
+              >
+            </li>
+          </ul>
+
+          <div class="flex items-center space-x-4">
+            <div
+              class="hidden lg:flex items-center space-x-2 bg-dark-lighter px-4 py-2 rounded-xl"
+            >
+              <i class="fas fa-trophy text-primary"></i>
+              <span class="text-sm text-gray-300"
+                >Final Day: Project Creation</span
+              >
             </div>
-            <div class="hamburger">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
+          </div>
+
+          <div class="md:hidden">
+            <button class="text-gray-300 hover:text-white">
+              <i class="fas fa-bars text-xl"></i>
+            </button>
+          </div>
         </div>
+      </div>
     </nav>
 
     <!-- Day Header -->
-    <section class="day-header">
-        <div class="container">
-            <div class="day-header-content">
-                <div class="day-badge">
-                    <span class="day-number">Final</span>
-                </div>
-                <h1>Project Creation & Submission</h1>
-                <p>Generate project ideas and submit your final web application</p>
-                <div class="day-meta">
-                    <span class="meta-item">
-                        <i class="fas fa-clock"></i>
-                        Duration: 4-6 hours
-                    </span>
-                    <span class="meta-item">
-                        <i class="fas fa-signal"></i>
-                        Level: Advanced
-                    </span>
-                    <span class="meta-item">
-                        <i class="fas fa-tasks"></i>
-                        Tasks: 2
-                    </span>
-                </div>
-            </div>
+    <section class="bg-gradient-to-br from-dark to-dark-light py-20">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <div class="max-w-4xl mx-auto">
+          <div
+            class="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-r from-primary to-accent rounded-full mb-8"
+          >
+            <i class="fas fa-trophy text-white text-3xl"></i>
+          </div>
+          <h1 class="text-5xl font-bold text-white mb-6">
+            Final Day: Project Creation & Submission
+          </h1>
+          <p class="text-xl text-gray-300 mb-8">
+            Apply all your skills to create a complete web application and
+            showcase your learning journey
+          </p>
+          <div class="flex flex-wrap justify-center gap-6">
+            <span
+              class="flex items-center space-x-2 bg-dark-light/50 px-4 py-2 rounded-xl"
+            >
+              <i class="fas fa-clock text-primary"></i>
+              <span class="text-gray-300">Duration: 4 hours</span>
+            </span>
+            <span
+              class="flex items-center space-x-2 bg-dark-light/50 px-4 py-2 rounded-xl"
+            >
+              <i class="fas fa-signal text-primary"></i>
+              <span class="text-gray-300">Level: Advanced</span>
+            </span>
+            <span
+              class="flex items-center space-x-2 bg-dark-light/50 px-4 py-2 rounded-xl"
+            >
+              <i class="fas fa-tasks text-primary"></i>
+              <span class="text-gray-300">Project: 1</span>
+            </span>
+          </div>
         </div>
+      </div>
     </section>
 
-    <!-- Content Section -->
-    <section class="day-content">
-        <div class="container">
-            <div class="content-grid">
-                <!-- Main Content -->
-                <div class="content-main">
-                    <div class="content-section">
-                        <h2><i class="fas fa-bullseye"></i> Your Final Mission</h2>
-                        <p>Congratulations on completing your web development journey! Today you'll create and submit your final project. Use our <strong>Idea Generator</strong> to get inspired, then build and submit your masterpiece.</p>
-                        
-                        <div class="concept-highlight">
-                            <h4><i class="fas fa-rocket"></i> What You'll Accomplish:</h4>
-                            <ul>
-                                <li><strong>Generate Ideas:</strong> Use our AI-powered idea generator</li>
-                                <li><strong>Build Complete App:</strong> Apply all your learned skills</li>
-                                <li><strong>Submit Project:</strong> Share your work with the community</li>
-                                <li><strong>Get Feedback:</strong> Receive professional review</li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <!-- Idea Generator Section -->
-                    <div class="content-section">
-                        <h2><i class="fas fa-lightbulb"></i> Project Idea Generator</h2>
-                        <p>Not sure what to build? Our idea generator will create unique project suggestions based on your preferences and skill level.</p>
-                        
-                        <div class="idea-generator">
-                            <h3 class="generator-title">🎲 Generate Your Project Idea</h3>
-                            <p class="generator-subtitle">Click the buttons below to customize your project suggestion</p>
-                            
-                            <div class="generator-controls">
-                                <button class="generator-btn" onclick="setCategory('web')">🌐 Web App</button>
-                                <button class="generator-btn" onclick="setCategory('game')"><i class="fas fa-gamepad"></i> Game</button>
-                                <button class="generator-btn" onclick="setCategory('tool')">🛠️ Tool</button>
-                                <button class="generator-btn" onclick="setCategory('portfolio')">📁 Portfolio</button>
-                                <button class="generator-btn" onclick="setCategory('ecommerce')">🛒 E-commerce</button>
-                                <button class="generator-btn" onclick="setCategory('social')">👥 Social</button>
-                            </div>
-                            
-                            <div class="generator-controls">
-                                <button class="generator-btn" onclick="setDifficulty('beginner')">🟢 Beginner</button>
-                                <button class="generator-btn" onclick="setDifficulty('intermediate')">🟡 Intermediate</button>
-                                <button class="generator-btn" onclick="setDifficulty('advanced')">🔴 Advanced</button>
-                            </div>
-                            
-                            <button class="generator-btn" onclick="generateIdea()" style="background: rgba(255, 255, 255, 0.3); font-size: 1.2rem; padding: 20px 40px;">
-                                <i class="fas fa-magic"></i> Generate Idea
-                            </button>
-                            
-                            <div class="loading" id="loading">
-                                <div class="spinner"></div>
-                                <p>Generating your perfect project idea...</p>
-                            </div>
-                            
-                            <div class="idea-display" id="ideaDisplay" style="display: none;">
-                                <div class="idea-text" id="ideaText"></div>
-                                <div class="idea-details" id="ideaDetails"></div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Project Examples Section -->
-                    <div class="content-section">
-                        <h2><i class="fas fa-list"></i> Project Examples & Inspiration</h2>
-                        <p>Here are some excellent project examples to inspire your creativity. Each demonstrates different skills and complexity levels.</p>
-                        
-                        <div class="project-examples">
-                            <div class="example-card">
-                                <h3><i class="fas fa-bullseye"></i> Task Management App</h3>
-                                <p>A comprehensive todo application with categories, priorities, and progress tracking.</p>
-                                <div class="example-features">
-                                    <span class="feature-tag">HTML Forms</span>
-                                    <span class="feature-tag">CSS Grid</span>
-                                    <span class="feature-tag">JavaScript Arrays</span>
-                                    <span class="feature-tag">Local Storage</span>
-                                </div>
-                            </div>
-                            
-                            <div class="example-card">
-                                <h3><i class="fas fa-palette"></i> Portfolio Website</h3>
-                                <p>A professional portfolio showcasing your projects, skills, and contact information.</p>
-                                <div class="example-features">
-                                    <span class="feature-tag">Responsive Design</span>
-                                    <span class="feature-tag">CSS Animations</span>
-                                    <span class="feature-tag">Contact Forms</span>
-                                    <span class="feature-tag">Image Gallery</span>
-                                </div>
-                            </div>
-                            
-                            <div class="example-card">
-                                <h3><i class="fas fa-gamepad"></i> Memory Card Game</h3>
-                                <p>An interactive memory matching game with scoring, timer, and multiple difficulty levels.</p>
-                                <div class="example-features">
-                                    <span class="feature-tag">Game Logic</span>
-                                    <span class="feature-tag">CSS Transitions</span>
-                                    <span class="feature-tag">Score Tracking</span>
-                                    <span class="feature-tag">Timer Functions</span>
-                                </div>
-                            </div>
-                            
-                            <div class="example-card">
-                                <h3>🌤️ Weather Dashboard</h3>
-                                <p>A weather application that displays current conditions and forecasts using API data.</p>
-                                <div class="example-features">
-                                    <span class="feature-tag">API Integration</span>
-                                    <span class="feature-tag">JSON Handling</span>
-                                    <span class="feature-tag">Error Handling</span>
-                                    <span class="feature-tag">Responsive UI</span>
-                                </div>
-                            </div>
-                            
-                            <div class="example-card">
-                                <h3><i class="fas fa-calculator"></i> Calculator App</h3>
-                                <p>A fully functional calculator with scientific functions and history tracking.</p>
-                                <div class="example-features">
-                                    <span class="feature-tag">Complex Logic</span>
-                                    <span class="feature-tag">Event Handling</span>
-                                    <span class="feature-tag">CSS Grid Layout</span>
-                                    <span class="feature-tag">History Feature</span>
-                                </div>
-                            </div>
-                            
-                            <div class="example-card">
-                                <h3>🎵 Music Player</h3>
-                                <p>A web-based music player with playlist management and audio controls.</p>
-                                <div class="example-features">
-                                    <span class="feature-tag">Audio API</span>
-                                    <span class="feature-tag">Playlist Management</span>
-                                    <span class="feature-tag">Progress Bars</span>
-                                    <span class="feature-tag">Volume Controls</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Project Submission Section -->
-                    <div class="content-section">
-                        <h2>📤 Project Submission</h2>
-                        <p>Once you've completed your project, submit it here. Your project will be reviewed and added to our showcase gallery.</p>
-                        
-                        <div class="project-submission">
-                            <form class="submission-form" id="projectForm">
-                                <div class="form-group">
-                                    <label for="projectName">Project Name *</label>
-                                    <input type="text" id="projectName" name="projectName" required placeholder="Enter your project name">
-                                </div>
-                                
-                                <div class="form-group">
-                                    <label for="studentName">Your Name *</label>
-                                    <input type="text" id="studentName" name="studentName" required placeholder="Enter your full name">
-                                </div>
-                                
-                                <div class="form-group">
-                                    <label for="studentEmail">Email Address *</label>
-                                    <input type="email" id="studentEmail" name="studentEmail" required placeholder="Enter your email address">
-                                </div>
-                                
-                                <div class="form-group">
-                                    <label for="projectCategory">Project Category *</label>
-                                    <select id="projectCategory" name="projectCategory" required>
-                                        <option value="">Select a category</option>
-                                        <option value="web-app">Web Application</option>
-                                        <option value="game">Game</option>
-                                        <option value="tool">Utility Tool</option>
-                                        <option value="portfolio">Portfolio</option>
-                                        <option value="ecommerce">E-commerce</option>
-                                        <option value="social">Social Platform</option>
-                                        <option value="other">Other</option>
-                                    </select>
-                                </div>
-                                
-                                <div class="form-group">
-                                    <label for="projectDescription">Project Description *</label>
-                                    <textarea id="projectDescription" name="projectDescription" required placeholder="Describe your project, its features, and what you learned while building it..."></textarea>
-                                </div>
-                                
-                                <div class="form-group">
-                                    <label for="projectUrl">Project URL *</label>
-                                    <input type="url" id="projectUrl" name="projectUrl" required placeholder="https://your-project-url.com">
-                                    <small style="color: #6c757d; margin-top: 5px;">You can host your project on GitHub Pages, Netlify, Vercel, or any other hosting service</small>
-                                </div>
-                                
-                                <div class="form-group">
-                                    <label for="githubUrl">GitHub Repository (Optional)</label>
-                                    <input type="url" id="githubUrl" name="githubUrl" placeholder="https://github.com/username/project-name">
-                                </div>
-                                
-                                <div class="form-group">
-                                    <label for="technologies">Technologies Used *</label>
-                                    <input type="text" id="technologies" name="technologies" required placeholder="HTML, CSS, JavaScript, APIs, etc.">
-                                </div>
-                                
-                                <div class="form-group">
-                                    <label for="challenges">Challenges Faced</label>
-                                    <textarea id="challenges" name="challenges" placeholder="What challenges did you encounter and how did you solve them?"></textarea>
-                                </div>
-                                
-                                <div class="form-group">
-                                    <label for="futureImprovements">Future Improvements</label>
-                                    <textarea id="futureImprovements" name="futureImprovements" placeholder="What would you like to add or improve in the future?"></textarea>
-                                </div>
-                                
-                                <button type="submit" class="submit-btn">
-                                    <i class="fas fa-paper-plane"></i> Submit Project
-                                </button>
-                            </form>
-                            
-                            <div class="success-message" id="successMessage">
-                                <i class="fas fa-check-circle" style="font-size: 2rem; margin-bottom: 15px;"></i>
-                                <h3><i class="fas fa-trophy"></i> Project Submitted Successfully!</h3>
-                                <p>Thank you for submitting your project. Our team will review it and get back to you within 48 hours.</p>
-                                <p>You'll receive an email confirmation with your submission details.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Sidebar -->
-                <div class="content-sidebar">
-                    <div class="sidebar-section">
-                        <h3>Quick Navigation</h3>
-                        <ul class="sidebar-nav">
-                            <li><a href="#mission">Final Mission</a></li>
-                            <li><a href="#generator">Idea Generator</a></li>
-                            <li><a href="#examples">Project Examples</a></li>
-                            <li><a href="#submission">Submit Project</a></li>
-                        </ul>
-                    </div>
-
-                    <div class="sidebar-section">
-                        <h3>Submission Checklist</h3>
-                        <ul class="checklist">
-                                                    <li><i class="fas fa-check-circle"></i> Project is fully functional</li>
-                        <li><i class="fas fa-check-circle"></i> Code is well-organized</li>
-                        <li><i class="fas fa-check-circle"></i> Responsive design implemented</li>
-                        <li><i class="fas fa-check-circle"></i> Project is hosted online</li>
-                        <li><i class="fas fa-check-circle"></i> All form fields completed</li>
-                        <li><i class="fas fa-check-circle"></i> Project description detailed</li>
-                        </ul>
-                    </div>
-
-                    <div class="sidebar-section">
-                        <h3>Hosting Options</h3>
-                        <ul class="resource-links">
-                            <li><a href="https://pages.github.com/" target="_blank">
-                                <i class="fas fa-external-link-alt"></i>
-                                GitHub Pages
-                            </a></li>
-                            <li><a href="https://www.netlify.com/" target="_blank">
-                                <i class="fas fa-external-link-alt"></i>
-                                Netlify
-                            </a></li>
-                            <li><a href="https://vercel.com/" target="_blank">
-                                <i class="fas fa-external-link-alt"></i>
-                                Vercel
-                            </a></li>
-                            <li><a href="https://surge.sh/" target="_blank">
-                                <i class="fas fa-external-link-alt"></i>
-                                Surge
-                            </a></li>
-                        </ul>
-                    </div>
-
-                    <div class="sidebar-section">
-                        <h3>What Happens Next?</h3>
-                        <ol class="next-steps">
-                            <li><strong>Review:</strong> Our team reviews your project</li>
-                            <li><strong>Feedback:</strong> You receive detailed feedback</li>
-                            <li><strong>Showcase:</strong> Project added to gallery</li>
-                            <li><strong>Certificate:</strong> Completion certificate issued</li>
-                        </ol>
-                    </div>
-                </div>
-            </div>
+    <!-- Project Overview -->
+    <section class="py-20 bg-dark">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+          <h2 class="text-4xl font-bold text-white mb-4">
+            <i class="fas fa-rocket text-primary mr-3"></i>Your Final Project
+          </h2>
+          <p class="text-xl text-gray-300">
+            Create a complete web application that demonstrates all the skills
+            you've learned
+          </p>
         </div>
+
+        <div class="grid lg:grid-cols-2 gap-12 items-center">
+          <div>
+            <h3 class="text-2xl font-bold text-white mb-6">
+              Project Requirements
+            </h3>
+            <ul class="space-y-4 text-gray-300">
+              <li class="flex items-start space-x-3">
+                <i class="fas fa-check-circle text-primary mt-1"></i>
+                <span>Responsive HTML5 structure with semantic elements</span>
+              </li>
+              <li class="flex items-start space-x-3">
+                <i class="fas fa-check-circle text-primary mt-1"></i>
+                <span
+                  >Advanced CSS styling with animations and responsive
+                  design</span
+                >
+              </li>
+              <li class="flex items-start space-x-3">
+                <i class="fas fa-check-circle text-primary mt-1"></i>
+                <span
+                  >Interactive JavaScript functionality with DOM
+                  manipulation</span
+                >
+              </li>
+              <li class="flex items-start space-x-3">
+                <i class="fas fa-check-circle text-primary mt-1"></i>
+                <span>User-friendly interface with smooth interactions</span>
+              </li>
+              <li class="flex items-start space-x-3">
+                <i class="fas fa-check-circle text-primary mt-1"></i>
+                <span>Clean, well-commented code following best practices</span>
+              </li>
+            </ul>
+          </div>
+
+          <div
+            class="bg-gradient-to-br from-dark-light/80 to-dark/80 rounded-2xl border border-primary/20 p-8"
+          >
+            <h4 class="text-xl font-bold text-white mb-4">Project Timeline</h4>
+            <div class="space-y-4">
+              <div class="flex items-center space-x-3">
+                <div class="bg-primary w-3 h-3 rounded-full"></div>
+                <span class="text-gray-300">Planning & Design (1 hour)</span>
+              </div>
+              <div class="flex items-center space-x-3">
+                <div class="bg-primary w-3 h-3 rounded-full"></div>
+                <span class="text-gray-300">HTML Structure (1 hour)</span>
+              </div>
+              <div class="flex items-center space-x-3">
+                <div class="bg-primary w-3 h-3 rounded-full"></div>
+                <span class="text-gray-300">CSS Styling (1 hour)</span>
+              </div>
+              <div class="flex items-center space-x-3">
+                <div class="bg-primary w-3 h-3 rounded-full"></div>
+                <span class="text-gray-300"
+                  >JavaScript Functionality (1 hour)</span
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
 
-    <script>
-        // Idea Generator Variables
-        let selectedCategory = 'web';
-        let selectedDifficulty = 'beginner';
-        
-        // Project Ideas Database
-        const projectIdeas = {
-            web: {
-                beginner: [
-                    {
-                        title: "Personal Blog",
-                        description: "Create a beautiful personal blog with multiple pages, navigation, and a contact form.",
-                        features: ["Responsive Design", "Contact Form", "Multiple Pages", "CSS Animations"],
-                        timeEstimate: "4-6 hours",
-                        skills: ["HTML", "CSS", "JavaScript"]
-                    },
-                    {
-                        title: "Recipe Collection",
-                        description: "Build a recipe website where users can browse, search, and save their favorite recipes.",
-                        features: ["Recipe Cards", "Search Function", "Local Storage", "Responsive Grid"],
-                        timeEstimate: "5-7 hours",
-                        skills: ["HTML", "CSS", "JavaScript", "Local Storage"]
-                    }
-                ],
-                intermediate: [
-                    {
-                        title: "Task Management App",
-                        description: "A comprehensive todo application with categories, priorities, and progress tracking.",
-                        features: ["CRUD Operations", "Categories", "Priority Levels", "Progress Tracking"],
-                        timeEstimate: "6-8 hours",
-                        skills: ["HTML", "CSS", "JavaScript", "Local Storage"]
-                    },
-                    {
-                        title: "Weather Dashboard",
-                        description: "A weather application that displays current conditions and forecasts using API data.",
-                        features: ["API Integration", "Weather Data", "Location Detection", "Forecast Display"],
-                        timeEstimate: "7-9 hours",
-                        skills: ["HTML", "CSS", "JavaScript", "APIs"]
-                    }
-                ],
-                advanced: [
-                    {
-                        title: "E-commerce Platform",
-                        description: "A complete online store with product catalog, shopping cart, and checkout process.",
-                        features: ["Product Catalog", "Shopping Cart", "User Authentication", "Payment Integration"],
-                        timeEstimate: "10-15 hours",
-                        skills: ["HTML", "CSS", "JavaScript", "APIs", "Local Storage"]
-                    },
-                    {
-                        title: "Social Media Dashboard",
-                        description: "A dashboard that aggregates and displays social media feeds and analytics.",
-                        features: ["API Integration", "Data Visualization", "Real-time Updates", "User Profiles"],
-                        timeEstimate: "12-18 hours",
-                        skills: ["HTML", "CSS", "JavaScript", "Multiple APIs", "Charts"]
-                    }
-                ]
-            },
-            game: {
-                beginner: [
-                    {
-                        title: "Memory Card Game",
-                        description: "An interactive memory matching game with scoring and timer functionality.",
-                        features: ["Card Matching", "Score Tracking", "Timer", "Multiple Levels"],
-                        timeEstimate: "4-6 hours",
-                        skills: ["HTML", "CSS", "JavaScript"]
-                    },
-                    {
-                        title: "Quiz App",
-                        description: "A trivia game with multiple categories, scoring, and result tracking.",
-                        features: ["Question Categories", "Score Tracking", "Timer", "Results Display"],
-                        timeEstimate: "5-7 hours",
-                        skills: ["HTML", "CSS", "JavaScript", "Arrays"]
-                    }
-                ],
-                intermediate: [
-                    {
-                        title: "Tic Tac Toe AI",
-                        description: "A tic-tac-toe game with an unbeatable AI opponent using the minimax algorithm.",
-                        features: ["AI Algorithm", "Game Logic", "Score Tracking", "Difficulty Levels"],
-                        timeEstimate: "6-8 hours",
-                        skills: ["HTML", "CSS", "JavaScript", "Algorithms"]
-                    },
-                    {
-                        title: "Snake Game",
-                        description: "A classic snake game with increasing difficulty and high score tracking.",
-                        features: ["Game Loop", "Collision Detection", "Score System", "Speed Increase"],
-                        timeEstimate: "7-9 hours",
-                        skills: ["HTML", "CSS", "JavaScript", "Canvas/Grid"]
-                    }
-                ],
-                advanced: [
-                    {
-                        title: "Multiplayer Chess",
-                        description: "A chess game with multiplayer functionality and move validation.",
-                        features: ["Chess Logic", "Move Validation", "Multiplayer", "Game History"],
-                        timeEstimate: "15-20 hours",
-                        skills: ["HTML", "CSS", "JavaScript", "WebSockets", "Game Logic"]
-                    },
-                    {
-                        title: "Platform Runner",
-                        description: "A side-scrolling platform game with physics, enemies, and power-ups.",
-                        features: ["Physics Engine", "Sprite Animation", "Enemy AI", "Power-ups"],
-                        timeEstimate: "12-18 hours",
-                        skills: ["HTML", "CSS", "JavaScript", "Canvas", "Game Physics"]
-                    }
-                ]
-            },
-            tool: {
-                beginner: [
-                    {
-                        title: "Calculator App",
-                        description: "A fully functional calculator with basic and scientific functions.",
-                        features: ["Basic Operations", "Scientific Functions", "History", "Keyboard Support"],
-                        timeEstimate: "3-5 hours",
-                        skills: ["HTML", "CSS", "JavaScript"]
-                    },
-                    {
-                        title: "Password Generator",
-                        description: "Generate secure passwords with customizable length and character types.",
-                        features: ["Custom Length", "Character Types", "Copy to Clipboard", "Strength Indicator"],
-                        timeEstimate: "4-6 hours",
-                        skills: ["HTML", "CSS", "JavaScript"]
-                    }
-                ],
-                intermediate: [
-                    {
-                        title: "File Converter",
-                        description: "A tool to convert between different file formats (text, JSON, CSV).",
-                        features: ["Multiple Formats", "File Upload", "Download", "Preview"],
-                        timeEstimate: "6-8 hours",
-                        skills: ["HTML", "CSS", "JavaScript", "File API"]
-                    },
-                    {
-                        title: "Code Formatter",
-                        description: "Format and beautify code in various programming languages.",
-                        features: ["Multiple Languages", "Syntax Highlighting", "Copy Output", "Settings"],
-                        timeEstimate: "7-9 hours",
-                        skills: ["HTML", "CSS", "JavaScript", "Code Parsing"]
-                    }
-                ],
-                advanced: [
-                    {
-                        title: "Image Editor",
-                        description: "A web-based image editor with filters, cropping, and effects.",
-                        features: ["Image Upload", "Filters", "Cropping", "Download"],
-                        timeEstimate: "10-15 hours",
-                        skills: ["HTML", "CSS", "JavaScript", "Canvas API"]
-                    },
-                    {
-                        title: "Data Visualizer",
-                        description: "Create charts and graphs from CSV or JSON data with interactive features.",
-                        features: ["Data Upload", "Multiple Chart Types", "Interactive", "Export"],
-                        timeEstimate: "12-18 hours",
-                        skills: ["HTML", "CSS", "JavaScript", "Chart Libraries", "File API"]
-                    }
-                ]
-            },
-            portfolio: {
-                beginner: [
-                    {
-                        title: "Personal Portfolio",
-                        description: "A professional portfolio showcasing your projects, skills, and contact information.",
-                        features: ["About Section", "Project Gallery", "Skills Display", "Contact Form"],
-                        timeEstimate: "4-6 hours",
-                        skills: ["HTML", "CSS", "JavaScript"]
-                    },
-                    {
-                        title: "Resume Builder",
-                        description: "A tool to create and customize professional resumes with templates.",
-                        features: ["Multiple Templates", "Form Inputs", "PDF Export", "Preview"],
-                        timeEstimate: "5-7 hours",
-                        skills: ["HTML", "CSS", "JavaScript", "PDF Generation"]
-                    }
-                ],
-                intermediate: [
-                    {
-                        title: "Interactive Portfolio",
-                        description: "A dynamic portfolio with animations, project demos, and interactive elements.",
-                        features: ["Animations", "Project Demos", "Interactive Elements", "Dark Mode"],
-                        timeEstimate: "6-8 hours",
-                        skills: ["HTML", "CSS", "JavaScript", "Animations"]
-                    },
-                    {
-                        title: "Portfolio CMS",
-                        description: "A content management system for managing portfolio content and projects.",
-                        features: ["Content Management", "Project CRUD", "Image Upload", "Admin Panel"],
-                        timeEstimate: "8-12 hours",
-                        skills: ["HTML", "CSS", "JavaScript", "Local Storage", "File API"]
-                    }
-                ],
-                advanced: [
-                    {
-                        title: "3D Portfolio",
-                        description: "A three-dimensional portfolio with 3D animations and interactive elements.",
-                        features: ["3D Animations", "Interactive Elements", "Project Showcase", "Smooth Transitions"],
-                        timeEstimate: "15-20 hours",
-                        skills: ["HTML", "CSS", "JavaScript", "Three.js", "3D Graphics"]
-                    },
-                    {
-                        title: "Portfolio Analytics",
-                        description: "A portfolio with built-in analytics to track visitor engagement and project views.",
-                        features: ["Analytics Dashboard", "Visitor Tracking", "Project Analytics", "Data Visualization"],
-                        timeEstimate: "12-18 hours",
-                        skills: ["HTML", "CSS", "JavaScript", "Analytics API", "Charts"]
-                    }
-                ]
-            },
-            ecommerce: {
-                beginner: [
-                    {
-                        title: "Product Catalog",
-                        description: "A simple product catalog with filtering and search functionality.",
-                        features: ["Product Grid", "Search", "Filtering", "Product Details"],
-                        timeEstimate: "5-7 hours",
-                        skills: ["HTML", "CSS", "JavaScript", "Arrays"]
-                    },
-                    {
-                        title: "Shopping List",
-                        description: "A shopping list app with categories, quantities, and price tracking.",
-                        features: ["Categories", "Quantities", "Price Tracking", "Local Storage"],
-                        timeEstimate: "4-6 hours",
-                        skills: ["HTML", "CSS", "JavaScript", "Local Storage"]
-                    }
-                ],
-                intermediate: [
-                    {
-                        title: "Mini E-commerce",
-                        description: "A complete online store with product catalog, cart, and checkout process.",
-                        features: ["Product Catalog", "Shopping Cart", "Checkout", "Order Summary"],
-                        timeEstimate: "8-12 hours",
-                        skills: ["HTML", "CSS", "JavaScript", "Local Storage", "Forms"]
-                    },
-                    {
-                        title: "Inventory Manager",
-                        description: "A system to manage product inventory with stock tracking and alerts.",
-                        features: ["Inventory Tracking", "Stock Alerts", "Product CRUD", "Reports"],
-                        timeEstimate: "7-10 hours",
-                        skills: ["HTML", "CSS", "JavaScript", "Local Storage", "Data Management"]
-                    }
-                ],
-                advanced: [
-                    {
-                        title: "Full E-commerce Platform",
-                        description: "A complete e-commerce solution with user accounts, payment processing, and admin panel.",
-                        features: ["User Accounts", "Payment Integration", "Admin Panel", "Order Management"],
-                        timeEstimate: "20-30 hours",
-                        skills: ["HTML", "CSS", "JavaScript", "APIs", "Authentication"]
-                    },
-                    {
-                        title: "Marketplace",
-                        description: "A marketplace platform where multiple sellers can list and sell products.",
-                        features: ["Multi-seller", "Commission System", "Seller Dashboard", "Buyer Reviews"],
-                        timeEstimate: "25-35 hours",
-                        skills: ["HTML", "CSS", "JavaScript", "APIs", "Complex Logic"]
-                    }
-                ]
-            },
-            social: {
-                beginner: [
-                    {
-                        title: "Guestbook",
-                        description: "A simple guestbook where visitors can leave messages and comments.",
-                        features: ["Message Form", "Comment Display", "Date Stamps", "Local Storage"],
-                        timeEstimate: "3-5 hours",
-                        skills: ["HTML", "CSS", "JavaScript", "Local Storage"]
-                    },
-                    {
-                        title: "Event RSVP",
-                        description: "An event RSVP system with attendee management and event details.",
-                        features: ["Event Details", "RSVP Form", "Attendee List", "Countdown Timer"],
-                        timeEstimate: "4-6 hours",
-                        skills: ["HTML", "CSS", "JavaScript", "Date Handling"]
-                    }
-                ],
-                intermediate: [
-                    {
-                        title: "Social Feed",
-                        description: "A social media feed where users can post, like, and comment on content.",
-                        features: ["Post Creation", "Like System", "Comments", "User Profiles"],
-                        timeEstimate: "8-12 hours",
-                        skills: ["HTML", "CSS", "JavaScript", "Local Storage", "Data Management"]
-                    },
-                    {
-                        title: "Chat Application",
-                        description: "A real-time chat application with multiple rooms and user management.",
-                        features: ["Real-time Chat", "Multiple Rooms", "User Management", "Message History"],
-                        timeEstimate: "10-15 hours",
-                        skills: ["HTML", "CSS", "JavaScript", "WebSockets", "Real-time"]
-                    }
-                ],
-                advanced: [
-                    {
-                        title: "Social Network",
-                        description: "A complete social network with profiles, friends, posts, and messaging.",
-                        features: ["User Profiles", "Friend System", "Posts", "Messaging", "Notifications"],
-                        timeEstimate: "25-35 hours",
-                        skills: ["HTML", "CSS", "JavaScript", "APIs", "Complex UI", "Real-time"]
-                    },
-                    {
-                        title: "Community Platform",
-                        description: "A community platform with forums, groups, events, and content moderation.",
-                        features: ["Forums", "Groups", "Events", "Moderation", "Analytics"],
-                        timeEstimate: "30-40 hours",
-                        skills: ["HTML", "CSS", "JavaScript", "APIs", "Complex Systems"]
-                    }
-                ]
-            }
-        };
+    <!-- Project Ideas Generator -->
+    <section class="py-20 bg-dark-light">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+          <h2 class="text-4xl font-bold text-white mb-4">
+            <i class="fas fa-lightbulb text-primary mr-3"></i>Project Ideas
+            Generator
+          </h2>
+          <p class="text-xl text-gray-300">
+            Get inspired with project ideas tailored to your skill level
+          </p>
+        </div>
 
-        // Set category function
-        function setCategory(category) {
-            selectedCategory = category;
-            document.querySelectorAll('.generator-btn').forEach(btn => {
-                if (btn.textContent.includes('Web App') || btn.textContent.includes('Game') || 
-                    btn.textContent.includes('Tool') || btn.textContent.includes('Portfolio') || 
-                    btn.textContent.includes('E-commerce') || btn.textContent.includes('Social')) {
-                    btn.classList.remove('active');
-                }
-            });
-            event.target.classList.add('active');
-        }
+        <div
+          class="bg-gradient-to-br from-primary to-accent rounded-2xl p-8 text-center"
+        >
+          <h3 class="text-3xl font-bold text-white mb-4">Need Inspiration?</h3>
+          <p class="text-xl text-white/90 mb-8">
+            Click the buttons below to generate project ideas
+          </p>
 
-        // Set difficulty function
-        function setDifficulty(difficulty) {
-            selectedDifficulty = difficulty;
-            document.querySelectorAll('.generator-btn').forEach(btn => {
-                if (btn.textContent.includes('Beginner') || btn.textContent.includes('Intermediate') || 
-                    btn.textContent.includes('Advanced')) {
-                    btn.classList.remove('active');
-                }
-            });
-            event.target.classList.add('active');
-        }
+          <div class="flex flex-wrap justify-center gap-4 mb-8">
+            <button
+              class="bg-white/20 border-2 border-white/30 text-white px-6 py-3 rounded-full cursor-pointer transition-all duration-300 hover:bg-white/30 hover:scale-105 backdrop-blur-sm font-semibold"
+              onclick="generateIdea('beginner')"
+            >
+              Beginner
+            </button>
+            <button
+              class="bg-white/20 border-2 border-white/30 text-white px-6 py-3 rounded-full cursor-pointer transition-all duration-300 hover:bg-white/30 hover:scale-105 backdrop-blur-sm font-semibold"
+              onclick="generateIdea('intermediate')"
+            >
+              Intermediate
+            </button>
+            <button
+              class="bg-white/20 border-2 border-white/30 text-white px-6 py-3 rounded-full cursor-pointer transition-all duration-300 hover:bg-white/30 hover:scale-105 backdrop-blur-sm font-semibold"
+              onclick="generateIdea('advanced')"
+            >
+              Advanced
+            </button>
+          </div>
 
-        // Generate idea function
-        function generateIdea() {
-            const loading = document.getElementById('loading');
-            const ideaDisplay = document.getElementById('ideaDisplay');
-            
-            loading.style.display = 'block';
-            ideaDisplay.style.display = 'none';
-            
-            // Simulate loading
-            setTimeout(() => {
-                const ideas = projectIdeas[selectedCategory][selectedDifficulty];
-                const randomIdea = ideas[Math.floor(Math.random() * ideas.length)];
-                
-                document.getElementById('ideaText').textContent = randomIdea.title;
-                
-                const detailsHtml = `
-                    <div class="idea-detail">
-                        <h4>Description</h4>
-                        <p>${randomIdea.description}</p>
-                    </div>
-                    <div class="idea-detail">
-                        <h4>Time Estimate</h4>
-                        <p>${randomIdea.timeEstimate}</p>
-                    </div>
-                    <div class="idea-detail">
-                        <h4>Skills Required</h4>
-                        <p>${randomIdea.skills.join(', ')}</p>
-                    </div>
-                    <div class="idea-detail">
-                        <h4>Key Features</h4>
-                        <p>${randomIdea.features.join(', ')}</p>
-                    </div>
-                `;
-                
-                document.getElementById('ideaDetails').innerHTML = detailsHtml;
-                
-                loading.style.display = 'none';
-                ideaDisplay.style.display = 'block';
-                
-                // Auto-fill project form with generated idea
-                document.getElementById('projectName').value = randomIdea.title;
-                document.getElementById('projectDescription').value = randomIdea.description;
-                document.getElementById('technologies').value = randomIdea.skills.join(', ');
-                
-                // Set category in form
-                const categoryMap = {
-                    'web': 'web-app',
-                    'game': 'game',
-                    'tool': 'tool',
-                    'portfolio': 'portfolio',
-                    'ecommerce': 'ecommerce',
-                    'social': 'social'
-                };
-                document.getElementById('projectCategory').value = categoryMap[selectedCategory];
-                
-            }, 2000);
-        }
+          <div
+            id="ideaDisplay"
+            class="bg-white/10 rounded-2xl p-8 backdrop-blur-sm border border-white/20 hidden"
+          >
+            <div
+              id="ideaText"
+              class="text-2xl font-semibold text-white mb-6"
+            ></div>
+            <div id="ideaDetails" class="grid md:grid-cols-3 gap-6">
+              <div class="bg-white/10 p-4 rounded-xl text-center">
+                <h4 class="text-white/80 mb-2">Difficulty</h4>
+                <p id="difficulty" class="text-white font-semibold"></p>
+              </div>
+              <div class="bg-white/10 p-4 rounded-xl text-center">
+                <h4 class="text-white/80 mb-2">Time Estimate</h4>
+                <p id="timeEstimate" class="text-white font-semibold"></p>
+              </div>
+              <div class="bg-white/10 p-4 rounded-xl text-center">
+                <h4 class="text-white/80 mb-2">Key Skills</h4>
+                <p id="keySkills" class="text-white font-semibold"></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-        // Project submission form handling
-        document.getElementById('projectForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            const formData = new FormData(this);
-            const projectData = Object.fromEntries(formData);
-            
-            // Show success message
-            document.getElementById('successMessage').style.display = 'block';
-            
-            // Scroll to success message
-            document.getElementById('successMessage').scrollIntoView({ behavior: 'smooth' });
-            
-            // Reset form
-            this.reset();
-            
-            // Hide success message after 5 seconds
-            setTimeout(() => {
-                document.getElementById('successMessage').style.display = 'none';
-            }, 5000);
-            
-            // In a real application, you would send this data to your server
-            console.log('Project submitted:', projectData);
-            
-            // Example of what would be sent to your server:
-            /*
-            fetch('/api/submit-project', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(projectData)
-            })
-            .then(response => response.json())
-            .then(data => {
-                console.log('Success:', data);
-            })
-            .catch((error) => {
-                console.error('Error:', error);
-            });
-            */
-        });
+    <!-- Project Development Area -->
+    <section class="py-20 bg-dark">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+          <h2 class="text-4xl font-bold text-white mb-4">
+            <i class="fas fa-code text-primary mr-3"></i>Project Development
+          </h2>
+          <p class="text-xl text-gray-300">
+            Use the Monaco Editor below to build your project
+          </p>
+        </div>
 
-        // Initialize idea generator
-        document.addEventListener('DOMContentLoaded', function() {
-            // Set default active buttons
-            document.querySelector('.generator-btn').classList.add('active');
-            document.querySelectorAll('.generator-btn')[6].classList.add('active');
-        });
-    </script>
-</body>
-</html> 
+        <div class="bg-dark-light rounded-2xl border border-primary/20 p-8">
+          <div class="flex justify-between items-center mb-6">
+            <h3 class="text-2xl font-bold text-white">Code Editor</h3>
+            <div class="flex space-x-4">
+              <button
+                class="bg-primary text-white px-4 py-2 rounded-xl hover:bg-primary/80 transition-colors duration-200"
+                onclick="runProject()"
+              >
+                <i class="fas fa-play mr-2"></i>Run Project
+              </button>
+              <button
+                class="bg-accent text-white px-4 py-2 rounded-xl hover:bg-accent/80 transition-colors duration-200"
+                onclick="saveProject()"
+              >
+                <i class="fas fa-save mr-2"></i>Save
+              </button>
+            </div>
+          </div>
+
+          <div
+            id="monaco-editor"
+            class="h-96 border border-primary/20 rounded-xl"
+          ></div>
+
+          <div id="projectOutput" class="mt-6 bg-white rounded-xl p-4 hidden">
+            <h4 class="text-lg font-semibold text-gray-800 mb-3">
+              Project Output:
+            </h4>
+            <div id="outputContent" class="text-gray-700"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Submission Guidelines -->
+    <section class="py-20 bg-dark-light">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+          <h2 class="text-4xl font-bold text-white mb-4">
+            <i class="fas fa-upload text-primary mr-3"></i>Project Submission
+          </h2>
+          <p class="text-xl text-gray-300">
+            Follow these guidelines to submit your final project
+          </p>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-8">
+          <div class="bg-dark rounded-2xl border border-primary/20 p-8">
+            <h3 class="text-2xl font-bold text-white mb-6">
+              Submission Checklist
+            </h3>
+            <ul class="space-y-4 text-gray-300">
+              <li class="flex items-start space-x-3">
+                <i class="fas fa-check-circle text-primary mt-1"></i>
+                <span>All HTML, CSS, and JavaScript files are complete</span>
+              </li>
+              <li class="flex items-start space-x-3">
+                <i class="fas fa-check-circle text-primary mt-1"></i>
+                <span>Project runs without errors in the browser</span>
+              </li>
+              <li class="flex items-start space-x-3">
+                <i class="fas fa-check-circle text-primary mt-1"></i>
+                <span>Code is properly commented and organized</span>
+              </li>
+              <li class="flex items-start space-x-3">
+                <i class="fas fa-check-circle text-primary mt-1"></i>
+                <span>Project is responsive and works on mobile</span>
+              </li>
+              <li class="flex items-start space-x-3">
+                <i class="fas fa-check-circle text-primary mt-1"></i>
+                <span>README file explains the project and how to run it</span>
+              </li>
+            </ul>
+          </div>
+
+          <div class="bg-dark rounded-2xl border border-primary/20 p-8">
+            <h3 class="text-2xl font-bold text-white mb-6">
+              Submission Process
+            </h3>
+            <div class="space-y-6">
+              <div class="flex items-start space-x-4">
+                <div
+                  class="bg-primary w-8 h-8 rounded-full flex items-center justify-center text-white font-bold text-sm"
+                >
+                  1
+                </div>
+                <div>
+                  <h4 class="text-white font-semibold mb-2">
+                    Complete Your Project
+                  </h4>
+                  <p class="text-gray-300">
+                    Ensure all features work correctly and code is clean
+                  </p>
+                </div>
+              </div>
+              <div class="flex items-start space-x-4">
+                <div
+                  class="bg-primary w-8 h-8 rounded-full flex items-center justify-center text-white font-bold text-sm"
+                >
+                  2
+                </div>
+                <div>
+                  <h4 class="text-white font-semibold mb-2">Test Thoroughly</h4>
+                  <p class="text-gray-300">
+                    Test on different browsers and devices
+                  </p>
+                </div>
+              </div>
+              <div class="flex items-start space-x-4">
+                <div
+                  class="bg-primary w-8 h-8 rounded-full flex items-center justify-center text-white font-bold text-sm"
+                >
+                  3
+                </div>
+                <div>
+                  <h4 class="text-white font-semibold mb-2">Submit Files</h4>
+                  <p class="text-gray-300">
+                    Upload your project files and documentation
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Main Footer -->
+    <footer class="bg-dark-light border-t border-primary/20">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <div class="grid md:grid-cols-4 gap-8">
+          <div class="md:col-span-2">
+            <div class="flex items-center space-x-4 mb-6">
+              <div
+                class="bg-gradient-to-r from-primary to-accent p-3 rounded-xl"
+              >
+                <i class="fas fa-code text-white text-2xl"></i>
+              </div>
+              <div>
+                <h3 class="text-2xl font-bold text-white">WebDev LMS</h3>
+                <p class="text-gray-400">
+                  Master web development through interactive challenges
+                </p>
+              </div>
+            </div>
+            <p class="text-gray-300 mb-6">
+              Learn HTML, CSS, and JavaScript through hands-on practice.
+              Complete challenges, build projects, and become a confident web
+              developer.
+            </p>
+            <div class="flex space-x-4">
+              <a
+                href="#"
+                class="text-gray-400 hover:text-primary transition-colors duration-200"
+              >
+                <i class="fab fa-twitter text-xl"></i>
+              </a>
+              <a
+                href="#"
+                class="text-gray-400 hover:text-primary transition-colors duration-200"
+              >
+                <i class="fab fa-github text-xl"></i>
+              </a>
+              <a
+                href="#"
+                class="text-gray-400 hover:text-primary transition-colors duration-200"
+              >
+                <i class="fab fa-discord text-xl"></i>
+              </a>
+            </div>
+          </div>
+
+          <div>
+            <h4 class="text-lg font-semibold text-white mb-4">Quick Links</h4>
+            <ul class="space-y-2">
+              <li>
+                <a
+                  href="index.html"
+                  class="text-gray-400 hover:text-white transition-colors duration-200"
+                  >Home</a
+                >
+              </li>
+              <li>
+                <a
+                  href="index.html#curriculum"
+                  class="text-gray-400 hover:text-white transition-colors duration-200"
+                  >Curriculum</a
+                >
+              </li>
+              <li>
+                <a
+                  href="index.html#challenges"
+                  class="text-gray-400 hover:text-white transition-colors duration-200"
+                  >Challenges</a
+                >
+              </li>
+              <li>
+                <a
+                  href="index.html#resources"
+                  class="text-gray-400 hover:text-white transition-colors duration-200"
+                  >Resources</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <h4 class="text-lg font-semibold text-white mb-4">Support</h4>
+            <ul class="space-y-2">
+              <li>
+                <a
+                  href="#"
+                  class="text-gray-400 hover:text-white transition-colors duration-200"
+                  >Help Center</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="text-gray-400 hover:text-white transition-colors duration-200"
+                  >Contact Us</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="text-gray-400 hover:text-white transition-colors duration-200"
+                  >FAQ</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="text-gray-400 hover:text-white transition-colors duration-200"
+                  >Community</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="border-t border-primary/20 mt-8 pt-8 text-center">
+          <p class="text-gray-400">
+            &copy; 2024 WebDev LMS. All rights reserved.
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
